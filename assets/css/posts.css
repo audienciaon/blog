@@ -1,0 +1,2011 @@
+:root {
+    --cor-maxima: #fff;
+    --cor-fundo: #eee;
+    --cor-escura: #ddd;
+    --cor-secundaria: #ccc;
+    --cor-texto: #444;
+    --cor-destaque:#1995ee;
+    --fonte-producao: 30px;
+    --fonte-numero: 35px;
+    --fonte-titulo: 20px;
+    --fonte-normal: 16px;
+    --fonte-pequena: 14px;
+    --fonte-minuscula: 12px;
+    --font-family: Plus Jakarta Sans;
+  }
+
+/* Segundo :root */
+/* 
+:root {
+    --cor-maxima:#000;
+    --cor-fundo:#111;
+    --cor-escura:#444;
+    --cor-secundaria:#666;
+    --cor-texto:#888;
+    --cor-destaque:#1995ee;
+    --fonte-producao: 30px;
+    --fonte-numero: 35px;
+    --fonte-titulo: 20px;
+    --fonte-normal: 16px;
+    --fonte-pequena: 14px;
+    --fonte-minuscula: 12px;
+    --font-family: Plus Jakarta Sans;
+}
+*/
+
+
+
+#disqus_thread {
+    margin-top: 40px !important;
+}
+
+.grade {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    grid-template-areas: 'calendario graficos'
+}
+
+
+
+
+
+
+
+
+
+.linhadotempo,
+.info4,
+.info3,
+.calendario,
+.calendario-media,
+.grafico-diaria,
+.grade-comparacao {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    border-radius: 8px;
+    background-color: var(--cor-escura);
+
+}
+
+.info4 {
+    border-radius: 8px;
+    background-color: var(--cor-escura);
+
+}
+
+
+
+
+
+
+
+.post-image-link {aspect-ratio: 2 / 3}
+
+
+
+.cabecalho,
+.info3,
+.grafico-diaria,
+.grade-tabela,
+.info4 {
+    margin-bottom: 30px;
+}
+
+.cabecalho {
+    border-radius: 12px;
+    display: block;
+    white-space: nowrap;
+    color: #fff;
+    background-size: cover;
+    background-position: top;
+    transition: 5s;
+    height: auto;
+}
+
+.cabecalho a {
+    color: #fff;
+}
+
+.publicacao:hover .cabecalho {
+    background-position: bottom;
+  line-height:1 !important
+}
+
+.informacoes {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 40px;
+  border-radius:12px;
+    width: calc(100% - 80px);
+    height: calc(100% - 80px);
+    backdrop-filter: blur(200px) !important;
+    display: grid;
+    gap: 25px;
+    grid-template-columns: 1.6fr 4.2fr 2.2fr;
+    grid-template-areas: 'imagem informacoes informacoes informacoes versoes'
+}
+
+.info1 {
+    display: grid;
+    grid-area: informacoes;
+    grid-template-rows: 25px 60px 100px 35px auto;
+    gap: 10px;
+}
+
+.info2 img {
+    min-width: 100% !important;
+    aspect-ratio: 2 / 3;
+    display: block;
+    border-radius: 5px;
+    grid-area: imagem
+}
+
+.horario::before,
+.autor::before,
+.diretor::before,
+.primeirocap::before,
+.primeirocap::after,
+.capitulos::after,
+.capitulos::before {
+    opacity: 0.5;
+}
+
+.cabecalho .tipo {
+    display: inline;
+}
+
+.cabecalho .horario,
+.cabecalho .autor,
+.cabecalho .diretor,
+.primeirocap,
+.ultimocap,
+.capitulos {
+    display: inline;
+}
+
+.autor a:not(:first-of-type)::before,
+.diretor a:not(:first-of-type)::before {
+    content: ', ';
+  font-weight:normal;
+}
+
+.autor a:last-of-type::before,
+.diretor a:last-of-type::before {
+    content: ' e ';
+  font-weight:normal;
+}
+  
+.autor a:only-of-type::before,
+.diretor a:only-of-type::before {
+    content: '';
+    font-weight: normal;
+}
+  
+  .cabecalho .horario::before {
+    content: " exibida na faixa ";
+}
+
+.cabecalho .producao {
+    font-size: var(--fonte-producao) !important;
+    font-weight: 800;
+}
+
+.cabecalho .producao,
+.cabecalho .ficha {
+    display: grid;
+    vertical-align: middle;
+}
+
+.cabecalho-ficha {
+    grid-template-rows: repeat(4, auto);
+}
+
+.cabecalho .autor {
+    font-weight: 700;
+}
+
+.cabecalho .autor::before {
+    content: "Autoria de ";
+}
+
+.cabecalho .diretor::before {
+    content: "Direção de ";
+}
+
+.primeirocap::before {
+    content: "Exibida entre ";
+}
+
+.noar .primeirocap::before {
+    content: "Exibida desde " !important;
+}
+
+.primeirocap::after {
+    content: " e ";
+}
+
+.noar .primeirocap::after {
+    content: "" !important;
+}
+
+.capitulos::before {
+    content: ", com ";
+}
+
+.capitulos::after {
+    content: " capítulos";
+}
+
+.noar .capitulos::after {
+    content: " capítulos até agora" !important;
+}
+
+.producao,
+.formato,
+.ficha,
+.autor,
+.diretor,
+.exibicao,
+.links,
+.outro {
+    word-wrap: break-word;
+    white-space: normal;
+    hyphens: none;
+    width: 100%;
+    width: 100% !important;
+    flex-wrap: wrap;
+    line-height: 1;
+}
+  
+.noar .formato::after{
+  content:'no ar';
+  padding:5px 10px;
+  line-height:1;
+  background-color:rgba(255,255,255,0.2);
+  border-radius:4px;
+  text-transform:uppercase;
+  font-weight:700;
+  font-size:var(--fonte-minuscula);
+  margin-left:10px;
+  }
+
+
+.cabecalho .links {
+    margin-top: 10px;
+    display: flex !important;
+    width: 100% !important;
+    flex-wrap: wrap;
+}
+
+.cabecalho .links a {
+    margin-bottom: 10px;
+}
+
+.globoplay,
+.memoriaglobo,
+.wikipedia,
+.imdb,
+.tvtime,
+.trakttv,
+.filmow {
+    display: inline;
+    padding: 8px 8px 8px;
+    border-radius: 4px;
+    margin-right: 10px;
+    color: #fff;
+    font-size: var(--fonte-minuscula) !important;
+    font-weight: 700;
+    transition: 0.3s;
+    opacity: 0.7;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.globoplay:hover {
+    opacity: 1;
+    background: linear-gradient(to left, #F39900, #E3203C);
+}
+
+.memoriaglobo:hover {
+    background: linear-gradient(to left, #008AAF, #006C8A);
+    opacity: 1;
+}
+
+.imdb:hover {
+    background: linear-gradient(to left, #FCCA18, #e3b303);
+    opacity: 1;
+}
+
+.filmow:hover {
+    background: linear-gradient(to left, #19ADE4, #1490BC);
+    opacity: 1;
+}
+
+.trakttv:hover {
+    background: linear-gradient(to left, #ED2224, #C21010);
+    opacity: 1;
+}
+
+.tvtime:hover {
+    background: linear-gradient(to left, #FCCA18, #e3b303);
+    opacity: 1;
+}
+
+.wikipedia:hover {
+    background: linear-gradient(to left, #999, #ccc);
+    opacity: 1;
+
+}
+
+.globoplay::before {
+    color: #fff;
+    content: "globoplay";
+}
+
+.memoriaglobo::before {
+    color: #fff;
+    content: "memoriaglobo";
+}
+
+.wikipedia::before {
+    color: #fff;
+    content: "wikipedia";
+}
+
+.imdb::before {
+    color: #fff;
+    content: "imdb";
+}
+
+.tvtime::before {
+    color: #fff;
+    content: "tvtime";
+}
+
+.trakttv::before {
+    color: #fff;
+    content: "trakt.tv";
+}
+
+.filmow::before {
+    color: #fff;
+    content: "filmow";
+}
+
+
+.versoes {
+    grid-area: versoes;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: auto;
+    grid-template-rows: 50px;
+    grid-auto-rows: 50px;
+    font-size: var(--fonte-minuscula);
+}
+
+.versoes .versao {
+    background-color: rgba(255, 255, 255, 0.3);
+    opacity: 0.6;
+    color: #fff;
+    display: block;
+    padding: 10px;
+    border-radius: 8px;
+
+    transition: 0.3s;
+}
+
+.versoes .versao:hover {
+    opacity: 1;
+}
+
+.versoes .ano {
+    font-weight: 700;
+    padding-bottom: 5px;
+}
+
+.versoes .modelo {
+    font-weight: 400;
+}
+
+.info3 {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.info4 {
+    grid-template-columns: 19fr 19fr 19fr 19fr 24fr;
+}
+
+.info3,
+.info4 {
+    grid-area: audiencias;
+    display: grid;
+    gap: 40px;
+
+    font-weight: 900;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.fade {
+    opacity: 0.001;
+}
+
+.grade-comparacao .fade {
+    opacity: 0.4;
+}
+
+.audpricap {}
+
+.menoraud {}
+
+.maioraud {}
+
+.noar .audultcap {
+    display: none !important
+}
+
+.nameta {}
+
+.info3 .audpricap,
+.info3 .menoraud,
+.info3 .maioraud,
+.info3 .audultcap,
+.info3 .nameta,
+.info4 .audpricap,
+.info4 .menoraud,
+.info4 .maioraud,
+.info4 .audultcap,
+.info4 .nameta,
+.sharesp,
+.sharerj,
+.sharepnt,
+.elevacaosp,
+.elevacaorj,
+.elevacaopnt,
+.info4 .cap25,
+.info4 .cap50,
+.info4 .cap100,
+.info4 .cap150,
+.info4 .cap150,
+.info4 .totalcap {
+    font-size: var(--fonte-numero) !important;
+    line-height: 1.4;
+}
+
+
+.info4 .cap25,
+.info4 .cap50,
+.info4 .cap100,
+.info4 .cap150,
+.info4 .cap150 {
+    padding: 20px 0px;
+}
+
+.info4 .totalcap {
+    border-radius: 5px;
+    display: inline;
+    padding: 20px;
+    background-color: var(--cor-texto);
+    color: var(--cor-fundo);
+}
+
+.info4 .data::before {
+    display: inline-block;
+    font-size: var(--fonte-pequena) !important;
+}
+
+.audpricap .data::before {
+    content: "pontos no primeiro capítulo, exibido em "
+}
+
+.maioraud .data::before {
+    content: "pontos na maior audiência, em "
+}
+
+.menoraud .data::before {
+    content: "pontos na menor audiência, em "
+}
+
+.audultcap .data::before {
+    content: "pontos no último capítulo, em "
+}
+
+.nameta::after {
+    content: "capítulos atingiram a meta do horário"
+}
+
+/*
+.cap25 .data::before{content:"pontos até o 25º capítulo "}
+.cap50 .data::before{content:"pontos até o 50º capítulo "}
+.cap75 .data::before{content:"pontos até o 75º capítulo "}
+.cap100 .data::before{content:"pontos até o 100º capítulo "}
+.cap150 .data::before{content:"pontos até o 150º capítulo "}
+.totalcap .data::before{content:"pontos de média até o capítulo "}
+*/
+
+.noar .cap25 .data::before {
+    display: inline-block;
+    content: "pontos até o 25º capítulo, exibido em " !important;
+}
+
+.noar .cap50 .data::before {
+    display: inline-block;
+    content: "pontos até o 50º capítulo, exibido em " !important;
+}
+
+.noar .cap100 .data::before {
+    display: inline-block;
+    content: "pontos até o 100º capítulo, exibido em " !important;
+}
+
+.noar .cap150 .data::before {
+    display: inline-block;
+    content: "pontos até o 150º capítulo, exibido em " !important;
+}
+
+.noar .totalcap .data::before {
+    display: inline;
+    content: " pontos de média nos " !important;
+    margin-right: 5px;
+}
+
+.noar .totalcap .data::after {
+    content: " capítulos já exibidos" !important;
+}
+
+
+
+.cap25 .data::before {
+    display: inline-block;
+    content: "pontos até o 25º capítulo, exibido em ";
+}
+
+.cap50 .data::before {
+    display: inline-block;
+    content: "pontos até o 50º capítulo, exibido em ";
+}
+
+.cap100 .data::before {
+    display: inline-block;
+    content: "pontos até o 100º capítulo, exibido em ";
+}
+
+.cap150 .data::before {
+    display: inline-block;
+    content: "pontos até o 150º capítulo, exibido em ";
+}
+
+.totalcap .data::before {
+    display: inline-block;
+    content: " pontos é a média nas ";
+}
+
+.totalcap .data::after {
+    content: " exibições da produção";
+}
+
+
+
+
+
+
+.cap25.fade .data::before {
+    display: inline-block;
+    content: "pontos até o 25º capítulo, ainda não exibido" !important;
+}
+
+.cap50.fade .data::before {
+    display: inline-block;
+    content: "pontos até o 50º capítulo, ainda não exibido" !important
+}
+
+.cap100.fade .data::before {
+    display: inline-block;
+    content: "pontos até o 100º capítulo, ainda não exibido" !important
+}
+
+.cap150.fade .data::before {
+    display: inline-block;
+    content: "pontos até o 150º capítulo, ainda não exibido" !important
+}
+
+
+
+
+
+.info4 .sharesp::after {
+    display: inline-block;
+    content: "é a média de share na região da Grande São Paulo";
+}
+
+.info4 .sharerj::after {
+    display: inline-block;
+    content: "é a média de share na região da Grande Rio de Janeiro";
+}
+
+.info4 .elevacaosp::after {
+    display: inline-block;
+    content: "pontos na Grande São Paulo em relação à exibição anterior";
+}
+
+.info4 .elevacaorj::after {
+    display: inline-block;
+    content: "pontos na Grande Rio de Janeiro em relação à exibição anterior";
+}
+
+.info4 .elevacaopnt::after {
+    display: inline-block;
+    content: "pontos no Painel Nacional de Televisão em relação à exibição anterior";
+}
+
+
+
+
+.audpricap .data::before,
+.menoraud .data::before,
+.maioraud .data::before,
+.audultcap .data::before,
+.audpricap .data,
+.menoraud .data,
+.maioraud .data,
+.audultcap .data,
+.cap25 .data::before,
+.cap50 .data::before,
+.cap100 .data::before,
+.cap150 .data::before,
+.totalcap .data::before,
+.sharesp::after,
+.sharerj::after,
+.elevacaosp::after,
+.elevacaorj::after,
+.elevacaopnt::after {
+    font-size: var(--fonte-pequena) !important;
+    display: inline-block;
+    line-height: 1.5;
+  }
+
+.nameta::after {
+    display: block;
+    line-height: 1.5;
+}
+
+.audpricap .data::before,
+.menoraud .data::before,
+.maioraud .data::before,
+.audultcap .data::before,
+.nameta::after,
+.audpricap .data,
+.menoraud .data,
+.maioraud .data,
+.audultcap .data,
+.cap25 .data,
+.cap50 .data,
+.cap100 .data,
+.cap150 .data,
+.totalcap .data,
+.cap25 .data::before,
+.cap50 .data::before,
+.cap100 .data::before,
+.cap150 .data::before,
+.totalcap .data::before,
+.sharesp::after,
+.sharerj::after,
+.elevacaosp::after,
+.elevacaorj::after,
+.elevacaopnt::after {
+    font-size: var(--fonte-pequena) !important;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.audpricap .data,
+.menoraud .data,
+.maioraud .data,
+.audultcap .data,
+.nameta::after,
+.cap25 .data,
+.cap50 .data,
+.cap100 .data,
+.cap150 .data {
+    opacity: 0.8;
+}
+
+.totalcap .data {
+    opacity: 0.7;
+}
+
+.info3 .positivo,
+.info3 .negativo,
+.info4 .positivo,
+.info4 .negativo {
+    margin-top: 5px;
+    display: inline-block;
+    padding: 4px 7px;
+    background-color: var(--cor-maxima);
+    font-weight: 700;
+    font-size: var(--fonte-pequena) !important;
+    border-radius: 4px;
+}
+
+
+
+.info3 .pos::before,
+.info4 .pos::before,
+.elevacaosp .pos::before,
+.elevacaorj .pos::before,
+.elevacaopnt .pos::before,
+.totalcap.positivo::before,
+.positivo::before{
+    content: '+';
+    display: inline-block;
+}
+
+.negativo::before {
+    content: '';
+    display: inline-block;
+}
+
+.info4 .totalcap .positivo,
+.info4 .totalcap .negativo {
+    background-color: var(--cor-secundaria) !important;
+    color: var(--cor-texto) !important;
+}
+
+.info3 .positivo::after,
+.info3 .negativo::after,
+.info4 .positivo::after,
+.info4 .negativo::after {
+    content: 'pontos';
+    padding-left: 5px;
+    display: inline-block;
+}
+
+
+
+
+
+
+
+
+.info3-titulo::before {
+    content: "Marcas de audiência da produção em São Paulo";
+}
+
+.grafico-diaria-titulo::before {
+    content: "Gráfico da audiência detalhada por dia em São Paulo";
+}
+
+.grafico-acumulado-titulo::before {
+    content: "Gráfico da média de audiência até o capítulo em São Paulo";
+}
+
+.calendario-titulo::before {
+    content: "Tabela da audiência detalhada em São Paulo";
+}
+
+.calendario-media-titulo::before {
+    content: "Média por semana";
+}
+
+.linhadotempo-titulo::before {
+    content: "Cronologia de produções no horário";
+}
+
+.capitulosacumulados-titulo::before {
+    content: "Evolução da audiência por capítulos acumulados em São Paulo";
+}
+
+.grafico-comparacao-titulo::before {
+    content: "Comparação da audiência em São Paulo com produções anteriores do horário";
+}
+
+.elevacaoshare-titulo::before {
+    content: "Share e elevação em comparação com a exibição anterior";
+}
+
+
+.info3-titulo::before,
+.grafico-diaria-titulo::before,
+.grafico-acumulado-titulo::before,
+.calendario-titulo::before,
+.calendario-media-titulo::before,
+.linhadotempo-titulo::before,
+.capitulosacumulados-titulo::before,
+.grafico-comparacao-titulo::before,
+.elevacaoshare-titulo::before {
+    font-size: var(--fonte-titulo);
+    font-weight: 700;
+    padding-bottom: 15px;
+    padding-top: 10px;
+    display: block;
+    margin-top: 20px;
+    line-height: 1.2;
+}
+
+.grafico-diaria {
+    padding-top: 70px !important;
+    position: relative;
+    display: flex;
+    padding-left: 40px;
+    padding-right: 40px;
+    height: 250px;
+    border-radius: 8px;
+}
+
+.grafico-diaria .dia {
+    height: 100%;
+    position: relative;
+    flex: 600
+}
+
+.grafico-diaria .dia .barra {
+    bottom: 0;
+    border-top: 3px solid var(--cor-texto);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background-color: var(--cor-secundaria);
+    opacity: 1;
+    transition: 0.3s !important;
+}
+
+.grafico-diaria .dia:hover .barra {
+    background: linear-gradient(to top, var(--cor-secundaria), var(--cor-escura));
+    border-top: 3px solid var(--cor-texto);
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    z-index: 999 !important;
+}
+
+.grafico-diaria .dia .dados {
+    transition: 0.3s
+}
+
+.grafico-diaria .dia:hover .dados {
+    display: block
+}
+
+.grafico-diaria .dia .dados .numero {
+    width: calc(100% - 16px) !important;
+    min-width: 50px !important;
+    margin: -60px auto 0 0 !important;
+    font-size: var(--fonte-minuscula);
+    font-weight: 700;
+    transition: 0.2s;
+    white-space: nowrap;
+    line-height: 110%;
+    text-overflow: clip;
+    float: left;
+    display: none;
+    border-radius: 4px;
+    background-color: var(--cor-maxima);
+    z-index: 9999 !important;
+    text-align: center !important;
+    padding: 5px 8px;
+    color: var(--cor-texto) !important;
+}
+
+
+.grafico-diaria .dia .dados .numero .data,
+.grafico-diaria .dia .dados .numero .capitulo {
+    font-weight: 400;
+    display: block;
+    text-align: center !important;
+
+}
+
+.grafico-diaria .dia .dados .numero .data {
+    margin-top: 3px;
+}
+
+.grafico-diaria .dia .dados .numero .capitulo {
+    opacity: 0.4;
+    font-weight: 600;
+    margin-top: 3px;}
+  
+.primeirocapitulo .numero,
+.primeirocapitulo,
+.ultimocapitulo .numero,
+.ultimocapitulo,
+.grafico-diaria .dia:hover .dados .numero {
+    display: block;
+
+}
+
+.grafico-diaria .dia .dados .data {}
+
+
+
+
+
+
+
+.grade-tabela {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-template-rows: auto;
+    gap: 20px;
+    font-size: var(--fonte-pequena);
+}
+
+.calendario {
+    display: grid;
+    grid-template-rows: repeat(1, 1fr);
+    grid-area: calendario;
+    padding-left: 40px;
+    gap: 7px;
+    padding-right: 40px;
+}
+
+.calendario .linha {
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+    grid-template-areas: 'ordem inicio inicio fim fim dia1 dia2 dia3 dia4 dia5 dia6';
+    gap: 7px;
+    padding: 0px 10px;
+    border-radius: 5px;
+}
+
+.calendario-media {
+    display: grid;
+    grid-template-rows: repeat(1, 1fr);
+    gap: 7px;
+    grid-area: calendario;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.calendario-media .linha {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-areas: 'ordem mediasp mediasp mediarj mediarj mediapnt mediapnt';
+    gap: 7px;
+}
+
+.totaltabela,
+.totaltabela .ordem,
+.totaltabela .inicio,
+.totaltabela .fim,
+.totaltabela .dia1,
+.totaltabela .dia2,
+.totaltabela .dia3,
+.totaltabela .dia4,
+.totaltabela .dia5,
+.totaltabela .dia6,
+.totaltabela .dia7,
+.totaltabela .mediasp,
+.totaltabela .mediarj,
+.totaltabela .mediapnt {
+    background-color: var(--cor-texto) !important;
+    color: var(--cor-maxima) !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.8px;
+}
+
+.calendario-media .inicio,
+.calendario-media .fim {
+    display: none
+}
+
+.calendario .linha .ordem,
+.calendario-media .linha .ordem {
+    grid-area: ordem
+}
+
+.calendario .linha .inicio {
+    grid-area: inicio
+}
+
+.calendario .linha .fim {
+    grid-area: fim
+}
+
+.calendario .linha .dia1 {
+    grid-area: dia1
+}
+
+.calendario .linha .dia2 {
+    grid-area: dia2
+}
+
+.calendario .linha .dia3 {
+    grid-area: dia3
+}
+
+.calendario .linha .dia4 {
+    grid-area: dia4
+}
+
+.calendario .linha .dia5 {
+    grid-area: dia5
+}
+
+.calendario .linha .dia6 {
+    grid-area: dia6
+}
+
+.calendario .linha .dia7 {
+    grid-area: dia7
+}
+
+.calendario-media .linha .mediasp {
+    grid-area: mediasp
+}
+
+.calendario-media .linha .mediarj {
+    grid-area: mediarj
+}
+
+.calendario-media .linha .mediapnt {
+    grid-area: mediapnt
+}
+
+
+.calendario .linha .ordem,
+.calendario-media .linha .ordem,
+.calendario .linha .inicio,
+.calendario .linha .fim,
+.calendario .linha .dia1,
+.calendario .linha .dia2,
+.calendario .linha .dia3,
+.calendario .linha .dia4,
+.calendario .linha .dia5,
+.calendario .linha .dia6,
+.calendario .linha .dia7,
+.calendario-media .linha .mediasp,
+.calendario-media .linha .mediarj,
+.calendario-media .linha .mediapnt {
+    text-align: center;
+    padding: 8px 0px;
+}
+
+
+.calendario .linha .dia1,
+.calendario .linha .dia2,
+.calendario .linha .dia3,
+.calendario .linha .dia4,
+.calendario .linha .dia5,
+.calendario .linha .dia6,
+.calendario .linha .dia7,
+.calendario-media .mediasp,
+.calendario-media .mediarj,
+.calendario-media .mediapnt {
+    border-radius: 4px;
+    background-color: var(--cor-maxima);
+}
+
+.ordem {
+    font-weight: 700;
+}
+
+
+.calendario .cab,
+.calendario-media .cab {
+    font-weight: 900;
+    font-size: var(--fonte-minuscula);
+}
+
+.calendario .cab .ordem::before,
+.calendario-media .cab .ordem::before {
+    content: "Sem."
+}
+
+.calendario .cab .inicio::before {
+    content: "Início"
+}
+
+.calendario .cab .fim::before {
+    content: "Fim"
+}
+
+.calendario .cab .dia1::before {
+    content: "Seg"
+}
+
+.calendario .cab .dia2::before {
+    content: "Ter"
+}
+
+.calendario .cab .dia3::before {
+    content: "Qua"
+}
+
+.calendario .cab .dia4::before {
+    content: "Qui"
+}
+
+.calendario .cab .dia5::before {
+    content: "Sex"
+}
+
+.calendario .cab .dia6::before {
+    content: "Sáb"
+}
+
+.calendario .cab .dia7::before {
+    content: "Dom"
+}
+
+.calendario-media .cab .mediasp::before {
+    content: "Média SP"
+}
+
+.calendario-media .cab .mediarj::before {
+    content: "Média RJ"
+}
+
+.calendario-media .cab .mediapnt::before {
+    content: "Média PNT"
+}
+
+.calendario .cab .dia1,
+.calendario .cab .dia2,
+.calendario .cab .dia3,
+.calendario .cab .dia4,
+.calendario .cab .dia5,
+.calendario .cab .dia6,
+.calendario .cab .dia7,
+.calendario-media .cab .mediasp,
+.calendario-media .cab .mediarj,
+.calendario-media .cab .mediapnt {
+    background-color: transparent !important;
+}
+
+.calendario .recpos,
+.calendario-media .recpos {
+    color: #06a566;
+    font-weight: 900;
+}
+
+.calendario .recneg,
+.calendario-media .recneg {
+    color: #f6260e;
+    font-weight: 900;
+}
+
+.calendario .rec {
+    font-weight: 900
+}
+
+.calendario .linha,
+.calendario-media .linha {
+    transition: 0.3s;
+    border-radius: 4px;
+}
+
+.calendario .linha:hover,
+.calendario-media .linha:hover {
+    background-color: var(--cor-maxima);
+
+}
+
+
+.calendario .cab:hover,
+.calendario-media .cab:hover {
+    background-color: transparent !important;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.linhadotempo {
+    padding-left: 40px;
+    padding-right: 40px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    font-size: var(--fonte-pequena);
+    text-align: center;
+}
+
+.linhadotempo .capa,
+.linhadotempo img {
+    height: 150px !important;
+    border-radius: 5px;
+    margin: 0 auto !important;
+    aspect-ratio: 2 / 3 !important;
+    background-image: url(https://64.media.tumblr.com/5cf96329d1ee9e55b26ee777f595c0ef/538644df775f9d60-b7/s500x750/f61e3f9e864ad59348a537af51de3217ec91fe1d.pnj);
+    background-size: cover;
+    background-position: center;
+}
+
+
+.linhadotempo .producao {
+
+    font-weight: 700;
+}
+
+.linhadotempo .coluna {
+    display: grid;
+    grid-template-rows: 20px 150px auto;
+    gap: 15px
+}
+
+.linhadotempo .col1 {
+    opacity: 0.5;
+    transition: 0.3s;
+  filter:saturate(0%);
+}
+
+.linhadotempo .col2 {
+    opacity: 0.5;
+    transition: 0.3s;
+  filter:saturate(0%);
+}
+
+.linhadotempo .col3,
+.linhadotempo .col5 {
+    opacity: 0.5;
+    transition: 0.3s;
+  filter:saturate(0%);
+}
+
+.linhadotempo .col1:hover,
+.linhadotempo .col2:hover,
+.linhadotempo .col3:hover,
+.linhadotempo .col5:hover {
+    opacity: 1;
+  filter:saturate(100%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.grade-comparacao {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding-left: 40px;
+    gap: 20px;
+    padding-right: 40px;
+
+}
+
+.grafico-comparacao {
+    display: grid;
+    gap: 10px;
+    grid-auto-rows: auto;
+    font-size: var(--fonte-minuscula);
+}
+
+.grafico-comparacao .espaco {
+    display: grid;
+    border-radius: 5px;
+    grid-template-columns: 44px auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background-color: var(--cor-secundaria);
+
+
+}
+
+.grafico-comparacao .audiencia {
+    padding: 8px;
+    font-weight: 700;
+    border-radius: 5px 0px 0px 5px;
+    background-color: var(--cor-maxima);
+}
+
+.grafico-comparacao .diferenca {
+    display: none;
+}
+
+.fade .espaco .audiencia, .fade .espaco .barra{
+background-color:transparent !important}
+  
+.grafico-comparacao .barra {
+letter-spacing: -0.2px;
+padding: 8px 8px 8px 0px;
+border-radius: 0px 5px 5px 0px;
+background-color: var(--cor-maxima);
+white-space: nowrap;
+transition: 0.3s;
+font-weight: 600;
+
+}
+
+.grafico-comparacao .linha:hover .barra {
+    width: 100% !important;
+}
+
+
+.grade-comparacao .pricap::before,
+.grade-comparacao .maioraud::before,
+.grade-comparacao .ultcap::before,
+.grade-comparacao .mediageral::before {
+    font-weight: 700;
+}
+
+.grade-comparacao .pricap::before {
+    content: "No primeiro capítulo";
+}
+
+.grade-comparacao .maioraud::before {
+    content: "Na maior audiência";
+}
+
+.grade-comparacao .ultcap::before {
+    content: "No último capítulo";
+}
+
+.grade-comparacao .mediageral::before {
+    content: "Média geral";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.timeline-dentro {
+    height: 600px;
+
+}
+
+.timeline {
+
+    border-radius: 8px;
+    margin-bottom: 50px;
+    display: grid;
+    grid-template-columns: 90px auto;
+    gap: 10px;
+    width: 100%;
+}
+
+.timeline #semexibicao {
+	display: grid;
+    opacity: 0.3;
+    align-items: center;}
+
+  .timeline #semexibicao p{display:none !important}
+  
+.timeline #semexibicao::before {
+    content: "Não foram exibidas produções nesse intervalo de tempo.";
+}
+
+.timeline .scroll {
+    display: grid;
+    grid-template-columns: repeat(60, auto);
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-direction: horizontal;
+    height: 100%;
+}
+
+.timeline-horarios {
+    display: grid;
+    grid-template-columns: auto;
+    padding-bottom: 30px;
+    gap: 10px;
+
+}
+
+.timeline-tabela .linha,
+.timeline-horarios .linha {
+    padding: 0px 0px;
+    align-self: center;
+}
+
+.timeline-horarios,
+.timeline-tabela {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 40px repeat(6, 1fr);
+  height:550px !important;
+}
+
+.timeline-tabela {
+    gap: 10px;
+    padding-bottom: 10px;
+
+}
+
+
+.timeline-tabela .data {
+
+    line-height: 1.2;
+    color: var(--cor-texto);
+    font-size: var(--fonte-minuscula) !important;
+}
+
+.timeline .scroll::-webkit-scrollbar {
+    width: 20px;
+    height: 20px;
+}
+
+.timeline .scroll::-webkit-scrollbar-track {
+    background: var(--cor-maxima);
+}
+
+.timeline .scroll::-webkit-scrollbar-thumb {
+    background: var(--cor-secundaria);
+}
+
+.timeline:hover .timeline .scroll::-webkit-scrollbar-thumb {
+    background: var(--cor-texto);
+}
+
+
+.timeline-tabela .linha {
+    border-radius: 5px;
+    vertical-align: middle;
+
+    /* remover pra baixo se geral não funcionar para manter por ano */
+
+    display: grid;
+    gap: 5px;
+
+}
+
+.timeline .nomelinha {
+    font-weight: 700;
+}
+
+
+
+
+
+
+
+
+.com52sem .linha {
+    grid-template-columns: repeat(52, 20px);
+    gap: 0px;
+}
+
+.com53sem .linha {
+    display: grid;
+    grid-template-columns: repeat(53, 20px);
+    gap: 0px;
+}
+
+
+.com36sem .linha {
+    display: grid;
+    grid-template-columns: repeat(36, 20px);
+    gap: 0px;
+}
+
+
+.timeline .item {
+    background-color: var(--cor-secundaria);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 10px 20px !important;
+}
+
+.timeline .iniciou {
+    margin-left: 10px;
+}
+
+.timeline .item p {
+    z-index: 9999;
+    display: block;
+    width: 100%;
+    transition: 0.3s;
+    position: relative;
+    transform: translateX(0%);
+    padding-bottom: 0px !important;
+}
+
+.timeline .item:hover p {
+    font-weight: 700;
+    opacity: 1;
+    animation: scroll-text 8s linear infinite;
+    /* Animação contínua */
+}
+
+@keyframes scroll-text {
+    0% {
+        transform: translateX(0%);
+        /* Começa na posição inicial */
+        opacity: 1;
+        /* Totalmente visível */
+    }
+
+    100% {
+        transform: translateX(100%);
+        /* Sai da tela à esquerda */
+        opacity: 0;
+        /* Torna-se invisível */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.grade-principal {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 40px
+}
+
+.grade-principal .nomeproducao,
+.grade-principal .ano {
+    display: none
+}
+
+.grade-principal .producao {
+    transition: 0.3s
+}
+
+.grade-principal .producao:hover {
+    transform: scale(1.1)
+}
+
+
+.pagina-telenovela-titulo {
+
+    font-weight: 700;
+    text-align: left;
+      font-size: var(--fonte-producao);
+}
+
+.pagina-telenovela-titulo::before {
+    content: "Telenovelas exibidas";
+    margin-right: 6px;
+    margin-bottom: 50px;
+    display: inline-block;
+}
+
+
+.grade-principal img{
+  transition:0.2s;
+  border-radius:7px}
+
+.grade-principal img:hover{
+  transform:scale(1.03);
+  box-shadow:0px 0px 30px var(--cor-secundaria)
+}
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  .ultimasexibicoes .horario{display:grid;grid-template-columns:repeat(5, 1fr);gap:50px}
+
+.ultimasexibicoes h3{
+font-size:var(--fonte-titulo);margin-top:30px}
+
+.ultimasexibicoes img{border-radius:7px;aspect-ratio: 2 / 3;transition:0.2s}
+
+.ultimasexibicoes img:hover{transform:scale(1.03);box-shadow:0px 0px 30px var(--cor-secundaria);}
+
+.ultimasexibicoes .horario .maisproducoes{
+        padding: 30px;
+font-size:20px;
+line-height:1.2;
+    display: grid;
+    align-items: center;
+background: radial-gradient(circle, #1995ee, #0f5d91);
+  color: var(--cor-maxima);
+    border-radius: 7px;
+    text-align: center;
+    font-weight: 700;}
+
+.ultimasexibicoes .maisproducoes a{color:var(--cor-maxima) !important;text-decoration:none !important}
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+     .bloco-homepage-fundo {
+        border-radius: 12px;
+        background-size: cover;
+        background-position: top;
+        transition: 5s;
+        margin-bottom: 20px;
+  }
+
+
+    .bloco-homepage-fundo:hover {
+
+        background-position: bottom;
+    }
+
+    .bloco-homepage {
+  width:calc(100% - 80px);
+        padding: 40px;
+        align-items: center;
+        color: #fff;
+        display: grid;
+        grid-template-columns: 3fr repeat(5, 1fr) !important;
+        grid-template-rows: auto;
+        backdrop-filter: blur(200px) !important;
+        border-radius: 12px;
+        gap: 20px;
+        background-color: rgba(0, 0, 0, 0.3);
+grid-template-areas: 'titulo producao1 producao2 producao3 producao4 producao5';
+  }
+
+    .bloco-homepage .emissora img {
+        height: 40px;
+        filter: brightness(0) invert(1);
+    }
+
+    .bloco-homepage .exibicao-noar::before {
+        content: "
+        no ar"
+        ;
+        text-transform: uppercase;
+        font-weight: 800;
+        padding: 8px 12px;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+    }
+
+    .bloco-homepage .exibicaoanterior::before {
+        content: "
+        Exibições anteriores"
+    }
+
+    .bloco-homepage .vejamais {
+        display: inline-block;
+        font-size: var(--fonte-pequena);
+        text-decoration: none;
+        color: #fff;
+        padding: 8px 12px;
+        transition: 0.2s;
+  		border-radius:5px;
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .bloco-homepage .descricao {
+        font-size: var(--fonte-pequena);
+        line-height: 1.2;
+        font-weight: 500
+    }
+
+    .bloco-homepage .vejamais:hover {
+        padding: 8px 15px;
+    }
+
+    .bloco-homepage h2 {
+  		margin:0 !important;
+  		display:grid;
+  		gap:12px;
+  color: #fff !important;
+        padding: 0;
+        font-size: var(--fonte-titulo);
+        grid-area: titulo
+    }
+
+    .bloco-homepage a img {
+        width: 100%;
+        aspect-ratio: 2 / 3;
+        border-radius: 7px;
+  transition:0.2s
+    }
+
+  
+      .bloco-homepage a img:hover {
+		transform:scale(1.05);
+  }
+    .bloco-homepage anth-of-type(1) {
+        grid-area: producao1
+    }
+
+    .bloco-homepage anth-of-type(2) {
+        grid-area: producao2
+    }
+
+    .bloco-homepage anth-of-type(3) {
+        grid-area: producao3
+    }
+
+    .bloco-homepage anth-of-type(4) {
+        grid-area: producao4
+    }
+
+    .bloco-homepage anth-of-type(5) {
+        grid-area: producao5
+    }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+@media all and (min-width: 651px) and (max-width: 768px) {
+
+    body,
+    html {
+        font-family: 'Plus Jakarta Sans' !important;
+    }
+
+    .autopagerize_page_element {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+
+    .grade-comparacao {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .grade-tabela {
+        grid-template-columns: 1fr !important;
+    }
+
+    .info3,
+    .info4 {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+
+    .linhadotempo>.coluna:nth-child(-n+2) {
+        display: none !important;
+    }
+
+    .linhadotempo {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+
+    .info3,
+    .info4,
+    .grafico-diaria,
+    .calendario,
+    .calendario-media,
+    .linhadotempo,
+    .grade-comparacao {
+        padding: 25px !important;
+    }
+
+    .grade-comparacao .pricap::before,
+    .grade-comparacao .maioraud::before,
+    .grade-comparacao .ultcap::before,
+    .grade-comparacao .mediageral::before {
+        margin-top: 20px !important;
+    }
+
+    .calendario .linha {
+        grid-template-areas: 'ordem inicio inicio dia1 dia2 dia3 dia4 dia5 dia6' !important;
+        grid-template-columns: repeat(9, 1fr) !important;
+        padding: 5px !important;
+        gap: 5px !important;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+@media all and (max-width: 650px) {
+
+    body,
+    html {
+        font-family: var(--font-family);
+    }
+
+    .informacoes {
+        grid-template-areas:
+            'imagem'
+            'informacoes'
+            'versoes' !important;
+        grid-template-columns: 1fr !important;
+    }
+
+    .cabecalho {
+        width: 100% !important;
+    }
+
+    .informacoes .info2 {
+        width: 100% !important;
+    }
+
+    .info1 .formato,
+    .info1 .producao,
+    .info1 .ficha,
+    .info1 .autor,
+    .info1 .diretor,
+    .info1 .exibicao,
+    .info1 .outro {
+        max-width: 100% !important;
+    }
+
+    .informacoes .info2 img {
+        max-width: 50% !important;
+        min-width: 50% !important;
+        width: 50% !important;
+        margin: 0 auto !important;
+    }
+
+    .autopagerize_page_element {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .grade-comparacao {
+        grid-template-columns: 1fr !important;
+    }
+
+
+    .grade-tabela {
+        grid-template-columns: 1fr !important;
+    }
+
+    .info3,
+    .info4 {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .linhadotempo>.coluna:nth-child(-n+2) {
+        display: none !important;
+    }
+
+    .linhadotempo {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+
+    .info3,
+    .info4,
+    .calendario,
+    .calendario-media,
+    .linhadotempo,
+    .grade-comparacao {
+        padding: 20px !important;
+        gap: 10px !important
+    }
+
+    .linhadotempo .capa,
+    .linhadotempo img {
+        height: 120px !important
+    }
+
+    .grafico-diaria {
+        padding: 70px 20px 20px 20px !important;
+    }
+
+    .linhadotempo .coluna {
+        grid-template-rows: 20px 120px auto !important;
+    }
+
+    .calendario .linha {
+        grid-template-areas: 'ordem inicio inicio dia1 dia2 dia3 dia4 dia5 dia6' !important;
+        grid-template-columns: repeat(9, 1fr) !important;
+        padding: 5px !important;
+        gap: 5px !important;
+    }
+
+    .calendario .linha .fim {
+        display: none !important
+    }
+
+    .info3 .fade,
+    .info4 .fade {
+        display: none !important
+    }
+
+    .grade-comparacao .pricap::before,
+    .grade-comparacao .maioraud::before,
+    .grade-comparacao .ultcap::before,
+    .grade-comparacao .mediageral::before {
+        margin-top: 20px !important;
+    }
+}
