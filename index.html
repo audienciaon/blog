@@ -60,7 +60,7 @@
 							  <section class="postagens">
     <h2>Últimos Posts</h2>
     <ul>
-      {% for post in site.posts %}
+      {% for post in site.posts limit:15 %}
         <li>
           <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
           <p>{{ post.excerpt }}</p>
