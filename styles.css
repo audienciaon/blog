@@ -1,0 +1,96 @@
+/* Resetando alguns estilos padrões */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    text-align: center;
+    padding: 50px 0;
+    background-color: #333;
+    color: white;
+}
+
+header h1 {
+    font-size: 3em;
+}
+
+header p {
+    font-size: 1.2em;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.post {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.post:hover {
+    transform: translateY(-10px);
+}
+
+.post img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.post h3 {
+    padding: 10px;
+    font-size: 1.2em;
+    background-color: #333;
+    color: white;
+}
+
+.post p {
+    padding: 10px;
+    font-size: 1em;
+    color: #666;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
+
+@media screen and (max-width: 1200px) {
+    .gallery {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+}
