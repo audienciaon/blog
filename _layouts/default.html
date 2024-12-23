@@ -3,10 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <title>{{ page.title }}</title>
-  <link rel="stylesheet" href="/blog/assets/css/main.css">
-  <link rel="stylesheet" href="/blog/assets/css/posts.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/posts.css">
 </head>
 <body>
-  {{ content }}
+  <!-- Header comum para todo o blog -->
+  <header>
+    <h1>Bem-vindo ao meu Blog!</h1>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">Sobre</a></li>
+        <li><a href="/contact">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    {{ content }} <!-- Este é o conteúdo da postagem -->
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Meu Blog | Todos os direitos reservados.</p>
+  </footer>
 </body>
 </html>
