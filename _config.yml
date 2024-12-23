@@ -4,6 +4,3 @@ url: "https://audienciaon.github.io"
 baseurl: ""  # Se o seu site está na raiz do repositório
 paginate: 15  # Exibe 5 postagens por página. Você pode ajustar esse número.
 paginate_path: "/page:num"
-
-# _config.yml
-permalink: /blog/:slug/
