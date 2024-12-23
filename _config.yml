@@ -1,0 +1,3 @@
+theme: jekyll-theme-phantom
+paginate: 5  # Exibe 5 postagens por página. Você pode ajustar esse número.
+paginate_path: "/page:num"
