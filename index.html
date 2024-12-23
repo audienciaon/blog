@@ -57,18 +57,8 @@
 								<p>Etiam quis viverra lorem, in semper lorem. Sed nisl arcu euismod sit amet nisi euismod sed cursus arcu elementum ipsum arcu vivamus quis venenatis orci lorem ipsum et magna feugiat veroeros aliquam. Lorem ipsum dolor sit amet nullam dolore.</p>
 							</header>
 
-							  <section class="postagens">
-							  	<h2>Últimos Posts</h2>
-								<ul>
-									{% for post in site.posts limit:15 %}
-									<li>
-										<a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-									</li>
-									{% endfor %}
-								</ul>
-							  </section>
-							
-<!---							<section class="tiles">
+						
+							<section class="tiles">
 								<article class="style1">
 									<span class="image">
 										<img src="images/pic01.jpg" alt="" />
@@ -202,7 +192,7 @@
 									</a>
 								</article>
 							</section>
--->
+
 						</div>
 					</div>
 
