@@ -1,0 +1,16 @@
+---
+layout: default
+title: "Meu Blog"
+---
+
+<h1>Bem-vindo ao meu blog!</h1>
+<p>Veja abaixo os posts recentes:</p>
+
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <small>({{ post.date | date: "%d/%m/%Y" }})</small>
+    </li>
+  {% endfor %}
+</ul>
