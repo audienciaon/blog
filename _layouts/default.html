@@ -12,5 +12,10 @@
 
   <script src="{{ '/assets/script1.js' | relative_url }}"></script>
   <script src="{{ '/assets/script2.js' | relative_url }}"></script>
+
+  {% for script in site.scripts %}
+  <script src="{{ script | relative_url }}"></script>
+{% endfor %}
+
 </body>
 </html>
