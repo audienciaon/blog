@@ -95,3 +95,52 @@ document.querySelectorAll("link[rel='stylesheet'], script[src]").forEach(el => {
   }
 });
 
+ // ===============================
+  // Plano de fundo desfocado
+  // ===============================
+  const applyBackgroundBlur = (selector) => {
+    const imgEl = document.querySelector(selector);
+    if (!imgEl || !imgEl.src) {
+      console.warn("Imagem não encontrada, tentando novamente...");
+      setTimeout(() => applyBackgroundBlur(selector), 300);
+      return;
+    }
+
+    const img = new Image();
+    img.crossOrigin = "anonymous";
+    img.src = imgEl.src;
+
+    img.onload = function () {
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
+
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      ctx.filter = "blur(300px)";
+      ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.width, canvas.height);
+
+      const blurredDataURL = canvas.toDataURL("image/png");
+
+      const html = document.documentElement;
+      html.style.backgroundImage = `url(${blurredDataURL})`;
+      html.style.backgroundSize = "cover";
+      html.style.backgroundPosition = "center";
+      html.style.backgroundRepeat = "no-repeat";
+
+      console.log("Background desfocado aplicado.");
+    };
+
+    img.onerror = function () {
+      console.warn("Falha ao carregar a imagem.");
+    };
+  };
+
+  // Fundo da página principal
+  applyBackgroundBlur(".cabecalho .informacoes .info2 img");
+
+  // Fundo de páginas de horário
+  if (window.location.pathname.includes("/p/")) {
+    applyBackgroundBlur(".pagina-horario-noar .conteudo img");
+  }
+});
