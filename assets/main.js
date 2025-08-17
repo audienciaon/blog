@@ -205,3 +205,46 @@ document.addEventListener("DOMContentLoaded", () => {
     if (searchInput) searchInput.value = params.get("q") || "";
   }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  // ===============================
+  // Redirecionamento do input de pesquisa CAMPO DE PESQUISA
+  // ===============================
+  const searchInput = document.getElementById("campopesquisa");
+  if (searchInput) {
+    searchInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        const query = searchInput.value.trim();
+        if (!query) return;
+
+        // Substitui espaços por + e cria link
+        const searchURL = `https://audienciaon.github.io/search/${query.replace(/\s+/g, "+")}`;
+        window.location.href = searchURL;
+      }
+    });
+  }
+
+  // ===============================
+  // Preenchimento automático do input se já estiver na página de pesquisa CAMPO DE PESQUISA
+  // ===============================
+  if (window.location.pathname.includes("/search/")) {
+    const parts = window.location.pathname.split("/search/");
+    if (parts.length > 1 && searchInput) {
+      searchInput.value = decodeURIComponent(parts[1].replace(/\+/g, " "));
+    }
+  }
+});
+
