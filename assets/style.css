@@ -95,6 +95,29 @@ a {
   transform: translateY(-50%);
 }
 
+
+
+
+  h4 {
+    font-size: var(--fonte-16) !important;
+    padding-bottom: 15px !important;
+  }
+
+h1, h2, h3, h4, h5, h6{font-family:Fraunces}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* novo estilão pro tituloblog */
 #tituloblog {
   display:grid;
@@ -306,6 +329,7 @@ img{
     font-size: var(--fonte-25) !important;
     padding-bottom: 20px !important;
   }
+
 
   #publicacoes-tudo,
   #ultimasatualizacoes {
