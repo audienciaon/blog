@@ -1198,7 +1198,6 @@ align-self:center;
 .info4 .cap150,
 .info4 .totalcap {
     font-size: var(--fonte-50) !important;
-	font-family:Fraunces;
 	font-weight:900;
     line-height: 1.4;
 }
