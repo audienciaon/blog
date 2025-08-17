@@ -1,8 +1,29 @@
+<head>
+  <script>
+const input = document.getElementById("campopesquisa");
+
+input.addEventListener("keypress", function(e) {
+  if (e.key === "Enter") {
+    const query = input.value.trim().replace(/\s+/g, "+");
+    if(query) {
+      // Redireciona para a página de pesquisa
+      window.location.href = `https://audienciaon.github.io/search/${query}`;
+    }
+  }
+});
+</script>
+
+</head>
+
 <header>
-  <h2>Meu Blog</h2>
   <nav>
+    <a href="https://audienciaon.github.io/blog/"><img src="https://audienciaon.github.io/emissoras/audienciaon.svg"></a>
     <a href="/index.html">Início</a>
-    <a href="/blog/2025/pagina1.html">2025</a>
-    <a href="/blog/2024/pagina1.html">2024</a>
+
+    <input type="text" id="campopesquisa" placeholder="Pesquise por produção, emissora, autor, diretor..." />
+
+
+    <a class='redesocial' href='https://tiktok.com/@audiencia.on'><i class='fa-brands fa-tiktok'/></a>
+    <a class='redesocial' href='https://x.com/audienciaon'><i class='fa-brands fa-x-twitter'/></a>
   </nav>
 </header>
