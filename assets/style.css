@@ -29,14 +29,14 @@
   
   
   /* Remove sublinhado padrão */
-a {
+.cabecalho a {
   text-decoration: none;
   color: inherit; /* mantém cor do texto atual */
   position: relative;
 }
 
 /* Cria a linha para o efeito */
-a::after {
+.cabecalho a::after {
   content: '';
   position: absolute;
   left: 0;
@@ -48,14 +48,10 @@ a::after {
 }
 
 /* Hover: linha cresce da esquerda para direita */
-a:hover::after {
+.cabecalho a:hover::after {
   width: 100%;
 }
 
-  .linhadotempo a:hover,
-  .linhadotempo a:hover::after,
-{text-decoration:none !important}
-  
   #header-home {
   position: relative; /* referência para o tituloblog */
   height: 100vh;
@@ -833,7 +829,7 @@ content:"Atualizado em "
   text-transform:lowercase !important}
   
 .cabecalho .producao {
-    font-size: var(--fonte-40) !important;
+    font-size: var(--fonte-30) !important;
     font-weight: 900;
     font-family:Fraunces;
 }
