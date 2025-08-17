@@ -34,7 +34,11 @@
 	  font-size:var(--fonte-12);
   }
 
-footer a{opacity:70%}
+footer a{
+	opacity:70%;
+	display:block
+}
+
 footer a:hover{opacity:100%}
 
 
