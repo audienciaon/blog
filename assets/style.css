@@ -28,7 +28,30 @@
   
   
   
-  
+  /* Remove sublinhado padrão */
+a {
+  text-decoration: none;
+  color: inherit; /* mantém cor do texto atual */
+  position: relative;
+}
+
+/* Cria a linha para o efeito */
+a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px; /* espessura do sublinhado */
+  background-color: currentColor; /* mesma cor do link */
+  transition: width 0.3s ease;
+}
+
+/* Hover: linha cresce da esquerda para direita */
+a:hover::after {
+  width: 100%;
+}
+
   
   
   #header-home {
