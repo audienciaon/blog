@@ -692,6 +692,8 @@ content:"Atualizado em "
 }
 
 .info1 {
+	background-color:var(--cor-20-fade);
+	border-radius:8px;
     display: grid;
     grid-area: informacoes;
     grid-template-rows: 25px 60px 100px 35px auto;
