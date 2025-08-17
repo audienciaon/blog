@@ -22,9 +22,9 @@
   <div id="atualizacoes"></div>
 
 <script>
-const user = "audienciaon";
+  const user = "audienciaon";
 const repo = "blog";
-const branch = "main"; // ou "master"
+const branch = "main";
 
 async function fetchUpdatedHTML() {
   const apiURL = `https://api.github.com/repos/${user}/${repo}/git/trees/${branch}?recursive=1`;
@@ -42,12 +42,32 @@ async function fetchUpdatedHTML() {
     );
 
     const commitsPromises = htmlFiles.map(async file => {
+      // commit mais recente
       const commitRes = await fetch(`https://api.github.com/repos/${user}/${repo}/commits?path=${file.path}&page=1&per_page=1`);
       const commitData = await commitRes.json();
+
+      const fileURL = `https://${user}.github.io/${repo}/${file.path}`;
+      let imgURL = "";
+
+      try {
+        const htmlRes = await fetch(fileURL);
+        const htmlText = await htmlRes.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(htmlText, "text/html");
+        const mainEl = doc.querySelector("main");
+        if (mainEl) {
+          const imgEl = mainEl.querySelector("img");
+          if (imgEl) imgURL = imgEl.src;
+        }
+      } catch(e) {
+        imgURL = ""; // fallback
+      }
+
       return {
         path: file.path,
-        url: `https://${user}.github.io/${repo}/${file.path}`,
-        lastUpdate: commitData[0]?.commit?.committer?.date || ""
+        url: fileURL,
+        lastUpdate: commitData[0]?.commit?.committer?.date || "",
+        imgURL: imgURL || "https://via.placeholder.com/150?text=Sem+imagem"
       };
     });
 
@@ -59,7 +79,7 @@ async function fetchUpdatedHTML() {
       div.classList.add("item");
       div.innerHTML = `
         <a href="${item.url}">
-          <img src="https://via.placeholder.com/150?text=${item.path.split('/').pop()}" alt="${item.path.split('/').pop()}" />
+          <img src="${item.imgURL}" alt="${item.path.split('/').pop()}" />
         </a>
       `;
       container.appendChild(div);
@@ -71,8 +91,8 @@ async function fetchUpdatedHTML() {
 }
 
 fetchUpdatedHTML();
-</script>
 
+</script>
   
   <h2>Produções no Ar</h2>
 
