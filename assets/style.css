@@ -2119,31 +2119,31 @@ h3,
 }
 
 .calendario .cab .dia1::before {
-    content: "Seg"
+    content: "Dom"
 }
 
 .calendario .cab .dia2::before {
-    content: "Ter"
+    content: "Seg"
 }
 
 .calendario .cab .dia3::before {
-    content: "Qua"
+    content: "Ter"
 }
 
 .calendario .cab .dia4::before {
-    content: "Qui"
+    content: "Qua"
 }
 
 .calendario .cab .dia5::before {
-    content: "Sex"
+    content: "Qui"
 }
 
 .calendario .cab .dia6::before {
-    content: "Sáb"
+    content: "Sex"
 }
 
 .calendario .cab .dia7::before {
-    content: "Dom"
+    content: "Sáb"
 }
 
 .calendario-media .cab .mediasp::before {
