@@ -15,7 +15,7 @@
 }
   
   
-  
+  header nav{display:grid;grid-template-columns:200px auto 50px 50px; gap:15px}
   
   
   
