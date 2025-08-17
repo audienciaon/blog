@@ -1,4 +1,26 @@
 // ===============================
+// Google Analytics GA4
+// ===============================
+(function() {
+  // Cria o script do GA4 de forma assíncrona
+  const gaScript = document.createElement("script");
+  gaScript.async = true;
+  gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-8PEB40B65W";
+  document.head.appendChild(gaScript);
+
+  // Inicializa o GA4
+  const gaInit = document.createElement("script");
+  gaInit.innerHTML = `
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8PEB40B65W');
+  `;
+  document.head.appendChild(gaInit);
+})();
+
+
+// ===============================
 // Gera versão baseada na data (AAAA-MM-DD)
 // Assim só força recarregar uma vez por dia
 // ===============================
