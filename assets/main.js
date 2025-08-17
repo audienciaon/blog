@@ -221,12 +221,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   // ===============================
-  // Redirecionamento do input de pesquisa CAMPO DE PESQUISA
+  // Redirecionamento do input de pesquisa
   // ===============================
   const searchInput = document.getElementById("campopesquisa");
   if (searchInput) {
-    searchInput.addEventListener("keypress", (e) => {
+    searchInput.addEventListener("keydown", (e) => {
       if (e.key === "Enter") {
+        e.preventDefault(); // evita envio de formulário padrão
+
         const query = searchInput.value.trim();
         if (!query) return;
 
@@ -238,7 +240,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ===============================
-  // Preenchimento automático do input se já estiver na página de pesquisa CAMPO DE PESQUISA
+  // Preenchimento automático do input se já estiver na página de pesquisa
   // ===============================
   if (window.location.pathname.includes("/search/")) {
     const parts = window.location.pathname.split("/search/");
@@ -247,4 +249,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
-
