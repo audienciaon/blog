@@ -37,11 +37,11 @@
 footer a{opacity:70%}
 footer a:hover{opacity:100%}
 
+
 /* Remove sublinhado padrão */
-.cabecalho a {
+a {
   text-decoration: none;
   color: inherit; /* mantém cor do texto atual */
-  position: relative;
 }
 
 /* Cria a linha para o efeito */
