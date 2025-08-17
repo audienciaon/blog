@@ -52,7 +52,9 @@ a:hover::after {
   width: 100%;
 }
 
-  
+  .linhadotempo a:hover,
+  .linhadotempo a:hover::after,
+{text-decoration:none !important}
   
   #header-home {
   position: relative; /* referência para o tituloblog */
