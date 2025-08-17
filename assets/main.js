@@ -144,3 +144,42 @@ document.querySelectorAll("link[rel='stylesheet'], script[src]").forEach(el => {
     applyBackgroundBlur(".pagina-horario-noar .conteudo img");
   }
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  // ===============================
+  // Redirecionamento de links /search/
+  // ===============================
+  document.querySelectorAll("a[href*='/search/']").forEach(link => {
+    link.addEventListener("click", function(e) {
+      e.preventDefault();
+
+      let href = this.getAttribute("href");
+
+      // Remove domínio se for link absoluto
+      if (href.startsWith("http")) {
+        const url = new URL(href);
+        href = url.pathname;
+      }
+
+      // Extrai a query após /search/
+      const parts = href.split("/search/");
+      if (parts.length < 2) return;
+      const query = parts[1];
+
+      // Redireciona para a página de pesquisa com query string
+      const searchURL = "https://audienciaon.github.io/blog/pesquisa";
+      const finalURL = `${searchURL}?q=${encodeURIComponent(query.replace(/\+/g, ' '))}`;
+      window.location.href = finalURL;
+    });
+  });
+
+  // ===============================
+  // Preenchimento automático do input de pesquisa
+  // ===============================
+  if (window.location.pathname.includes("/blog/pesquisa")) {
+    const params = new URLSearchParams(window.location.search);
+    const searchInput = document.querySelector("input[type=text]");
+    if (searchInput) searchInput.value = params.get("q") || "";
+  }
+});
