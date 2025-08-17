@@ -699,7 +699,7 @@ content:"Atualizado em "
 }
 
 .info2 img {
-    min-width: 100% !important;
+    width: 100% !important;
     aspect-ratio: 2 / 3;
     display: block;
     border-radius: 5px;
