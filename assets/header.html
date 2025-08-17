@@ -1,24 +1,42 @@
-<head>
-  <script>
-const input = document.getElementById("campopesquisa");
+<header>
+  <nav>
+    <a href="https://audienciaon.github.io/blog/"><img src="https://audienciaon.github.io/emissoras/audienciaon.svg" style="max-width:200px"></a>
 
-input.addEventListener("keypress", function(e) {
-  if (e.key === "Enter") {
-    const query = input.value.trim().replace(/\s+/g, "+");
-    if(query) {
-      // Redireciona para a página de pesquisa
-      window.location.href = `https://audienciaon.github.io/search/${query}`;
+    <input type="text" id="campopesquisa" placeholder="Pesquise por produção, emissora, autor, diretor..." />
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const input = document.getElementById("campopesquisa");
+
+  if (input) {
+    // Remove qualquer listener antigo do Enter para evitar conflito
+    input.replaceWith(input.cloneNode(true));
+    const newInput = document.getElementById("campopesquisa") || document.querySelector("#campopesquisa");
+
+    newInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault(); // evita comportamento padrão
+
+        const query = newInput.value.trim();
+        if (!query) return;
+
+        const searchURL = `https://audienciaon.github.io/search/${query.replace(/\s+/g, "+")}`;
+        window.location.href = searchURL;
+      }
+    });
+
+    // Preenche automaticamente se já estiver na página de pesquisa
+    if (window.location.pathname.includes("/search/")) {
+      const parts = window.location.pathname.split("/search/");
+      if (parts.length > 1) {
+        newInput.value = decodeURIComponent(parts[1].replace(/\+/g, " "));
+      }
     }
   }
 });
 </script>
 
-</head>
-
-<header>
-  <nav>
-    <a href="https://audienciaon.github.io/blog/"><img src="https://audienciaon.github.io/emissoras/audienciaon.svg" style="max-width:200px"></a>
-    <input type="text" id="campopesquisa" placeholder="Pesquise por produção, emissora, autor, diretor..." />
+    
     <a class='redesocial' href='https://tiktok.com/@audiencia.on'><i class='fa-brands fa-tiktok'/></a>
     <a class='redesocial' href='https://x.com/audienciaon'><i class='fa-brands fa-x-twitter'/></a>
   </nav>
