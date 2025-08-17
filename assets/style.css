@@ -684,9 +684,8 @@ content:"Atualizado em "
 	border-radius:8px;
     /* backdrop-filter: blur(200px) !important; */
     display: grid;
-  background-image: none !important;
+    background-image: none !important;
     gap: 30px;
-	padding:30px;
     grid-template-columns: 200px 3.5fr 3.5fr 3fr;
     grid-template-areas: 'imagem informacoes informacoes informacoes versoes'
 }
@@ -698,6 +697,10 @@ content:"Atualizado em "
     grid-area: informacoes;
     grid-template-rows: 25px 60px 100px 35px auto;
     gap: 10px;
+}
+
+.info1 .outros{
+	display:none
 }
 
 .info2 img {
