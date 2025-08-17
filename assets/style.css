@@ -678,15 +678,15 @@ content:"Atualizado em "
 }
 
 .informacoes {
-    background-color: rgba(0, 0, 0, 0.4);
-    padding: 40px;
     border-radius:12px;
-    width: calc(100% - 80px);
-    height: calc(100% - 80px);
+    width: 100%;
+    height: 100%;
+	border-radius:8px;
     /* backdrop-filter: blur(200px) !important; */
     display: grid;
   background-image: none !important;
-    gap: 25px;
+    gap: 30px;
+	padding:30px;
     grid-template-columns: 200px 3.5fr 3.5fr 3fr;
     grid-template-areas: 'imagem informacoes informacoes informacoes versoes'
 }
@@ -699,7 +699,8 @@ content:"Atualizado em "
 }
 
 .info2 img {
-    width: 100% !important;
+	border-radius:8px;
+	width: 100% !important;
     aspect-ratio: 2 / 3;
     display: block;
     border-radius: 5px;
