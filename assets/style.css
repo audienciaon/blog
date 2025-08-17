@@ -341,14 +341,14 @@ img{
 
 
   #publicacoes-tudo,
-  #ultimasatualizacoes {
+  #atualizacoes {
     display: grid !important;
     gap: 30px !important;
-    grid-template-columns: repeat(7, 1fr) !important;
+    grid-template-columns: repeat(6, 1fr) !important;
   }
 
   #publicacoes-tudo a,
-  #ultimasatualizacoes a {
+  #atualizacoes a {
     display: block;
     width: 100%;
     aspect-ratio: 2 / 3;
@@ -357,7 +357,7 @@ img{
   }
 
   #publicacoes-tudo img,
-  #ultimasatualizacoes img {
+  #atualizacoes img {
     width: 100%;
     aspect-ratio: 2 / 3;
     object-fit: cover;
