@@ -302,7 +302,7 @@ img{
   .resultados a img{
   aspect-ratio:2 / 3;
   width:100%;
-  background-image:url(&#39;https://raw.githubusercontent.com/audienciaon/capas/refs/heads/main/adefinir.png&#39;) !important;
+  background-image:url('https://raw.githubusercontent.com/audienciaon/capas/refs/heads/main/adefinir.png') !important;
   background-size:cover !important;
   background-position:center !important;}
   
@@ -486,7 +486,7 @@ opacity:0;
     }
 
     .paginainicial .bloco .button::before {
-        content: &#39;Ver a página&#39;
+        content: 'Ver a página'
     }
   
   
@@ -535,7 +535,7 @@ opacity:0;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    grid-template-areas: &#39;calendario graficos&#39;
+    grid-template-areas: 'calendario graficos'
 }
 
 
@@ -688,7 +688,7 @@ content:"Atualizado em "
   background-image: none !important;
     gap: 25px;
     grid-template-columns: 200px 3.5fr 3.5fr 3fr;
-    grid-template-areas: &#39;imagem informacoes informacoes informacoes versoes&#39;
+    grid-template-areas: 'imagem informacoes informacoes informacoes versoes'
 }
 
 .info1 {
@@ -746,19 +746,19 @@ content:"Atualizado em "
 
 .autor a:not(:first-of-type)::before,
 .diretor a:not(:first-of-type)::before {
-    content: &#39;, &#39;;
+    content: ', ';
   font-weight:normal;
 }
 
 .autor a:last-of-type::before,
 .diretor a:last-of-type::before {
-    content: &#39; e &#39;;
+    content: ' e ';
   font-weight:normal;
 }
   
 .autor a:only-of-type::before,
 .diretor a:only-of-type::before {
-    content: &#39;&#39;;
+    content: '';
     font-weight: normal;
 }
   
@@ -890,7 +890,7 @@ display:none !important
 }
   
 .noar .formato::after{
-  content:&#39;no ar&#39;;
+  content:'no ar';
   padding:5px 10px;
   line-height:1;
   background-color:rgba(255,255,255,0.2);
@@ -1537,7 +1537,7 @@ background-color: var(--cor-50-fade) !important;
   
   .media-audiencias * .positivo::after,
   .media-audiencias * .negativo::after{
-  content: &#39;pontos&#39;;
+  content: 'pontos';
   padding-left:5px;
 }
   
@@ -1673,12 +1673,12 @@ background-color: var(--cor-50-fade) !important;
 .elevacaopnt .pos::before,
 .totalcap.positivo::before,
 .positivo::before{
-    content: &#39;+&#39;;
+    content: '+';
     display: inline-block;
 }
 
 .negativo::before {
-    content: &#39;&#39;;
+    content: '';
     display: inline-block;
 }
 
@@ -1686,7 +1686,7 @@ background-color: var(--cor-50-fade) !important;
 .info3 .negativo::after,
 .info4 .positivo::after,
 .info4 .negativo::after {
-    content: &#39;pontos&#39;;
+    content: 'pontos';
     padding-left: 5px;
     display: inline-block;
 }
@@ -1942,7 +1942,7 @@ h3,
 
 .calendario .linha {
     display: grid;
-            grid-template-areas: &#39;ordem inicio fim dia1 dia2 dia3 dia4 dia5 dia6 dia7&#39; !important;
+            grid-template-areas: 'ordem inicio fim dia1 dia2 dia3 dia4 dia5 dia6 dia7' !important;
             grid-template-columns: 1fr 1.5fr 1.5fr repeat(7, 1fr) !important;
     gap: 7px;
     padding: 0px 10px;
@@ -1962,7 +1962,7 @@ h3,
 .calendario-media .linha {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-areas: &#39;ordem mediasp&#39;;
+    grid-template-areas: 'ordem mediasp';
     gap: 7px;
 }
 
@@ -2448,7 +2448,7 @@ font-weight: 500;
   
   
   .audienciadiaria-titulo::before{
-  content:&#39;Audiência Diária das Emissoras&#39;
+  content:'Audiência Diária das Emissoras'
 }
 
   .maioresaud-emissora-titulo{
@@ -2459,7 +2459,7 @@ font-size: var(--fonte-25) !important;
     color: var(--cor-20) !important;}
   
     .maioresaud-emissora-titulo::before {
-        content: &#39;Maiores audiências no dia por emissora&#39;
+        content: 'Maiores audiências no dia por emissora'
     }
 
     .grafico-emissora {
@@ -2523,7 +2523,7 @@ font-size: var(--fonte-25) !important;
 
     .grafico-emissora-diaria .anterior::before,
     .grafico-emissora-diaria .proxima::before {
-        content: &#39;Ir para o dia&#39;;
+        content: 'Ir para o dia';
         font-weight: 500;
         padding-bottom: 5px;
         font-size: var(--fonte-12);
@@ -2539,8 +2539,8 @@ font-size: var(--fonte-25) !important;
 }
   .grafico-emissora-anual .atual::before,
     .grafico-emissora-diaria .atual::before {
-        content: &#39;
-        Audiências do dia&#39;
+        content: '
+        Audiências do dia'
         ;
         font-weight: 500;
         padding-bottom: 5px;
@@ -2562,7 +2562,7 @@ font-size: var(--fonte-25) !important;
 
     .grafico-emissora .mediageral::before {
         font-size: var(--fonte-14);
-        content: &#39;Média Geral: &#39;
+        content: 'Média Geral: '
     }
 
     .grafico-emissora > :first-child {
@@ -3068,7 +3068,7 @@ background: radial-gradient(circle, #1995ee, #0f5d91);
         border-radius: 12px;
         gap: 20px;
         background-color: rgba(0, 0, 0, 0.3);
-grid-template-areas: &#39;titulo producao1 producao2 producao3 producao4 producao5&#39;;
+grid-template-areas: 'titulo producao1 producao2 producao3 producao4 producao5';
   }
 
     .bloco-homepage .emissora img {
@@ -3501,7 +3501,7 @@ grid-template-areas: &#39;titulo producao1 producao2 producao3 producao4 produca
     height: 100%;
     object-fit: cover;
     background-size:cover;
-  background-image:url(&#39;https://github.com/audienciaon/capas/blob/main/adefinir.png?raw=true&#39;)
+  background-image:url('https://github.com/audienciaon/capas/blob/main/adefinir.png?raw=true')
   }
   
   .pagina-pesquisa .resultados .linha img:before {
@@ -3591,10 +3591,10 @@ grid-template-areas: &#39;titulo producao1 producao2 producao3 producao4 produca
       gap:30px;
       margin:20px 0px;
       align-items:center !important;
-  	  grid-template-areas: &#39;titulopagina titulopagina titulopagina titulopagina titulopagina titulopagina titulopagina titulopagina emexibicao emexibicao&#39;
-&#39;dadospagina dadospagina dadospagina dadospagina dadospagina dadospagina dadospagina dadospagina emexibicao emexibicao&#39;
-&#39;dadospagina dadospagina dadospagina dadospagina dadospagina dadospagina dadospagina dadospagina emexibicao emexibicao&#39;
-&#39;outraspaginas outraspaginas outraspaginas outraspaginas outraspaginas outraspaginas outraspaginas outraspaginas outraspaginas outraspaginas&#39;
+  	  grid-template-areas: 'titulopagina titulopagina titulopagina titulopagina titulopagina titulopagina titulopagina titulopagina emexibicao emexibicao'
+'dadospagina dadospagina dadospagina dadospagina dadospagina dadospagina dadospagina dadospagina emexibicao emexibicao'
+'dadospagina dadospagina dadospagina dadospagina dadospagina dadospagina dadospagina dadospagina emexibicao emexibicao'
+'outraspaginas outraspaginas outraspaginas outraspaginas outraspaginas outraspaginas outraspaginas outraspaginas outraspaginas outraspaginas'
 
       }
 
@@ -3762,7 +3762,7 @@ padding: 20px;
   background-color:var(--cor-texto)}
   
   .autores-horario img{
-  background-image:url(&#39;https://raw.githubusercontent.com/audienciaon/capas/refs/heads/main/adefinir.png&#39;);
+  background-image:url('https://raw.githubusercontent.com/audienciaon/capas/refs/heads/main/adefinir.png');
   background-size:cover}
   
             .autores-horario .comparacoes-horario .item img{
@@ -4159,11 +4159,11 @@ padding:30px !important}
       
 
     .series .temporadas-titulo::before {
-        content: &#39;Temporadas, episódios e média de audiência das temporadas&#39;
+        content: 'Temporadas, episódios e média de audiência das temporadas'
     }
 
     .series .media-temporadas-titulo::before {
-        content: &#39;Média de audiência por temporada&#39;
+        content: 'Média de audiência por temporada'
     }
 
     .series .temporadas {display:grid;grid-template-columns:1fr;gap:30px}
@@ -4198,7 +4198,7 @@ padding:30px !important}
         row-gap: 10px;
         column-gap: 30px;
         text-align: center !important;
-        grid-template-areas: &#39;imagem imagem&#39; &#39;ano ano&#39; &#39;episodios audiencia&#39;
+        grid-template-areas: 'imagem imagem' 'ano ano' 'episodios audiencia'
     }
 
     .series .umatemporada .ano {
@@ -4219,12 +4219,12 @@ padding:30px !important}
     }
 
     .series .umatemporada .episodios::after {
-        content: &#39;episódios&#39;;
+        content: 'episódios';
         display: block
     }
 
     .series .umatemporada .audiencia::after {
-        content: &#39;pontos&#39;;
+        content: 'pontos';
         display: block
     }
 
@@ -4253,28 +4253,28 @@ padding:30px !important}
 }
   
   .series .cabecalho .qtde-temporadas::before {
-        content: &#39;, com &#39;!important;
+        content: ', com '!important;
   opacity:0.5;
     }
 
     .series .cabecalho .capitulos::before {
-        content: &#39; em &#39;!important
+        content: ' em '!important
     }
 
   .realityshows .cabecalho .capitulos::after,
   .series .cabecalho .capitulos::after {
   margin-left:4px;
-        content: &#39;episódios&#39;!important
+        content: 'episódios'!important
     }
   
   .programa .cabecalho .capitulos::after{
   margin-left:4px;
-        content: &#39;exibições&#39;!important
+        content: 'exibições'!important
     }
   
   .programa.noar .cabecalho .capitulos::after{
   margin-left:4px;
-        content: &#39;exibições até agora&#39;!important
+        content: 'exibições até agora'!important
     }
   
   .series .dia-dom::before{content:"na Faixa de Shows dos domingos"}
@@ -4384,7 +4384,7 @@ padding:30px !important}
     }
 
     .calendario .linha {
-        grid-template-areas: &#39;ordem inicio inicio dia1 dia2 dia3 dia4 dia5 dia6 dia7&#39; !important;
+        grid-template-areas: 'ordem inicio inicio dia1 dia2 dia3 dia4 dia5 dia6 dia7' !important;
         grid-template-columns: repeat(10, 1fr) !important;
         padding: 5px !important;
         gap: 5px !important;
@@ -4543,7 +4543,7 @@ padding:30px !important}
 
     .informacoes {
         grid-template-areas:
-            &#39;imagem&#39; &#39;informacoes&#39; &#39;versoes&#39; !important;
+            'imagem' 'informacoes' 'versoes' !important;
         grid-template-columns: 1fr !important;
     }
 
@@ -4689,7 +4689,7 @@ padding:30px !important}
 
 
     .calendario .linha {
-        grid-template-areas: &#39;ordem inicio inicio dia1 dia2 dia3 dia4 dia5 dia6 dia7&#39; !important;
+        grid-template-areas: 'ordem inicio inicio dia1 dia2 dia3 dia4 dia5 dia6 dia7' !important;
         grid-template-columns: repeat(10, 1fr) !important;
         padding: 2px !important;
         gap: 5px !important;
@@ -4730,7 +4730,7 @@ padding:30px !important}
         column-gap: 20px !important;
         grid-template-rows: 30px auto !important;
         grid-template-areas:
-            &#39;ano ano&#39; &#39;episodios audiencia&#39; !important;
+            'ano ano' 'episodios audiencia' !important;
     }
 
     .series .umatemporada .infos .ano {
