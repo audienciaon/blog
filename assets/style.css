@@ -166,8 +166,8 @@ background: linear-gradient(to bottom, var(--cor-10) 0%, #11111190 20%, #1111119
   content:"Pesquise a sua produção, o seu diretor ou seu autor aqui"
 }
 
-#menu .redesocial i{
-  font-size:40px;
+.redesocial i{
+  font-size:var(--fonte-30);
 }
 
   #tituloblog .row{
