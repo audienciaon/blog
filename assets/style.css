@@ -27,8 +27,17 @@
   }
   
   
-  
-  /* Remove sublinhado padrão */
+  footer .lista{
+	  display:grid;
+	  grid-template-columns:repeat(3, 1fr);
+	  gap:10px;
+	  font-size:var(--fonte-12);
+  }
+
+footer a{opacity:70%}
+footer a:hover{opacity:100%}
+
+/* Remove sublinhado padrão */
 .cabecalho a {
   text-decoration: none;
   color: inherit; /* mantém cor do texto atual */
