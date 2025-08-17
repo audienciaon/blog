@@ -86,13 +86,12 @@ document.addEventListener("DOMContentLoaded", () => {
   loadComponent("header", "/assets/header.html");
   loadComponent("footer", "/assets/footer.html");
 
-  // --- Forçar CSS/JS a recarregar com cache busting ---
-  document.querySelectorAll("link[rel='stylesheet'], script[src]").forEach(el => {
-    const srcAttr = el.tagName === "LINK" ? "href" : "src";
-    const original = el.getAttribute(srcAttr);
-    // Só altera se não tiver ?v= já definido
-    if (original && !original.includes("?v=")) {
-      el.setAttribute(srcAttr, versioned(original));
-    }
-  });
+// --- Forçar cache busting apenas no CSS e JS ---
+document.querySelectorAll("link[rel='stylesheet'], script[src]").forEach(el => {
+  const srcAttr = el.tagName === "LINK" ? "href" : "src";
+  const original = el.getAttribute(srcAttr);
+  if (original && !original.includes("?v=")) {
+    el.setAttribute(srcAttr, versioned(original));
+  }
 });
+
