@@ -3,19 +3,83 @@
 <head>
   <meta charset="UTF-8">
   <title>Meu Blog</title>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <script src="assets/js/main.js" defer></script>
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/main.js" defer></script>
 </head>
 <body>
   <div id="header"></div>
 
   <main>
-    <h1>Bem-vindo ao Blog</h1>
-    <p>As páginas estão organizadas por ano:</p>
-    <ul>
-      <li><a href="blog/2025/pagina1.html">Página 1 de 2025</a></li>
-      <li><a href="blog/2024/pagina1.html">Página 1 de 2024</a></li>
-    </ul>
+
+    <div id="principal">
+      <h1>O seu blog especializado em audiências da televisão brasileira</h1>
+      <p>Aqui você encontra gráficos, comparações, tabelas gerais e outras informações sobre produções, incluindo telenovelas, minisséries, programas diários, reality shows, jornalismo e muito mais! Esperamos que você aproveite o conteúdo e siga nossos perfis nas redes sociais!</p>
+    </div>
+  
+  
+  <h2>As últimas atualizações</h2>
+  
+  <div id="atualizacoes"></div>
+
+<script>
+const user = "audienciaon";
+const repo = "blog";
+const branch = "main"; // ou "master"
+
+async function fetchUpdatedHTML() {
+  const apiURL = `https://api.github.com/repos/${user}/${repo}/git/trees/${branch}?recursive=1`;
+  const container = document.getElementById("atualizacoes");
+  container.innerHTML = "";
+
+  try {
+    const res = await fetch(apiURL);
+    const data = await res.json();
+    if (!data.tree) return;
+
+    let htmlFiles = data.tree.filter(file => 
+      file.path.endsWith(".html") && 
+      !["index.html","pesquisa.html"].includes(file.path.split("/").pop())
+    );
+
+    const commitsPromises = htmlFiles.map(async file => {
+      const commitRes = await fetch(`https://api.github.com/repos/${user}/${repo}/commits?path=${file.path}&page=1&per_page=1`);
+      const commitData = await commitRes.json();
+      return {
+        path: file.path,
+        url: `https://${user}.github.io/${repo}/${file.path}`,
+        lastUpdate: commitData[0]?.commit?.committer?.date || ""
+      };
+    });
+
+    let commits = await Promise.all(commitsPromises);
+    commits.sort((a,b) => new Date(b.lastUpdate) - new Date(a.lastUpdate));
+
+    commits.slice(0,12).forEach(item => {
+      const div = document.createElement("div");
+      div.classList.add("item");
+      div.innerHTML = `
+        <a href="${item.url}">
+          <img src="https://via.placeholder.com/150?text=${item.path.split('/').pop()}" alt="${item.path.split('/').pop()}" />
+        </a>
+      `;
+      container.appendChild(div);
+    });
+
+  } catch(err) {
+    // Nenhum erro será exibido
+  }
+}
+
+fetchUpdatedHTML();
+</script>
+
+  
+  <h2>Produções no Ar</h2>
+
+    
+    
+    <h2>Categorias por Emissora</h2>
+  
   </main>
 
   <div id="footer"></div>
