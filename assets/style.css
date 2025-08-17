@@ -1191,7 +1191,9 @@ align-self:center;
 .info4 .cap150,
 .info4 .cap150,
 .info4 .totalcap {
-    font-size: var(--fonte-40) !important;
+    font-size: var(--fonte-50) !important;
+	font-family:Fraunces;
+	font-weight:900;
     line-height: 1.4;
 }
 
@@ -1565,6 +1567,8 @@ background-color: var(--cor-50-fade) !important;
     font-size: var(--fonte-14) !important;
     display: inline-block;
     line-height: 1.5;
+	font-family:Geist;
+	font-weight:500;
   }
 
 .cap25 .data::before,
