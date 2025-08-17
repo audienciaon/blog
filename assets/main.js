@@ -83,8 +83,8 @@ document.addEventListener("DOMContentLoaded", () => {
   addHeadAssets();
 
   // --- Carregar header e footer ---
-  loadComponent("header", "/assets/header.html");
-  loadComponent("footer", "/assets/footer.html");
+loadComponent("header", "https://audienciaon.github.io/blog/assets/header.html");
+loadComponent("footer", "https://audienciaon.github.io/blog/assets/footer.html");
 
 // --- Forçar cache busting apenas no CSS e JS ---
 document.querySelectorAll("link[rel='stylesheet'], script[src]").forEach(el => {
