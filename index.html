@@ -82,7 +82,7 @@
 const user = "audienciaon";
 const repo = "blog";
 const branch = "main";
-const MAX_RENDER = 18;
+const MAX_RENDER = 12;
 const PLACEHOLDER = "https://via.placeholder.com/300x180?text=Sem+imagem";
 
 async function carregarAtualizacoes() {
@@ -90,13 +90,11 @@ async function carregarAtualizacoes() {
   container.innerHTML = "";
 
   try {
-    // 1. Pega a lista de arquivos HTML do repo
     const apiURL = `https://api.github.com/repos/${user}/${repo}/git/trees/${branch}?recursive=1`;
     const res = await fetch(apiURL);
     const data = await res.json();
     if (!data.tree) return;
 
-    // 2. Filtra arquivos HTML válidos (não raiz, não assets)
     let htmlFiles = data.tree
       .filter(f => f.type === "blob" && f.path.endsWith(".html"))
       .filter(f => !["index.html","pesquisa.html"].includes(f.path.split("/").pop()))
@@ -105,17 +103,30 @@ async function carregarAtualizacoes() {
         return parts.length > 1 && parts[0] !== "assets";
       });
 
-    // 3. Ordena pelo nome do arquivo (mais recente primeiro)
+    // Ordena pelo nome (mais recente primeiro)
     htmlFiles.sort((a,b) => a.path < b.path ? 1 : -1);
 
-    // 4. Cria elementos para os top 12
-    htmlFiles.slice(0, MAX_RENDER).forEach(f => {
+    // Pega os top 12
+    const topFiles = htmlFiles.slice(0, MAX_RENDER);
+
+    for (const f of topFiles) {
       const url = `https://${user}.github.io/${repo}/${f.path}`;
+      let img = PLACEHOLDER;
+
+      try {
+        // Busca a imagem dentro de .publicacao
+        const htmlRes = await fetch(url);
+        const htmlText = await htmlRes.text();
+        const doc = new DOMParser().parseFromString(htmlText, "text/html");
+        const imgEl = doc.querySelector(".publicacao img") || doc.querySelector("img");
+        if (imgEl?.src) img = imgEl.src;
+      } catch {}
+
       const div = document.createElement("div");
       div.className = "item";
-      div.innerHTML = `<a href="${url}"><img src="${PLACEHOLDER}" alt="${f.path.split('/').pop()}" loading="lazy" /></a>`;
+      div.innerHTML = `<a href="${url}"><img src="${img}" alt="${f.path.split('/').pop()}" loading="lazy" /></a>`;
       container.appendChild(div);
-    });
+    }
 
   } catch(e) {
     console.error("Erro ao carregar atualizações", e);
@@ -124,7 +135,6 @@ async function carregarAtualizacoes() {
 
 carregarAtualizacoes();
 </script>
-
 
 
 
