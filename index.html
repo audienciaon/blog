@@ -17,92 +17,7 @@
     </div>
   
    
-  <h2>As últimas atualizações</h2>
-  
-<div id="atualizacoes"></div>
 
-<script>
-const user = "audienciaon";
-const repo = "blog";
-const branch = "main";
-const MAX_RENDER = 12;
-const PLACEHOLDER = "https://via.placeholder.com/300x180?text=Sem+imagem";
-
-async function carregarAtualizacoes() {
-  const container = document.getElementById("atualizacoes");
-  container.innerHTML = "";
-
-  try {
-    // 1. Pega a lista de arquivos HTML do repo
-    const apiURL = `https://api.github.com/repos/${user}/${repo}/git/trees/${branch}?recursive=1`;
-    const res = await fetch(apiURL);
-    const data = await res.json();
-    if (!data.tree) return;
-
-    let htmlFiles = data.tree
-      .filter(f => f.type === "blob" && f.path.endsWith(".html"))
-      .filter(f => !["index.html","pesquisa.html"].includes(f.path.split("/").pop()));
-
-    // 2. Monta URL do GitHub Pages e pega Last-Modified
-    const filesWithDate = await Promise.all(htmlFiles.map(async f => {
-      const url = `https://${user}.github.io/${repo}/${f.path}`;
-      let lastModified;
-      try {
-        const head = await fetch(url, { method: "HEAD" });
-        lastModified = head.headers.get("last-modified") || new Date().toISOString();
-      } catch {
-        lastModified = new Date().toISOString();
-      }
-      return { url, path: f.path, lastModified: new Date(lastModified) };
-    }));
-
-    // 3. Ordena pelo mais recente
-    filesWithDate.sort((a,b) => b.lastModified - a.lastModified);
-
-    // 4. Pega imagem de cada HTML (somente top recentes)
-    const topFiles = filesWithDate.slice(0, MAX_RENDER);
-    for (const f of topFiles) {
-      let img = PLACEHOLDER;
-      try {
-        const htmlRes = await fetch(f.url);
-        const htmlText = await htmlRes.text();
-        const doc = new DOMParser().parseFromString(htmlText, "text/html");
-        const imgEl = doc.querySelector(".publicacao img") || doc.querySelector("img");
-        if (imgEl?.src) img = imgEl.src;
-      } catch {}
-      const div = document.createElement("div");
-      div.className = "item";
-      div.innerHTML = `<a href="${f.url}"><img src="${img}" alt="${f.path.split('/').pop()}" loading="lazy" /></a>`;
-      container.appendChild(div);
-    }
-
-  } catch(e) {
-    console.error("Erro ao carregar atualizações", e);
-  }
-}
-
-carregarAtualizacoes();
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
- 
 
     <h2>Produções no Ar</h2>
 
@@ -161,6 +76,54 @@ carregarAtualizacoes();
 
 
 
+<div id="atualizacoes"></div>
+
+<script>
+const user = "audienciaon";
+const repo = "blog";
+const branch = "main";
+const MAX_RENDER = 12;
+const PLACEHOLDER = "https://via.placeholder.com/300x180?text=Sem+imagem";
+
+async function carregarAtualizacoes() {
+  const container = document.getElementById("atualizacoes");
+  container.innerHTML = "";
+
+  try {
+    // 1. Pega a lista de arquivos HTML do repo
+    const apiURL = `https://api.github.com/repos/${user}/${repo}/git/trees/${branch}?recursive=1`;
+    const res = await fetch(apiURL);
+    const data = await res.json();
+    if (!data.tree) return;
+
+    // 2. Filtra arquivos HTML válidos (não raiz, não assets)
+    let htmlFiles = data.tree
+      .filter(f => f.type === "blob" && f.path.endsWith(".html"))
+      .filter(f => !["index.html","pesquisa.html"].includes(f.path.split("/").pop()))
+      .filter(f => {
+        const parts = f.path.split("/");
+        return parts.length > 1 && parts[0] !== "assets";
+      });
+
+    // 3. Ordena pelo nome do arquivo (mais recente primeiro)
+    htmlFiles.sort((a,b) => a.path < b.path ? 1 : -1);
+
+    // 4. Cria elementos para os top 12
+    htmlFiles.slice(0, MAX_RENDER).forEach(f => {
+      const url = `https://${user}.github.io/${repo}/${f.path}`;
+      const div = document.createElement("div");
+      div.className = "item";
+      div.innerHTML = `<a href="${url}"><img src="${PLACEHOLDER}" alt="${f.path.split('/').pop()}" loading="lazy" /></a>`;
+      container.appendChild(div);
+    });
+
+  } catch(e) {
+    console.error("Erro ao carregar atualizações", e);
+  }
+}
+
+carregarAtualizacoes();
+</script>
 
 
 
