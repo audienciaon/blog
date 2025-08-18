@@ -22,7 +22,7 @@
   <div id="atualizacoes"></div>
 
 <script>
-  const user = "audienciaon";
+const user = "audienciaon";
 const repo = "blog";
 const branch = "main";
 
@@ -36,62 +36,56 @@ async function fetchUpdatedHTML() {
     const data = await res.json();
     if (!data.tree) return;
 
-    let htmlFiles = data.tree.filter(file => 
-      file.path.endsWith(".html") && 
+    let htmlFiles = data.tree.filter(file =>
+      file.path.endsWith(".html") &&
       !["index.html","pesquisa.html"].includes(file.path.split("/").pop())
     );
 
-    const commitsPromises = htmlFiles.map(async file => {
-      // commit mais recente
-      const commitRes = await fetch(`https://api.github.com/repos/${user}/${repo}/commits?path=${file.path}&page=1&per_page=1`);
-      const commitData = await commitRes.json();
+    // pega até 30 para não estourar limites
+    htmlFiles = htmlFiles.slice(-30);
 
+    const filesData = await Promise.all(htmlFiles.map(async file => {
       const fileURL = `https://${user}.github.io/${repo}/${file.path}`;
-      let imgURL = "";
+      let imgURL = "https://via.placeholder.com/150?text=Sem+imagem";
+      let lastUpdate = "";
 
       try {
         const htmlRes = await fetch(fileURL);
         const htmlText = await htmlRes.text();
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(htmlText, "text/html");
-        const mainEl = doc.querySelector("main");
-        if (mainEl) {
-          const imgEl = mainEl.querySelector("img");
-          if (imgEl) imgURL = imgEl.src;
-        }
-      } catch(e) {
-        imgURL = ""; // fallback
-      }
+        const doc = new DOMParser().parseFromString(htmlText, "text/html");
 
-      return {
-        path: file.path,
-        url: fileURL,
-        lastUpdate: commitData[0]?.commit?.committer?.date || "",
-        imgURL: imgURL || "https://via.placeholder.com/150?text=Sem+imagem"
-      };
-    });
+        // pega meta date
+        const metaDate = doc.querySelector("meta[name='date'], meta[property='article:published_time']");
+        if (metaDate) lastUpdate = metaDate.content;
 
-    let commits = await Promise.all(commitsPromises);
-    commits.sort((a,b) => new Date(b.lastUpdate) - new Date(a.lastUpdate));
+        // pega imagem
+        let imgEl = doc.querySelector(".publicacao img") || doc.querySelector("img");
+        if (imgEl?.src) imgURL = imgEl.src;
+      } catch(e) {}
 
-    commits.slice(0,12).forEach(item => {
+      return { url: fileURL, imgURL, lastUpdate };
+    }));
+
+    // ordena pela data do meta
+    filesData.sort((a,b) => new Date(b.lastUpdate) - new Date(a.lastUpdate));
+
+    filesData.slice(0,12).forEach(item => {
       const div = document.createElement("div");
       div.classList.add("item");
       div.innerHTML = `
         <a href="${item.url}">
-          <img src="${item.imgURL}" alt="${item.path.split('/').pop()}" />
+          <img src="${item.imgURL}" alt="Publicação" />
         </a>
       `;
       container.appendChild(div);
     });
 
-  } catch(err) {
-    // Nenhum erro será exibido
+  } catch(e) {
+    console.error("Erro:", e);
   }
 }
 
 fetchUpdatedHTML();
-
 </script>
 
 
