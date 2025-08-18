@@ -1,11 +1,87 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <title>Audiência On</title>
   <link rel="stylesheet" href="assets/style.css">
   <script src="assets/main.js" defer></script>
 </head>
+<style>
+
+#producoesnoar{
+  display:grid;
+  grid-template-columns:repeat(5, 1fr);
+  gap:30px;
+  box-sizing:border-box;
+  overflow:hidden;
+  border-radius:8px;
+}
+
+#producoesnoar .item{
+  background-size:cover;
+  background-position:center;
+}
+
+#producoesnoar .content{
+  box-sizing:border-box;
+  height:100%;
+  width:100%;
+  padding:20px;
+  backdrop-filter:blur(30px);
+  display:grid;
+  gap:15px;
+  grid-template-columns:1fr;
+  text-align:center;
+
+}
+
+#producoesnoar .emissora{
+  width:40px;
+  margin:0 auto;
+  filter: brightness(0) invert(1);
+}
+
+#producoesnoar .emissora img{
+  border-radius:5px;
+  width:100%;
+}
+
+#producoesnoar .capa{
+  width:70%;
+  margin: 0 auto;
+}
+
+
+#producoesnoar .tag-noar::before{
+  content:"No Ar: Acesse Aqui";
+  text-transform:uppercase;
+  padding:4px 8px;
+background-color:var(--cor-80-fade);
+font-weight:800;
+font-size:var(--fonte-12);
+margin-top:-30px;
+
+}
+
+#producoesnoar .botao::before{
+    content:"acesse a página aqui";
+  text-transform:uppercase;
+  padding:4px 8px;
+background-color:var(--cor-80-fade);
+font-weight:800;
+font-size:var(--fonte-12);
+
+}
+
+#producoesnoar h3{padding:0; margin:0}
+
+
+
+
+
+</style>
+
 <body>
   <div id="header"></div>
 
@@ -13,95 +89,208 @@
 
     <div id="principal">
       <h1>O seu blog especializado em audiências da televisão brasileira</h1>
-      <p>Aqui você encontra gráficos, comparações, tabelas gerais e outras informações sobre produções, incluindo telenovelas, minisséries, programas diários, reality shows, jornalismo e muito mais! Esperamos que você aproveite o conteúdo e siga nossos perfis nas redes sociais!</p>
+      <p>Aqui você encontra gráficos, comparações, tabelas gerais e outras informações sobre produções, incluindo
+        telenovelas, minisséries, programas diários, reality shows, jornalismo e muito mais! Esperamos que você
+        aproveite o conteúdo e siga nossos perfis nas redes sociais!</p>
     </div>
-  
-   
-  <h2>As últimas atualizações</h2>
-  
-  <div id="atualizacoes"></div>
 
-<script>
-  const user = "audienciaon";
-const repo = "blog";
-const branch = "main";
 
-async function fetchUpdatedHTML() {
-  const apiURL = `https://api.github.com/repos/${user}/${repo}/git/trees/${branch}?recursive=1`;
-  const container = document.getElementById("atualizacoes");
-  container.innerHTML = "";
 
-  try {
-    const res = await fetch(apiURL);
-    const data = await res.json();
-    if (!data.tree) return;
 
-    let htmlFiles = data.tree.filter(file => 
-      file.path.endsWith(".html") && 
-      !["index.html","pesquisa.html"].includes(file.path.split("/").pop())
-    );
+    <h2>As últimas atualizações</h2>
 
-    const commitsPromises = htmlFiles.map(async file => {
-      // commit mais recente
-      const commitRes = await fetch(`https://api.github.com/repos/${user}/${repo}/commits?path=${file.path}&page=1&per_page=1`);
-      const commitData = await commitRes.json();
+    <div id="atualizacoes"></div>
 
-      const fileURL = `https://${user}.github.io/${repo}/${file.path}`;
-      let imgURL = "";
+    
+    <script>
+      const user = "audienciaon";
+      const repo = "blog";
+      const branch = "main";
 
-      try {
-        const htmlRes = await fetch(fileURL);
-        const htmlText = await htmlRes.text();
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(htmlText, "text/html");
-        const mainEl = doc.querySelector("main");
-        if (mainEl) {
-          const imgEl = mainEl.querySelector("img");
-          if (imgEl) imgURL = imgEl.src;
-        }
-      } catch(e) {
-        imgURL = ""; // fallback
-      }
+      async function fetchUpdatedHTML() {
+        const apiURL = `https://api.github.com/repos/${user}/${repo}/git/trees/${branch}?recursive=1`;
+        const container = document.getElementById("atualizacoes");
+        container.innerHTML = "";
 
-      return {
-        path: file.path,
-        url: fileURL,
-        lastUpdate: commitData[0]?.commit?.committer?.date || "",
-        imgURL: imgURL || "https://via.placeholder.com/150?text=Sem+imagem"
-      };
-    });
+        try {
+          const res = await fetch(apiURL);
+          const data = await res.json();
+          if (!data.tree) return;
 
-    let commits = await Promise.all(commitsPromises);
-    commits.sort((a,b) => new Date(b.lastUpdate) - new Date(a.lastUpdate));
+          let htmlFiles = data.tree.filter(file =>
+            file.path.endsWith(".html") &&
+            !["index.html", "pesquisa.html"].includes(file.path.split("/").pop())
+          );
 
-    commits.slice(0,12).forEach(item => {
-      const div = document.createElement("div");
-      div.classList.add("item");
-      div.innerHTML = `
+          const commitsPromises = htmlFiles.map(async file => {
+            // commit mais recente
+            const commitRes = await fetch(`https://api.github.com/repos/${user}/${repo}/commits?path=${file.path}&page=1&per_page=1`);
+            const commitData = await commitRes.json();
+
+            const fileURL = `https://${user}.github.io/${repo}/${file.path}`;
+            let imgURL = "";
+
+            try {
+              const htmlRes = await fetch(fileURL);
+              const htmlText = await htmlRes.text();
+              const parser = new DOMParser();
+              const doc = parser.parseFromString(htmlText, "text/html");
+              const mainEl = doc.querySelector("main");
+              if (mainEl) {
+                const imgEl = mainEl.querySelector("img");
+                if (imgEl) imgURL = imgEl.src;
+              }
+            } catch (e) {
+              imgURL = ""; // fallback
+            }
+
+            return {
+              path: file.path,
+              url: fileURL,
+              lastUpdate: commitData[0]?.commit?.committer?.date || "",
+              imgURL: imgURL || "https://via.placeholder.com/150?text=Sem+imagem"
+            };
+          });
+
+          let commits = await Promise.all(commitsPromises);
+          commits.sort((a, b) => new Date(b.lastUpdate) - new Date(a.lastUpdate));
+
+          commits.slice(0, 12).forEach(item => {
+            const div = document.createElement("div");
+            div.classList.add("item");
+            div.innerHTML = `
         <a href="${item.url}">
           <img src="${item.imgURL}" alt="${item.path.split('/').pop()}" />
         </a>
       `;
-      container.appendChild(div);
-    });
+            container.appendChild(div);
+          });
 
-  } catch(err) {
-    // Nenhum erro será exibido
+        } catch (err) {
+          // Nenhum erro será exibido
+        }
+      }
+
+      fetchUpdatedHTML();
+
+    </script>
+
+
+
+<script>
+const user = "audienciaon";
+const repo = "blog";
+const branch = "main";
+
+async function updateProducoesNoAr() {
+  const container = document.getElementById("producoesnoar");
+  if (!container) return;
+
+  try {
+    // Buscar lista de arquivos do repositório
+    const apiURL = `https://api.github.com/repos/${user}/${repo}/git/trees/${branch}?recursive=1`;
+    const res = await fetch(apiURL);
+    const data = await res.json();
+    if (!data.tree) return;
+
+    const htmlFiles = data.tree.filter(file => 
+      file.path.endsWith(".html") && !["index.html","pesquisa.html"].includes(file.path.split("/").pop())
+    );
+
+    const items = container.querySelectorAll(".item");
+
+    for (let item of items) {
+      const tag = item.dataset.tag;
+      if (!tag) continue;
+
+      const matchedPages = [];
+
+      for (let file of htmlFiles) {
+        const fileURL = `https://${user}.github.io/${repo}/${file.path}`;
+        try {
+          const htmlRes = await fetch(fileURL);
+          const htmlText = await htmlRes.text();
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(htmlText, "text/html");
+
+          // Procurar a tag específica na página
+          const pageTags = Array.from(doc.querySelectorAll("[data-tag]")).map(el => el.dataset.tag);
+          if (pageTags.includes(tag)) {
+            const metaDate = doc.querySelector('meta[name="date"]')?.content || "1970-01-01";
+            const firstImg = doc.querySelector(".publicacao img")?.src || "";
+            const hasNoAr = pageTags.includes("No Ar");
+
+            matchedPages.push({
+              url: fileURL,
+              img: firstImg,
+              date: new Date(metaDate),
+              noAr: hasNoAr
+            });
+          }
+        } catch(e) {
+          // ignorar páginas com erro
+        }
+      }
+
+      if (matchedPages.length === 0) continue;
+
+      // Seleciona a página mais recente
+      matchedPages.sort((a,b) => b.date - a.date);
+      const latest = matchedPages[0];
+
+      // Atualiza o item
+      item.style.backgroundImage = `url('${latest.img}')`;
+      const capaImg = item.querySelector("a > img.capa");
+      if (capaImg) capaImg.src = latest.img;
+
+      const h3 = item.querySelector("h3");
+      if (h3) h3.textContent = `Produções das ${tag}`;
+
+      if (latest.noAr) item.classList.add("tag-noar");
+    }
+
+  } catch(e) {
+    console.error("Falha ao atualizar produções no ar:", e);
   }
 }
 
-fetchUpdatedHTML();
+updateProducoesNoAr();
 
 </script>
-  
-  <h2>Produções no Ar</h2>
 
-    
-    
+
+    <h2>Produções no Ar</h2>
+
+    <div id="producoesnoar">
+
+
+      <div class="item" data-tag="21h" style="background-image:url('https://audienciaon.github.io/capas/valetudo2025.png')">
+        <div class="content">
+          <img src="https://audienciaon.github.io/emissoras/globo.svg" class="emissora"></img>
+          <h3>Produções das 21h</h3>
+          <a href="https://audienciaon.github.io/blog/p/globo-21h" class="botao"></a>
+          <a href="https://audienciaon.github.io/blog/2025/valetudo2025.html">
+            <img src="https://audienciaon.github.io/capas/valetudo2025.png" class="capa"></a>
+        </div>
+      </div>
+
+      <div class="item" data-tag="19h" style="background-image:url('')">
+        <div class="content">
+          <img src="https://audienciaon.github.io/emissoras/globo.svg" class="emissora"></img>
+          <h3>Produções das 19h</h3>
+          <a href="https://audienciaon.github.io/blog/p/globo-19h" class="botao"></a>
+          <a href="">
+            <img src="" class="capa"></a>
+        </div>
+      </div>
+
+    </div>
+
     <h2>Categorias por Emissora</h2>
-  
+
   </main>
 
   <div id="footer"></div>
 </body>
+
 </html>
