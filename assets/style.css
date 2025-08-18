@@ -113,16 +113,17 @@ footer a:hover{opacity:100%}
 
 #producoesnoar{
   display:grid;
-  grid-template-columns:repeat(5, 1fr);
+  grid-template-columns:repeat(4, 1fr);
   gap:30px;
   box-sizing:border-box;
   overflow:hidden;
-  border-radius:8px;
 }
 
 #producoesnoar .item{
   background-size:cover;
   background-position:center;
+  border-radius:8px;
+	overflow:hidden;
 }
 
 #producoesnoar .content{
@@ -145,13 +146,13 @@ footer a:hover{opacity:100%}
 }
 
 #producoesnoar .emissora img{
-  border-radius:5px;
   width:100%;
 }
 
 #producoesnoar .capa{
   width:70%;
   margin: 0 auto;
+  border-radius:5px;
 }
 
 
