@@ -1,0 +1,37 @@
+name: Atualizar JSON de publicações
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Gerar JSON
+        run: |
+          mkdir -p public
+          echo "[" > atualizacoes.json
+          first=true
+          for f in $(find . -name "*.html" ! -name "index.html" ! -name "pesquisa.html" | sort); do
+            url="https://audienciaon.github.io/blog/${f#./}"
+            img=$(grep -oP '(?<=<img src=")[^"]+' "$f" | head -n1)
+            date=$(grep -oP '(?<=<meta name="date" content=")[^"]+' "$f" | head -n1)
+            [ -z "$img" ] && img="https://via.placeholder.com/300x180?text=Sem+imagem"
+            [ -z "$date" ] && date=$(date -r "$f" +"%Y-%m-%d")
+            $first || echo "," >> atualizacoes.json
+            first=false
+            echo "{ \"url\": \"$url\", \"img\": \"$img\", \"date\": \"$date\" }" >> atualizacoes.json
+          done
+          echo "]" >> atualizacoes.json
+
+      - name: Commit JSON
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git add atualizacoes.json
+          git commit -m "Atualiza lista de publicações" || echo "Nada a atualizar"
+          git push
