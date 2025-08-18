@@ -130,7 +130,7 @@ footer a:hover{opacity:100%}
   box-sizing:border-box;
   height:100%;
   width:100%;
-  padding:20px;
+  padding:20px 30px;
   backdrop-filter:blur(30px);
   display:grid;
   gap:15px;
@@ -177,7 +177,7 @@ font-size:var(--fonte-12);
 
 }
 
-#producoesnoar h3{padding:0; margin:0}
+#producoesnoar h3{padding:0; margin:0;font-size:var(--fonte-16) !important}
 
 
 
