@@ -34,7 +34,10 @@
 	  border-box:box-sizing;
 	  color:var(--cor-90)
   }
-  
+
+footer, main{
+	padding:30px auto
+}
   
   footer .lista{
 	  display:grid;
