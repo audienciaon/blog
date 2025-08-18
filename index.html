@@ -93,8 +93,166 @@ async function fetchUpdatedHTML() {
 fetchUpdatedHTML();
 
 </script>
-  
-  <h2>Produções no Ar</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+<script>
+const user = "audienciaon";
+const repo = "blog";
+const branch = "main";
+
+async function updateProducoesNoAr() {
+  const container = document.getElementById("producoesnoar");
+  if (!container) return;
+
+  try {
+    // Buscar lista de arquivos do repositório
+    const apiURL = `https://api.github.com/repos/${user}/${repo}/git/trees/${branch}?recursive=1`;
+    const res = await fetch(apiURL);
+    const data = await res.json();
+    if (!data.tree) return;
+
+    const htmlFiles = data.tree.filter(file => 
+      file.path.endsWith(".html") && !["index.html","pesquisa.html"].includes(file.path.split("/").pop())
+    );
+
+    const items = container.querySelectorAll(".item");
+
+    for (let item of items) {
+      const tag = item.dataset.tag;
+      if (!tag) continue;
+
+      const matchedPages = [];
+
+      for (let file of htmlFiles) {
+        const fileURL = `https://${user}.github.io/${repo}/${file.path}`;
+        try {
+          const htmlRes = await fetch(fileURL);
+          const htmlText = await htmlRes.text();
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(htmlText, "text/html");
+
+          // Procurar a tag específica na página
+          const pageTags = Array.from(doc.querySelectorAll("[data-tag]")).map(el => el.dataset.tag);
+          if (pageTags.includes(tag)) {
+            const metaDate = doc.querySelector('meta[name="date"]')?.content || "1970-01-01";
+            const firstImg = doc.querySelector(".publicacao img")?.src || "";
+            const hasNoAr = pageTags.includes("No Ar");
+
+            matchedPages.push({
+              url: fileURL,
+              img: firstImg,
+              date: new Date(metaDate),
+              noAr: hasNoAr
+            });
+          }
+        } catch(e) {
+          // ignorar páginas com erro
+        }
+      }
+
+      if (matchedPages.length === 0) continue;
+
+      // Seleciona a página mais recente
+      matchedPages.sort((a,b) => b.date - a.date);
+      const latest = matchedPages[0];
+
+      // Atualiza o item
+      item.style.backgroundImage = `url('${latest.img}')`;
+      const capaImg = item.querySelector("a > img.capa");
+      if (capaImg) capaImg.src = latest.img;
+
+      const h3 = item.querySelector("h3");
+      if (h3) h3.textContent = `Produções das ${tag}`;
+
+      if (latest.noAr) item.classList.add("tag-noar");
+    }
+
+  } catch(e) {
+    console.error("Falha ao atualizar produções no ar:", e);
+  }
+}
+
+updateProducoesNoAr();
+
+</script>
+
+
+    <h2>Produções no Ar</h2>
+
+    <div id="producoesnoar">
+
+
+      <div class="item" data-tag="21h" style="background-image:url('https://audienciaon.github.io/capas/valetudo2025.png')">
+        <div class="content">
+          <img src="https://audienciaon.github.io/emissoras/globo.svg" class="emissora"></img>
+          <h3>Produções das 21h</h3>
+          <a href="https://audienciaon.github.io/blog/p/globo-21h" class="botao"></a>
+          <a href="https://audienciaon.github.io/blog/2025/valetudo2025.html">
+            <img src="https://audienciaon.github.io/capas/valetudo2025.png" class="capa"></a>
+        </div>
+      </div>
+
+      <div class="item" data-tag="19h" style="background-image:url('')">
+        <div class="content">
+          <img src="https://audienciaon.github.io/emissoras/globo.svg" class="emissora"></img>
+          <h3>Produções das 19h</h3>
+          <a href="https://audienciaon.github.io/blog/p/globo-19h" class="botao"></a>
+          <a href="">
+            <img src="" class="capa"></a>
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     
     
