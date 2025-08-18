@@ -22,70 +22,32 @@
   <div id="atualizacoes"></div>
 
 <script>
-const user = "audienciaon";
-const repo = "blog";
-const branch = "main";
-
-async function fetchUpdatedHTML() {
-  const apiURL = `https://api.github.com/repos/${user}/${repo}/git/trees/${branch}?recursive=1`;
+async function carregarAtualizacoes() {
   const container = document.getElementById("atualizacoes");
   container.innerHTML = "";
 
   try {
-    const res = await fetch(apiURL);
+    const res = await fetch("https://audienciaon.github.io/blog/atualizacoes.json");
     const data = await res.json();
-    if (!data.tree) return;
 
-    let htmlFiles = data.tree.filter(file =>
-      file.path.endsWith(".html") &&
-      !["index.html","pesquisa.html"].includes(file.path.split("/").pop())
-    );
+    // ordenar pelas datas
+    data.sort((a,b) => new Date(b.date) - new Date(a.date));
 
-    // pega até 30 para não estourar limites
-    htmlFiles = htmlFiles.slice(-30);
-
-    const filesData = await Promise.all(htmlFiles.map(async file => {
-      const fileURL = `https://${user}.github.io/${repo}/${file.path}`;
-      let imgURL = "https://via.placeholder.com/150?text=Sem+imagem";
-      let lastUpdate = "";
-
-      try {
-        const htmlRes = await fetch(fileURL);
-        const htmlText = await htmlRes.text();
-        const doc = new DOMParser().parseFromString(htmlText, "text/html");
-
-        // pega meta date
-        const metaDate = doc.querySelector("meta[name='date'], meta[property='article:published_time']");
-        if (metaDate) lastUpdate = metaDate.content;
-
-        // pega imagem
-        let imgEl = doc.querySelector(".publicacao img") || doc.querySelector("img");
-        if (imgEl?.src) imgURL = imgEl.src;
-      } catch(e) {}
-
-      return { url: fileURL, imgURL, lastUpdate };
-    }));
-
-    // ordena pela data do meta
-    filesData.sort((a,b) => new Date(b.lastUpdate) - new Date(a.lastUpdate));
-
-    filesData.slice(0,12).forEach(item => {
+    data.slice(0,12).forEach(item => {
       const div = document.createElement("div");
-      div.classList.add("item");
+      div.className = "item";
       div.innerHTML = `
         <a href="${item.url}">
-          <img src="${item.imgURL}" alt="Publicação" />
-        </a>
-      `;
+          <img src="${item.img}" alt="Publicação" loading="lazy" />
+        </a>`;
       container.appendChild(div);
     });
-
   } catch(e) {
-    console.error("Erro:", e);
+    console.error("Erro ao carregar atualizações", e);
   }
 }
 
-fetchUpdatedHTML();
+carregarAtualizacoes();
 </script>
 
 
