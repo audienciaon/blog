@@ -905,8 +905,8 @@ content:"Atualizado em "
     display: grid;
     background-image: none !important;
     gap: 30px;
-    grid-template-columns: 200px 3.5fr 3.5fr 3fr;
-    grid-template-areas: 'imagem informacoes informacoes informacoes versoes'
+    grid-template-columns: 250px 3fr 3fr 3fr;
+    grid-template-areas: 'imagem informacoes informacoes informacoes' 'versoes versoes versoes versoes'
 }
 
 .info1 {
@@ -1263,10 +1263,10 @@ display:none !important
     grid-area: versoes;
     display: grid;
     gap: 10px;
-    grid-template-columns: auto;
-    grid-template-rows: 29px;
-    grid-auto-rows: 29px;
-    font-size: var(--fonte-12);
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: auto;
+    grid-auto-rows: auto;
+    font-size: var(--fonte-14);
 }
 
 .versoes .versao {
