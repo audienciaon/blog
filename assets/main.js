@@ -208,16 +208,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
-
-
-
-  // ===============================
-  // Fontes
-  // ===============================
-fetch("head-fonts.html")
-  .then(res => res.text())
-  .then(data => {
-    document.head.insertAdjacentHTML("beforeend", data);
-  })
-  .catch(err => console.error("Erro ao carregar head-fonts.html:", err));
