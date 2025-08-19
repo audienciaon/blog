@@ -4246,7 +4246,7 @@ padding:30px !important}
   
   .pagina-horario-noar img{
   margin:auto auto;
-  height: 90% !important;
+  width: 100% !important;
   border-radius:4px;
     aspect-ratio: 2 / 3 !important;
   }
