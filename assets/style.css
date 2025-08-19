@@ -454,7 +454,7 @@ img{
     --fonte-14: 14px;
     --fonte-12: 12px;
     --fonte-10: 10px;
-    --font-family: "Geist";
+    --font-family: "Sofia Sans";
   }
 
 
@@ -1791,7 +1791,6 @@ background-color: var(--cor-50-fade) !important;
     font-size: var(--fonte-14) !important;
     display: inline-block;
     line-height: 1.5;
-	font-family:Geist;
 	font-weight:500;
   }
 
@@ -2614,7 +2613,7 @@ background-color: var(--cor-20-fade);
 white-space: nowrap;
 transition: 0.3s;
 font-weight: 500;
-
+font-family:Sofia Sans Extra Condensed;
 }
 
 .grafico-comparacao .linha:hover .barra {
