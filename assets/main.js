@@ -207,26 +207,3 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-
-  // ===============================
-  // Arruma os links sem /blog
-  // ===============================
-
-document.addEventListener("DOMContentLoaded", () => {
-  const base = "https://audienciaon.github.io/";
-  const links = document.querySelectorAll("a[href^='" + base + "']");
-
-  links.forEach(a => {
-    let url = a.getAttribute("href");
-
-    // Remove a parte base para manipular o restante
-    let rest = url.slice(base.length);
-
-    // Remove barras extras
-    rest = rest.replace(/^\/+/, "");       // barra no início
-    rest = rest.replace(/^blog\/+/, "");   // remove blog duplicado no início
-
-    // Reconstrói URL garantindo apenas uma barra e blog/
-    a.href = base + "blog/" + rest;
-  });
-});
