@@ -100,6 +100,8 @@ async function carregarAtualizacoes() {
       .filter(f => !["index.html","pesquisa.html"].includes(f.path.split("/").pop()))
       .filter(f => {
         const parts = f.path.split("/");
+        // Ignora qualquer HTML dentro de /blog/p/
+        if (parts[0] === "blog" && parts[1] === "p") return false;
         return parts.length > 1 && parts[0] !== "assets";
       });
 
