@@ -78,6 +78,8 @@
 
 <div id="atualizacoes"></div>
 
+<div id="atualizacoes"></div>
+
 <script>
 const user = "audienciaon";
 const repo = "blog";
@@ -87,7 +89,6 @@ const PLACEHOLDER = "https://via.placeholder.com/300x180?text=Sem+imagem";
 
 async function carregarAtualizacoes() {
   const container = document.getElementById("atualizacoes");
-  container.innerHTML = "";
 
   try {
     const apiURL = `https://api.github.com/repos/${user}/${repo}/git/trees/${branch}?recursive=1`;
@@ -100,23 +101,19 @@ async function carregarAtualizacoes() {
       .filter(f => !["index.html","pesquisa.html"].includes(f.path.split("/").pop()))
       .filter(f => {
         const parts = f.path.split("/");
-        // Ignora qualquer HTML dentro de /blog/p/
         if (parts[0] === "blog" && parts[1] === "p") return false;
         return parts.length > 1 && parts[0] !== "assets";
       });
 
-    // Ordena pelo nome (mais recente primeiro)
     htmlFiles.sort((a,b) => a.path < b.path ? 1 : -1);
 
-    // Pega os top 12
     const topFiles = htmlFiles.slice(0, MAX_RENDER);
 
-    for (const f of topFiles) {
+    await Promise.all(topFiles.map(async (f) => {
       const url = `https://${user}.github.io/${repo}/${f.path}`;
       let img = PLACEHOLDER;
 
       try {
-        // Busca a imagem dentro de .publicacao
         const htmlRes = await fetch(url);
         const htmlText = await htmlRes.text();
         const doc = new DOMParser().parseFromString(htmlText, "text/html");
@@ -128,15 +125,18 @@ async function carregarAtualizacoes() {
       div.className = "item";
       div.innerHTML = `<a href="${url}"><img src="${img}" alt="${f.path.split('/').pop()}" loading="lazy" /></a>`;
       container.appendChild(div);
-    }
+    }));
 
   } catch(e) {
     console.error("Erro ao carregar atualizações", e);
   }
 }
 
-carregarAtualizacoes();
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(() => carregarAtualizacoes(), 0);
+});
 </script>
+
 
 
 
