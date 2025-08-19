@@ -3889,13 +3889,6 @@ grid-template-areas: 'titulo producao1 producao2 producao3 producao4 producao5';
         \* backdrop-filter: blur(20px) brightness(0.4) *\
 }
  
-<!---      .comparacoes-horario > .item:first-of-type{
-      background-image:none !important}
-
-            .comparacoes-horario > .item:first-of-type .conteudo{
-      backdrop-filter:none !important
-}
-     -->
       
       .comparacoes-horario{
       display:grid;
