@@ -80,12 +80,21 @@
 
 <div id="atualizacoes"></div>
 
+<div id="atualizacoes"></div>
+
 <script>
 const user = "audienciaon";
 const repo = "blog";
 const branch = "main";
 const MAX_RENDER = 12;
 const PLACEHOLDER = "https://via.placeholder.com/300x180?text=Sem+imagem";
+
+// Lista de arquivos a serem ignorados
+const arquivosIgnorados = [
+  "index.html",
+  "pesquisa.html",
+  // adicione outros arquivos que quiser ignorar aqui
+];
 
 async function carregarAtualizacoes() {
   const container = document.getElementById("atualizacoes");
@@ -96,19 +105,22 @@ async function carregarAtualizacoes() {
     const data = await res.json();
     if (!data.tree) return;
 
+    // Filtra arquivos HTML, ignorando os da lista e as pastas assets e p
     let htmlFiles = data.tree
       .filter(f => f.type === "blob" && f.path.endsWith(".html"))
-      .filter(f => !["index.html","pesquisa.html"].includes(f.path.split("/").pop()))
+      .filter(f => !arquivosIgnorados.includes(f.path.split("/").pop()))
       .filter(f => {
         const parts = f.path.split("/");
-        if (parts[0] === "blog" && parts[1] === "p") return false;
-        return parts.length > 1 && parts[0] !== "assets";
+        return parts.length > 1 && parts[0] !== "assets" && parts[0] !== "p";
       });
 
+    // Ordena pelo nome (mais recente primeiro)
     htmlFiles.sort((a,b) => a.path < b.path ? 1 : -1);
 
+    // Pega os top 12
     const topFiles = htmlFiles.slice(0, MAX_RENDER);
 
+    // Carrega cada arquivo e extrai a primeira imagem
     await Promise.all(topFiles.map(async (f) => {
       const url = `https://${user}.github.io/${repo}/${f.path}`;
       let img = PLACEHOLDER;
@@ -136,6 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => carregarAtualizacoes(), 0);
 });
 </script>
+
 
 
 
