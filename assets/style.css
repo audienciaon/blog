@@ -111,8 +111,8 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    width: 500%;
-    height: 500%;
+    width: 100vw;
+    height: 100vh;
     transform: translate(-50%, -50%) rotate(0deg);
     background: linear-gradient(90deg, #002b4a 30%, #1995ee 70%);
     transform-origin: center;
