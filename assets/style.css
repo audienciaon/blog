@@ -1278,6 +1278,7 @@ display:none !important
     padding: 8px 12px;
     border-radius: 8px;
     transition: 0.3s;
+	align-items:center;
 }
 
 .versoes .destacada,
@@ -1287,7 +1288,6 @@ display:none !important
 
 .versoes .ano {
     font-weight: 700;
-    padding-bottom: 5px;
 }
 
 .versoes .modelo {
