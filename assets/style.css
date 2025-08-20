@@ -11,7 +11,8 @@
       html, body {
   font-family: var(--font-family), sans-serif !important;
       user-select: none;
-  transition:0.3s !important
+  transition:0.3s !important;
+		  background-color:#000;
 }
   
   
@@ -1791,7 +1792,6 @@ background-color: var(--cor-50-fade) !important;
     font-size: var(--fonte-14) !important;
     display: inline-block;
     line-height: 1.5;
-	font-family:Geist;
 	font-weight:500;
   }
 
@@ -2614,7 +2614,7 @@ background-color: var(--cor-20-fade);
 white-space: nowrap;
 transition: 0.3s;
 font-weight: 500;
-
+font-family:var(--font-family-condensed);
 }
 
 .grafico-comparacao .linha:hover .barra {
@@ -3889,13 +3889,6 @@ grid-template-areas: 'titulo producao1 producao2 producao3 producao4 producao5';
         \* backdrop-filter: blur(20px) brightness(0.4) *\
 }
  
-<!---      .comparacoes-horario > .item:first-of-type{
-      background-image:none !important}
-
-            .comparacoes-horario > .item:first-of-type .conteudo{
-      backdrop-filter:none !important
-}
-     -->
       
       .comparacoes-horario{
       display:grid;
@@ -4253,7 +4246,7 @@ padding:30px !important}
   
   .pagina-horario-noar img{
   margin:auto auto;
-  height: 90% !important;
+  width: 100% !important;
   border-radius:4px;
     aspect-ratio: 2 / 3 !important;
   }
