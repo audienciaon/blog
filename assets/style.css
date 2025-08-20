@@ -1,4 +1,66 @@
-   
+  :root {
+    --cor-100: #ffffff;
+    --cor-90:  #e6e6e6;
+    --cor-80:  #cccccc;
+    --cor-70:  #b3b3b3;
+    --cor-60:  #999999;
+    --cor-50:  #808080;
+    --cor-40:  #666666;
+    --cor-30:  #4d4d4d;
+    --cor-20:  #333333;
+    --cor-10:  #1a1a1a;
+    --cor-00:  #000000;
+--cor-100-fade: #000000ff; /* 100% */
+--cor-90-fade:  #000000e6; /* 90% */
+--cor-80-fade:  #000000cc; /* 80% */
+--cor-70-fade:  #000000b3; /* 70% */
+--cor-60-fade:  #00000099; /* 60% */
+--cor-50-fade:  #00000080; /* 50% */
+--cor-40-fade:  #00000066; /* 40% */
+--cor-30-fade:  #0000004d; /* 30% */
+--cor-20-fade:  #00000033; /* 20% */
+--cor-10-fade:  #0000001a; /* 10% */
+--cor-00-fade:  #00000000; /* 0% */
+    --cor-texto: #333333;
+    --cor-destaque:#1995ee;
+
+	--fonte-50: 50px;
+    --fonte-40: 40px;
+    --fonte-30: 30px;
+    --fonte-25: 25px;
+    --fonte-20: 20px;
+    --fonte-16: 16px;
+    --fonte-14: 14px;
+    --fonte-12: 12px;
+    --fonte-10: 10px;
+    --font-family: "Sofia Sans";
+    --font-family-condensed: "Sofia Sans Extra Condensed";
+	  --font-family-title:Fraunces;
+	  
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   html{
   	background-size: 100vw 100vh !important;
   	background-repeat: no-repeat;
@@ -262,7 +324,7 @@ a {
 	  margin:0 !important;
   }
 
-h1, h2, h3, h4, h5, h6{font-family:Fraunces}
+h1, h2, h3, h4, h5, h6{font-family:var(--font-family-title)}
 
 
 
@@ -397,65 +459,6 @@ img{
   *, * *, * * *, * * * * {transition:0.3s !important}
 
 
-  :root {
-    --cor-100: #ffffff;
-    --cor-90:  #e6e6e6;
-    --cor-80:  #cccccc;
-    --cor-70:  #b3b3b3;
-    --cor-60:  #999999;
-    --cor-50:  #808080;
-    --cor-40:  #666666;
-    --cor-30:  #4d4d4d;
-    --cor-20:  #333333;
-    --cor-10:  #1a1a1a;
-    --cor-00:  #000000;
---cor-100-fade: #000000ff; /* 100% */
---cor-90-fade:  #000000e6; /* 90% */
---cor-80-fade:  #000000cc; /* 80% */
---cor-70-fade:  #000000b3; /* 70% */
---cor-60-fade:  #00000099; /* 60% */
---cor-50-fade:  #00000080; /* 50% */
---cor-40-fade:  #00000066; /* 40% */
---cor-30-fade:  #0000004d; /* 30% */
---cor-20-fade:  #00000033; /* 20% */
---cor-10-fade:  #0000001a; /* 10% */
---cor-00-fade:  #00000000; /* 0% */
-    --cor-texto: #333333;
-    --cor-destaque:#1995ee;
-  }
-
-
-  /*
-  :root {
-  --cor-100: #000000;
-  --cor-90:  #1a1a1a;
-  --cor-80:  #333333;
-  --cor-70:  #4d4d4d;
-  --cor-60:  #666666;
-  --cor-50:  #808080;
-  --cor-40:  #999999;
-  --cor-30:  #b3b3b3;
-  --cor-20:  #cccccc;
-  --cor-10:  #e6e6e6;
-  --cor-00:  #ffffff;
-  --cor-texto: #cccccc;
-  --cor-destaque: #1995ee;
-}
-*/
-
-/* Fonte */
-   :root {
-    --fonte-50: 50px;
-    --fonte-40: 40px;
-    --fonte-30: 30px;
-    --fonte-25: 25px;
-    --fonte-20: 20px;
-    --fonte-16: 16px;
-    --fonte-14: 14px;
-    --fonte-12: 12px;
-    --fonte-10: 10px;
-    --font-family: "Geist";
-  }
 
 
 
@@ -1029,7 +1032,7 @@ content:"Atualizado em "
 .cabecalho .producao {
     font-size: var(--fonte-30) !important;
     font-weight: 900;
-    font-family:Fraunces;
+    font-family:var(--font-family-title);
 }
 
 .cabecalho .ficha {
@@ -2027,7 +2030,7 @@ h3,
 .grafico-comparacao-titulo::before,
 .elevacaoshare-titulo::before,
 .subtitulo::before{
-  font-family:Fraunces;
+  font-family:var(--font-family-title);
     font-size: var(--fonte-25) !important;
     font-weight: 700 !important;
   margin:0 !important;
