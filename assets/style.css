@@ -157,7 +157,7 @@ footer, main{
   footer .lista{
 	  display:grid;
 	  grid-template-columns:repeat(4, 1fr);
-	  gap:10px;
+	  gap:40px;
 	  line-height:2;
 	  font-size:var(--fonte-12);
   }
