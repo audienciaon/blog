@@ -3959,11 +3959,10 @@ padding: 20px;
     }
       
 
-  .comparacoes-horario .item .infos .audiencia{
-  font-size:var(--fonte-16) !important}
   
     .comparacoes-horario .item .infos .posicao,
     .comparacoes-horario .item .infos .audiencia {
+  font-size:var(--fonte-20) !important
       color:#fff;
       height: calc(100% - 20px);
         align-items: center;
@@ -3973,7 +3972,6 @@ padding: 20px;
 
     .comparacoes-horario .item .infos .posicao {
       letter-spacing:-0.5px;
-        font-size: 28px;
     }
 
     .comparacoes-horario .item .infos .posicao::after{
