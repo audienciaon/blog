@@ -24,15 +24,15 @@
     --cor-texto: #333333;
     --cor-destaque:#1995ee;
 
-	--fonte-50: 50px;
-    --fonte-40: 40px;
-    --fonte-30: 30px;
-    --fonte-25: 25px;
-    --fonte-20: 20px;
-    --fonte-16: 16px;
-    --fonte-14: 14px;
-    --fonte-12: 12px;
-    --fonte-10: 10px;
+	--fonte-50: 55px;
+    --fonte-40: 45px;
+    --fonte-30: 35px;
+    --fonte-25: 30px;
+    --fonte-20: 25px;
+    --fonte-16: 18px;
+    --fonte-14: 16px;
+    --fonte-12: 14px;
+    --fonte-10: 12px;
     --font-family: "Sofia Sans";
     --font-family-condensed: "Sofia Sans Extra Condensed";
 	  --font-family-title:Fraunces;
@@ -2597,8 +2597,10 @@ h3,
 
 .grafico-comparacao .audiencia {
     padding: 8px;
-    font-weight: 700;
-    border-radius: 5px 0px 0px 5px;
+	font-size: var(--fonte-14);
+    font-weight: 900;
+    font-family: var(--font-family-condensed);
+	border-radius: 5px 0px 0px 5px;
     background-color: var(--cor-20-fade);
 }
 
@@ -2615,6 +2617,7 @@ padding: 8px 8px 8px 0px;
 border-radius: 0px 5px 5px 0px;
 background-color: var(--cor-20-fade);
 white-space: nowrap;
+font-size:var(--fonte-14);
 transition: 0.3s;
 font-weight: 500;
 font-family:var(--font-family-condensed);
