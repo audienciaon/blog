@@ -149,10 +149,14 @@
 footer, main{
 	padding:30px auto
 }
-  
+  footer img{
+	  opacity:0.6;
+	  width:100%;
+  }
+
   footer .lista{
 	  display:grid;
-	  grid-template-columns:repeat(3, 1fr);
+	  grid-template-columns:repeat(4, 1fr);
 	  gap:10px;
 	  line-height:2;
 	  font-size:var(--fonte-12);
