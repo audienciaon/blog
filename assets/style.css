@@ -1279,6 +1279,7 @@ display:none !important
     border-radius: 8px;
     transition: 0.3s;
 	align-items:center;
+	gap:10px
 }
 
 .versoes .destacada,
