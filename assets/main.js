@@ -65,10 +65,25 @@ function addHeadAssets() {
     "https://fonts.googleapis.com",
     "https://fonts.gstatic.com",
     "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,100..900;1,100..900&display=swap",
+    "https://fonts.googleapis.com/css2?family=Sofia+Sans:ital,wght@0,100..900;1,100..900&display=swap",
+    "https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed:ital,wght@0,100..900;1,100..900&display=swap",
+    "https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:ital,wght@0,100..900;1,100..900&display=swap",
+    "https://fonts.googleapis.com/css2?family=Sofia+Sans+Semi+Condensed:ital,wght@0,100..900;1,100..900&display=swap",
     "https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&display=swap",
     "https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,100..900;1,100..900&display=swap",
-    "https://fonts.googleapis.com/css2?family=Radi+Canada+Big:ital,wght@0,100..900;1,100..900&display=swap"
+    "https://fonts.googleapis.com/css2?family=Radio+Canada+Big:ital,wght@0,100..900;1,100..900&display=swap"
   ];
+
+
+
+
+
+
+
+
+
+
+  
   fonts.forEach(url => {
     const link = document.createElement("link");
     link.rel = "stylesheet";
