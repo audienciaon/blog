@@ -987,6 +987,11 @@ content:"Atualizado em "
   content: " e ";
 }
 
+.autor a {
+  display: inline;
+}
+
+
   .programa .cabecalho .horario::before,
   .minisserie .cabecalho .horario::before,
   .realityshows .cabecalho .horario::before {
