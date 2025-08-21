@@ -980,27 +980,32 @@ content:"Atualizado em "
 
 
   
-.autor a:not(:last-child)::after,
-.diretor a:not(:last-child)::after {
+.autor, .diretor {
+  display: inline;
+}
+
+.item-autor, .item-diretor {
+  display: inline;
+}
+
+/* vírgula para todos os itens exceto o penúltimo e o último */
+.item-autor:not(:nth-last-child(2)):not(:last-child)::after,
+.item-diretor:not(:nth-last-child(2)):not(:last-child)::after {
   content: ", ";
-  font-weight: normal;
 }
 
-.autor a:nth-last-child(2)::after,
-.diretor a:nth-last-child(2)::after {
+/* "e" apenas antes do último item */
+.item-autor:nth-last-child(2)::after,
+.item-diretor:nth-last-child(2)::after {
   content: " e ";
-  font-weight: normal;
 }
 
-.autor a:only-child::after,
-.diretor a:only-child::after {
+/* nada se for item único */
+.item-autor:only-child::after,
+.item-diretor:only-child::after {
   content: "";
 }
 
-
-.autor a {
-  display: inline;
-}
 
 
   .programa .cabecalho .horario::before,
