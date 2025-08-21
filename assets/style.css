@@ -4190,34 +4190,66 @@ padding:30px !important}
   
   
   
-  .outraspaginas{
-  display:grid !important;
-  grid-template-columns:repeat(5, 1fr);
-  gap:20px;
-  align-items:center;
-  text-align:center;
-  box-sizing:border-box;
-  }
-  
-  
-    .outraspaginas *{
-    font-size: var(--fonte-14);
-    padding: 10px 15px;
-    border-radius: 8px;
-    line-height: 1 !important;
-    font-weight: 500;
-    background-color: var(--cor-30-fade);
-    color: var(--cor-100);
-    
-    display: grid;
-    place-items: center; 
-    word-break: normal;
-    overflow-wrap: normal;
-    white-space: normal;
-    hyphens: auto;
-                                
-  }
-  
+.carrossel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.outraspaginas {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 0px 40px;
+}
+
+.outraspaginas::-webkit-scrollbar {
+  display: none;
+}
+
+/* Card wrapper */
+.outraspaginas > a {
+  position: relative;
+  flex: 0 0 auto;
+  height: 200px;           /* altura fixa */
+  display: block;
+  text-decoration: none;
+  color: #000;
+}
+
+/* Proporção 2:3 */
+.outraspaginas > a > span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #f0f0f0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 2 / 3; /* largura ajustada automaticamente */
+}
+
+/* Setas */
+.outraspaginas .arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  font-size: 2rem;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.outraspaginas .arrow-left { left: 0; }
+.outraspaginas .arrow-right { right: 0; }
+
+
+
 /*
   .outraspaginas::before {
     content: "Outros links";
