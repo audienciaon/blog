@@ -149,11 +149,16 @@
 footer, main{
 	padding:30px auto
 }
-  
+  footer .logo-rodape{
+	  opacity:0.6;
+	  height:30px;
+	  padding: 20px 0 15px !important;
+  }
+
   footer .lista{
 	  display:grid;
-	  grid-template-columns:repeat(3, 1fr);
-	  gap:10px;
+	  grid-template-columns:repeat(4, 1fr);
+	  gap:40px;
 	  line-height:2;
 	  font-size:var(--fonte-12);
   }
@@ -224,7 +229,7 @@ footer a:hover{opacity:100%}
   text-transform:uppercase;
   padding:4px 8px;
 background-color:var(--cor-80-fade);
-font-weight:800;
+font-weight: 900;
 font-size:var(--fonte-12);
 margin-top:-30px;
 
@@ -235,7 +240,7 @@ margin-top:-30px;
   text-transform:uppercase;
   padding:4px 8px;
 background-color:var(--cor-80-fade);
-font-weight:800;
+font-weight: 900;
 font-size:var(--fonte-12);
 
 }
@@ -578,7 +583,7 @@ font-size:40px}
 
 .apresentacao .nome{
 font-size:20px;
-font-weight:700;
+font-weight: 900;
   color:#fff;
 }
 
@@ -683,7 +688,7 @@ font-weight:700;
   content:"no ar";
   background-color:var(--cor-50-fade);
   border-radius:4px;
-  font-weight:800;
+  font-weight: 900;
   margin:-20px auto 0px -10px;
   padding:5px 10px;
   z-index:999;
@@ -703,7 +708,7 @@ opacity:0;
         border-radius: 5px;
         padding: 8px 15px;
         background: linear-gradient(to right, #00000033, transparent);
-        font-weight: 700;
+        font-weight: 900;
         text-decoration: none
     }
 
@@ -768,7 +773,7 @@ opacity:0;
       .titulo-principal{
       font-size:var(--fonte-40) !important;
       color:var(--cor-texto) !important;
-      font-weight:700 !important;
+      font-weight: 900 !important;
       margin-top:0px !important;
       margin-bottom:30px !important;
       padding-top:10px;
@@ -865,7 +870,8 @@ content:"Atualizado em "
   margin-top:8px;
   text-transform:uppercase;
   padding:4px 8px;
-  font-size:var(--fonte-12)}
+  font-size:var(--fonte-16)
+  }
   
  .dadosparciais::before{
   content:"Tabela parcial";
@@ -973,24 +979,30 @@ content:"Atualizado em "
   }
 
 
-.autor a:not(:first-of-type)::before,
-.diretor a:not(:first-of-type)::before {
-    content: ', ';
-  font-weight:normal;
+  
+.autor a:not(:last-of-type)::after,
+.diretor a:not(:last-of-type)::after {
+  content: ", ";
+  font-weight: normal;
 }
 
-.autor a:last-of-type::before,
-.diretor a:last-of-type::before {
-    content: ' e ';
-  font-weight:normal;
+.autor a:nth-last-of-type(2)::after,
+.diretor a:nth-last-of-type(2)::after {
+  content: " e ";
+  font-weight: normal;
 }
-  
-.autor a:only-of-type::before,
-.diretor a:only-of-type::before {
-    content: '';
-    font-weight: normal;
+
+.autor a:only-of-type::after,
+.diretor a:only-of-type::after {
+  content: "";
+  font-weight: normal;
 }
-  
+
+
+.autor a {
+  display: inline;
+}
+
 
   .programa .cabecalho .horario::before,
   .minisserie .cabecalho .horario::before,
@@ -1047,7 +1059,7 @@ content:"Atualizado em "
 }
 
 .cabecalho .autor {
-    font-weight: 700;
+    font-weight: 900;
 }
 
 .cabecalho .autor::before {
@@ -1125,7 +1137,7 @@ display:none !important
   background-color:rgba(255,255,255,0.2);
   border-radius:4px;
   text-transform:uppercase;
-  font-weight:700;
+  font-weight: 900;
   font-size:var(--fonte-12);
   margin-left:10px;
   }
@@ -1183,7 +1195,7 @@ display:none !important
     margin-right: 10px;
     color: #fff;
     font-size: var(--fonte-12) !important;
-    font-weight: 700;
+    font-weight: 900;
     transition: 0.3s;
     opacity: 0.7;
     background-color: rgba(0, 0, 0, 0.3);
@@ -1273,7 +1285,7 @@ display:none !important
 }
 
 .versoes .versao {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: var(--cor-50-fade);
     opacity: 0.5;
     color: #fff;
     display: grid;
@@ -1282,7 +1294,7 @@ display:none !important
     border-radius: 8px;
     transition: 0.3s;
 	align-items:center;
-	gap:10px
+	gap:40px 20px
 }
 
 .versoes .destacada,
@@ -1291,7 +1303,7 @@ display:none !important
 }
 
 .versoes .ano {
-    font-weight: 700;
+    font-weight: 900;
 }
 
 .versoes .modelo {
@@ -1316,7 +1328,7 @@ display:none !important
   aspect-ratio: 3 / 2;
 	background-color: rgba(255, 255, 255, 0.3);
     opacity: 0.5;
-  font-weight:700;
+  font-weight: 900;
     color: #fff;
     font-size:var(--fonte-18);
     border-radius: 8px;
@@ -1449,11 +1461,7 @@ align-self:center;
   
   
 .audpricap .data::before {
-    content: "pontos no primeiro capítulo, em "
-}
-
-.programa .audpricap .data::before {
-    content: "pontos na primeira exibição, em "
+    content: "pontos no primeiro dia, em "
 }
 
 .maioraud .data::before {
@@ -1465,100 +1473,51 @@ align-self:center;
 }
 
 .audultcap .data::before {
-    content: "pontos no último capítulo, em "
-}
-
-.programa .audultcap .data::before {
-    content: "pontos na última exibição, em "
+    content: "pontos no último dia, em "
 }
 
 .nameta::after {
     content: "capítulos atingiram a meta do horário"
 }
 
-/*
-.cap25 .data::before{content:"pontos até o 25º capítulo "}
-.cap50 .data::before{content:"pontos até o 50º capítulo "}
-.cap75 .data::before{content:"pontos até o 75º capítulo "}
-.cap100 .data::before{content:"pontos até o 100º capítulo "}
-.cap150 .data::before{content:"pontos até o 150º capítulo "}
-.totalcap .data::before{content:"pontos de média até o capítulo "}
-*/
 
-.noar .cap25 .data::before {
-    display: inline-block;
-    content: "pontos até o 25º capítulo, em " !important;
+ 
+  
+  
+  
+  
+  
+  
+
+.cap25 .num-cap::before,
+.cap50 .num-cap::before,
+.cap100 .num-cap::before,
+.cap150 .num-cap::before{
+    display: block;
+    content: " pontos até o seu ";
+	margin-right:5px;
 }
 
-.noar .cap50 .data::before {
-    display: inline-block;
-    content: "pontos até o 50º capítulo, em " !important;
+.totalcap .num-cap::before {
+    display: block;
+    content: " pontos é a média nos ";
+	margin-right:5px;
 }
 
-.noar .cap100 .data::before {
-    display: inline-block;
-    content: "pontos até o 100º capítulo, em " !important;
-}
-
-.noar .cap150 .data::before {
-    display: inline-block;
-    content: "pontos até o 150º capítulo, em " !important;
-}
-
-.noar .totalcap .data::before {
+.cap25 .num-cap::after,
+.cap50 .num-cap::after,
+.cap100 .num-cap::after,
+.cap150 .num-cap::after{
     display: inline;
-    content: " pontos de média nos " !important;
+    content: "º dia, em ";
+	margin-right:5px;
 }
 
-.noar .totalcap .data::after {
-    content: " capítulos já exibidos" !important;
+.totalcap .num-cap::after {
+    display: inline;
+    content: " dias, até ";
+	margin-right:5px;
 }
-
-
-  
-
-.programa .cap25 .data::before,
-.programa .cap50 .data::before,
-.programa .cap75 .data::before,
-.programa .cap100 .data::before,
-.programa .cap150 .data::before{content:"pontos de média até o programa exibido em "}
-  
-  
-  
-  
-  
-  
-  
-
-.cap25 .data::before {
-    display: inline-block;
-    content: "pontos até o 25º capítulo, em ";
-}
-
-.cap50 .data::before {
-    display: inline-block;
-    content: "pontos até o 50º capítulo, em ";
-}
-
-.cap100 .data::before {
-    display: inline-block;
-    content: "pontos até o 100º capítulo, em ";
-}
-
-.cap150 .data::before {
-    display: inline-block;
-    content: "pontos até o 150º capítulo, em ";
-}
-
-.totalcap .data::before {
-    display: inline-block;
-    content: " pontos é a média final nas ";
-}
-
-.totalcap .data::after {
-    content: " exibições da produção";
-}
-
 
 
 
@@ -1567,65 +1526,6 @@ align-self:center;
   
 
 
-  .realityshows .cap25 .data::before {
-    display: inline-block;
-    content: "pontos até o 25º episódio, em " !important;
-}
-
-  .realityshows .cap50 .data::before {
-    display: inline-block;
-    content: "pontos até o 50º episódio, em " !important;
-}
-
-  .realityshows .cap100 .data::before {
-    display: inline-block;
-    content: "pontos até o 100º episódio, em " !important;
-}
-
-  .realityshows .cap150 .data::before {
-    display: inline-block;
-    content: "pontos até o 150º episódio, em " !important;
-}
-
-  .realityshows .totalcap .data::before {
-    display: inline-block;
-    content: " pontos é a média final nas ";
-}
-
-  .realityshows .totalcap .data::after {
-    content: " exibições da produção";
-}
-
-  
-  
-.series .cap25 .data::before{
-    display: inline-block;
-    content: "pontos até o 5º episódio, em " !important;
-}
-
-.series .cap50 .data::before{
-    display: inline-block;
-    content: "pontos até o 10º episódio, em " !important;
-}
-
-.series .cap100 .data::before{
-    display: inline-block;
-    content: "pontos até o 20º episódio, em " !important;
-}
-
-.series .cap150 .data::before{
-    display: inline-block;
-    content: "pontos até o 30º episódio, em " !important;
-}
-
-.series .totalcap .data::before{
-    display: inline-block;
-    content: " pontos é a média final nas ";
-}
-
-.series .totalcap .data::after{
-    content: " exibições da produção";
-}
 
 
 
@@ -1760,7 +1660,7 @@ background-color: var(--cor-50-fade) !important;
     display: inline-block;
     padding: 4px 7px;
     background-color: #ffffff50;
-    font-weight: 700;
+    font-weight: 900;
     font-size: var(--fonte-14) !important;
     border-radius: 4px;
   	color:var(--cor-texto);
@@ -1891,7 +1791,7 @@ background-color: var(--cor-50-fade) !important;
     display: inline-block;
     padding: 4px 7px;
     background-color: #ffffff50;
-    font-weight: 700;
+    font-weight: 900;
     font-size: var(--fonte-14) !important;
     border-radius: 4px;
 }
@@ -2032,7 +1932,7 @@ h3,
 .subtitulo::before{
   font-family:var(--font-family-title);
     font-size: var(--fonte-25) !important;
-    font-weight: 700 !important;
+    font-weight: 900 !important;
   margin:0 !important;
     line-height: 1.2 !important;
     color:var(--cor-90) !important;
@@ -2102,7 +2002,7 @@ h3,
     min-width: 50px !important;
     margin-top: -70px !important;
     font-size: var(--fonte-12);
-    font-weight: 700;
+    font-weight: 900;
     transition: 0.2s;
     white-space: nowrap;
     line-height: 110%;
@@ -2212,7 +2112,7 @@ h3,
 .totaltabela .mediasp,
 .totaltabela .mediarj,
 .totaltabela .mediapnt {
-    font-weight: 700 !important;
+    font-weight: 900 !important;
 }
 
 .totaltabela{
@@ -2327,7 +2227,7 @@ h3,
 
 
 .ordem {
-    font-weight: 700;
+    font-weight: 900;
 }
 
 
@@ -2406,17 +2306,17 @@ h3,
 .calendario .recpos,
 .calendario-media .recpos {
     color: #06a566;
-    font-weight: 700;
+    font-weight: 900;
 }
 
 .calendario .recneg,
 .calendario-media .recneg {
     color: #f95843;
-    font-weight: 700;
+    font-weight: 900;
 }
 
 .calendario .rec {
-    font-weight: 700
+    font-weight: 900
 }
 
 .calendario .linha,
@@ -2495,7 +2395,7 @@ h3,
  
 .linhadotempo .producao {
 	display:none;
-    font-weight: 700;
+    font-weight: 900;
 }
 
 .linhadotempo .coluna {
@@ -2632,7 +2532,7 @@ font-family:var(--font-family-condensed);
 .grade-comparacao .maioraud::before,
 .grade-comparacao .ultcap::before,
 .grade-comparacao .mediageral::before {
-    font-weight: 700;
+    font-weight: 900;
 }
 
 .grade-comparacao .pricap::before {
@@ -2677,7 +2577,7 @@ font-family:var(--font-family-condensed);
 .audienciadiaria-titulo{
   line-height:1;
   font-size:var(--fonte-30);
-  font-weight:700;
+  font-weight: 900;
 }
 
   
@@ -2688,7 +2588,7 @@ font-family:var(--font-family-condensed);
 
   .maioresaud-emissora-titulo{
 font-size: var(--fonte-25) !important;
-    font-weight: 700 !important;
+    font-weight: 900 !important;
     display: block;
     line-height: 1.2 !important;
     color: var(--cor-20) !important;}
@@ -2711,7 +2611,7 @@ font-size: var(--fonte-25) !important;
   .grafico-emissora .barra:has(> div:nth-child(2)) .item-programa{
   align-self:start;
   font-size:var(--fonte-12);
-  font-weight:700
+  font-weight: 900
 }
   
     .maioresaud-emissora {
@@ -2785,7 +2685,7 @@ font-size: var(--fonte-25) !important;
 
     .grafico-emissora .emissora,
   .grade-comparacao .emissora{
-        font-weight: 700 !important;
+        font-weight: 900 !important;
         font-size: var(--fonte-20) !important
     }
 
@@ -3060,7 +2960,7 @@ white-space: nowrap;
 }
 
 .timeline .nomelinha {
-    font-weight: 700;
+    font-weight: 900;
 }
 
 
@@ -3129,7 +3029,7 @@ white-space: nowrap;
 }
 
 .timeline .item:hover p {
-    font-weight: 700;
+    font-weight: 900;
     opacity: 1;
     animation: scroll-text 8s linear infinite;
     /* Animação contínua */
@@ -3190,7 +3090,7 @@ white-space: nowrap;
 
 .pagina-telenovela-titulo {
 	padding: 20px 0 !important;
-    font-weight: 700 !important;
+    font-weight: 900 !important;
     text-align: left;
       font-size: var(--fonte-30) !important;
       color:var(--cor-texto) !important;
@@ -3244,7 +3144,7 @@ background: radial-gradient(circle, #1995ee, #0f5d91);
   color: var(--cor-100);
     border-radius: 7px;
     text-align: center;
-    font-weight: 700;}
+    font-weight: 900;}
 
 .ultimasexibicoes .maisproducoes a{color:var(--cor-100) !important;text-decoration:none !important}
   
@@ -3314,7 +3214,7 @@ grid-template-areas: 'titulo producao1 producao2 producao3 producao4 producao5';
     .bloco-homepage .exibicao-noar::before {
         display:none;
         text-transform: uppercase;
-        font-weight: 800;
+        font-weight: 900;
         padding: 8px 12px;
         background-color: rgba(255, 255, 255, 0.2);
         border-radius: 4px;
@@ -3530,7 +3430,7 @@ grid-template-areas: 'titulo producao1 producao2 producao3 producao4 producao5';
     .premiacao .indicado{opacity:0.6}
     .premiacao .indicado:hover{opacity:1}
 
-      .premiacao .nome-indicado{font-weight:700}
+      .premiacao .nome-indicado{font-weight: 900}
     
     .nome-producao{font-weight:normal;}
     
@@ -3697,7 +3597,7 @@ grid-template-areas: 'titulo producao1 producao2 producao3 producao4 producao5';
 
     .pagina-pesquisa h2 {
         font-size: var(--fonte-20);
-        font-weight: 700;
+        font-weight: 900;
         margin: 20px 0
     }
 
@@ -3763,7 +3663,7 @@ grid-template-areas: 'titulo producao1 producao2 producao3 producao4 producao5';
 
     .pagina-pesquisa .resultados .info .nome-producao {
         font-size: var(--fonte-12);
-        font-weight: 700;
+        font-weight: 900;
         margin: 0px 0
     }
 
@@ -3907,7 +3807,7 @@ grid-template-areas: 'titulo producao1 producao2 producao3 producao4 producao5';
       
       .comparacoes-horario .informacao{
 padding: 20px;
-    font-weight: 700;
+    font-weight: 900;
     height: 100%;
   display:grid;
   line-height:1.5;
@@ -3962,8 +3862,8 @@ padding: 20px;
   
     .comparacoes-horario .item .infos .posicao,
     .comparacoes-horario .item .infos .audiencia {
-  font-size:var(--fonte-20) !important
-      color:#fff;
+  font-size:var(--fonte-25) !important;
+      color:var(--cor-100);
       height: calc(100% - 20px);
         align-items: center;
         border-radius: 5px;
@@ -4004,7 +3904,7 @@ padding: 20px;
       }
 
             .autores-horario .comparacoes-horario .item .infos .nome{
-      font-weight:700
+      font-weight: 900
 }
 
                   .autores-horario .comparacoes-horario .item .infos .novelas-escritas{font-size:var(--fonte-12)}
@@ -4135,8 +4035,9 @@ padding: 20px;
       .decada1950-titulo,
       .decada1940-titulo{
 font-size: var(--fonte-25) !important;
-    font-weight: 700 !important;
+    font-weight: 900 !important;
     padding-bottom: 20px !important;
+		  font-family:var(--font-family-title);
     padding-top: 10px !important;
     display: block;
     margin-top: 30px !important;
@@ -4197,7 +4098,7 @@ padding:30px !important}
   
       .pagina-horario-infos .vazio{display:none}
 
-      .pagina-horario-infos .primeira-exibicao{font-size:var(--fonte-16) !important;font-weight:700}
+      .pagina-horario-infos .primeira-exibicao{font-size:var(--fonte-16) !important;font-weight: 900}
       .pagina-horario-infos .primeira-exibicao .primeira-producao-exibida::before{content:"foi a primeira exibição em "}
       .pagina-horario-infos .qtde-exibicoes::after{content:" exibições no horário"}
       .pagina-horario-infos .qtde-series::after{content:" séries já foram exibidas"}
@@ -4268,10 +4169,9 @@ padding:30px !important}
   
   
   .outraspaginas{
-  grid-area:outraspaginas;
-  display:none !important;
-  grid-template-columns:repeat(10, 1fr);
-  gap:30px;
+  display:grid !important;
+  grid-template-columns:repeat(5, 1fr);
+  gap:20px;
   align-items:center;
   text-align:center;
   box-sizing:border-box;
@@ -4279,9 +4179,8 @@ padding:30px !important}
   
   
     .outraspaginas *{
-  aspect-ratio:1 / 1;
     font-size: var(--fonte-14);
-    padding: 10px;
+    padding: 10px 15px;
     border-radius: 8px;
     line-height: 1 !important;
     font-weight: 500;
@@ -4319,7 +4218,9 @@ padding:30px !important}
 
       
       
-      .marcas-horario-geral .comparacoes-horario .item .infos,
+      .marcas-horario-geral .comparacoes-horario .item .infos{
+      grid-template-columns:1fr 2fr}
+      
       .marcas-horario .comparacoes-horario .item .infos{
       grid-template-columns:1fr 1fr}
       
@@ -4338,7 +4239,7 @@ padding:30px !important}
       
       .comparacoes .calendario-marcas .mes{
       font-size:var(--fonte-12) !important;
-      font-weight:700 !important;
+      font-weight: 900 !important;
       }
       
       .comparacoes .calendario-marcas .ano{
@@ -5049,7 +4950,7 @@ padding:30px !important}
         ;
         padding: 5px 10px;
         border-radius: 8px;
-        font-weight: 700;
+        font-weight: 900;
         margin-bottom: 20px;
     }
 
