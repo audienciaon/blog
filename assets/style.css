@@ -1495,11 +1495,13 @@ align-self:center;
 .cap150 .num-cap::before{
     display: inline-block;
     content: " pontos até o seu ";
+	margin-right:5px;
 }
 
 .totalcap .num-cap::before {
     display: inline-block;
     content: " pontos é a média final nos seus ";
+	margin-right:5px;
 }
 
 .cap25 .num-cap::after,
@@ -1507,12 +1509,14 @@ align-self:center;
 .cap100 .num-cap::after,
 .cap150 .num-cap::after{
     display: inline-block;
-    content: " dia, em ";
+    content: "º dia, em ";
+	margin-right:5px;
 }
 
 .totalcap .num-cap::after {
     display: inline-block;
     content: " dias, até ";
+	margin-right:5px;
 }
 
 
