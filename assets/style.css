@@ -978,24 +978,14 @@ content:"Atualizado em "
   }
 
 
-.autor a:not(:first-of-type)::before,
-.diretor a:not(:first-of-type)::before {
-    content: ', ';
-  font-weight:normal;
+  
+.autor a:not(:last-child)::after {
+  content: ", ";
 }
 
-.autor a:last-of-type::before,
-.diretor a:last-of-type::before {
-    content: ' e ';
-  font-weight:normal;
+.autor a:nth-last-child(2)::after {
+  content: " e ";
 }
-  
-.autor a:only-of-type::before,
-.diretor a:only-of-type::before {
-    content: '';
-    font-weight: normal;
-}
-  
 
   .programa .cabecalho .horario::before,
   .minisserie .cabecalho .horario::before,
@@ -4142,6 +4132,7 @@ padding: 20px;
 font-size: var(--fonte-25) !important;
     font-weight: 900 !important;
     padding-bottom: 20px !important;
+		  font-family:var(--font-family-title);
     padding-top: 10px !important;
     display: block;
     margin-top: 30px !important;
