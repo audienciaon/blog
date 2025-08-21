@@ -870,7 +870,8 @@ content:"Atualizado em "
   margin-top:8px;
   text-transform:uppercase;
   padding:4px 8px;
-  font-size:var(--fonte-12)}
+  font-size:var(--fonte-16)
+  }
   
  .dadosparciais::before{
   content:"Tabela parcial";
