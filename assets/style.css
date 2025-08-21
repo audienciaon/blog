@@ -3967,8 +3967,8 @@ padding: 20px;
   
     .comparacoes-horario .item .infos .posicao,
     .comparacoes-horario .item .infos .audiencia {
-  font-size:var(--fonte-20) !important
-      color:#fff;
+  font-size:var(--fonte-25) !important;
+      color:var(--cor-100);
       height: calc(100% - 20px);
         align-items: center;
         border-radius: 5px;
@@ -4324,7 +4324,9 @@ padding:30px !important}
 
       
       
-      .marcas-horario-geral .comparacoes-horario .item .infos,
+      .marcas-horario-geral .comparacoes-horario .item .infos{
+      grid-template-columns:1fr 2fr}
+      
       .marcas-horario .comparacoes-horario .item .infos{
       grid-template-columns:1fr 1fr}
       
