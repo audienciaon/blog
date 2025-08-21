@@ -979,13 +979,24 @@ content:"Atualizado em "
 
 
   
-.autor a:not(:last-child)::after {
+.autor a:not(:last-of-type)::after,
+.diretor a:not(:last-of-type)::after {
   content: ", ";
+  font-weight: normal;
 }
 
-.autor a:nth-last-child(2)::after {
+.autor a:nth-last-of-type(2)::after,
+.diretor a:nth-last-of-type(2)::after {
   content: " e ";
+  font-weight: normal;
 }
+
+.autor a:only-of-type::after,
+.diretor a:only-of-type::after {
+  content: "";
+  font-weight: normal;
+}
+
 
 .autor a {
   display: inline;
