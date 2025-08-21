@@ -278,7 +278,6 @@ a {
 /* Cria a linha para o efeito */
 .cabecalho a::after {
   content: '';
-  position: absolute;
   left: 0;
   bottom: 0;
   width: 0;
