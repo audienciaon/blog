@@ -4273,10 +4273,9 @@ padding:30px !important}
   
   
   .outraspaginas{
-  grid-area:outraspaginas;
-  display:none !important;
-  grid-template-columns:repeat(10, 1fr);
-  gap:30px;
+  display:grid !important;
+  grid-template-columns:repeat(5, 1fr);
+  gap:20px;
   align-items:center;
   text-align:center;
   box-sizing:border-box;
@@ -4284,9 +4283,8 @@ padding:30px !important}
   
   
     .outraspaginas *{
-  aspect-ratio:1 / 1;
     font-size: var(--fonte-14);
-    padding: 10px;
+    padding: 10px 15px;
     border-radius: 8px;
     line-height: 1 !important;
     font-weight: 500;
