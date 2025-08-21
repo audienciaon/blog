@@ -1268,7 +1268,7 @@ display:none !important
 }
 
 .versoes .versao {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: var(--cor-50-fade);
     opacity: 0.5;
     color: #fff;
     display: grid;
@@ -1277,7 +1277,7 @@ display:none !important
     border-radius: 8px;
     transition: 0.3s;
 	align-items:center;
-	gap:10px
+	gap:40px 20px
 }
 
 .versoes .destacada,
