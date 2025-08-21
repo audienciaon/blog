@@ -1502,7 +1502,7 @@ align-self:center;
 }
 
 .totalcap .num-cap::before {
-    display: block;
+    display: inline;
     content: " pontos é a média nos ";
 	margin-right:5px;
 }
@@ -1793,11 +1793,29 @@ background-color: var(--cor-50-fade) !important;
     margin-top: 5px;
     display: inline-block;
     padding: 4px 7px;
-    background-color: #ffffff50;
+    background-color: transparent;
     font-weight: 900;
-    font-size: var(--fonte-14) !important;
+    font-size: var(--fonte-16) !important;
     border-radius: 4px;
 }
+
+
+.cap25 .info3 .positivo::after,
+.cap25 .info3 .negativo::after,
+.cap25 .info4 .positivo::after,
+.cap25 .info4 .negativo::after {
+	content:" comparado com a produção anterior" !important;
+	display:block;
+}
+
+.info3 .positivo::after,
+.info3 .negativo::after,
+.info4 .positivo::after,
+.info4 .negativo::after {
+	content:" comparado ao período anterior";
+	display:block;
+}
+
 
 
 
