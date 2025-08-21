@@ -1508,13 +1508,13 @@ align-self:center;
 .cap50 .num-cap::after,
 .cap100 .num-cap::after,
 .cap150 .num-cap::after{
-    display: block;
+    display: inline;
     content: "º dia, em ";
 	margin-right:5px;
 }
 
 .totalcap .num-cap::after {
-    display: block;
+    display: inline;
     content: " dias, até ";
 	margin-right:5px;
 }
