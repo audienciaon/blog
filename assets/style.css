@@ -980,22 +980,21 @@ content:"Atualizado em "
 
 
   
-.autor a:not(:last-of-type)::after,
-.diretor a:not(:last-of-type)::after {
+.autor a:not(:last-child)::after,
+.diretor a:not(:last-child)::after {
   content: ", ";
   font-weight: normal;
 }
 
-.autor a:nth-last-of-type(2)::after,
-.diretor a:nth-last-of-type(2)::after {
+.autor a:nth-last-child(2)::after,
+.diretor a:nth-last-child(2)::after {
   content: " e ";
   font-weight: normal;
 }
 
-.autor a:only-of-type::after,
-.diretor a:only-of-type::after {
+.autor a:only-child::after,
+.diretor a:only-child::after {
   content: "";
-  font-weight: normal;
 }
 
 
