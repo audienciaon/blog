@@ -1493,14 +1493,14 @@ align-self:center;
 .cap50 .num-cap::before,
 .cap100 .num-cap::before,
 .cap150 .num-cap::before{
-    display: inline-block;
+    display: block;
     content: " pontos até o seu ";
 	margin-right:5px;
 }
 
 .totalcap .num-cap::before {
-    display: inline-block;
-    content: " pontos é a média final nos seus ";
+    display: block;
+    content: " pontos é a média nos ";
 	margin-right:5px;
 }
 
@@ -1508,13 +1508,13 @@ align-self:center;
 .cap50 .num-cap::after,
 .cap100 .num-cap::after,
 .cap150 .num-cap::after{
-    display: inline-block;
+    display: block;
     content: "º dia, em ";
 	margin-right:5px;
 }
 
 .totalcap .num-cap::after {
-    display: inline-block;
+    display: block;
     content: " dias, até ";
 	margin-right:5px;
 }
