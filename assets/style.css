@@ -1461,11 +1461,7 @@ align-self:center;
   
   
 .audpricap .data::before {
-    content: "pontos no primeiro capítulo, em "
-}
-
-.programa .audpricap .data::before {
-    content: "pontos na primeira exibição, em "
+    content: "pontos no primeiro dia, em "
 }
 
 .maioraud .data::before {
@@ -1477,64 +1473,15 @@ align-self:center;
 }
 
 .audultcap .data::before {
-    content: "pontos no último capítulo, em "
-}
-
-.programa .audultcap .data::before {
-    content: "pontos na última exibição, em "
+    content: "pontos no último dia, em "
 }
 
 .nameta::after {
     content: "capítulos atingiram a meta do horário"
 }
 
-/*
-.cap25 .data::before{content:"pontos até o 25º capítulo "}
-.cap50 .data::before{content:"pontos até o 50º capítulo "}
-.cap75 .data::before{content:"pontos até o 75º capítulo "}
-.cap100 .data::before{content:"pontos até o 100º capítulo "}
-.cap150 .data::before{content:"pontos até o 150º capítulo "}
-.totalcap .data::before{content:"pontos de média até o capítulo "}
-*/
 
-.noar .cap25 .data::before {
-    display: inline-block;
-    content: "pontos até o 25º capítulo, em " !important;
-}
-
-.noar .cap50 .data::before {
-    display: inline-block;
-    content: "pontos até o 50º capítulo, em " !important;
-}
-
-.noar .cap100 .data::before {
-    display: inline-block;
-    content: "pontos até o 100º capítulo, em " !important;
-}
-
-.noar .cap150 .data::before {
-    display: inline-block;
-    content: "pontos até o 150º capítulo, em " !important;
-}
-
-.noar .totalcap .data::before {
-    display: inline;
-    content: " pontos de média nos " !important;
-}
-
-.noar .totalcap .data::after {
-    content: " capítulos já exibidos" !important;
-}
-
-
-  
-
-.programa .cap25 .data::before,
-.programa .cap50 .data::before,
-.programa .cap75 .data::before,
-.programa .cap100 .data::before,
-.programa .cap150 .data::before{content:"pontos de média até o programa exibido em "}
-  
+ 
   
   
   
@@ -1542,35 +1489,31 @@ align-self:center;
   
   
 
-.cap25 .data::before {
+.cap25 .num-cap::before,
+.cap50 .num-cap::before,
+.cap100 .num-cap::before,
+.cap150 .num-cap::before{
     display: inline-block;
-    content: "pontos até o 25º capítulo, em ";
+    content: " pontos até o seu ";
 }
 
-.cap50 .data::before {
+.totalcap .num-cap::before {
     display: inline-block;
-    content: "pontos até o 50º capítulo, em ";
+    content: " pontos é a média final nos seus ";
 }
 
-.cap100 .data::before {
+.cap25 .num-cap::after,
+.cap50 .num-cap::after,
+.cap100 .num-cap::after,
+.cap150 .num-cap::after{
     display: inline-block;
-    content: "pontos até o 100º capítulo, em ";
+    content: " dia, em ";
 }
 
-.cap150 .data::before {
+.totalcap .num-cap::after {
     display: inline-block;
-    content: "pontos até o 150º capítulo, em ";
+    content: " dias, até ";
 }
-
-.totalcap .data::before {
-    display: inline-block;
-    content: " pontos é a média final nas ";
-}
-
-.totalcap .data::after {
-    content: " exibições da produção";
-}
-
 
 
 
@@ -1579,65 +1522,6 @@ align-self:center;
   
 
 
-  .realityshows .cap25 .data::before {
-    display: inline-block;
-    content: "pontos até o 25º episódio, em " !important;
-}
-
-  .realityshows .cap50 .data::before {
-    display: inline-block;
-    content: "pontos até o 50º episódio, em " !important;
-}
-
-  .realityshows .cap100 .data::before {
-    display: inline-block;
-    content: "pontos até o 100º episódio, em " !important;
-}
-
-  .realityshows .cap150 .data::before {
-    display: inline-block;
-    content: "pontos até o 150º episódio, em " !important;
-}
-
-  .realityshows .totalcap .data::before {
-    display: inline-block;
-    content: " pontos é a média final nas ";
-}
-
-  .realityshows .totalcap .data::after {
-    content: " exibições da produção";
-}
-
-  
-  
-.series .cap25 .data::before{
-    display: inline-block;
-    content: "pontos até o 5º episódio, em " !important;
-}
-
-.series .cap50 .data::before{
-    display: inline-block;
-    content: "pontos até o 10º episódio, em " !important;
-}
-
-.series .cap100 .data::before{
-    display: inline-block;
-    content: "pontos até o 20º episódio, em " !important;
-}
-
-.series .cap150 .data::before{
-    display: inline-block;
-    content: "pontos até o 30º episódio, em " !important;
-}
-
-.series .totalcap .data::before{
-    display: inline-block;
-    content: " pontos é a média final nas ";
-}
-
-.series .totalcap .data::after{
-    content: " exibições da produção";
-}
 
 
 
