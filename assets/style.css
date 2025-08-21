@@ -1435,9 +1435,10 @@ align-self:center;
 .info4 .cap150,
 .info4 .cap150,
 .info4 .totalcap {
-    font-size: var(--fonte-50) !important;
+    font-size: var(--fonte-40) !important;
 	font-weight:900;
     line-height: 1.4;
+	letter-spacing:-0.5px;
 }
 
 .info4 .cap25,
