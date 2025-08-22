@@ -4216,11 +4216,17 @@ padding:30px !important}
   display: block;
   text-decoration: none;
   color: #000;
+background-size:cover;
 }
 
 /* Proporção 2:3 */
 .outraspaginas > a > span {
   display: block;
+	backdrop-filter:blur(20px);
+	padding:15px;
+	box-sizing:border-box;
+	font-weight:700;
+	text-align:center;
   width: 100%;
   height: 100%;
 background: radial-gradient(circle, 
