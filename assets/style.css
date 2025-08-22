@@ -4245,6 +4245,7 @@ background: radial-gradient(circle,
   align-items: center;
   justify-content: center;
   aspect-ratio: 1 / 1; /* largura ajustada automaticamente */
+	font-size:var(--fonte-16);
 }
 
 /* Setas */
