@@ -4036,6 +4036,10 @@ padding: 20px;
       	content:"Maiores e menores audiências na década de 1940 neste horário"
 }      
       
+      .outraspaginas-titulo::before{
+      	content:"Outras páginas de horários e categorias de produções da emissora"
+}      
+      
       
       
       
@@ -4055,7 +4059,8 @@ padding: 20px;
       .decada1970-titulo,
       .decada1960-titulo,
       .decada1950-titulo,
-      .decada1940-titulo{
+      .decada1940-titulo,
+      .outraspaginas-titulo{
 font-size: var(--fonte-25) !important;
     font-weight: 900 !important;
     padding-bottom: 20px !important;
