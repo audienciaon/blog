@@ -223,3 +223,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
+
+  // ===============================
+  // Setas dos outraspaginas 
+  // ===============================
+
+const container = document.querySelector('.outraspaginas');
+const btnLeft = document.querySelector('.arrow-left');
+const btnRight = document.querySelector('.arrow-right');
+
+const gap = 20; 
+const item = container.querySelector('a');
+const itemWidth = item.offsetWidth + gap;
+const scrollAmount = itemWidth * 3; // mover 3 itens por vez
+
+btnLeft.addEventListener('click', () => {
+  container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+});
+
+btnRight.addEventListener('click', () => {
+  container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+});
