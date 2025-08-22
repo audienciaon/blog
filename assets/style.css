@@ -278,7 +278,6 @@ a {
 /* Cria a linha para o efeito */
 .cabecalho a::after {
   content: '';
-  position: absolute;
   left: 0;
   bottom: 0;
   width: 0;
@@ -980,28 +979,32 @@ content:"Atualizado em "
 
 
   
-.autor a:not(:last-of-type)::after,
-.diretor a:not(:last-of-type)::after {
-  content: ", ";
-  font-weight: normal;
-}
-
-.autor a:nth-last-of-type(2)::after,
-.diretor a:nth-last-of-type(2)::after {
-  content: " e ";
-  font-weight: normal;
-}
-
-.autor a:only-of-type::after,
-.diretor a:only-of-type::after {
-  content: "";
-  font-weight: normal;
-}
-
-
-.autor a {
+.autor, .diretor {
   display: inline;
 }
+
+.item-autor, .item-diretor {
+  display: inline;
+}
+
+/* vírgula para todos os itens exceto o penúltimo e o último */
+.item-autor:not(:nth-last-child(2)):not(:last-child)::after,
+.item-diretor:not(:nth-last-child(2)):not(:last-child)::after {
+  content: ", ";
+}
+
+/* "e" apenas antes do último item */
+.item-autor:nth-last-child(2)::after,
+.item-diretor:nth-last-child(2)::after {
+  content: " e ";
+}
+
+/* nada se for item único */
+.item-autor:only-child::after,
+.item-diretor:only-child::after {
+  content: "";
+}
+
 
 
   .programa .cabecalho .horario::before,
@@ -1432,9 +1435,10 @@ align-self:center;
 .info4 .cap150,
 .info4 .cap150,
 .info4 .totalcap {
-    font-size: var(--fonte-50) !important;
+    font-size: var(--fonte-40) !important;
 	font-weight:900;
     line-height: 1.4;
+	letter-spacing:-0.5px;
 }
 
 .info4 .cap25,
@@ -1499,7 +1503,7 @@ align-self:center;
 }
 
 .totalcap .num-cap::before {
-    display: block;
+    display: inline;
     content: " pontos é a média nos ";
 	margin-right:5px;
 }
@@ -1790,11 +1794,29 @@ background-color: var(--cor-50-fade) !important;
     margin-top: 5px;
     display: inline-block;
     padding: 4px 7px;
-    background-color: #ffffff50;
+    background-color: transparent;
     font-weight: 900;
-    font-size: var(--fonte-14) !important;
+    font-size: var(--fonte-16) !important;
     border-radius: 4px;
 }
+
+
+.cap25 .info3 .positivo::after,
+.cap25 .info3 .negativo::after,
+.cap25 .info4 .positivo::after,
+.cap25 .info4 .negativo::after {
+	content:" comparado com a produção anterior" !important;
+	display:block;
+}
+
+.info3 .positivo::after,
+.info3 .negativo::after,
+.info4 .positivo::after,
+.info4 .negativo::after {
+	content:" comparado ao período anterior";
+	display:block;
+}
+
 
 
 
@@ -4168,34 +4190,66 @@ padding:30px !important}
   
   
   
-  .outraspaginas{
-  display:grid !important;
-  grid-template-columns:repeat(5, 1fr);
-  gap:20px;
-  align-items:center;
-  text-align:center;
-  box-sizing:border-box;
-  }
-  
-  
-    .outraspaginas *{
-    font-size: var(--fonte-14);
-    padding: 10px 15px;
-    border-radius: 8px;
-    line-height: 1 !important;
-    font-weight: 500;
-    background-color: var(--cor-30-fade);
-    color: var(--cor-100);
-    
-    display: grid;
-    place-items: center; 
-    word-break: normal;
-    overflow-wrap: normal;
-    white-space: normal;
-    hyphens: auto;
-                                
-  }
-  
+.carrossel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.outraspaginas {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 0px 40px;
+}
+
+.outraspaginas::-webkit-scrollbar {
+  display: none;
+}
+
+/* Card wrapper */
+.outraspaginas > a {
+  position: relative;
+  flex: 0 0 auto;
+  height: 200px;           /* altura fixa */
+  display: block;
+  text-decoration: none;
+  color: #000;
+}
+
+/* Proporção 2:3 */
+.outraspaginas > a > span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #f0f0f0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 2 / 3; /* largura ajustada automaticamente */
+}
+
+/* Setas */
+.outraspaginas .arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  font-size: 2rem;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.outraspaginas .arrow-left { left: 0; }
+.outraspaginas .arrow-right { right: 0; }
+
+
+
 /*
   .outraspaginas::before {
     content: "Outros links";
