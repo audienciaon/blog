@@ -4239,7 +4239,7 @@ background: radial-gradient(circle,
   display: flex;
   align-items: center;
   justify-content: center;
-  aspect-ratio: 2 / 3; /* largura ajustada automaticamente */
+  aspect-ratio: 1 / 1; /* largura ajustada automaticamente */
 }
 
 /* Setas */
