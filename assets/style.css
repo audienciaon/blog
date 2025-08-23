@@ -1442,7 +1442,9 @@ align-self:center;
 .info4 .cap150,
 .info4 .cap150 {
     padding: 20px 0px;
-}
+display: grid !important;
+    gap: 0;
+    height: auto;}
 
 .info4 .totalcap {
   background-color:var(--cor-60-fade) !important;
