@@ -1501,7 +1501,7 @@ display: grid !important;
 
 .totalcap .num-cap::before {
     display: inline;
-    content: " pontos é a média nos ";
+    content: " pontos é a média final nos ";
 	margin-right:5px;
 }
 
@@ -1790,8 +1790,8 @@ background-color: var(--cor-50-fade) !important;
 .info4 .positivo,
 .info4 .negativo {
     margin-top: 5px;
-    display: inline-block;
-    padding: 4px 7px;
+    display: block;
+    padding: 0px;
     background-color: transparent;
     font-weight: 900;
     font-size: var(--fonte-16) !important;
