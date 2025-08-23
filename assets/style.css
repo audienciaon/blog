@@ -4199,6 +4199,8 @@ padding:30px !important}
   position: relative;
   width: 100%;
   overflow: hidden;
+	    display: grid;
+    grid-template-columns: 30px auto 30px;
 }
 
 .outraspaginas {
@@ -4253,10 +4255,10 @@ background: radial-gradient(circle,
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
+  background: #00000050;
   color: #fff;
   border: none;
-  font-size: 2rem;
+  font-size: 20px;
   padding: 10px;
   cursor: pointer;
   z-index: 10;
