@@ -1367,8 +1367,9 @@ align-self:center;
   .info4 {
   display:grid;
   grid-template-columns:repeat(5, 1fr);
-    gap: 40px;
+    gap: 0px;
     font-weight: 200;
+  border-radius:8px;
 }
 
   
@@ -1376,7 +1377,6 @@ align-self:center;
   .info4 > *{
   box-sizing:border-box;
   padding:40px 30px !important;
-  border-radius:8px;
     background-color: var(--cor-20-fade) !important;
 
   }
