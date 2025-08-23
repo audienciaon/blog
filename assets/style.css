@@ -1798,13 +1798,13 @@ background-color: var(--cor-50-fade) !important;
     border-radius: 4px;
 }
 
-.cap25 .positivo,
-.cap25 .negativo{
+.cap25 .positivo::after,
+.cap25 .negativo::after{
 	content:"da produção anterior" !important;
 }
 
-.info4 .positivo,
-.info4 .negativo{
+.info4 .positivo::after,
+.info4 .negativo::after{
 	content:"do período anterior";
 }
 
