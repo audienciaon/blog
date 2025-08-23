@@ -229,19 +229,37 @@ document.addEventListener("DOMContentLoaded", () => {
   // Setas dos outraspaginas 
   // ===============================
 
-const container = document.querySelector('.outraspaginas');
-const btnLeft = document.querySelector('.arrow-left');
-const btnRight = document.querySelector('.arrow-right');
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.querySelector('.outraspaginas');
+  if (!container) return;
 
-const gap = 20; 
-const item = container.querySelector('a');
-const itemWidth = item.offsetWidth + gap;
-const scrollAmount = itemWidth * 3; // mover 3 itens por vez
+  let btnLeft = document.querySelector('.arrow-left');
+  let btnRight = document.querySelector('.arrow-right');
 
-btnLeft.addEventListener('click', () => {
-  container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-});
+  // cria botão se não existir
+  const criarBotao = (classe, texto) => {
+    const btn = document.createElement('button');
+    btn.className = `arrow ${classe}`;
+    btn.textContent = texto;
+    btn.type = "button";
+    container.parentNode.insertBefore(btn, 
+      classe === 'arrow-left' ? container : container.nextSibling);
+    return btn;
+  };
 
-btnRight.addEventListener('click', () => {
-  container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  if (!btnLeft) btnLeft = criarBotao('arrow-left', '❮');
+  if (!btnRight) btnRight = criarBotao('arrow-right', '❯');
+
+  const gap = 20; 
+  const item = container.querySelector('a');
+  const itemWidth = item ? item.offsetWidth + gap : 200; // fallback
+  const scrollAmount = itemWidth * 3;
+
+  btnLeft.addEventListener('click', () => {
+    container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  });
+
+  btnRight.addEventListener('click', () => {
+    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  });
 });
