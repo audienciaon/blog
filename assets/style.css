@@ -1798,6 +1798,15 @@ background-color: var(--cor-50-fade) !important;
     border-radius: 4px;
 }
 
+.cap25 .positivo,
+.cap25 .negativo{
+	content:"da produção anterior" !important;
+}
+
+.info4 .positivo,
+.info4 .negativo{
+	content:"do período anterior";
+}
 
 .cap25 .info3 .positivo::after,
 .cap25 .info3 .negativo::after,
@@ -2021,7 +2030,7 @@ h3,
       z-index:999 !important;
     min-width: 50px !important;
     margin-top: -70px !important;
-    font-size: var(--fonte-12);
+    font-size: var(--fonte-14);
     font-weight: 900;
     transition: 0.2s;
     white-space: nowrap;
@@ -2029,7 +2038,7 @@ h3,
     text-overflow: clip;
     display: none;
     border-radius: 4px;
-    background-color: var(--cor-20-fade);
+    background-color: var(--cor-70-fade);
     z-index: 9999 !important;
     text-align: center !important;
     padding: 5px 8px;
