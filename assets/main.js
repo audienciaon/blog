@@ -116,3 +116,54 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
 });
+
+
+
+
+
+
+  // --- Reduzir texto em barras dos gráficos ---
+
+document.querySelectorAll(".grafico-comparacao .linha .espaco .barra").forEach(b => {
+  let texto = b.textContent.trim();
+
+  // 1 - Substitui "ª Reapresentação" -> "ªR" e "ª Temporada" -> "ªT"
+  texto = texto.replace("ª Reapresentação", "ªR")
+               .replace("ª Temporada", "ªT");
+
+  // 2 - Separa em antes e depois do " - "
+  let [antes, depois] = texto.split(" - ");
+
+  if (depois) {
+    // Caso tenha " - ", limite 21 caracteres no 'antes'
+    if (antes.length > 21) antes = antes.slice(0, 21) + "...";
+    texto = antes + " - " + depois;
+  } else {
+    // Caso NÃO tenha " - ", limite 25 caracteres no texto inteiro
+    if (texto.length > 25) texto = texto.slice(0, 25) + "...";
+  }
+
+  // Aplica de volta
+  b.textContent = texto;
+});
+
+
+
+
+
+
+
+  // --- Disqus ---
+
+
+    var disqus_config = function () {
+        this.page.url = window.location.href;  // URL da página
+        this.page.identifier = document.title; // Identificador único
+    };
+
+    (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://audienciaon.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();

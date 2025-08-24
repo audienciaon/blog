@@ -24,6 +24,11 @@
     --cor-texto: #333333;
     --cor-destaque:#1995ee;
 
+
+--positivo: #06a566;
+--negativo: #f95843;
+
+	  
 	--fonte-50: 55px;
     --fonte-40: 45px;
     --fonte-30: 35px;
@@ -816,7 +821,7 @@ opacity:0;
 }
   
 
-.publicacao *:not(.recpos):not(.recneg) {
+.publicacao *:not(.recpos):not(.recneg):not(.positivo):not(.negativo) {
   color: var(--cor-90) !important;
 }
   
@@ -957,7 +962,6 @@ content:"Atualizado em "
     display: inline;
 }
 
-  .cabecalho .tipo{display:none !important}
   
   
   
@@ -1071,8 +1075,9 @@ content:"Atualizado em "
     content: "Autoria de ";
 }
 
- .programa .cabecalho .autor::before,
-  .realityshows .cabecalho .autor::before {
+.jornalismo .cabecalho .autor::before,
+.programa .cabecalho .autor::before,
+.realityshows .cabecalho .autor::before {
     content: "Apresentado por " !important;
 }
 
@@ -1114,6 +1119,12 @@ display:none !important
 
 .noar .capitulos::after {
     content: " capítulos até agora" !important;
+}
+
+.realityshows.noar .capitulos::after,
+.jornalismo.noar .capitulos::after,
+.programa.noar .capitulos::after {
+    content: " episódios até agora" !important;
 }
 
 
@@ -1378,6 +1389,7 @@ align-self:center;
     gap: 0px;
     font-weight: 200;
   border-radius:8px;
+	  overflow:hidden;
 }
 
   
@@ -1502,14 +1514,13 @@ display: grid !important;
 .cap50 .num-cap::before,
 .cap100 .num-cap::before,
 .cap150 .num-cap::before{
-    display: block;
+    display: inline;
     content: " pontos até o seu ";
-	margin-right:5px;
 }
 
 .totalcap .num-cap::before {
     display: inline;
-    content: " pontos é a média final nos ";
+    content: " pontos é a média nos ";
 	margin-right:5px;
 }
 
@@ -1693,7 +1704,6 @@ background-color: var(--cor-50-fade) !important;
   
 
 
-.num-cap,
 .audpricap .data::before,
 .menoraud .data::before,
 .maioraud .data::before,
@@ -1708,6 +1718,7 @@ background-color: var(--cor-50-fade) !important;
 	font-weight:500;
   }
 
+.num-cap,
 .cap25 .data::before,
 .cap50 .data::before,
 .cap100 .data::before,
@@ -1777,21 +1788,14 @@ background-color: var(--cor-50-fade) !important;
     line-height: 1.5;
 }
 
-.audpricap .data,
-.menoraud .data,
-.maioraud .data,
-.audultcap .data,
-.nameta::after,
-.cap25 .data,
-.cap50 .data,
-.cap100 .data,
-.cap150 .data {
-    opacity: 0.8;
-}
 
 .totalcap .data {
     opacity: 0.7;
 }
+
+.info4 > * > .positivo{color:var(--positivo)}
+
+.info4 > * > .negativo{color:var(--negativo)}
 
 .info3 .positivo,
 .info3 .negativo,
@@ -1858,6 +1862,13 @@ background-color: var(--cor-50-fade) !important;
     content: "Gráfico da média de audiência até o capítulo em São Paulo";
 }
 
+.series .grafico-acumulado-titulo::before,
+.programa .grafico-acumulado-titulo::before,
+.realityshows .grafico-acumulado-titulo::before,
+.jornalismo .grafico-acumulado-titulo::before {
+    content: "Gráfico da média de audiência até o episódio em São Paulo";
+}
+
 .calendario-titulo::before {
     content: "Tabela da audiência detalhada em São Paulo";
 }
@@ -1895,6 +1906,8 @@ background-color: var(--cor-50-fade) !important;
     content: "Evolução da audiência por capítulos acumulados em São Paulo";
 }
 
+.programa .capitulosacumulados-titulo::before,
+.jornalismo .capitulosacumulados-titulo::before,
 .serie .capitulosacumulados-titulo::before,
   .realityshows .capitulosacumulados-titulo::before {
     content: "Evolução da audiência por episódios acumulados em São Paulo";
@@ -1906,6 +1919,14 @@ background-color: var(--cor-50-fade) !important;
 
 .realityshows .grafico-comparacao-titulo::before {
     content: "Comparação da audiência em São Paulo com outros reality shows" !important;
+}
+
+.programa .grafico-comparacao-titulo::before {
+    content: "Comparação da audiência em São Paulo com outros programas" !important;
+}
+
+.jornalismo .grafico-comparacao-titulo::before {
+    content: "Comparação da audiência em São Paulo com outros programas jornalístios" !important;
 }
 
 .serie .grafico-comparacao-titulo::before {
@@ -2321,13 +2342,13 @@ h3,
 
 .calendario .recpos,
 .calendario-media .recpos {
-    color: #06a566;
+    color: var(--positivo);
     font-weight: 900;
 }
 
 .calendario .recneg,
 .calendario-media .recneg {
-    color: #f95843;
+    color: var(--negativo);
     font-weight: 900;
 }
 
@@ -2502,7 +2523,7 @@ h3,
       padding:0 !important;
     display: grid;
     border-radius: 5px;
-    grid-template-columns: 50px auto;
+    grid-template-columns: 60px auto;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -2515,7 +2536,7 @@ h3,
     padding: 8px;
 	font-size: var(--fonte-14);
     font-weight: 900;
-    font-family: var(--font-family-condensed);
+    font-family: var(--font-family);
 	border-radius: 5px 0px 0px 5px;
     background-color: var(--cor-20-fade);
 }
@@ -2565,6 +2586,21 @@ font-family:var(--font-family-condensed);
 
 .grade-comparacao .mediageral::before {
     content: "Média geral";
+}
+
+
+.jornalismo .grade-comparacao .pricap::before,
+.series .grade-comparacao .pricap::before,
+.realityshows .grade-comparacao .pricap::before,
+.programa .grade-comparacao .pricap::before {
+    content: "No primeiro episódio";
+}
+
+.jornalismo .grade-comparacao .ultcap::before,
+.series .grade-comparacao .ultcap::before,
+.realityshows .grade-comparacao .ultcap::before,
+.programa .grade-comparacao .ultcap::before {
+    content: "No último episódio";
 }
 
 
@@ -4118,7 +4154,7 @@ padding:30px !important}
       .pagina-horario-infos .vazio{display:none}
 
       .pagina-horario-infos .primeira-exibicao{font-size:var(--fonte-16) !important;font-weight: 900}
-      .pagina-horario-infos .primeira-exibicao .primeira-producao-exibida::before{content:"foi a primeira exibição em "}
+      .pagina-horario-infos .primeira-exibicao .primeira-producao-exibida::before{content:"tem o primeiro registro do blog em "}
       .pagina-horario-infos .qtde-exibicoes::after{content:" exibições no horário"}
       .pagina-horario-infos .qtde-series::after{content:" séries já foram exibidas"}
       .pagina-horario-infos .qtde-temporadas::after{content:" temporadas de séries já foram exibidas"}
