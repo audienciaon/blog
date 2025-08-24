@@ -1523,7 +1523,6 @@ display: grid !important;
 .totalcap .num-cap::before {
     display: inline;
     content: " pontos é a média nos ";
-	margin-right:5px;
 }
 
 .cap25 .num-cap::after,
