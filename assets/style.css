@@ -3899,9 +3899,9 @@ padding: 20px;
   
     .comparacoes-horario .item .infos .posicao,
     .comparacoes-horario .item .infos .audiencia {
-  font-size:var(--fonte-25) !important;
-      color:var(--cor-100);
-      height: calc(100% - 20px);
+        font-size:var(--fonte-20) !important;
+        color:var(--cor-100);
+        height: calc(100% - 20px);
         align-items: center;
         border-radius: 5px;
         font-weight: 900
