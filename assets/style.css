@@ -25,8 +25,8 @@
     --cor-destaque:#1995ee;
 
 
---cor-positivo: #06a566;
---cor-negativo: #f95843;
+--positivo: #06a566;
+--negativo: #f95843;
 
 	  
 	--fonte-50: 55px;
@@ -1792,9 +1792,9 @@ background-color: var(--cor-50-fade) !important;
     opacity: 0.7;
 }
 
-.info4 .positivo *{color:var(--cor-positivo)}
+.info4 .positivo *{color:var(--positivo)}
 
-.info4 .negativo *{color:var(--cor-negativo)}
+.info4 .negativo *{color:var(--negativo)}
 
 .info3 .positivo,
 .info3 .negativo,
@@ -2341,13 +2341,13 @@ h3,
 
 .calendario .recpos,
 .calendario-media .recpos {
-    color: --var(cor-positivo);
+    color: var(--positivo);
     font-weight: 900;
 }
 
 .calendario .recneg,
 .calendario-media .recneg {
-    color: var(--cor-negativo);
+    color: var(--negativo);
     font-weight: 900;
 }
 
