@@ -4153,7 +4153,7 @@ padding:30px !important}
       .pagina-horario-infos .vazio{display:none}
 
       .pagina-horario-infos .primeira-exibicao{font-size:var(--fonte-16) !important;font-weight: 900}
-      .pagina-horario-infos .primeira-exibicao .primeira-producao-exibida::before{content:"foi a primeira exibição em "}
+      .pagina-horario-infos .primeira-exibicao .primeira-producao-exibida::before{content:"tem o primeiro registro do blog em "}
       .pagina-horario-infos .qtde-exibicoes::after{content:" exibições no horário"}
       .pagina-horario-infos .qtde-series::after{content:" séries já foram exibidas"}
       .pagina-horario-infos .qtde-temporadas::after{content:" temporadas de séries já foram exibidas"}
