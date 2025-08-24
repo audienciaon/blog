@@ -3841,6 +3841,7 @@ grid-template-areas: 'titulo producao1 producao2 producao3 producao4 producao5';
       background-position:center;
             border-radius:10px !important;
       color:var(--cor-texto)
+		  overflow:hidden;
 }
       
 	.comparacoes{
