@@ -821,7 +821,7 @@ opacity:0;
 }
   
 
-.publicacao *:not(.recpos):not(.recneg) {
+.publicacao *:not(.recpos):not(.recneg):not(.positivo):not(.negativo) {
   color: var(--cor-90) !important;
 }
   
@@ -1389,6 +1389,7 @@ align-self:center;
     gap: 0px;
     font-weight: 200;
   border-radius:8px;
+	  overflow:hidden;
 }
 
   
