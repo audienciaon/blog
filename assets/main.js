@@ -1,52 +1,25 @@
-// ===============================
-// Google Analytics GA4
-// ===============================
-(function() {
-  // Cria o script do GA4 de forma assíncrona
-  const gaScript = document.createElement("script");
-  gaScript.async = true;
-  gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-8PEB40B65W";
-  document.head.appendChild(gaScript);
+(function () {
+  const head = document.head || document.getElementsByTagName("head")[0];
 
-  // Inicializa o GA4
-  const gaInit = document.createElement("script");
-  gaInit.innerHTML = `
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-8PEB40B65W');
-  `;
-  document.head.appendChild(gaInit);
+  function addLink(href) {
+    if (![...head.querySelectorAll("link")].some(l => l.href === href)) {
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = href;
+      head.appendChild(link);
+    }
+  }
+
+  const googleFonts = [
+    "https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100..900;1,100..900&display=swap",
+    "https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,100..900;1,100..900&display=swap",
+    "https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,100..900;1,100..900&display=swap",
+    "https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,100..900;1,100..900&display=swap"
+  ];
+
+  googleFonts.forEach(addLink);
 })();
 
-
-// ===============================
-// Gera versão baseada na data (AAAA-MM-DD)
-// Assim só força recarregar uma vez por dia
-// ===============================
-function versioned(file) {
-  const today = new Date().toISOString().split("T")[0];
-  return file + "?v=" + today;
-}
-
-// ===============================
-// Carrega componentes externos (header, footer, etc.) com tratamento de erro
-// ===============================
-async function loadComponent(id, file) {
-  const el = document.getElementById(id);
-  if (!el) return;
-
-  try {
-    const resp = await fetch(versioned(file));
-    if (!resp.ok) throw new Error(`Erro ao carregar ${file}`);
-    el.innerHTML = await resp.text();
-  } catch (err) {
-    console.error(err);
-    el.innerHTML = `<div style="color:red;font-size:14px">
-      Falha ao carregar <strong>${file}</strong>
-    </div>`;
-  }
-}
 
 
 
