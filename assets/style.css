@@ -4181,10 +4181,11 @@ padding:30px !important}
   border-radius:8px !important;
   backdrop-filter:blur(30px) !important;
   display:grid;
-  grid-template-rows:30px auto auto;
+	  align-items:center;
+  grid-template-rows:auto 30px;
   }
 
-  .pagina-horario-noar .tag-acesse{
+  .pagina-horario-noar .topo{
   display:none}
   
   .pagina-horario-noar .tag-noar{
