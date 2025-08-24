@@ -64,6 +64,9 @@ function addHeadAssets() {
   const fonts = [
     "https://fonts.googleapis.com",
     "https://fonts.gstatic.com",
+    "https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100..900;1,100..900&display=swap",
+    "https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,100..900;1,100..900&display=swap",
+    "https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,100..900;1,100..900&display=swap",
     "https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap",
     "https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,100..900;1,100..900&display=swap",
     "https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&display=swap",
