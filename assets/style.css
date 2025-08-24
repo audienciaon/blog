@@ -1502,7 +1502,7 @@ display: grid !important;
 .cap50 .num-cap::before,
 .cap100 .num-cap::before,
 .cap150 .num-cap::before{
-    display: block;
+    display: inline;
     content: " pontos até o seu ";
 	margin-right:5px;
 }
@@ -1693,7 +1693,6 @@ background-color: var(--cor-50-fade) !important;
   
 
 
-.num-cap,
 .audpricap .data::before,
 .menoraud .data::before,
 .maioraud .data::before,
@@ -1708,6 +1707,7 @@ background-color: var(--cor-50-fade) !important;
 	font-weight:500;
   }
 
+.num-cap,
 .cap25 .data::before,
 .cap50 .data::before,
 .cap100 .data::before,
