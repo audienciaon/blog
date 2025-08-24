@@ -33,8 +33,8 @@
     --fonte-14: 16px;
     --fonte-12: 14px;
     --fonte-10: 12px;
-    --font-family: "Sofia Sans";
-    --font-family-condensed: "Sofia Sans Extra Condensed";
+    --font-family: "Archivo";
+    --font-family-condensed: "Archivo Narrow";
 	  --font-family-title:Fraunces;
 	  
   }
@@ -3827,9 +3827,7 @@ grid-template-areas: 'titulo producao1 producao2 producao3 producao4 producao5';
 }
       
 	.comparacoes{
-            margin-bottom:30px;
       border-radius:10px;
-        \* backdrop-filter: blur(20px) brightness(0.4) *\
 }
  
       
