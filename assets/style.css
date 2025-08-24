@@ -1792,9 +1792,9 @@ background-color: var(--cor-50-fade) !important;
     opacity: 0.7;
 }
 
-.info4 .positivo *{color:var(--positivo)}
+.info4 > * > .positivo{color:var(--positivo)}
 
-.info4 .negativo *{color:var(--negativo)}
+.info4 > * > .negativo{color:var(--negativo)}
 
 .info3 .positivo,
 .info3 .negativo,
