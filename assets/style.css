@@ -1799,7 +1799,6 @@ background-color: var(--cor-50-fade) !important;
 .info4 .negativo {
     margin-top: 5px;
     display: block;
-    padding: 0px;
     background-color: transparent;
     font-weight: 900;
     font-size: var(--fonte-16) !important;
@@ -1809,13 +1808,15 @@ background-color: var(--cor-50-fade) !important;
 .cap25 .positivo::after,
 .cap25 .negativo::after{
 	content:"pontos comparados com a produção anterior" !important;
-	display:block
+	font-weight:500;
+	padding-left:5px;
 }
 
 .info4 .positivo::after,
 .info4 .negativo::after{
 	content:"pontos comparados ao período anterior";
-	display:block
+	font-weight:500;
+	padding-left:5px;
 }
 
 
