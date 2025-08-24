@@ -2515,7 +2515,7 @@ h3,
     padding: 8px;
 	font-size: var(--fonte-14);
     font-weight: 900;
-    font-family: var(--font-family-condensed);
+    font-family: var(--font-family);
 	border-radius: 5px 0px 0px 5px;
     background-color: var(--cor-20-fade);
 }
