@@ -48,6 +48,14 @@ async function loadComponent(id, file) {
   }
 }
 
+
+
+
+
+
+
+
+
 // ===============================
 // Adiciona automaticamente CSS, fontes, favicon e FontAwesome no <head>
 // ===============================
@@ -62,36 +70,20 @@ function addHeadAssets() {
 
   // --- Google Fonts ---
   const fonts = [
-    "https://fonts.googleapis.com",
-    "https://fonts.gstatic.com",
     "https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100..900;1,100..900&display=swap",
     "https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,100..900;1,100..900&display=swap",
     "https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,100..900;1,100..900&display=swap",
-    "https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap",
-    "https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,100..900;1,100..900&display=swap",
-    "https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&display=swap",
-    "https://fonts.googleapis.com/css2?family=Asap+Condensed:ital,wght@0,100..900;1,100..900&display=swap",
     "https://fonts.googleapis.com/css2?family=Space+Grotesk:ital,wght@0,100..900;1,100..900&display=swap",
     "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,100..900;1,100..900&display=swap",
     "https://fonts.googleapis.com/css2?family=Sofia+Sans:ital,wght@0,100..900;1,100..900&display=swap",
     "https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed:ital,wght@0,100..900;1,100..900&display=swap",
     "https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:ital,wght@0,100..900;1,100..900&display=swap",
     "https://fonts.googleapis.com/css2?family=Sofia+Sans+Semi+Condensed:ital,wght@0,100..900;1,100..900&display=swap",
-    "https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&display=swap",
     "https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,100..900;1,100..900&display=swap",
-    "https://fonts.googleapis.com/css2?family=Radio+Canada+Big:ital,wght@0,100..900;1,100..900&display=swap"
+    "https://fonts.googleapis.com/css2?family=Radio+Canada+Big:ital,wght@0,100..900;1,100..900&display=swap",
+    "https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&display=swap"
   ];
 
-
-
-
-
-
-
-
-
-
-  
   fonts.forEach(url => {
     const link = document.createElement("link");
     link.rel = "stylesheet";
@@ -119,6 +111,20 @@ function addHeadAssets() {
     head.appendChild(script);
   });
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // ===============================
 // Evento principal após DOM carregado
