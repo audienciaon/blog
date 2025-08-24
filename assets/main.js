@@ -118,6 +118,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 
+
+
+
+
   // --- Reduzir texto em barras dos gráficos ---
 
 document.querySelectorAll(".grafico-comparacao .linha .espaco .barra").forEach(b => {
@@ -142,3 +146,24 @@ document.querySelectorAll(".grafico-comparacao .linha .espaco .barra").forEach(b
   // Aplica de volta
   b.textContent = texto;
 });
+
+
+
+
+
+
+
+  // --- Disqus ---
+
+
+    var disqus_config = function () {
+        this.page.url = window.location.href;  // URL da página
+        this.page.identifier = document.title; // Identificador único
+    };
+
+    (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://audienciaon.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
