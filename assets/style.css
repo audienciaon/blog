@@ -1150,7 +1150,7 @@ display:none !important
   content:'no ar';
   padding:5px 10px;
   line-height:1;
-  background-color:rgba(255,255,255,0.2);
+  background-color:var(--cor-60-fade);
   border-radius:4px;
   text-transform:uppercase;
   font-weight: 900;
