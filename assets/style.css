@@ -1121,6 +1121,12 @@ display:none !important
     content: " capítulos até agora" !important;
 }
 
+.realityshows.noar .capitulos::after,
+.jornalismo.noar .capitulos::after,
+.programa.noar .capitulos::after {
+    content: " episódios até agora" !important;
+}
+
 
 
 .producao,
@@ -1855,6 +1861,13 @@ background-color: var(--cor-50-fade) !important;
     content: "Gráfico da média de audiência até o capítulo em São Paulo";
 }
 
+.series .grafico-acumulado-titulo::before,
+.programa .grafico-acumulado-titulo::before,
+.realityshows .grafico-acumulado-titulo::before,
+.jornalismo .grafico-acumulado-titulo::before {
+    content: "Gráfico da média de audiência até o episódio em São Paulo";
+}
+
 .calendario-titulo::before {
     content: "Tabela da audiência detalhada em São Paulo";
 }
@@ -1892,6 +1905,8 @@ background-color: var(--cor-50-fade) !important;
     content: "Evolução da audiência por capítulos acumulados em São Paulo";
 }
 
+.programa .capitulosacumulados-titulo::before,
+.jornalismo .capitulosacumulados-titulo::before,
 .serie .capitulosacumulados-titulo::before,
   .realityshows .capitulosacumulados-titulo::before {
     content: "Evolução da audiência por episódios acumulados em São Paulo";
@@ -1903,6 +1918,14 @@ background-color: var(--cor-50-fade) !important;
 
 .realityshows .grafico-comparacao-titulo::before {
     content: "Comparação da audiência em São Paulo com outros reality shows" !important;
+}
+
+.programa .grafico-comparacao-titulo::before {
+    content: "Comparação da audiência em São Paulo com outros programas" !important;
+}
+
+.jornalismo .grafico-comparacao-titulo::before {
+    content: "Comparação da audiência em São Paulo com outros programas jornalístios" !important;
 }
 
 .serie .grafico-comparacao-titulo::before {
@@ -2562,6 +2585,21 @@ font-family:var(--font-family-condensed);
 
 .grade-comparacao .mediageral::before {
     content: "Média geral";
+}
+
+
+.jornalismo .grade-comparacao .pricap::before,
+.series .grade-comparacao .pricap::before,
+.realityshows .grade-comparacao .pricap::before,
+.programa .grade-comparacao .pricap::before {
+    content: "No primeiro episódio";
+}
+
+.jornalismo .grade-comparacao .ultcap::before,
+.series .grade-comparacao .ultcap::before,
+.realityshows .grade-comparacao .ultcap::before,
+.programa .grade-comparacao .ultcap::before {
+    content: "No último episódio";
 }
 
 
