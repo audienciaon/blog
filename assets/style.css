@@ -33,8 +33,8 @@
     --fonte-14: 16px;
     --fonte-12: 14px;
     --fonte-10: 12px;
-    --font-family: "Sofia Sans";
-    --font-family-condensed: "Sofia Sans Extra Condensed";
+    --font-family: "Archivo";
+    --font-family-condensed: "Archivo Narrow";
 	  --font-family-title:Fraunces;
 	  
   }
@@ -94,6 +94,14 @@
     box-sizing: border-box;
     margin: 100px auto
   }
+
+button{
+	background-color: var(--cor-00);
+    border: none;
+    color: var(--cor-100);
+    font-size: var(--fonte-16);
+    border-radius: 5px;
+}
 
   #principal {
     padding: 50px 100px;
@@ -180,7 +188,7 @@ footer a:hover{opacity:100%}
 
 #producoesnoar{
   display:grid;
-  grid-template-columns:repeat(4, auto);
+  grid-template-columns:2fr 1fr 2fr 1fr;
   gap:30px;
   box-sizing:border-box;
   overflow:hidden;
@@ -277,13 +285,7 @@ a {
 
 /* Cria a linha para o efeito */
 .cabecalho a::after {
-  content: '';
-  left: 0;
-  bottom: 0;
-  width: 0;
-  height: 2px; /* espessura do sublinhado */
-  background-color: currentColor; /* mesma cor do link */
-  transition: width 0.3s ease;
+	display:none;
 }
 
 /* Hover: linha cresce da esquerda para direita */
@@ -1293,11 +1295,11 @@ display:none !important
     color: #fff;
     display: grid;
   grid-template-columns:40px auto;
-    padding: 8px 12px;
+    padding: 20px 15px;
     border-radius: 8px;
     transition: 0.3s;
 	align-items:center;
-	gap:40px 20px
+	gap:40px 20px;
 }
 
 .versoes .destacada,
@@ -1307,6 +1309,7 @@ display:none !important
 
 .versoes .ano {
     font-weight: 900;
+	font-size:var(--fonte-16);
 }
 
 .versoes .modelo {
@@ -1372,8 +1375,9 @@ align-self:center;
   .info4 {
   display:grid;
   grid-template-columns:repeat(5, 1fr);
-    gap: 40px;
+    gap: 0px;
     font-weight: 200;
+  border-radius:8px;
 }
 
   
@@ -1381,7 +1385,6 @@ align-self:center;
   .info4 > *{
   box-sizing:border-box;
   padding:40px 30px !important;
-  border-radius:8px;
     background-color: var(--cor-20-fade) !important;
 
   }
@@ -1447,7 +1450,9 @@ align-self:center;
 .info4 .cap150,
 .info4 .cap150 {
     padding: 20px 0px;
-}
+display: grid !important;
+    gap: 0;
+    height: auto;}
 
 .info4 .totalcap {
   background-color:var(--cor-60-fade) !important;
@@ -1465,7 +1470,7 @@ align-self:center;
   
   
 .audpricap .data::before {
-    content: "pontos no primeiro dia, em "
+    content: "pontos registrados no primeiro dia, em "
 }
 
 .maioraud .data::before {
@@ -1477,7 +1482,7 @@ align-self:center;
 }
 
 .audultcap .data::before {
-    content: "pontos no último dia, em "
+    content: "pontos registrados no último dia, em "
 }
 
 .nameta::after {
@@ -1504,7 +1509,7 @@ align-self:center;
 
 .totalcap .num-cap::before {
     display: inline;
-    content: " pontos é a média nos ";
+    content: " pontos é a média final nos ";
 	margin-right:5px;
 }
 
@@ -1688,6 +1693,7 @@ background-color: var(--cor-50-fade) !important;
   
 
 
+.num-cap,
 .audpricap .data::before,
 .menoraud .data::before,
 .maioraud .data::before,
@@ -1792,14 +1798,23 @@ background-color: var(--cor-50-fade) !important;
 .info4 .positivo,
 .info4 .negativo {
     margin-top: 5px;
-    display: inline-block;
-    padding: 4px 7px;
+    display: block;
+    padding: 0px;
     background-color: transparent;
     font-weight: 900;
     font-size: var(--fonte-16) !important;
     border-radius: 4px;
 }
 
+.cap25 .positivo::after,
+.cap25 .negativo::after{
+	content:"da produção anterior" !important;
+}
+
+.info4 .positivo::after,
+.info4 .negativo::after{
+	content:"do período anterior";
+}
 
 .cap25 .info3 .positivo::after,
 .cap25 .info3 .negativo::after,
@@ -2023,7 +2038,7 @@ h3,
       z-index:999 !important;
     min-width: 50px !important;
     margin-top: -70px !important;
-    font-size: var(--fonte-12);
+    font-size: var(--fonte-14);
     font-weight: 900;
     transition: 0.2s;
     white-space: nowrap;
@@ -2031,7 +2046,7 @@ h3,
     text-overflow: clip;
     display: none;
     border-radius: 4px;
-    background-color: var(--cor-20-fade);
+    background-color: var(--cor-70-fade);
     z-index: 9999 !important;
     text-align: center !important;
     padding: 5px 8px;
@@ -3812,9 +3827,7 @@ grid-template-areas: 'titulo producao1 producao2 producao3 producao4 producao5';
 }
       
 	.comparacoes{
-            margin-bottom:30px;
       border-radius:10px;
-        \* backdrop-filter: blur(20px) brightness(0.4) *\
 }
  
       
@@ -3884,9 +3897,9 @@ padding: 20px;
   
     .comparacoes-horario .item .infos .posicao,
     .comparacoes-horario .item .infos .audiencia {
-  font-size:var(--fonte-25) !important;
-      color:var(--cor-100);
-      height: calc(100% - 20px);
+        font-size:var(--fonte-20) !important;
+        color:var(--cor-100);
+        height: calc(100% - 20px);
         align-items: center;
         border-radius: 5px;
         font-weight: 900
@@ -4199,6 +4212,8 @@ padding:30px !important}
   position: relative;
   width: 100%;
   overflow: hidden;
+	    display: grid;
+    grid-template-columns: 30px auto 30px;
 }
 
 .outraspaginas {
@@ -4227,17 +4242,16 @@ background-size:cover;
 
 /* Proporção 2:3 */
 .outraspaginas > a > span {
-  display: block;
+    display: block;
 	backdrop-filter:blur(20px);
 	padding:15px;
 	box-sizing:border-box;
 	font-weight:700;
 	text-align:center;
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 	color:#fff;
-	border-radius:5px;
-background: radial-gradient(circle, 
+	background: radial-gradient(circle, 
               rgba(0,0,0,0.8) 0%,   /* centro com 80% */
               rgba(0,0,0,0.2) 100%); /* borda com 20% */
 	border-radius: 8px;
@@ -4253,10 +4267,10 @@ background: radial-gradient(circle,
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
+  background: #00000050;
   color: #fff;
   border: none;
-  font-size: 2rem;
+  font-size: 20px;
   padding: 10px;
   cursor: pointer;
   z-index: 10;
