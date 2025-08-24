@@ -4262,7 +4262,7 @@ background-size:cover;
 .outraspaginas > a > span {
     display: block;
 	backdrop-filter:blur(20px);
-	padding:15px;
+	padding:30px;
 	box-sizing:border-box;
 	font-weight:700;
 	text-align:center;
