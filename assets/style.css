@@ -33,9 +33,9 @@
     --fonte-14: 16px;
     --fonte-12: 14px;
     --fonte-10: 12px;
-    --font-family: "Fira Sans";
-    --font-family-condensed: "Fira Sans Extra Condensed";
-	  --font-family-title: "Fraunces";
+    --font-family: "Fira Sans, Segoe UI, Arial, sans-serif";
+    --font-family-condensed: "Fira Sans Extra Condensed, Arial Narrow, sans-serif";
+	  --font-family-title: "Fraunces, Bookman Old Style, serif";
 	  
   }
 
