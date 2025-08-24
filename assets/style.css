@@ -24,6 +24,11 @@
     --cor-texto: #333333;
     --cor-destaque:#1995ee;
 
+
+--cor-positivo: #06a566;
+--cor-negativo: #f95843;
+
+	  
 	--fonte-50: 55px;
     --fonte-40: 45px;
     --fonte-30: 35px;
@@ -1504,7 +1509,6 @@ display: grid !important;
 .cap150 .num-cap::before{
     display: inline;
     content: " pontos até o seu ";
-	margin-right:5px;
 }
 
 .totalcap .num-cap::before {
@@ -1777,21 +1781,13 @@ background-color: var(--cor-50-fade) !important;
     line-height: 1.5;
 }
 
-.audpricap .data,
-.menoraud .data,
-.maioraud .data,
-.audultcap .data,
-.nameta::after,
-.cap25 .data,
-.cap50 .data,
-.cap100 .data,
-.cap150 .data {
-    opacity: 0.8;
-}
 
 .totalcap .data {
     opacity: 0.7;
 }
+
+.info3 .positivo *{color:var(--cor-positivo)}
+.info3 .negativo *{color(var(--cor-negativo)}
 
 .info3 .positivo,
 .info3 .negativo,
@@ -2321,13 +2317,13 @@ h3,
 
 .calendario .recpos,
 .calendario-media .recpos {
-    color: #06a566;
+    color: --var(cor-positivo);
     font-weight: 900;
 }
 
 .calendario .recneg,
 .calendario-media .recneg {
-    color: #f95843;
+    color: var(--cor-negativo);
     font-weight: 900;
 }
 
