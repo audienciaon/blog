@@ -33,9 +33,9 @@
     --fonte-14: 16px;
     --fonte-12: 14px;
     --fonte-10: 12px;
-    --font-family: "Archivo";
-    --font-family-condensed: "Archivo Narrow";
-	  --font-family-title:Fraunces;
+    --font-family: "Fira Sans, Segoe UI, Arial, sans-serif";
+    --font-family-condensed: "Fira Sans Extra Condensed, Arial Narrow, sans-serif";
+	  --font-family-title: "Fraunces, Bookman Old Style, serif";
 	  
   }
 
@@ -1799,7 +1799,6 @@ background-color: var(--cor-50-fade) !important;
 .info4 .negativo {
     margin-top: 5px;
     display: block;
-    padding: 0px;
     background-color: transparent;
     font-weight: 900;
     font-size: var(--fonte-16) !important;
@@ -1808,29 +1807,18 @@ background-color: var(--cor-50-fade) !important;
 
 .cap25 .positivo::after,
 .cap25 .negativo::after{
-	content:"da produção anterior" !important;
+	content:"pontos comparados com a produção anterior" !important;
+	font-weight:500;
+	padding-left:5px;
 }
 
 .info4 .positivo::after,
 .info4 .negativo::after{
-	content:"do período anterior";
+	content:"pontos comparados ao período anterior";
+	font-weight:500;
+	padding-left:5px;
 }
 
-.cap25 .info3 .positivo::after,
-.cap25 .info3 .negativo::after,
-.cap25 .info4 .positivo::after,
-.cap25 .info4 .negativo::after {
-	content:" comparado com a produção anterior" !important;
-	display:block;
-}
-
-.info3 .positivo::after,
-.info3 .negativo::after,
-.info4 .positivo::after,
-.info4 .negativo::after {
-	content:" comparado ao período anterior";
-	display:block;
-}
 
 
 
@@ -1848,15 +1836,6 @@ background-color: var(--cor-50-fade) !important;
 
 .negativo::before {
     content: '';
-    display: inline-block;
-}
-
-.info3 .positivo::after,
-.info3 .negativo::after,
-.info4 .positivo::after,
-.info4 .negativo::after {
-    content: 'pontos';
-    padding-left: 5px;
     display: inline-block;
 }
 
