@@ -1071,8 +1071,9 @@ content:"Atualizado em "
     content: "Autoria de ";
 }
 
- .programa .cabecalho .autor::before,
-  .realityshows .cabecalho .autor::before {
+.jornalismo .cabecalho .autor::before,
+.programa .cabecalho .autor::before,
+.realityshows .cabecalho .autor::before {
     content: "Apresentado por " !important;
 }
 
