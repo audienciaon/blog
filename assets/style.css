@@ -1509,7 +1509,7 @@ display: grid !important;
 
 .totalcap .num-cap::before {
     display: inline;
-    content: " pontos é a média final nos ";
+    content: " pontos é a média nos ";
 	margin-right:5px;
 }
 
