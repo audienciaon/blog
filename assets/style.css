@@ -3901,7 +3901,6 @@ padding: 20px;
 
     .comparacoes-horario .item .infos {
         align-items: center;
-        margin-top: 10px;
         z-index: 10;
       line-height:1;
         text-align: center;
@@ -3981,8 +3980,9 @@ padding: 20px;
     .comparacoes-horario .item .conteudo {
         padding: 25px;
           height: calc(100% - 50px);
-              backdrop-filter: blur(20px) brightness(0.8) !important
-
+              backdrop-filter: blur(20px) brightness(0.8) !important;
+display: grid;
+    grid-template-rows: auto 50px;
     }
 
       .comparacoes-horario .qtde-producoes-decada,
@@ -4322,7 +4322,7 @@ background-size:cover;
       
       
       .marcas-horario-geral .comparacoes-horario .item .infos{
-      grid-template-columns:1fr 2fr}
+      grid-template-columns:2fr 3fr}
       
       .marcas-horario .comparacoes-horario .item .infos{
       grid-template-columns:1fr 1fr}
