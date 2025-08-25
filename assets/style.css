@@ -109,15 +109,20 @@ button{
 }
 
   #principal {
-    padding: 50px 100px;
+    padding: 100px 120px;
     position: relative;
-    text-align: center;
     overflow: hidden;
     width: 100%;
     height: 100%;
     border-radius: 12px;
     box-sizing: border-box;
+	  text-align:left;
   } 
+
+  #principal h1{
+	  font-size:var(--fonte-50) !important;
+	  
+}
 
   #principal::before {
     content: "";
@@ -218,6 +223,7 @@ footer a:hover{opacity:100%}
   grid-template-columns:1fr;
   text-align:center;
     grid-template-rows: 2fr 2fr 1fr;
+	align-items:center
 }
 
 #producoesnoar .emissora{
@@ -249,17 +255,17 @@ margin-top:-30px;
 }
 
 #producoesnoar .botao::before{
-    content:"acesse a página aqui";
-  text-transform:uppercase;
-  padding:4px 8px;
-background-color:var(--cor-80-fade);
-font-weight: 900;
-font-size:var(--fonte-12);
+    content: "acesse a página aqui";
+    padding: 8px 16px;
+    border-radius: 8px;
+    background-color: var(--cor-20-fade);
+    font-weight: 900;
+    font-size: var(--fonte-16);
 
 }
 
 #producoesnoar h3{
-	padding:0;
+	padding:0 !important;
 	margin:0;
 	font-size:var(--fonte-20) !important}
 
@@ -997,18 +1003,24 @@ content:"Atualizado em "
 .item-autor:not(:nth-last-child(2)):not(:last-child)::after,
 .item-diretor:not(:nth-last-child(2)):not(:last-child)::after {
   content: ", ";
+	font-weight:400;
+	    opacity: 0.5;
 }
 
 /* "e" apenas antes do último item */
 .item-autor:nth-last-child(2)::after,
 .item-diretor:nth-last-child(2)::after {
   content: " e ";
+	font-weight:400;
+	    opacity: 0.5;
 }
 
 /* nada se for item único */
 .item-autor:only-child::after,
 .item-diretor:only-child::after {
   content: "";
+	font-weight:400;
+	    opacity: 0.5;
 }
 
 
