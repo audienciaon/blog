@@ -217,11 +217,11 @@ footer a:hover{opacity:100%}
   gap:15px;
   grid-template-columns:1fr;
   text-align:center;
-
+    grid-template-rows: 2fr 2fr 1fr;
 }
 
 #producoesnoar .emissora{
-  width:40px;
+  width:80px;
   margin:0 auto;
   filter: brightness(0) invert(1);
 }
@@ -1150,7 +1150,7 @@ display:none !important
   content:'no ar';
   padding:5px 10px;
   line-height:1;
-  background-color:rgba(255,255,255,0.2);
+  background-color:var(--cor-60-fade);
   border-radius:4px;
   text-transform:uppercase;
   font-weight: 900;
@@ -1476,6 +1476,8 @@ display: grid !important;
     font-size: var(--fonte-14) !important;
 }
 
+.info4{background-color:var(--cor-60-fade) !important}
+
  .info5{
   display:grid;
   gap:30px;}
@@ -1521,7 +1523,6 @@ display: grid !important;
 .totalcap .num-cap::before {
     display: inline;
     content: " pontos é a média nos ";
-	margin-right:5px;
 }
 
 .cap25 .num-cap::after,
@@ -3839,6 +3840,7 @@ grid-template-areas: 'titulo producao1 producao2 producao3 producao4 producao5';
       background-position:center;
             border-radius:10px !important;
       color:var(--cor-texto)
+		  overflow:hidden;
 }
       
 	.comparacoes{
@@ -3899,7 +3901,6 @@ padding: 20px;
 
     .comparacoes-horario .item .infos {
         align-items: center;
-        margin-top: 10px;
         z-index: 10;
       line-height:1;
         text-align: center;
@@ -3979,8 +3980,9 @@ padding: 20px;
     .comparacoes-horario .item .conteudo {
         padding: 25px;
           height: calc(100% - 50px);
-              backdrop-filter: blur(20px) brightness(0.8) !important
-
+              backdrop-filter: blur(20px) brightness(0.8) !important;
+display: grid;
+    grid-template-rows: auto 50px;
     }
 
       .comparacoes-horario .qtde-producoes-decada,
@@ -4179,10 +4181,11 @@ padding:30px !important}
   border-radius:8px !important;
   backdrop-filter:blur(30px) !important;
   display:grid;
-  grid-template-rows:30px auto auto;
+	  align-items:center;
+  grid-template-rows:auto 30px;
   }
 
-  .pagina-horario-noar .tag-acesse{
+  .pagina-horario-noar .topo{
   display:none}
   
   .pagina-horario-noar .tag-noar{
@@ -4259,7 +4262,7 @@ background-size:cover;
 .outraspaginas > a > span {
     display: block;
 	backdrop-filter:blur(20px);
-	padding:15px;
+	padding:30px;
 	box-sizing:border-box;
 	font-weight:700;
 	text-align:center;
@@ -4319,7 +4322,7 @@ background-size:cover;
       
       
       .marcas-horario-geral .comparacoes-horario .item .infos{
-      grid-template-columns:1fr 2fr}
+      grid-template-columns:2fr 3fr}
       
       .marcas-horario .comparacoes-horario .item .infos{
       grid-template-columns:1fr 1fr}
