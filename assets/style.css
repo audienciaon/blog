@@ -109,15 +109,20 @@ button{
 }
 
   #principal {
-    padding: 50px 100px;
+    padding: 50px 150px;
     position: relative;
-    text-align: center;
     overflow: hidden;
     width: 100%;
     height: 100%;
     border-radius: 12px;
     box-sizing: border-box;
+	  text-align:left;
   } 
+
+  #principal h1{
+	  font-size:var(--fonte-50) !important;
+	  
+}
 
   #principal::before {
     content: "";
