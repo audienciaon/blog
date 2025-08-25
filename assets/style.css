@@ -1117,6 +1117,14 @@ display:none !important
     content: " capítulos";
 }
 
+.realityshows .capitulos::after,
+.jornalismo .capitulos::after,
+.programa .capitulos::after {
+    content: " episódios" !important;
+}
+
+
+
 .noar .capitulos::after {
     content: " capítulos até agora" !important;
 }
