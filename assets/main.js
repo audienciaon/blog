@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // --- Reduzir texto em barras dos gráficos ---
 
-document.querySelectorAll(".grafico-comparacao .linha .espaco .barra").forEach(b => {
+document.querySelectorAll(".grafico-comparacao-producoes .linha .espaco .barra").forEach(b => {
   let texto = b.textContent.trim();
 
   // 1 - Substitui "ª Reapresentação" -> "ªR" e "ª Temporada" -> "ªT"
