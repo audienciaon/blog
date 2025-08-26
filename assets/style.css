@@ -1474,6 +1474,7 @@ align-self:center;
 	font-weight:900;
     line-height: 1.4;
 	letter-spacing:-0.5px;
+	display:grid
 }
 
 .info4 .cap25,
