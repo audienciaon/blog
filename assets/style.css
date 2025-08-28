@@ -72,6 +72,7 @@
   	background-position: top;
   background-color:var(--cor-00);
   background-attachment: fixed;
+  color:var(--cor-100);
 
   }
   
@@ -88,17 +89,21 @@
 	  justify-items:center;
 	  align-self:center;
 	  grid-template-columns:200px auto 50px 50px;
-	  gap:30px;
- 	  padding-top:10px;
   }
   
     main {
     display: grid;
+    grid-template-rows: 2fr 24fr 1fr;
     gap: 30px;
-    grid-template-columns: 1fr;
-    box-sizing: border-box;
-    margin: 100px auto
+    height: 90vh;
+    max-width: 1200px;
+    min-width:80vw;
+    margin: 5vh auto;
+    padding: 0px 50px;
   }
+
+main > * { border-radius:10px; }
+
 
 button{
 	background-color: var(--cor-00);
@@ -156,17 +161,6 @@ button{
   }
 
   
-  header,footer, main{
-	  width: 1200px;
-	  max-width: 95vw;
-	  margin: 50px auto;
-	  border-box:box-sizing;
-	  color:var(--cor-90)
-  }
-
-footer, main{
-	padding:30px auto
-}
   footer .logo-rodape{
 	  opacity:0.6;
 	  height:30px;
@@ -800,10 +794,7 @@ opacity:0;
 .calendario-media,
 .grafico-diaria,
 .grade-comparacao {
-    padding-top: 40px;
-    padding-bottom: 40px;
     border-radius: 8px;
-    background-color: var(--cor-20-fade) !important;
 }
 
 
@@ -816,20 +807,37 @@ opacity:0;
 .post-image-link {aspect-ratio: 2 / 3}
 
 
+.publicacao-wrapper {
+    height:100%;
+    overflow:hidden; /* mantém wrapper sem barra visível */
+}
+
+.publicacao::-webkit-scrollbar,
+.publicacao-wrapper::-webkit-scrollbar {
+  display: none; /* Chrome, Edge e Safari */
+}
 
 .publicacao {
-  margin-top:20px;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: max-content; /* Ajusta a altura das linhas ao conteúdo */
-  gap: 30px; /* Espaçamento entre os itens */
-  width: 100%; /* Certifica-se de que o grid ocupa toda a largura */
+    display:flex;
+    flex-direction: column; /* vertical */
+    height:100%;
+    overflow-y:auto; /* scroll vertical */
+    gap:40px;
+    grid-template-columns:1fr;
 }
-  
 
-.publicacao *:not(.recpos):not(.recneg):not(.positivo):not(.negativo) {
-  color: var(--cor-90) !important;
+
+.publicacao > div:not([class*="titulo"]) {
+    flex:0 0 auto; /* mantém altura natural dos itens */
+    scroll-snap-align:start;
+    background-color:#00000010;
+    border-radius:10px;
+    display:flex;
+    padding:80px;
+    font-size:2rem;
+    font-size:var(--fonte-14)
 }
+
   
   
 .atualizacaopost *{
@@ -837,8 +845,6 @@ opacity:0;
 }
   .atualizacaopost{
   color: var(--cor-80) !important;
-  padding-top:7px;
-  padding-left:20px;
   opacity:0.6;
   display:inline-block;
   }
@@ -848,8 +854,7 @@ opacity:0;
   display:inline}
 
   .atualizacaopost p{
-  font-weight:600;
-  padding-left:10px;
+  font-weight:400;
 }
 
     .atualizacaopost p::before{
@@ -925,19 +930,15 @@ content:"Atualizado em "
     /* backdrop-filter: blur(200px) !important; */
     display: grid;
     background-image: none !important;
-    gap: 30px;
-    grid-template-columns: 250px 3fr 3fr 3fr;
-    grid-template-areas: 'imagem informacoes informacoes informacoes' 'versoes versoes versoes versoes'
+    gap: 100px;
+    grid-template-columns: 1fr 3fr;
 }
 
 .info1 {
-	background-color:var(--cor-20-fade);
-	border-radius:8px;
     display: grid;
-    grid-area: informacoes;
-    grid-template-rows: 25px 60px 100px 35px auto;
-    gap: 10px;
-	padding:30px;
+    gap: 30px;
+    grid-template-columns: 1fr; 
+    grid-auto-rows: min-content;       
 }
 
 .info1 .outros{
@@ -950,7 +951,6 @@ content:"Atualizado em "
     aspect-ratio: 2 / 3;
     display: block;
     border-radius: 5px;
-    grid-area: imagem
 }
 
 .horario::before,
@@ -1073,8 +1073,6 @@ content:"Atualizado em "
     vertical-align: middle;
 }
 
-.cabecalho .producao{}
-
 .cabecalho-ficha {
     grid-template-rows: repeat(4, auto);
 }
@@ -1180,15 +1178,11 @@ display:none !important
 
 
 .cabecalho .links {
-    margin-top: 10px;
     display: flex !important;
     width: 100% !important;
     flex-wrap: wrap;
 }
 
-.cabecalho .links a {
-    margin-bottom: 10px;
-}
   
   .numero-temporada{
 	display: inline;
@@ -1354,7 +1348,7 @@ display:none !important
   
   
   .linktemporadas{
-  display:grid;
+  display:grid !important;
   grid-template-columns:repeat(10, 1fr);
   gap:10px;
   align-items:center;
@@ -1416,8 +1410,7 @@ align-self:center;
   .info3 > *,
   .info4 > *{
   box-sizing:border-box;
-  padding:40px 30px !important;
-    background-color: var(--cor-20-fade) !important;
+  padding:0px 30px !important;
 
   }
 
@@ -1436,17 +1429,9 @@ align-self:center;
     opacity: 0.4;
 }
 
-.audpricap {}
-
-.menoraud {}
-
-.maioraud {}
-
 .noar .audultcap {
     display: none !important
 }
-
-.nameta {}
 
 .info3 .audpricap,
 .info3 .menoraud,
@@ -2106,16 +2091,8 @@ h3,
 
 }
 
-.grafico-diaria .dia .dados .data {}
-
-
-
-
-
-
-
 .grade-tabela {
-    display: grid;
+    display: grid !important;
     grid-template-columns: 4fr 1.1fr;
     grid-template-rows: auto;
     gap: 20px;
@@ -2146,8 +2123,6 @@ h3,
     grid-template-rows: repeat(1, 1fr);
     gap: 7px;
     grid-area: calendario;
-    padding-left: 40px;
-    padding-right: 40px;
 }
 
 .calendario-media .linha {
@@ -2431,7 +2406,7 @@ h3,
 .linhadotempo {
     padding-left: 40px;
     padding-right: 40px;
-    display: grid;
+    display: grid !important;
     grid-template-columns: repeat(5, 1fr);
     gap: 20px;
     font-size: var(--fonte-14);
@@ -2523,7 +2498,7 @@ h3,
 
   
 .grade-comparacao {
-    display: grid;
+    display: grid !important;
 	grid-template-columns: repeat(4, minmax(0, 1fr));
     padding-left: 40px;
     gap: 20px;
@@ -3479,16 +3454,7 @@ grid-template-areas: 'titulo producao1 producao2 producao3 producao4 producao5';
 .premiacao .indicado:hover{    inset 0 0 100px rgba(0, 0, 0, 0.5), 0px 0px 20px rgba(0, 0, 0, 0.5);
       }
 
-    .premiacao .item1,
-    .premiacao .item2,
-    .premiacao .item3,
-    .premiacao .item4,
-    .premiacao .item5,
-    .premiacao .item6,
-    .premiacao .item7,
-    .premiacao .item8,
-    .premiacao .item9{}
-    
+   
       .premiacao .serie .infos,
       .premiacao .novela .infos {display:none}
       
@@ -3509,7 +3475,7 @@ grid-template-areas: 'titulo producao1 producao2 producao3 producao4 producao5';
     .nome-producao{font-weight:normal;}
     
 
-}
+
     
     
         .premiacao .premios .categoria .grade > div:hover {
@@ -3860,7 +3826,7 @@ grid-template-areas: 'titulo producao1 producao2 producao3 producao4 producao5';
       background-repeat:no-repeat;
       background-position:center;
             border-radius:10px !important;
-      color:var(--cor-texto)
+      color:var(--cor-texto);
 		  overflow:hidden;
 }
       
