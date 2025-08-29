@@ -28,19 +28,19 @@
 
 </head>
 <body>
-<div id="header"></div><main>
+<main><div id="header"></div>
 
 
-<div class="atualizacaopost"><i class="fa-solid fa-arrows-rotate"></i><p>25 ago 2025 às 22:45</p></div><div class="dadosnaoencontrados"></div>
+
 <div class="publicacao globo ">
 <div class="cabecalho" style="background-image:url('https://audienciaon.github.io/capas/marina1980.png');"><div class="informacoes">
 <div class="info2"><img src="https://audienciaon.github.io/capas/marina1980.png"/></div>
-<div class="info1">
-<div class="formato">
+<div class="info1"><div class="atualizacaopost"><i class="fa-solid fa-arrows-rotate"></i><p>29 ago 2025 às 00:12</p></div><div class="dadosnaoencontrados"></div>
+
 <div class="horario"><a href="https://audienciaon.github.io/blog/p/globo-18h.html">Produções das 18h da TV Globo</a></div>
-</div>
+
 <div class="producao">Marina (1980)</div>
-<div class="ficha">
+
 <div class="autor">
 <div class="item-autor"><a href="https://audienciaon.gitub.io/blog/search/Wilson Aguiar Filho">Wilson Aguiar Filho</a></div>
 
@@ -58,7 +58,7 @@
 <div class="primeirocap">26 mai 1980</div>
 <div class="ultimocap">7 nov 1980</div>
 <div class="capitulos">137</div>
-</div></div>
+</div>
 <div class="links">
 <a href="https://globoplay.globo.com/busca/?q=Marina (1980)" target="_blank" class="globoplay"></a>
 <a href="https://memoriaglobo.globo.com/busca/?q=Marina (1980)" target="_blank" class="memoriaglobo"></a>
@@ -69,7 +69,7 @@
 <a href="https://filmow.com/buscar/?q=Marina (1980)" target="_blank" class="filmow"></a>
 </div>
 <div class="outro"></div>
-</div>
+</div></div></div>
 
 
 
@@ -84,7 +84,7 @@
 
 
 
-</div></div><div class="info5">
+
 
 
 
@@ -97,7 +97,7 @@
 
 <div class="grafico-diaria-titulo esconder "></div>
 <div class="grafico-diaria esconder ">
-
+<canvas id="grafico1"></canvas>
 
 
 
@@ -1084,11 +1084,11 @@
 
 
 
-<div class="totalcap"><div class="num-destaque">35,00</div><div class="num-cap">137</div><div class="data">7 nov 1980</div><div class="positivo">35,00</div></div>
+<div class="totalcap"><div class="num-destaque"></div><div class="num-cap">137</div><div class="data">7 nov 1980</div><div class="positivo">35,00</div></div>
 </div>
 <div class="grafico-acumulado-titulo esconder "></div>
 <div class="grafico-diaria esconder ">
-
+<canvas id="grafico2"></canvas>
 
 
 
@@ -1896,32 +1896,131 @@
 <div class="grafico-comparacao-titulo"></div>
 <div class="grade-comparacao grafico-comparacao-producoes">
 <div class="grafico-comparacao pricap">
-<div class="linha "><div class="espaco"><div class="audiencia">36,09</div><div class="diferenca">-2,63999999999999</div><div class="barra" style="width:86.67%">Memórias de Amor</div></div></div>
-<div class="linha "><div class="espaco"><div class="audiencia">41,64</div><div class="diferenca">5,55</div><div class="barra" style="width:100.00%">Cabocla (1979)</div></div></div>
-<div class="linha "><div class="espaco"><div class="audiencia">33,00</div><div class="diferenca">-8,64</div><div class="barra" style="width:79.25%">Escrava Isaura (1976) - 2ª Edição Especial</div></div></div>
-<div class="linha fade2 "><div class="espaco"><div class="audiencia">0,00</div><div class="diferenca">-33</div><div class="barra" style="width:0.00%">Olhai os Lírios do Campo</div></div></div>
+<div class="linha "><div class="espaco"><div class="audiencia">34,00</div><div class="diferenca">-1</div><div class="barra" style="width:77.27%">Memórias de Amor</div></div></div>
+<div class="linha "><div class="espaco"><div class="audiencia">44,00</div><div class="diferenca">10</div><div class="barra" style="width:100.00%">Cabocla (1979)</div></div></div>
+<div class="linha "><div class="espaco"><div class="audiencia">30,00</div><div class="diferenca">-14</div><div class="barra" style="width:68.18%">Escrava Isaura (1976) - 2ª Edição Especial</div></div></div>
+<div class="linha fade2 "><div class="espaco"><div class="audiencia">0,00</div><div class="diferenca">-29,9999999</div><div class="barra" style="width:0.00%">Olhai os Lírios do Campo</div></div></div>
 <div class="linha fade2 "><div class="espaco"><div class="audiencia">0,00</div><div class="diferenca">0</div><div class="barra" style="width:0.00%">Marina (1980)</div></div></div>
 </div>
 <div class="grafico-comparacao ultcap">
-<div class="linha "><div class="espaco"><div class="audiencia">36,09</div><div class="diferenca">-2,63999999999999</div><div class="barra" style="width:86.67%">Memórias de Amor</div></div></div>
-<div class="linha "><div class="espaco"><div class="audiencia">41,64</div><div class="diferenca">5,55</div><div class="barra" style="width:100.00%">Cabocla (1979)</div></div></div>
-<div class="linha "><div class="espaco"><div class="audiencia">33,00</div><div class="diferenca">-8,64</div><div class="barra" style="width:79.25%">Escrava Isaura (1976) - 2ª Edição Especial</div></div></div>
-<div class="linha fade2 "><div class="espaco"><div class="audiencia">0,00</div><div class="diferenca">-33</div><div class="barra" style="width:0.00%">Olhai os Lírios do Campo</div></div></div>
+<div class="linha "><div class="espaco"><div class="audiencia">29,00</div><div class="diferenca">-24</div><div class="barra" style="width:63.04%">Memórias de Amor</div></div></div>
+<div class="linha "><div class="espaco"><div class="audiencia">46,00</div><div class="diferenca">17</div><div class="barra" style="width:100.00%">Cabocla (1979)</div></div></div>
+<div class="linha fade2 "><div class="espaco"><div class="audiencia">0,00</div><div class="diferenca">-45,9999999</div><div class="barra" style="width:0.00%">Escrava Isaura (1976) - 2ª Edição Especial</div></div></div>
+<div class="linha fade2 "><div class="espaco"><div class="audiencia">0,00</div><div class="diferenca">0</div><div class="barra" style="width:0.00%">Olhai os Lírios do Campo</div></div></div>
 <div class="linha fade2 "><div class="espaco"><div class="audiencia">0,00</div><div class="diferenca">0</div><div class="barra" style="width:0.00%">Marina (1980)</div></div></div>
 </div>
 <div class="grafico-comparacao maioraud">
-<div class="linha "><div class="espaco"><div class="audiencia">36,09</div><div class="diferenca">-2,63999999999999</div><div class="barra" style="width:86.67%">Memórias de Amor</div></div></div>
-<div class="linha "><div class="espaco"><div class="audiencia">41,64</div><div class="diferenca">5,55</div><div class="barra" style="width:100.00%">Cabocla (1979)</div></div></div>
-<div class="linha "><div class="espaco"><div class="audiencia">33,00</div><div class="diferenca">-8,64</div><div class="barra" style="width:79.25%">Escrava Isaura (1976) - 2ª Edição Especial</div></div></div>
-<div class="linha fade2 "><div class="espaco"><div class="audiencia">0,00</div><div class="diferenca">-33</div><div class="barra" style="width:0.00%">Olhai os Lírios do Campo</div></div></div>
+<div class="linha "><div class="espaco"><div class="audiencia">52,00</div><div class="diferenca">-4</div><div class="barra" style="width:96.30%">Memórias de Amor</div></div></div>
+<div class="linha "><div class="espaco"><div class="audiencia">54,00</div><div class="diferenca">2</div><div class="barra" style="width:100.00%">Cabocla (1979)</div></div></div>
+<div class="linha "><div class="espaco"><div class="audiencia">39,00</div><div class="diferenca">-15</div><div class="barra" style="width:72.22%">Escrava Isaura (1976) - 2ª Edição Especial</div></div></div>
+<div class="linha fade2 "><div class="espaco"><div class="audiencia">0,00</div><div class="diferenca">-38,9999999</div><div class="barra" style="width:0.00%">Olhai os Lírios do Campo</div></div></div>
 <div class="linha fade2 "><div class="espaco"><div class="audiencia">0,00</div><div class="diferenca">0</div><div class="barra" style="width:0.00%">Marina (1980)</div></div></div>
 </div>
 <div class="grafico-comparacao mediageral">
 <div class="linha "><div class="espaco"><div class="audiencia">36,09</div><div class="diferenca">-2,63999999999999</div><div class="barra" style="width:86.67%">Memórias de Amor</div></div></div>
 <div class="linha "><div class="espaco"><div class="audiencia">41,64</div><div class="diferenca">5,55</div><div class="barra" style="width:100.00%">Cabocla (1979)</div></div></div>
-<div class="linha "><div class="espaco"><div class="audiencia">33,00</div><div class="diferenca">-8,64</div><div class="barra" style="width:79.25%">Escrava Isaura (1976) - 2ª Edição Especial</div></div></div>
-<div class="linha fade2 "><div class="espaco"><div class="audiencia">0,00</div><div class="diferenca">-33</div><div class="barra" style="width:0.00%">Olhai os Lírios do Campo</div></div></div>
+<div class="linha "><div class="espaco"><div class="audiencia">15,40</div><div class="diferenca">-26,24</div><div class="barra" style="width:36.98%">Escrava Isaura (1976) - 2ª Edição Especial</div></div></div>
+<div class="linha fade2 "><div class="espaco"><div class="audiencia">0,00</div><div class="diferenca">-15,4</div><div class="barra" style="width:0.00%">Olhai os Lírios do Campo</div></div></div>
 <div class="linha fade2 "><div class="espaco"><div class="audiencia">0,00</div><div class="diferenca">0</div><div class="barra" style="width:0.00%">Marina (1980)</div></div></div>
 </div>
 </div>
-</div></div></div></div></main><div id="footer"></div></body></html>
+</div></div></div><div id="footer"></div></main>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    // Função para configurar tamanho do canvas
+    function ajustarCanvas(canvas, altura) {
+        canvas.style.width = '100%';   // largura 100% do pai
+        canvas.style.height = altura + 'px'; // altura fixa
+        canvas.width = canvas.offsetWidth;
+        canvas.height = 400;
+    }
+
+    const canvas1 = document.getElementById('grafico1');
+    const canvas2 = document.getElementById('grafico2');
+
+    ajustarCanvas(canvas1, 400);
+    ajustarCanvas(canvas2, 400);
+
+    const ctx1 = canvas1.getContext('2d');
+    const ctx2 = canvas2.getContext('2d');
+
+    const gradient1 = ctx1.createLinearGradient(0, 0, 0, canvas1.height);
+    gradient1.addColorStop(0, '#00000050');
+    gradient1.addColorStop(1, '#00000010');
+
+    const gradient2 = ctx2.createLinearGradient(0, 0, 0, canvas2.height);
+    gradient2.addColorStop(0, '#00000050');
+    gradient2.addColorStop(1, '#00000010');
+
+    const options = {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: 'index', intersect: false },
+        hover: { mode: null },
+        plugins: {
+            legend: { display: false },
+            tooltip: {
+                enabled: true,
+                backgroundColor: 'rgba(0,0,0,0.7)',
+                titleColor: '#fff',
+                bodyColor: '#fff',
+                borderRadius: 4,
+                displayColors: false,
+                yAlign: 'bottom',
+                callbacks: {
+                    title: ctx => ' ' + ctx[0].label,
+                    label: ctx => ' ' + ctx.parsed.y
+                }
+            }
+        },
+        elements: { line: { tension: 0.4 } },
+        scales: {
+            x: { display: false },
+            y: { ticks: { color: 'rgba(255,255,255,0.5)' }, min: 0 }
+        }
+    };
+
+    // Gráfico 1
+    new Chart(ctx1, {
+        type: 'line',
+        data: {
+            labels: [],
+            datasets: [{
+                label: 'Vendas',
+                data: [],
+                fill: true,
+                backgroundColor: gradient1,
+                borderColor: '#fff',
+                borderWidth: 5,
+                pointRadius: 0,
+                pointHoverRadius: 0
+            }]
+        },
+        options: options
+    });
+
+    // Gráfico 2
+    new Chart(ctx2, {
+        type: 'line',
+        data: {
+            labels: [],
+            datasets: [{
+                label: 'Vendas',
+                data: [],
+                fill: true,
+                backgroundColor: gradient2,
+                borderColor: '#fff',
+                borderWidth: 5,
+                pointRadius: 0,
+                pointHoverRadius: 0
+            }]
+        },
+        options: options
+    });
+
+});
+</script>
+
+</body></html>

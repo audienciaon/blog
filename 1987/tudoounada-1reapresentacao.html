@@ -28,19 +28,19 @@
 
 </head>
 <body>
-<div id="header"></div><main>
+<main><div id="header"></div>
 
 
-<div class="atualizacaopost"><i class="fa-solid fa-arrows-rotate"></i><p>25 ago 2025 às 23:29</p></div><div class="dadosnaoencontrados"></div>
+
 <div class="publicacao manchete ">
 <div class="cabecalho" style="background-image:url('https://audienciaon.github.io/capasmanchete/tudoounada-1reapresentacao.png');"><div class="informacoes">
 <div class="info2"><img src="https://audienciaon.github.io/capasmanchete/tudoounada-1reapresentacao.png"/></div>
-<div class="info1">
-<div class="formato">
+<div class="info1"><div class="atualizacaopost"><i class="fa-solid fa-arrows-rotate"></i><p>29 ago 2025 às 01:09</p></div><div class="dadosnaoencontrados"></div>
+
 <div class="horario"><a href="https://audienciaon.github.io/blog/p/manchete-reexibicoes.html">Reexibições da Manchete</a></div>
-</div>
+
 <div class="producao">Tudo ou Nada</div>
-<div class="ficha">
+
 <div class="autor">
 <div class="item-autor"><a href="https://audienciaon.gitub.io/blog/search/José Antonio de Souza">José Antonio de Souza</a></div>
 
@@ -58,7 +58,7 @@
 <div class="primeirocap">3 ago 1987</div>
 <div class="ultimocap">8 mar 1988</div>
 <div class="capitulos">90</div>
-</div></div>
+</div>
 <div class="links">
 
 
@@ -69,7 +69,7 @@
 <a href="https://filmow.com/buscar/?q=Tudo ou Nada - 1ª Reapresentação" target="_blank" class="filmow"></a>
 </div>
 <div class="outro"></div>
-</div>
+</div></div></div>
 <div class="versoes">
 <a href="https://audienciaon.github.io/blog/1986/tudoounada.html" class="versao "><div class="ano">1986</div><div class="modelo">Exibição Original</div></a>
 <a href="https://audienciaon.github.io/blog/1987/tudoounada-1reapresentacao.html" class="versao destacada"><div class="ano">1987</div><div class="modelo">1ª Reapresentação</div></a>
@@ -84,7 +84,7 @@
 
 
 </div>
-</div></div><div class="info5">
+
 
 
 
@@ -1079,12 +1079,12 @@
 
 
 <div class="capitulosacumulados-titulo"></div>
-<div class="info4 evolucao-audiencia ">
+<div class="info4 evolucao-audiencia esconder ">
 
 
 
 
-#VALOR!
+<div class="totalcap"><div class="num-destaque"></div><div class="num-cap">90</div><div class="data">8 mar 1988</div><div class="positivo">0,00</div></div>
 
 
 
@@ -1914,7 +1914,7 @@
 <div class="linha fade2 "><div class="espaco"><div class="audiencia">0,00</div><div class="diferenca">0</div><div class="barra" style="width:0%">Antônio Maria - 1ª Reapresentação</div></div></div>
 <div class="linha fade2 "><div class="espaco"><div class="audiencia">0,00</div><div class="diferenca">0</div><div class="barra" style="width:0%">Tudo em Cima - 2ª Reapresentação</div></div></div>
 <div class="linha fade2 "><div class="espaco"><div class="audiencia">0,00</div><div class="diferenca">0</div><div class="barra" style="width:0%">Novo Amor - 1ª Reapresentação</div></div></div>
-<div class="linha fade2 "><div class="espaco"><div class="audiencia">0,00</div><div class="diferenca">0</div><div class="barra" style="width:0%">Tudo ou Nada - 1ª Reapresentação</div></div></div>
+<div class="linha fade2 "><div class="espaco"><div class="audiencia">0,00</div><div class="diferenca">0</div><div class="barra" style="width:0.00%">Tudo ou Nada - 1ª Reapresentação</div></div></div>
 </div>
 <div class="grafico-comparacao mediageral">
 <div class="linha fade2 "><div class="espaco"><div class="audiencia">0,00</div><div class="diferenca">0</div><div class="barra" style="width:0%">Tudo em Cima - 1ª Reapresentação</div></div></div>
@@ -1924,4 +1924,103 @@
 <div class="linha fade2 "><div class="espaco"><div class="audiencia">0,00</div><div class="diferenca">0</div><div class="barra" style="width:0%">Tudo ou Nada - 1ª Reapresentação</div></div></div>
 </div>
 </div>
-</div></div></div></div></main><div id="footer"></div></body></html>
+</div></div></div><div id="footer"></div></main>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    // Função para configurar tamanho do canvas
+    function ajustarCanvas(canvas, altura) {
+        canvas.style.width = '100%';   // largura 100% do pai
+        canvas.style.height = altura + 'px'; // altura fixa
+        canvas.width = canvas.offsetWidth;
+        canvas.height = 400;
+    }
+
+    const canvas1 = document.getElementById('grafico1');
+    const canvas2 = document.getElementById('grafico2');
+
+    ajustarCanvas(canvas1, 400);
+    ajustarCanvas(canvas2, 400);
+
+    const ctx1 = canvas1.getContext('2d');
+    const ctx2 = canvas2.getContext('2d');
+
+    const gradient1 = ctx1.createLinearGradient(0, 0, 0, canvas1.height);
+    gradient1.addColorStop(0, '#00000050');
+    gradient1.addColorStop(1, '#00000010');
+
+    const gradient2 = ctx2.createLinearGradient(0, 0, 0, canvas2.height);
+    gradient2.addColorStop(0, '#00000050');
+    gradient2.addColorStop(1, '#00000010');
+
+    const options = {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: 'index', intersect: false },
+        hover: { mode: null },
+        plugins: {
+            legend: { display: false },
+            tooltip: {
+                enabled: true,
+                backgroundColor: 'rgba(0,0,0,0.7)',
+                titleColor: '#fff',
+                bodyColor: '#fff',
+                borderRadius: 4,
+                displayColors: false,
+                yAlign: 'bottom',
+                callbacks: {
+                    title: ctx => ' ' + ctx[0].label,
+                    label: ctx => ' ' + ctx.parsed.y
+                }
+            }
+        },
+        elements: { line: { tension: 0.4 } },
+        scales: {
+            x: { display: false },
+            y: { ticks: { color: 'rgba(255,255,255,0.5)' }, min: 0 }
+        }
+    };
+
+    // Gráfico 1
+    new Chart(ctx1, {
+        type: 'line',
+        data: {
+            labels: [],
+            datasets: [{
+                label: 'Vendas',
+                data: [],
+                fill: true,
+                backgroundColor: gradient1,
+                borderColor: '#fff',
+                borderWidth: 5,
+                pointRadius: 0,
+                pointHoverRadius: 0
+            }]
+        },
+        options: options
+    });
+
+    // Gráfico 2
+    new Chart(ctx2, {
+        type: 'line',
+        data: {
+            labels: [],
+            datasets: [{
+                label: 'Vendas',
+                data: [],
+                fill: true,
+                backgroundColor: gradient2,
+                borderColor: '#fff',
+                borderWidth: 5,
+                pointRadius: 0,
+                pointHoverRadius: 0
+            }]
+        },
+        options: options
+    });
+
+});
+</script>
+
+</body></html>
