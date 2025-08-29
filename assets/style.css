@@ -1308,13 +1308,15 @@ display:none !important
 
 .versoes {
   line-height:1;
-    grid-area: versoes;
     display: grid;
     gap: 10px;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: auto;
     grid-auto-rows: auto;
     font-size: var(--fonte-14);
+    padding-top:0 !important;
+    padding-bottom:0 !important;
+    background-color:transparent !important;
 }
 
 .versoes .versao {
