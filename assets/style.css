@@ -104,7 +104,10 @@
 
 main > * { border-radius:10px; }
 
-
+canvas{
+  height:100%;
+  width:100%;
+}
 button{
 	background-color: var(--cor-00);
     border: none;
@@ -1990,7 +1993,7 @@ h3,
     display: flex;
     padding-left: 40px;
     padding-right: 40px;
-    height: 250px;
+    height: 450px;
     border-radius: 8px;
 }
 

@@ -35,7 +35,7 @@
 <div class="publicacao noar globo ">
 <div class="cabecalho" style="background-image:url('https://audienciaon.github.io/capas/valetudo2025.png');"><div class="informacoes">
 <div class="info2"><img src="https://audienciaon.github.io/capas/valetudo2025.png"/></div>
-<div class="info1"><div class="atualizacaopost"><i class="fa-solid fa-arrows-rotate"></i><p>28 ago 2025 às 19:34</p></div>
+<div class="info1"><div class="atualizacaopost"><i class="fa-solid fa-arrows-rotate"></i><p>28 ago 2025 às 20:57</p></div>
 
 <div class="horario"><a href="https://audienciaon.github.io/blog/p/globo-21h.html">Produções das 20h ou 21h da TV Globo</a></div>
 
@@ -99,83 +99,83 @@
 <div class="grafico-diaria ">
 <canvas id="grafico1"></canvas>
 
-<script>
-const canvas = document.getElementById('grafico1');
-const ctx = canvas.getContext('2d');
 
-// largura do canvas igual à largura do pai
-canvas.style.width = '100%';
-canvas.style.height = '400px'; // altura fixa ou ajustável
 
-// ajusta o tamanho real do canvas para evitar distorção
-canvas.width = canvas.offsetWidth;
-canvas.height = 400;
 
-// degradê
-const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-gradient.addColorStop(0, '#00000050');
-gradient.addColorStop(1, '#00000010');
 
-const grafico = new Chart(ctx, {
-type: 'line',
-data: {
-labels: ['Dia 1, 31 mar', 'Dia 2, 1 abr', 'Dia 3, 2 abr', 'Dia 4, 3 abr', 'Dia 5, 4 abr', 'Dia 6, 5 abr', 'Dia 7, 7 abr', 'Dia 8, 8 abr', 'Dia 9, 9 abr', 'Dia 10, 10 abr', 'Dia 11, 11 abr', 'Dia 12, 12 abr', 'Dia 13, 14 abr', 'Dia 14, 15 abr', 'Dia 15, 16 abr', 'Dia 16, 17 abr', 'Dia 17, 18 abr', 'Dia 18, 19 abr', 'Dia 19, 21 abr', 'Dia 20, 22 abr', 'Dia 21, 23 abr', 'Dia 22, 24 abr', 'Dia 23, 25 abr', 'Dia 24, 26 abr', 'Dia 25, 28 abr', 'Dia 26, 29 abr', 'Dia 27, 30 abr', 'Dia 28, 1 mai', 'Dia 29, 2 mai', 'Dia 30, 3 mai', 'Dia 31, 5 mai', 'Dia 32, 6 mai', 'Dia 33, 7 mai', 'Dia 34, 8 mai', 'Dia 35, 9 mai', 'Dia 36, 10 mai', 'Dia 37, 12 mai', 'Dia 38, 13 mai', 'Dia 39, 14 mai', 'Dia 40, 15 mai', 'Dia 41, 16 mai', 'Dia 42, 17 mai', 'Dia 43, 19 mai', 'Dia 44, 20 mai', 'Dia 45, 21 mai', 'Dia 46, 22 mai', 'Dia 47, 23 mai', 'Dia 48, 24 mai', 'Dia 49, 26 mai', 'Dia 50, 27 mai', 'Dia 51, 28 mai', 'Dia 52, 29 mai', 'Dia 53, 30 mai', 'Dia 54, 31 mai', 'Dia 55, 2 jun', 'Dia 56, 3 jun', 'Dia 57, 4 jun', 'Dia 58, 5 jun', 'Dia 59, 6 jun', 'Dia 60, 7 jun', 'Dia 61, 9 jun', 'Dia 62, 10 jun', 'Dia 63, 11 jun', 'Dia 64, 12 jun', 'Dia 65, 13 jun', 'Dia 66, 14 jun', 'Dia 67, 16 jun', 'Dia 68, 17 jun', 'Dia 69, 18 jun', 'Dia 70, 19 jun', 'Dia 71, 20 jun', 'Dia 72, 21 jun', 'Dia 73, 23 jun', 'Dia 74, 24 jun', 'Dia 75, 25 jun', 'Dia 76, 26 jun', 'Dia 77, 27 jun', 'Dia 78, 28 jun', 'Dia 79, 30 jun', 'Dia 80, 1 jul', 'Dia 81, 2 jul', 'Dia 82, 3 jul', 'Dia 83, 4 jul', 'Dia 84, 5 jul', 'Dia 85, 7 jul', 'Dia 86, 8 jul', 'Dia 87, 9 jul', 'Dia 88, 10 jul', 'Dia 89, 11 jul', 'Dia 90, 12 jul', 'Dia 91, 14 jul', 'Dia 92, 15 jul', 'Dia 93, 16 jul', 'Dia 94, 17 jul', 'Dia 95, 18 jul', 'Dia 96, 19 jul', 'Dia 97, 21 jul', 'Dia 98, 22 jul', 'Dia 99, 23 jul', 'Dia 100, 24 jul', 'Dia 101, 25 jul', 'Dia 102, 26 jul', 'Dia 103, 28 jul', 'Dia 104, 29 jul', 'Dia 105, 30 jul', 'Dia 106, 31 jul', 'Dia 107, 1 ago', 'Dia 108, 2 ago', 'Dia 109, 4 ago', 'Dia 110, 5 ago', 'Dia 111, 6 ago', 'Dia 112, 7 ago', 'Dia 113, 8 ago', 'Dia 114, 9 ago', 'Dia 115, 11 ago', 'Dia 116, 12 ago', 'Dia 117, 13 ago', 'Dia 118, 14 ago', 'Dia 119, 15 ago', 'Dia 120, 16 ago', 'Dia 121, 18 ago', 'Dia 122, 19 ago', 'Dia 123, 20 ago', 'Dia 124, 21 ago'],
-datasets: [{
-label: 'Vendas',
-data: [24.3, 23.5, 21.8, 22.6, 21.9, 19.2, 23, 21.4, 23.1, 22.7, 21.4, 20.9, 23.5, 24, 20.1, 21.7, 21.5, 19.9, 23.2, 24, 22.6, 23.1, 22.9, 19.8, 22.5, 20.8, 20.6, 21.3, 21.8, 19.4, 22.5, 18.9, 20.7, 22.4, 20.5, 19.3, 21.8, 21.3, 20.9, 20.7, 20.6, 19.2, 22.2, 21.4, 21.7, 22.2, 21.6, 18.8, 22.2, 20.9, 22, 21.8, 21.2, 19.5, 22.1, 22.4, 21.8, 19.5, 21.8, 20.1, 23.7, 24.7, 23.2, 21.7, 21.7, 19.1, 22.5, 22.8, 21.4, 22.8, 21.6, 19.1, 23.7, 22.7, 21.8, 21.1, 21.9, 18.7, 22, 23, 22, 22.5, 23.3, 21, 25.2, 24.8, 24.8, 24.3, 23.2, 20.6, 25.6, 24.6, 21.5, 23.3, 23.7, 19.4, 25.2, 25.2, 20.3, 23.8, 24.4, 19.9, 25.5, 23.8, 24, 24, 23.6, 20, 23.7, 24, 24.4, 23.5, 23, 20.9, 24.3, 25.9, 25.1, 24.3, 23.6, 21.5, 27.6, 26.1, 26.6, 27.6],
-fill: true,
-backgroundColor: gradient,
-borderColor: '#fff',
-borderWidth: 5,
-tension: 0.4,
-pointRadius: 6,
-pointBackgroundColor: 'transparent',
-pointBorderColor: 'transparent'
-}]
-},
-options: {
-responsive: true,
-maintainAspectRatio: false,
-interaction: { mode: 'index', intersect: false },
-plugins: {
-legend: {
-display: false,
-labels: {
-font: { family: 'Fira Sans', size: 14 }
-}
-},
-tooltip: {
-enabled: true,
-position: 'nearest',
-yAlign: 'bottom',
-backgroundColor: '#00000080',
-titleColor: '#fff',
-bodyColor: '#fff',
-padding: 10,
-borderRadius: 4,
-displayColors: false,
-bodyFont: { family: 'Fira Sans', size: 16 },
-titleFont: { family: 'Fira Sans', size: 16 },
-bodyAlign: 'center',
-callbacks: {
-title: ctx => ' ' + ctx[0].label,
-label: ctx => ' ' + ctx.parsed.y
-}
-}
-},
-scales: {
-x: { ticks: { color: 'rgba(255,255,255,0.5)', font: { family: 'Fira Sans', size: 14 } } },
-y: { ticks: { color: 'rgba(255,255,255,0.5)', font: { family: 'Fira Sans', size: 14 } } }
-}
-}
-});
 
-// opcional: atualizar o canvas se a janela for redimensionada
-window.addEventListener('resize', () => {
-canvas.width = canvas.offsetWidth;
-grafico.resize();
-});
-</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1090,83 +1090,83 @@ grafico.resize();
 <div class="grafico-diaria ">
 <canvas id="grafico2"></canvas>
 
-<script>
-const canvas = document.getElementById('grafico2');
-const ctx = canvas.getContext('2d');
 
-// largura do canvas igual à largura do pai
-canvas.style.width = '100%';
-canvas.style.height = '400px'; // altura fixa ou ajustável
 
-// ajusta o tamanho real do canvas para evitar distorção
-canvas.width = canvas.offsetWidth;
-canvas.height = 400;
 
-// degradê
-const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-gradient.addColorStop(0, '#00000050');
-gradient.addColorStop(1, '#00000010');
 
-const grafico = new Chart(ctx, {
-type: 'line',
-data: {
-labels: ['Dia 1, 31 mar', 'Dia 2, 1 abr', 'Dia 3, 2 abr', 'Dia 4, 3 abr', 'Dia 5, 4 abr', 'Dia 6, 5 abr', 'Dia 7, 7 abr', 'Dia 8, 8 abr', 'Dia 9, 9 abr', 'Dia 10, 10 abr', 'Dia 11, 11 abr', 'Dia 12, 12 abr', 'Dia 13, 14 abr', 'Dia 14, 15 abr', 'Dia 15, 16 abr', 'Dia 16, 17 abr', 'Dia 17, 18 abr', 'Dia 18, 19 abr', 'Dia 19, 21 abr', 'Dia 20, 22 abr', 'Dia 21, 23 abr', 'Dia 22, 24 abr', 'Dia 23, 25 abr', 'Dia 24, 26 abr', 'Dia 25, 28 abr', 'Dia 26, 29 abr', 'Dia 27, 30 abr', 'Dia 28, 1 mai', 'Dia 29, 2 mai', 'Dia 30, 3 mai', 'Dia 31, 5 mai', 'Dia 32, 6 mai', 'Dia 33, 7 mai', 'Dia 34, 8 mai', 'Dia 35, 9 mai', 'Dia 36, 10 mai', 'Dia 37, 12 mai', 'Dia 38, 13 mai', 'Dia 39, 14 mai', 'Dia 40, 15 mai', 'Dia 41, 16 mai', 'Dia 42, 17 mai', 'Dia 43, 19 mai', 'Dia 44, 20 mai', 'Dia 45, 21 mai', 'Dia 46, 22 mai', 'Dia 47, 23 mai', 'Dia 48, 24 mai', 'Dia 49, 26 mai', 'Dia 50, 27 mai', 'Dia 51, 28 mai', 'Dia 52, 29 mai', 'Dia 53, 30 mai', 'Dia 54, 31 mai', 'Dia 55, 2 jun', 'Dia 56, 3 jun', 'Dia 57, 4 jun', 'Dia 58, 5 jun', 'Dia 59, 6 jun', 'Dia 60, 7 jun', 'Dia 61, 9 jun', 'Dia 62, 10 jun', 'Dia 63, 11 jun', 'Dia 64, 12 jun', 'Dia 65, 13 jun', 'Dia 66, 14 jun', 'Dia 67, 16 jun', 'Dia 68, 17 jun', 'Dia 69, 18 jun', 'Dia 70, 19 jun', 'Dia 71, 20 jun', 'Dia 72, 21 jun', 'Dia 73, 23 jun', 'Dia 74, 24 jun', 'Dia 75, 25 jun', 'Dia 76, 26 jun', 'Dia 77, 27 jun', 'Dia 78, 28 jun', 'Dia 79, 30 jun', 'Dia 80, 1 jul', 'Dia 81, 2 jul', 'Dia 82, 3 jul', 'Dia 83, 4 jul', 'Dia 84, 5 jul', 'Dia 85, 7 jul', 'Dia 86, 8 jul', 'Dia 87, 9 jul', 'Dia 88, 10 jul', 'Dia 89, 11 jul', 'Dia 90, 12 jul', 'Dia 91, 14 jul', 'Dia 92, 15 jul', 'Dia 93, 16 jul', 'Dia 94, 17 jul', 'Dia 95, 18 jul', 'Dia 96, 19 jul', 'Dia 97, 21 jul', 'Dia 98, 22 jul', 'Dia 99, 23 jul', 'Dia 100, 24 jul', 'Dia 101, 25 jul', 'Dia 102, 26 jul', 'Dia 103, 28 jul', 'Dia 104, 29 jul', 'Dia 105, 30 jul', 'Dia 106, 31 jul', 'Dia 107, 1 ago', 'Dia 108, 2 ago', 'Dia 109, 4 ago', 'Dia 110, 5 ago', 'Dia 111, 6 ago', 'Dia 112, 7 ago', 'Dia 113, 8 ago', 'Dia 114, 9 ago', 'Dia 115, 11 ago', 'Dia 116, 12 ago', 'Dia 117, 13 ago', 'Dia 118, 14 ago', 'Dia 119, 15 ago', 'Dia 120, 16 ago', 'Dia 121, 18 ago', 'Dia 122, 19 ago', 'Dia 123, 20 ago', 'Dia 124, 21 ago'],
-datasets: [{
-label: 'Vendas',
-data: [24.3, 23.9, 23.2, 23.1, 22.8, 22.2, 22.3, 22.2, 22.3, 22.4, 22.3, 22.2, 22.3, 22.4, 22.2, 22.2, 22.2, 22, 22.1, 22.2, 22.2, 22.2, 22.3, 22.2, 22.2, 22.1, 22.1, 22, 22, 22, 22, 21.9, 21.8, 21.9, 21.8, 21.7, 21.7, 21.7, 21.7, 21.7, 21.7, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.5, 21.5, 21.6, 21.6, 21.5, 21.5, 21.5, 21.5, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.7, 21.6, 21.7, 21.7, 21.8, 21.8, 21.8, 21.8, 21.8, 21.9, 21.9, 21.9, 21.9, 21.9, 21.9, 21.9, 21.9, 21.9, 22, 21.9, 22, 22, 22, 22, 22, 22, 22, 22.1, 22.1, 22.1, 22.1, 22.1, 22.1, 22.1, 22.2, 22.2, 22.2, 22.2, 22.2, 22.3, 22.3, 22.3],
-fill: true,
-backgroundColor: gradient,
-borderColor: '#fff',
-borderWidth: 5,
-tension: 0.4,
-pointRadius: 6,
-pointBackgroundColor: 'transparent',
-pointBorderColor: 'transparent'
-}]
-},
-options: {
-responsive: true,
-maintainAspectRatio: false,
-interaction: { mode: 'index', intersect: false },
-plugins: {
-legend: {
-display: false,
-labels: {
-font: { family: 'Fira Sans', size: 14 }
-}
-},
-tooltip: {
-enabled: true,
-position: 'nearest',
-yAlign: 'bottom',
-backgroundColor: '#00000080',
-titleColor: '#fff',
-bodyColor: '#fff',
-padding: 10,
-borderRadius: 4,
-displayColors: false,
-bodyFont: { family: 'Fira Sans', size: 16 },
-titleFont: { family: 'Fira Sans', size: 16 },
-bodyAlign: 'center',
-callbacks: {
-title: ctx => ' ' + ctx[0].label,
-label: ctx => ' ' + ctx.parsed.y
-}
-}
-},
-scales: {
-x: { ticks: { color: 'rgba(255,255,255,0.5)', font: { family: 'Fira Sans', size: 14 } } },
-y: { ticks: { color: 'rgba(255,255,255,0.5)', font: { family: 'Fira Sans', size: 14 } } }
-}
-}
-});
 
-// opcional: atualizar o canvas se a janela for redimensionada
-window.addEventListener('resize', () => {
-canvas.width = canvas.offsetWidth;
-grafico.resize();
-});
-</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1924,106 +1924,106 @@ grafico.resize();
 <div class="linha "><div class="espaco"><div class="audiencia">22,35</div><div class="diferenca">1,11</div><div class="barra" style="width:20.90%">Vale Tudo (2025)</div></div></div>
 </div>
 </div>
-</div></div></div><div id="footer"></div></main></body></html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</div></div></div><div id="footer"></div></main>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  // Função para configurar tamanho do canvas
+  function ajustarCanvas(canvas, altura) {
+    canvas.style.width = '100%';  // largura 100% do pai
+    canvas.style.height = altura + 'px'; // altura fixa
+    canvas.width = canvas.offsetWidth;
+    canvas.height = 400;
+  }
+
+  const canvas1 = document.getElementById('grafico1');
+  const canvas2 = document.getElementById('grafico2');
+
+  ajustarCanvas(canvas1, 400);
+  ajustarCanvas(canvas2, 400);
+
+  const ctx1 = canvas1.getContext('2d');
+  const ctx2 = canvas2.getContext('2d');
+
+  const gradient1 = ctx1.createLinearGradient(0, 0, 0, canvas1.height);
+  gradient1.addColorStop(0, '#00000050');
+  gradient1.addColorStop(1, '#00000010');
+
+  const gradient2 = ctx2.createLinearGradient(0, 0, 0, canvas2.height);
+  gradient2.addColorStop(0, '#00000050');
+  gradient2.addColorStop(1, '#00000010');
+
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    interaction: { mode: 'index', intersect: false },
+    hover: { mode: null },
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        enabled: true,
+        backgroundColor: 'rgba(0,0,0,0.8)',
+        titleColor: '#fff',
+        bodyColor: '#fff',
+        borderRadius: 4,
+        displayColors: false,
+        yAlign: 'bottom',
+        callbacks: {
+          title: ctx => ' ' + ctx[0].label,
+          label: ctx => ' ' + ctx.parsed.y
+        }
+      }
+    },
+    elements: { line: { tension: 0.4 } },
+    scales: {
+      x: { display: false },
+      y: { ticks: { color: 'rgba(255,255,255,0.5)' }, min: 0 }
+    }
+  };
+
+  // Gráfico 1
+  new Chart(ctx1, {
+    type: 'line',
+    data: {
+      labels: ['Dia 1, 31 mar', 'Dia 2, 1 abr', 'Dia 3, 2 abr', 'Dia 4, 3 abr', 'Dia 5, 4 abr', 'Dia 6, 5 abr', 'Dia 7, 7 abr', 'Dia 8, 8 abr', 'Dia 9, 9 abr', 'Dia 10, 10 abr', 'Dia 11, 11 abr', 'Dia 12, 12 abr', 'Dia 13, 14 abr', 'Dia 14, 15 abr', 'Dia 15, 16 abr', 'Dia 16, 17 abr', 'Dia 17, 18 abr', 'Dia 18, 19 abr', 'Dia 19, 21 abr', 'Dia 20, 22 abr', 'Dia 21, 23 abr', 'Dia 22, 24 abr', 'Dia 23, 25 abr', 'Dia 24, 26 abr', 'Dia 25, 28 abr', 'Dia 26, 29 abr', 'Dia 27, 30 abr', 'Dia 28, 1 mai', 'Dia 29, 2 mai', 'Dia 30, 3 mai', 'Dia 31, 5 mai', 'Dia 32, 6 mai', 'Dia 33, 7 mai', 'Dia 34, 8 mai', 'Dia 35, 9 mai', 'Dia 36, 10 mai', 'Dia 37, 12 mai', 'Dia 38, 13 mai', 'Dia 39, 14 mai', 'Dia 40, 15 mai', 'Dia 41, 16 mai', 'Dia 42, 17 mai', 'Dia 43, 19 mai', 'Dia 44, 20 mai', 'Dia 45, 21 mai', 'Dia 46, 22 mai', 'Dia 47, 23 mai', 'Dia 48, 24 mai', 'Dia 49, 26 mai', 'Dia 50, 27 mai', 'Dia 51, 28 mai', 'Dia 52, 29 mai', 'Dia 53, 30 mai', 'Dia 54, 31 mai', 'Dia 55, 2 jun', 'Dia 56, 3 jun', 'Dia 57, 4 jun', 'Dia 58, 5 jun', 'Dia 59, 6 jun', 'Dia 60, 7 jun', 'Dia 61, 9 jun', 'Dia 62, 10 jun', 'Dia 63, 11 jun', 'Dia 64, 12 jun', 'Dia 65, 13 jun', 'Dia 66, 14 jun', 'Dia 67, 16 jun', 'Dia 68, 17 jun', 'Dia 69, 18 jun', 'Dia 70, 19 jun', 'Dia 71, 20 jun', 'Dia 72, 21 jun', 'Dia 73, 23 jun', 'Dia 74, 24 jun', 'Dia 75, 25 jun', 'Dia 76, 26 jun', 'Dia 77, 27 jun', 'Dia 78, 28 jun', 'Dia 79, 30 jun', 'Dia 80, 1 jul', 'Dia 81, 2 jul', 'Dia 82, 3 jul', 'Dia 83, 4 jul', 'Dia 84, 5 jul', 'Dia 85, 7 jul', 'Dia 86, 8 jul', 'Dia 87, 9 jul', 'Dia 88, 10 jul', 'Dia 89, 11 jul', 'Dia 90, 12 jul', 'Dia 91, 14 jul', 'Dia 92, 15 jul', 'Dia 93, 16 jul', 'Dia 94, 17 jul', 'Dia 95, 18 jul', 'Dia 96, 19 jul', 'Dia 97, 21 jul', 'Dia 98, 22 jul', 'Dia 99, 23 jul', 'Dia 100, 24 jul', 'Dia 101, 25 jul', 'Dia 102, 26 jul', 'Dia 103, 28 jul', 'Dia 104, 29 jul', 'Dia 105, 30 jul', 'Dia 106, 31 jul', 'Dia 107, 1 ago', 'Dia 108, 2 ago', 'Dia 109, 4 ago', 'Dia 110, 5 ago', 'Dia 111, 6 ago', 'Dia 112, 7 ago', 'Dia 113, 8 ago', 'Dia 114, 9 ago', 'Dia 115, 11 ago', 'Dia 116, 12 ago', 'Dia 117, 13 ago', 'Dia 118, 14 ago', 'Dia 119, 15 ago', 'Dia 120, 16 ago', 'Dia 121, 18 ago', 'Dia 122, 19 ago', 'Dia 123, 20 ago', 'Dia 124, 21 ago'],
+      datasets: [{
+        label: 'Vendas',
+        data: [24.3, 23.5, 21.8, 22.6, 21.9, 19.2, 23, 21.4, 23.1, 22.7, 21.4, 20.9, 23.5, 24, 20.1, 21.7, 21.5, 19.9, 23.2, 24, 22.6, 23.1, 22.9, 19.8, 22.5, 20.8, 20.6, 21.3, 21.8, 19.4, 22.5, 18.9, 20.7, 22.4, 20.5, 19.3, 21.8, 21.3, 20.9, 20.7, 20.6, 19.2, 22.2, 21.4, 21.7, 22.2, 21.6, 18.8, 22.2, 20.9, 22, 21.8, 21.2, 19.5, 22.1, 22.4, 21.8, 19.5, 21.8, 20.1, 23.7, 24.7, 23.2, 21.7, 21.7, 19.1, 22.5, 22.8, 21.4, 22.8, 21.6, 19.1, 23.7, 22.7, 21.8, 21.1, 21.9, 18.7, 22, 23, 22, 22.5, 23.3, 21, 25.2, 24.8, 24.8, 24.3, 23.2, 20.6, 25.6, 24.6, 21.5, 23.3, 23.7, 19.4, 25.2, 25.2, 20.3, 23.8, 24.4, 19.9, 25.5, 23.8, 24, 24, 23.6, 20, 23.7, 24, 24.4, 23.5, 23, 20.9, 24.3, 25.9, 25.1, 24.3, 23.6, 21.5, 27.6, 26.1, 26.6, 27.6],
+        fill: true,
+        backgroundColor: gradient1,
+        borderColor: '#fff',
+        borderWidth: 5,
+        pointRadius: 0,
+        pointHoverRadius: 0
+      }]
+    },
+    options: options
+  });
+
+  // Gráfico 2
+  new Chart(ctx2, {
+    type: 'line',
+    data: {
+      labels: ['Dia 1, 31 mar', 'Dia 2, 1 abr', 'Dia 3, 2 abr', 'Dia 4, 3 abr', 'Dia 5, 4 abr', 'Dia 6, 5 abr', 'Dia 7, 7 abr', 'Dia 8, 8 abr', 'Dia 9, 9 abr', 'Dia 10, 10 abr', 'Dia 11, 11 abr', 'Dia 12, 12 abr', 'Dia 13, 14 abr', 'Dia 14, 15 abr', 'Dia 15, 16 abr', 'Dia 16, 17 abr', 'Dia 17, 18 abr', 'Dia 18, 19 abr', 'Dia 19, 21 abr', 'Dia 20, 22 abr', 'Dia 21, 23 abr', 'Dia 22, 24 abr', 'Dia 23, 25 abr', 'Dia 24, 26 abr', 'Dia 25, 28 abr', 'Dia 26, 29 abr', 'Dia 27, 30 abr', 'Dia 28, 1 mai', 'Dia 29, 2 mai', 'Dia 30, 3 mai', 'Dia 31, 5 mai', 'Dia 32, 6 mai', 'Dia 33, 7 mai', 'Dia 34, 8 mai', 'Dia 35, 9 mai', 'Dia 36, 10 mai', 'Dia 37, 12 mai', 'Dia 38, 13 mai', 'Dia 39, 14 mai', 'Dia 40, 15 mai', 'Dia 41, 16 mai', 'Dia 42, 17 mai', 'Dia 43, 19 mai', 'Dia 44, 20 mai', 'Dia 45, 21 mai', 'Dia 46, 22 mai', 'Dia 47, 23 mai', 'Dia 48, 24 mai', 'Dia 49, 26 mai', 'Dia 50, 27 mai', 'Dia 51, 28 mai', 'Dia 52, 29 mai', 'Dia 53, 30 mai', 'Dia 54, 31 mai', 'Dia 55, 2 jun', 'Dia 56, 3 jun', 'Dia 57, 4 jun', 'Dia 58, 5 jun', 'Dia 59, 6 jun', 'Dia 60, 7 jun', 'Dia 61, 9 jun', 'Dia 62, 10 jun', 'Dia 63, 11 jun', 'Dia 64, 12 jun', 'Dia 65, 13 jun', 'Dia 66, 14 jun', 'Dia 67, 16 jun', 'Dia 68, 17 jun', 'Dia 69, 18 jun', 'Dia 70, 19 jun', 'Dia 71, 20 jun', 'Dia 72, 21 jun', 'Dia 73, 23 jun', 'Dia 74, 24 jun', 'Dia 75, 25 jun', 'Dia 76, 26 jun', 'Dia 77, 27 jun', 'Dia 78, 28 jun', 'Dia 79, 30 jun', 'Dia 80, 1 jul', 'Dia 81, 2 jul', 'Dia 82, 3 jul', 'Dia 83, 4 jul', 'Dia 84, 5 jul', 'Dia 85, 7 jul', 'Dia 86, 8 jul', 'Dia 87, 9 jul', 'Dia 88, 10 jul', 'Dia 89, 11 jul', 'Dia 90, 12 jul', 'Dia 91, 14 jul', 'Dia 92, 15 jul', 'Dia 93, 16 jul', 'Dia 94, 17 jul', 'Dia 95, 18 jul', 'Dia 96, 19 jul', 'Dia 97, 21 jul', 'Dia 98, 22 jul', 'Dia 99, 23 jul', 'Dia 100, 24 jul', 'Dia 101, 25 jul', 'Dia 102, 26 jul', 'Dia 103, 28 jul', 'Dia 104, 29 jul', 'Dia 105, 30 jul', 'Dia 106, 31 jul', 'Dia 107, 1 ago', 'Dia 108, 2 ago', 'Dia 109, 4 ago', 'Dia 110, 5 ago', 'Dia 111, 6 ago', 'Dia 112, 7 ago', 'Dia 113, 8 ago', 'Dia 114, 9 ago', 'Dia 115, 11 ago', 'Dia 116, 12 ago', 'Dia 117, 13 ago', 'Dia 118, 14 ago', 'Dia 119, 15 ago', 'Dia 120, 16 ago', 'Dia 121, 18 ago', 'Dia 122, 19 ago', 'Dia 123, 20 ago', 'Dia 124, 21 ago'],
+      datasets: [{
+        label: 'Vendas',
+        data: [24.3, 23.9, 23.2, 23.1, 22.8, 22.2, 22.3, 22.2, 22.3, 22.4, 22.3, 22.2, 22.3, 22.4, 22.2, 22.2, 22.2, 22, 22.1, 22.2, 22.2, 22.2, 22.3, 22.2, 22.2, 22.1, 22.1, 22, 22, 22, 22, 21.9, 21.8, 21.9, 21.8, 21.7, 21.7, 21.7, 21.7, 21.7, 21.7, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.5, 21.5, 21.6, 21.6, 21.5, 21.5, 21.5, 21.5, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.6, 21.7, 21.6, 21.7, 21.7, 21.8, 21.8, 21.8, 21.8, 21.8, 21.9, 21.9, 21.9, 21.9, 21.9, 21.9, 21.9, 21.9, 21.9, 22, 21.9, 22, 22, 22, 22, 22, 22, 22, 22.1, 22.1, 22.1, 22.1, 22.1, 22.1, 22.1, 22.2, 22.2, 22.2, 22.2, 22.2, 22.3, 22.3, 22.3],
+        fill: true,
+        backgroundColor: gradient2,
+        borderColor: '#fff',
+        borderWidth: 5,
+        pointRadius: 0,
+        pointHoverRadius: 0
+      }]
+    },
+    options: options
+  });
+
+});
+</script>
+
+</body></html>
 
 
 
