@@ -91,16 +91,17 @@
 	  grid-template-columns:200px auto 50px 50px;
   }
   
-    main {
-    display: grid;
+main {
+    display: grid
+;
     grid-template-rows: 2fr 24fr 1fr;
     gap: 30px;
     height: 90vh;
-    min-width: 1200px;
-    max-width:80vw;
+    min-width: 800px;
+    max-width: 80vw;
     margin: 5vh auto;
     padding: 0px 50px;
-  }
+}
 
 main > * { border-radius:10px; }
 
@@ -1476,7 +1477,6 @@ display: grid !important;
     height: auto;}
 
 .info4 .totalcap {
-  background-color:var(--cor-60-fade) !important;
   grid-column:5;
 }
 
