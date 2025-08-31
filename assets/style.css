@@ -251,79 +251,101 @@ footer a:hover{opacity:100%}
 
 
 
-#producoesnoar{
-  display:grid;
-  grid-template-columns:2fr 1fr 2fr 1fr;
-  gap:30px;
-  box-sizing:border-box;
-  overflow:hidden;
+.producoesnoar-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-#producoesnoar .item{
-  background-size:cover;
-  background-position:center;
-  border-radius:8px;
-	overflow:hidden;
+.producoesnoar {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 180px;
+  gap: 40px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  padding: 0;
+  flex: 1;
 }
 
-#producoesnoar .content{
-    background: linear-gradient(to bottom, #00000080, #00000001);
-  box-sizing:border-box;
-  height:100%;
-  width:100%;
-  padding:20px 30px;
-  backdrop-filter:blur(30px);
-  display:grid;
-  gap:15px;
-  grid-template-columns:1fr;
-  text-align:center;
-    grid-template-rows: 2fr 2fr 1fr;
-	align-items:center
+.producoesnoar::-webkit-scrollbar {
+display:none
+}
+.producoesnoar::before,
+.producoesnoar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 60px;
+  height: 100%;
+  pointer-events: none;
 }
 
-#producoesnoar .emissora{
-  width:80px;
-  margin:0 auto;
-  filter: brightness(0) invert(1);
+.producoesnoar::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(34,34,34,1), rgba(34,34,34,0));
 }
 
-#producoesnoar .emissora img{
-  width:100%;
-}
-
-#producoesnoar .capa{
-  width:100%;
-  margin: 0 auto;
-  border-radius:5px;
+.producoesnoar::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(34,34,34,1), rgba(34,34,34,0));
 }
 
 
-#producoesnoar .tag-noar::before{
-  content:"No Ar: Acesse Aqui";
-  text-transform:uppercase;
-  padding:4px 8px;
-background-color:var(--cor-80-fade);
-font-weight: 900;
-font-size:var(--fonte-12);
-margin-top:-30px;
 
+
+
+.producoesnoar .item {
+  display: grid;
+  grid-template-rows: auto;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 0;
+  background-image: none !important;
 }
 
-#producoesnoar .botao::before{
-    content: "acesse a página aqui";
-    padding: 8px 16px;
-    border-radius: 8px;
-    background-color: var(--cor-20-fade);
-    font-weight: 900;
-    font-size: var(--fonte-16);
 
+
+.producoesnoar .item .content {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
 }
 
-#producoesnoar h3{
-	padding:0 !important;
-	margin:0;
-	font-size:var(--fonte-20) !important}
+.producoesnoar .item .capa {
+  width: 100%;
+  height: 100%; /* ocupa toda a linha de 150px */
+  object-fit: cover;
+  display: block;
+}
 
+.producoesnoar .item .emissora {
+  height: 50px;
+  width: auto;
+  object-fit: cover;
+  display: none;
+}
+
+.producoesnoar button.prev,
+.producoesnoar button.next {
+  flex-shrink: 0;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  padding: 20px;
+  font-size: 30px;
+  cursor: pointer;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.producoesnoar button.prev { order: 0; }
+.producoesnoar button.next { order: 2; }
 
 
 
