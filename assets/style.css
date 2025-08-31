@@ -1816,8 +1816,9 @@ background-color: var(--cor-50-fade) !important;
 .cap100 .data::before,
 .cap150 .data::before,
 .totalcap .data::before {
-    font-size: var(--fonte-14) !important;
+    font-size: var(--fonte-16) !important;
     display: inline;
+    font-weight:500 !important;
     line-height: 1.5;
   }
 
@@ -1875,15 +1876,11 @@ background-color: var(--cor-50-fade) !important;
 .elevacaosp::after,
 .elevacaorj::after,
 .elevacaopnt::after {
-    font-size: var(--fonte-14) !important;
+    font-size: var(--fonte-16) !important;
     font-weight: 400;
     line-height: 1.5;
 }
 
-
-.totalcap .data {
-    opacity: 0.7;
-}
 
 .info4 > * > .positivo{color:var(--positivo)}
 
@@ -1893,11 +1890,11 @@ background-color: var(--cor-50-fade) !important;
 .info3 .negativo,
 .info4 .positivo,
 .info4 .negativo {
-    margin-top: 5px;
+    margin-top: 15px;
     display: block;
     background-color: transparent;
     font-weight: 900;
-    font-size: var(--fonte-16) !important;
+    font-size: var(--fonte-14) !important;
     border-radius: 4px;
 }
 
@@ -4344,7 +4341,6 @@ background-size:cover;
 	background: radial-gradient(circle, 
               rgba(0,0,0,0.8) 0%,   /* centro com 80% */
               rgba(0,0,0,0.2) 100%); /* borda com 20% */
-	border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
