@@ -165,7 +165,15 @@ document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => carregarAtualizacoes(), 0);
 });
 </script>
-
+<script>
+  const carrossel = document.getElementById('producoesnoar');
+document.querySelector('.next').addEventListener('click', () => {
+  carrossel.scrollBy({ left: 300, behavior: 'smooth' });
+});
+document.querySelector('.prev').addEventListener('click', () => {
+  carrossel.scrollBy({ left: -300, behavior: 'smooth' });
+});
+</script>
 
 </body>
 </html>
