@@ -34,38 +34,44 @@ document.addEventListener("DOMContentLoaded", async () => {
   await loadComponent("footer", "https://audienciaon.github.io/blog/assets/footer.html");
 
   // --- Carrega fontes e CSS ---
-  const head = document.head;
-  const fontsCSS = [
-    "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap",
-    "https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap",
-    "https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap",
-    "https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap",
-    "https://fonts.googleapis.com/css2?family=Geist:wght@100;200;300;400;500;600;700;800;900&display=swap",
-    "https://fonts.googleapis.com/css2?family=Fraunces:wght@100;200;300;400;500;600;700;800;900&display=swap",
-    "https://fonts.googleapis.com/css2?family=Radio+Canada+Big:wght@100;200;300;400;500;600;700;800;900&display=swap"
-  ];
-  fontsCSS.forEach(url => {
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = url;
-    head.appendChild(link);
-  });
+const head = document.head;
+const fontsCSS = [
+  "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&display=block",
+  "https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;200;300;400;500;600;700;800;900&display=block",
+  "https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@100;200;300;400;500;600;700;800;900&display=block",
+  "https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@100;200;300;400;500;600;700;800;900&display=block",
+  "https://fonts.googleapis.com/css2?family=Geist:wght@100;200;300;400;500;600;700;800;900&display=block",
+  "https://fonts.googleapis.com/css2?family=Fraunces:wght@100;200;300;400;500;600;700;800;900&display=block",
+  "https://fonts.googleapis.com/css2?family=Radio+Canada+Big:wght@100;200;300;400;500;600;700;800;900&display=block"
+];
+fontsCSS.forEach(url => {
+  const link = document.createElement("link");
+  link.rel = "stylesheet";
+  link.href = url;
+  head.appendChild(link);
+});
 
-  const faCSS = document.createElement("link");
-  faCSS.rel = "stylesheet";
-  faCSS.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css";
-  head.appendChild(faCSS);
+const faCSS = document.createElement("link");
+faCSS.rel = "stylesheet";
+faCSS.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css";
+head.appendChild(faCSS);
 
-  // --- Redirecionamento de links /search/ ---
-  document.querySelectorAll("a[href*='/search/']").forEach(link => {
-    link.addEventListener("click", e => {
-      e.preventDefault();
-      const href = new URL(link.href, window.location.origin).pathname.split("/search/")[1];
-      if (!href) return;
-      const finalURL = `/blog/pesquisa?q=${encodeURIComponent(href.replace(/\+/g,' '))}`;
-      window.location.href = finalURL;
-    });
+// --- Redirecionamento de links /search/ ---
+document.querySelectorAll("a[href*='/search/']").forEach(link => {
+  link.addEventListener("click", e => {
+    e.preventDefault();
+    const href = new URL(link.href, window.location.origin).pathname.split("/search/")[1];
+    if (!href) return;
+    const finalURL = `/blog/pesquisa?q=${encodeURIComponent(href.replace(/\+/g,' '))}`;
+    window.location.href = finalURL;
   });
+});
+
+// --- Bloqueia até fontes carregarem ---
+document.fonts.ready.then(() => {
+  document.documentElement.classList.add("fonts-loaded");
+});
+
 
   // --- Aplicar background desfocado ---
   const applyBackgroundBlur = selector => {

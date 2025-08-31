@@ -4628,6 +4628,12 @@ background-size:cover;
         font-family: var(--font-family) !important;
     }
 
+html {
+  visibility: hidden;
+}
+html.fonts-loaded {
+  visibility: visible;
+}
 
     .autopagerize_page_element {
         grid-template-columns: repeat(3, 1fr) !important;
