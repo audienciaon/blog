@@ -2407,17 +2407,17 @@ h3,
 .calendario .recpos,
 .calendario-media .recpos {
     color: var(--positivo);
-    font-weight: 900;
+    font-weight: 800 !important;
 }
 
 .calendario .recneg,
 .calendario-media .recneg {
     color: var(--negativo);
-    font-weight: 800;
+    font-weight: 800 !important;
 }
 
 .calendario .rec {
-    font-weight: 900
+    font-weight: 800 !important
 }
 
 .calendario .linha,
