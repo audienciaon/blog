@@ -1788,7 +1788,7 @@ background-color: var(--cor-50-fade) !important;
 .maioraud .data,
 .audultcap .data {
     font-size: var(--fonte-14) !important;
-    display: inline-block;
+    display: block;
     line-height: 1.5;
 	font-weight:500;
   }
