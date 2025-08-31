@@ -108,14 +108,15 @@ main > * { border-radius:10px; }
   display: grid;
   grid-template-rows: auto;
   gap: 30px;
-  min-height: 0;     /* libera o scroll no próprio paginainicial */
-  overflow-y: auto;
+
+  min-height: 0;       /* ESSENCIAL em grid */
+  overflow-y: auto;    /* 👈 scroll só aqui */
   overflow-x: hidden;
 }
 
 #paginainicial > * {
-  min-height: 0;     /* filhos grid/flex não vão forçar altura */
-  overflow: auto;    /* se algum filho tiver conteúdo maior, ele mesmo scrolla */
+  min-height: 0;       /* evita que filhos grid/flex estourem */
+  overflow: visible;   /* 👈 deixam crescer normalmente */
 }
 
 canvas{
