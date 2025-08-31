@@ -293,15 +293,16 @@ display:none
 
 .producoesnoar h3{
   font-size:var(--fonte-16) !important;
-  font-weight:900}
+  font-weight:900;
+  padding-bottom:0 !important;
+}
 
 
 
 .producoesnoar .item {
   display: grid;
-  grid-template-rows: auto;
+  grid-template-rows: 60px auto;
   width: 100%;
-  border-radius: 12px;
   overflow: hidden;
   box-sizing: border-box;
   padding: 0;
@@ -321,6 +322,8 @@ display:none
   height: 100%; /* ocupa toda a linha de 150px */
   object-fit: cover;
   display: block;
+  border-radius: 12px;
+
 } 
 
 .producoesnoar .item .emissora {
