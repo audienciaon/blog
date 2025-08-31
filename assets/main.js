@@ -36,13 +36,13 @@ document.addEventListener("DOMContentLoaded", async () => {
   // --- Carrega fontes e CSS ---
   const head = document.head;
   const fontsCSS = [
-    "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans&display=swap",
-    "https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap",
-    "https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed&display=swap",
-    "https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed&display=swap",
-    "https://fonts.googleapis.com/css2?family=Geist&display=swap",
-    "https://fonts.googleapis.com/css2?family=Fraunces&display=swap",
-    "https://fonts.googleapis.com/css2?family=Radio+Canada+Big&display=swap"
+    "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap",
+    "https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap",
+    "https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap",
+    "https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap",
+    "https://fonts.googleapis.com/css2?family=Geist:wght@100;200;300;400;500;600;700;800;900&display=swap",
+    "https://fonts.googleapis.com/css2?family=Fraunces:wght@100;200;300;400;500;600;700;800;900&display=swap",
+    "https://fonts.googleapis.com/css2?family=Radio+Canada+Big:wght@100;200;300;400;500;600;700;800;900&display=swap"
   ];
   fontsCSS.forEach(url => {
     const link = document.createElement("link");

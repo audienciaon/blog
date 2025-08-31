@@ -252,10 +252,9 @@ footer a:hover{opacity:100%}
 
 
 .producoesnoar-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
+    display: grid !important;
+    grid-template-columns: 30px auto 30px !important;
+    align-items: center !important;}
 
 .producoesnoar {
   display: grid;
@@ -292,9 +291,9 @@ display:none
   background: linear-gradient(to left, rgba(34,34,34,1), rgba(34,34,34,0));
 }
 
-.producoesnoar h2{
+.producoesnoar h3{
   font-size:var(--fonte-16) !important;
-}
+  font-weight:900}
 
 
 
