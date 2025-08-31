@@ -1,4 +1,4 @@
- /* :root {
+:root {
     --cor-100: #ffffff;
     --cor-90:  #e6e6e6;
     --cor-80:  #cccccc;
@@ -43,8 +43,7 @@
 	  --font-family-title: Fraunces, serif;
 	  
   }
-*/
-
+/*
  :root {
 --cor-00:  #000000;
 --cor-10:  #1a1a1a;
@@ -89,7 +88,7 @@
     --font-family-condensed: Fira Sans Extra Condensed, Arial Narrow, sans-serif;
 	  --font-family-title: Fraunces, serif;
  }
-
+*/
 
 
 

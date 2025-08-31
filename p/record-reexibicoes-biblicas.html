@@ -43,30 +43,30 @@
 
 
 
-<div class="ocultar"><img src="https://audienciaon.github.io/horarios/0"></div>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-console.log(document.getElementById('filtro'));
-var input = document.getElementById('filtro');
-if (input) {
-input.addEventListener('keyup', function () {
-const termo = input.value.toLowerCase();
-const linhas = document.querySelectorAll('.linha');
+<div class="ocultar"><img src="https://audienciaon.github.io/horarios/record-reexibicoes-biblicas"></div>
 
-linhas.forEach(linha => {
-const nomeProducao = linha.querySelector('.nome-producao') ? linha.querySelector('.nome-producao').textContent.toLowerCase() : '';
-const autor = linha.querySelector('.autor') ? linha.querySelector('.autor').textContent.toLowerCase() : '';
-if (nomeProducao.includes(termo) || autor.includes(termo)) {
-linha.style.display = '';
-} else {
-linha.style.display = 'none';
-}
-});
-});
-}
-});
-</script>
-<div class="atualizacaopost"><i class="fa-solid fa-arrows-rotate"></i><p>31 ago 2025 às 14:13</p></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="atualizacaopost"><i class="fa-solid fa-arrows-rotate"></i><p>31 ago 2025 às 14:57</p></div>
 <div class="pagina-horario-cabecalho">
 <div class="titulo-horario-cabecalho">
 <img src="https://audienciaon.github.io/emissoras/record.svg">
@@ -168,7 +168,7 @@ linha.style.display = 'none';
 <div class="dia"><div class="barra" style="height:27.09%"><div class="dados"><div class="numero">3,43<div class="data">Reis - 1ª Reapresentação</div></div></div></div></div>
 <div class="dia"><div class="barra" style="height:36.26%"><div class="dados"><div class="numero">4,59<div class="data">Apocalipse - 2ª Reapresentação</div></div></div></div></div>
 <div class="dia"><div class="barra" style="height:35.47%"><div class="dados"><div class="numero">4,49<div class="data">O Rico e Lázaro - 2ª Reapresentação</div></div></div></div></div>
-<div class="dia"><div class="barra" style="height:39.97%"><div class="dados"><div class="numero">5,06<div class="data">Reis - 2ª Reapresentação</div></div></div></div></div>
+<div class="dia"><div class="barra" style="height:39.89%"><div class="dados"><div class="numero">5,05<div class="data">Reis - 2ª Reapresentação</div></div></div></div></div>
 
 
 
@@ -818,30 +818,30 @@ linha.style.display = 'none';
 
 
 </div></div></div>
-<div id="footer"></div></main></body></html>
+<div id="footer"></div></main>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+console.log(document.getElementById('filtro'));
+var input = document.getElementById('filtro');
+if (input) {
+input.addEventListener('keyup', function () {
+const termo = input.value.toLowerCase();
+const linhas = document.querySelectorAll('.linha');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+linhas.forEach(linha => {
+const nomeProducao = linha.querySelector('.nome-producao') ? linha.querySelector('.nome-producao').textContent.toLowerCase() : '';
+const autor = linha.querySelector('.autor') ? linha.querySelector('.autor').textContent.toLowerCase() : '';
+if (nomeProducao.includes(termo) || autor.includes(termo)) {
+linha.style.display = '';
+} else {
+linha.style.display = 'none';
+}
+});
+});
+}
+});
+</script>
+</body></html>
 
 
 
