@@ -320,7 +320,7 @@ display:none
   height: 100%; /* ocupa toda a linha de 150px */
   object-fit: cover;
   display: block;
-}
+} 
 
 .producoesnoar .item .emissora {
   height: 50px;
