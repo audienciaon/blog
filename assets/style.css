@@ -106,19 +106,21 @@ main > * { border-radius:10px; }
 
 #paginainicial {
   display: grid;
-  grid-template-rows: max-content;
+  grid-auto-rows: min-content; /* 👈 cada filho ocupa apenas o que precisa */
   gap: 30px;
 
-  min-height: 0;       /* ESSENCIAL em grid */
-  overflow-y: auto;    /* 👈 scroll só aqui */
+  min-height: 0;       /* essencial para scroll funcionar no grid */
+  overflow-y: auto;    
   overflow-x: hidden;
 }
 
 #paginainicial > * {
-  grid-template-rows: max-content;
-  min-height: 0;       /* evita que filhos grid/flex estourem */
-  overflow: visible;   /* 👈 deixam crescer normalmente */
+  display: grid;       /* filhos continuam sendo grid */
+  grid-auto-rows: min-content; /* filhos também só ocupam o necessário */
+  gap: 10px;           /* exemplo de gap interno */
+  min-height: 0;       /* evita corte dentro do scroll */
 }
+
 
 canvas{
   height:100%;
