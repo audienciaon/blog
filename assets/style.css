@@ -1120,24 +1120,6 @@ content:"Atualizado em "
   .realityshows .horario a{
   display:none !important}
 
-  .sbt .cabecalho .horario::before,
-  .band .cabecalho .horario::before,
-  .record .cabecalho .horario::before,
-  .manchete .cabecalho .horario::before,
-  .tupi .cabecalho .horario::before,
-  .redetv .cabecalho .horario::before {
-    content: " das " !important;
-}
-
-  .sbt .cabecalho .tipo::before,
-  .band .cabecalho .tipo::before,
-  .record .cabecalho .tipo::before,
-  .manchete .cabecalho .tipo::before,
-  .tupi .cabecalho .tipo::before,
-  .redetv .cabecalho .tipo::before {
-    content: "Uma " !important;
-  text-transform:capitalize !important}
-
   .sbt .cabecalho .tipo,
   .band .cabecalho .tipo,
   .record .cabecalho .tipo,
