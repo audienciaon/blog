@@ -342,7 +342,7 @@ display:none
   padding: 20px;
   font-size: 30px;
   cursor: pointer;
-  height: auto;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
