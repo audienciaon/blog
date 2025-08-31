@@ -1833,7 +1833,7 @@ background-color: var(--cor-50-fade) !important;
 .elevacaosp::after,
 .elevacaorj::after,
 .elevacaopnt::after {
-  display:inline-block !important;
+  display:block !important;
 }
   .audpricap .data::before,
 .menoraud .data::before,
