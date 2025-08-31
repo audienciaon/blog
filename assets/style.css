@@ -106,7 +106,7 @@ main > * { border-radius:10px; }
 
 #paginainicial {
   display: grid;
-  grid-template-rows: auto;
+  grid-template-rows: max-content;
   gap: 30px;
 
   min-height: 0;       /* ESSENCIAL em grid */
@@ -115,6 +115,7 @@ main > * { border-radius:10px; }
 }
 
 #paginainicial > * {
+  grid-template-rows: max-content;
   min-height: 0;       /* evita que filhos grid/flex estourem */
   overflow: visible;   /* 👈 deixam crescer normalmente */
 }
