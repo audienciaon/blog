@@ -102,6 +102,10 @@ main {
     padding: 0px 50px;
   }
 
+  #paginainicial{
+    grid-template-rows:auto !important;
+  }
+
 main > * { border-radius:10px; }
 
 canvas{
