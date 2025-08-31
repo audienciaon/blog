@@ -833,6 +833,7 @@ opacity:0;
     overflow:hidden; /* mantém wrapper sem barra visível */
 }
 
+#paginainicial::-webkit-scrollbar,
 .publicacao::-webkit-scrollbar,
 .publicacao-wrapper::-webkit-scrollbar {
   display: none; /* Chrome, Edge e Safari */
