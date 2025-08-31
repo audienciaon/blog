@@ -165,14 +165,21 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 <script>
-  const carrossel = document.getElementById('producoesnoar');
-document.querySelector('.next').addEventListener('click', () => {
-  carrossel.scrollBy({ left: 300, behavior: 'smooth' });
-});
-document.querySelector('.prev').addEventListener('click', () => {
-  carrossel.scrollBy({ left: -300, behavior: 'smooth' });
+document.querySelectorAll('.producoesnoar-wrapper').forEach(wrapper => {
+  const carrossel = wrapper.querySelector('.producoesnoar');
+  const next = wrapper.querySelector('.next');
+  const prev = wrapper.querySelector('.prev');
+
+  next.addEventListener('click', () => {
+    carrossel.scrollBy({ left: 300, behavior: 'smooth' });
+  });
+
+  prev.addEventListener('click', () => {
+    carrossel.scrollBy({ left: -300, behavior: 'smooth' });
+  });
 });
 </script>
+
 
 </body>
 </html>
