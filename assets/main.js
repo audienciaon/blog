@@ -167,3 +167,20 @@ document.querySelectorAll(".grafico-comparacao-producoes .linha .espaco .barra")
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
+
+
+
+
+
+
+
+
+  // --- Favicon ---
+
+      (function() {
+    const link = document.createElement('link');
+    link.rel = 'icon';
+    link.type = 'image/png';
+    link.href = 'https://audienciaon.github.io/emissoras/aon.png';
+    document.head.appendChild(link);
+  })();
