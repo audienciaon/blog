@@ -2292,6 +2292,7 @@ h3,
 .calendario-media .linha .mediarj,
 .calendario-media .linha .mediapnt {
     text-align: center;
+    font-weight:400;
     padding: 8px 0px;
 }
 
@@ -2307,6 +2308,7 @@ h3,
 .calendario-media .linha .mediarj,
 .calendario-media .linha .mediapnt {
     border-radius: 4px;
+    font-weight:400;
     background-color: var(--cor-40-fade) !important;
 }
 
@@ -2411,7 +2413,7 @@ h3,
 .calendario .recneg,
 .calendario-media .recneg {
     color: var(--negativo);
-    font-weight: 900;
+    font-weight: 800;
 }
 
 .calendario .rec {
