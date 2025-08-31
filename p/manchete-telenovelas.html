@@ -43,30 +43,30 @@
 
 
 
-<div class="ocultar"><img src="https://audienciaon.github.io/horarios/0"></div>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-console.log(document.getElementById('filtro'));
-var input = document.getElementById('filtro');
-if (input) {
-input.addEventListener('keyup', function () {
-const termo = input.value.toLowerCase();
-const linhas = document.querySelectorAll('.linha');
+<div class="ocultar"><img src="https://audienciaon.github.io/horarios/manchete-telenovelas"></div>
 
-linhas.forEach(linha => {
-const nomeProducao = linha.querySelector('.nome-producao') ? linha.querySelector('.nome-producao').textContent.toLowerCase() : '';
-const autor = linha.querySelector('.autor') ? linha.querySelector('.autor').textContent.toLowerCase() : '';
-if (nomeProducao.includes(termo) || autor.includes(termo)) {
-linha.style.display = '';
-} else {
-linha.style.display = 'none';
-}
-});
-});
-}
-});
-</script>
-<div class="atualizacaopost"><i class="fa-solid fa-arrows-rotate"></i><p>31 ago 2025 às 14:14</p></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="atualizacaopost"><i class="fa-solid fa-arrows-rotate"></i><p>31 ago 2025 às 14:57</p></div>
 <div class="pagina-horario-cabecalho">
 <div class="titulo-horario-cabecalho">
 <img src="https://audienciaon.github.io/emissoras/manchete.svg">
@@ -818,30 +818,30 @@ linha.style.display = 'none';
 
 
 </div></div></div>
-<div id="footer"></div></main></body></html>
+<div id="footer"></div></main>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+console.log(document.getElementById('filtro'));
+var input = document.getElementById('filtro');
+if (input) {
+input.addEventListener('keyup', function () {
+const termo = input.value.toLowerCase();
+const linhas = document.querySelectorAll('.linha');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+linhas.forEach(linha => {
+const nomeProducao = linha.querySelector('.nome-producao') ? linha.querySelector('.nome-producao').textContent.toLowerCase() : '';
+const autor = linha.querySelector('.autor') ? linha.querySelector('.autor').textContent.toLowerCase() : '';
+if (nomeProducao.includes(termo) || autor.includes(termo)) {
+linha.style.display = '';
+} else {
+linha.style.display = 'none';
+}
+});
+});
+}
+});
+</script>
+</body></html>
 
 
 
