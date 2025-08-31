@@ -40,14 +40,55 @@
     --fonte-10: 12px;
     --font-family: Fira Sans, Segoe UI, Arial, sans-serif;
     --font-family-condensed: Fira Sans Extra Condensed, Arial Narrow, sans-serif;
-	  --font-family-title: Fraunces, Bookman Old Style, serif;
+	  --font-family-title: Fraunces, serif;
 	  
   }
 
 
+ :root {
+--cor-00:  #000000;
+--cor-10:  #1a1a1a;
+--cor-20:  #333333;
+--cor-30:  #4d4d4d;
+--cor-40:  #666666;
+--cor-50:  #808080;
+--cor-60:  #999999;
+--cor-70:  #b3b3b3;
+--cor-80:  #cccccc;
+--cor-90:  #e6e6e6;
+--cor-100: #ffffff;
+--cor-100-fade: #00000000; /* 100% */
+--cor-90-fade:  #0000001a; /* 90% */
+--cor-80-fade:  #00000033; /* 80% */
+--cor-70-fade:  #0000004d; /* 70% */
+--cor-60-fade:  #00000066; /* 60% */
+--cor-50-fade:  #00000080; /* 50% */
+--cor-40-fade:  #00000099; /* 40% */
+--cor-30-fade:  #000000b3; /* 30% */
+--cor-20-fade:  #000000cc; /* 20% */
+--cor-10-fade:  #000000e6; /* 10% */
+--cor-00-fade:  #000000ff; /* 0% */
+    --cor-texto: #333333;
+    --cor-destaque:#1995ee;
 
 
+--positivo: #06a566;
+--negativo: #f95843;
 
+	  
+	--fonte-50: 55px;
+    --fonte-40: 45px;
+    --fonte-30: 35px;
+    --fonte-25: 30px;
+    --fonte-20: 25px;
+    --fonte-16: 18px;
+    --fonte-14: 16px;
+    --fonte-12: 14px;
+    --fonte-10: 12px;
+    --font-family: Fira Sans, Segoe UI, Arial, sans-serif;
+    --font-family-condensed: Fira Sans Extra Condensed, Arial Narrow, sans-serif;
+	  --font-family-title: Fraunces, serif;
+ }
 
 
 
