@@ -190,3 +190,11 @@ document.querySelectorAll(".grafico-comparacao-producoes .linha .espaco .barra")
     link.href = 'https://audienciaon.github.io/emissoras/aon.png';
     document.head.appendChild(link);
   })();
+
+
+// Substituir imagens com erro
+
+      function trocarImagem(imgElement) {
+      imgElement.onerror = null;  // previne loop infinito caso o fallback falhe também
+      imgElement.src = 'https://audienciaon.github.io/capas/adefinir.png';
+    }
