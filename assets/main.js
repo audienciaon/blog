@@ -194,7 +194,104 @@ document.querySelectorAll(".grafico-comparacao-producoes .linha .espaco .barra")
 
 // Substituir imagens com erro
 
-      function trocarImagem(imgElement) {
-      imgElement.onerror = null;  // previne loop infinito caso o fallback falhe também
-      imgElement.src = 'https://audienciaon.github.io/capas/adefinir.png';
+const user = "audienciaon";
+const repo = "blog";
+const branch = "main";
+const MAX_RENDER = 12;
+const PLACEHOLDER = "https://via.placeholder.com/300x180?text=Sem+imagem";
+const FALLBACK = "https://audienciaon.github.io/capas/adefinir.png";
+const arquivosIgnorados = ["index.html", "pesquisa.html"];
+
+async function carregarAtualizacoes() {
+  const container = document.getElementById("atualizacoes");
+  if (!container) { console.error("Elemento #atualizacoes não encontrado"); return; }
+  container.innerHTML = "";
+
+  try {
+    const commitsURL = `https://api.github.com/repos/${user}/${repo}/commits?sha=${branch}&per_page=50`;
+    const commitsRes = await fetch(commitsURL);
+    if (!commitsRes.ok) {
+      console.error("Falha ao buscar commits:", commitsRes.status);
+      return;
     }
+    const commits = await commitsRes.json();
+
+    const files = [];
+    const seen = new Set();
+    const MAX_COMMIT_DETAIL = 30;
+
+    for (let i = 0; i < commits.length && i < MAX_COMMIT_DETAIL && files.length < MAX_RENDER * 3; i++) {
+      const c = commits[i];
+      try {
+        const commitRes = await fetch(c.url);
+        if (!commitRes.ok) continue;
+        const commitData = await commitRes.json();
+        (commitData.files || []).forEach(f => {
+          const filename = f.filename;
+          if (!filename.endsWith(".html")) return;
+          const base = filename.split("/").pop();
+          if (arquivosIgnorados.includes(base)) return;
+          const firstPart = filename.split("/")[0];
+          if (firstPart === "assets" || firstPart === "p") return;
+          if (!seen.has(filename)) {
+            seen.add(filename);
+            files.push(filename);
+          }
+        });
+      } catch (err) {
+        console.warn("Erro ao buscar commit detalhado", err);
+      }
+    }
+
+    const uniqueFiles = files.slice(0, MAX_RENDER);
+
+    await Promise.all(uniqueFiles.map(async (path) => {
+      const rawUrl = `https://raw.githubusercontent.com/${user}/${repo}/${branch}/${encodeURIComponent(path).replace(/%2F/g, "/")}`;
+      let imgSrc = PLACEHOLDER;
+
+      try {
+        const htmlRes = await fetch(rawUrl);
+        if (htmlRes.ok) {
+          const htmlText = await htmlRes.text();
+          const doc = new DOMParser().parseFromString(htmlText, "text/html");
+          const imgEl = doc.querySelector(".publicacao img") || doc.querySelector("img");
+          let src = imgEl && (imgEl.getAttribute("src") || imgEl.src);
+          if (src) {
+            try { src = new URL(src, rawUrl).href; } catch(e) {}
+            imgSrc = src;
+          }
+        }
+      } catch (err) {
+        console.warn("Erro ao carregar HTML raw para", path, err);
+      }
+
+      const pageHref = `https://${user}.github.io/${repo}/${path}`;
+
+      // cria <img> com fallback
+      const img = document.createElement("img");
+      img.alt = path.split("/").pop();
+      img.loading = "lazy";
+      img.src = imgSrc;
+      img.addEventListener("error", () => {
+        img.src = FALLBACK + "?cb=" + Date.now();
+      });
+
+      const a = document.createElement("a");
+      a.href = pageHref;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.appendChild(img);
+
+      const div = document.createElement("div");
+      div.className = "item";
+      div.appendChild(a);
+
+      container.appendChild(div);
+    }));
+
+  } catch (e) {
+    console.error("Erro geral ao carregar atualizações", e);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", carregarAtualizacoes);
