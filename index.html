@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -7,7 +8,7 @@
   <script src="assets/main.js" defer></script>
 </head>
 <body>
- 
+
 
   <main>
     <div id="header"></div>
@@ -18,61 +19,184 @@
           telenovelas, minisséries, programas diários, reality shows, jornalismo e muito mais! Esperamos que você
           aproveite o conteúdo e siga nossos perfis nas redes sociais!</p>
       </div>
+
+
+
+
+
+
+
+
+#DESPEJAR!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="item" data-tag="Reexibições Brasileiras do SBT" style="background-image:url('https://audienciaon.github.io/capassbt/acavernaencantada-1reapresentacao.png')"><h3><a href="https://audienciaon.github.io/blog/p/sbt-reexibicoes-brasileiras.html">Reexibições Brasileiras</a></h3><a href="https://audienciaon.github.io/blog/2025/acavernaencantada-1reapresentacao.html"><img src="https://audienciaon.github.io/capassbt/acavernaencantada-1reapresentacao.png" class="capa"></a></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <h2>Últimas Atualizações</h2> 
+ 
+      <div id="atualizacoes"></div> 
+    </div> 
+    <div id="footer"></div> 
+ 
+  </main> 
+ 
+<script> 
+const user = "audienciaon"; 
+const repo = "blog"; 
+const branch = "main"; 
+const MAX_RENDER = 12; 
+const PLACEHOLDER = "https://via.placeholder.com/300x180?text=Sem+imagem"; 
+ 
+// Lista de arquivos a serem ignorados 
+const arquivosIgnorados = [ 
+  "index.html", 
+  "pesquisa.html", 
+  // adicione outros arquivos que quiser ignorar aqui 
+]; 
+ 
+async function carregarAtualizacoes() { 
+  const container = document.getElementById("atualizacoes"); 
+ 
+  try { 
+    // Pega últimos commits 
+    const commitsURL = `https://api.github.com/repos/${user}/${repo}/commits?sha=${branch}&per_page=50`; 
+    const res = await fetch(commitsURL); 
+    const commits = await res.json(); 
+ 
+    let files = []; 
+ 
+    // Para cada commit, pega os arquivos alterados 
+    for (let commit of commits) { 
+      const commitRes = await fetch(commit.url); 
+      const commitData = await commitRes.json(); 
+ 
+      commitData.files?.forEach(f => { 
+        if ( 
+          f.filename.endsWith(".html") && 
+          !arquivosIgnorados.includes(f.filename.split("/").pop()) && 
+          !f.filename.startsWith("assets") && 
+          !f.filename.startsWith("p") 
+        ) { 
+          files.push(f.filename); 
+        } 
+      }); 
+    } 
+ 
+    // Remove duplicados mantendo a ordem (mais recente primeiro) 
+    const uniqueFiles = [...new Set(files)].slice(0, MAX_RENDER); 
+ 
+    // Renderiza 
+    await Promise.all(uniqueFiles.map(async (path) => { 
+      const url = `https://${user}.github.io/${repo}/${path}`; 
+      let img = PLACEHOLDER; 
+ 
+      try { 
+        const htmlRes = await fetch(url); 
+        const htmlText = await htmlRes.text(); 
+        const doc = new DOMParser().parseFromString(htmlText, "text/html"); 
+        const imgEl = doc.querySelector(".publicacao img") || doc.querySelector("img"); 
+        if (imgEl?.src) img = imgEl.src; 
+      } catch {} 
+ 
+      const div = document.createElement("div"); 
+      div.className = "item"; 
+      div.innerHTML = `<a href="${url}"> 
+        <img src="${img}" alt="${path.split('/').pop()}" loading="lazy" /> 
+      </a>`; 
+      container.appendChild(div); 
+    })); 
+ 
+  } catch (e) { 
+    console.error("Erro ao carregar atualizações", e); 
+  } 
+} 
+ 
+document.addEventListener("DOMContentLoaded", () => { 
+  setTimeout(() => carregarAtualizacoes(), 0); 
+}); 
+</script> 
+ 
+ 
+</body> 
+</html> 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
 
 
-<h2>Produções da Globo</h2><div class="producoesnoar-wrapper"><button class="prev"><i class="fas fa-chevron-left"></i></button><div class="producoesnoar producoesnoar-globo">
-<div class="item" data-tag="21h" style="background-image:url('https://audienciaon.github.io/capas/valetudo2025.png')"><h3><a href="https://audienciaon.github.io/blog/p/globo-21h.html">Produções das 20h ou 21h</a></h3><a href="https://audienciaon.github.io/blog/2025/valetudo2025.html"><img src="https://audienciaon.github.io/capas/valetudo2025.png" class="capa"></a></div>
-<div class="item" data-tag="19h" style="background-image:url('https://audienciaon.github.io/capas/donademim.png')"><h3><a href="https://audienciaon.github.io/blog/p/globo-19h.html">Produções das 19h</a></h3><a href="https://audienciaon.github.io/blog/2025/donademim.html"><img src="https://audienciaon.github.io/capas/donademim.png" class="capa"></a></div>
-<div class="item" data-tag="19hReap" style="background-image:url('https://audienciaon.github.io/capas/donademim-sessaomadrugada.png')"><h3><a href="https://audienciaon.github.io/blog/p/globo-19h-reapresentacao.html">Reapresentações na Madrugada</a></h3><a href="https://audienciaon.github.io/blog/2025/donademim-sessaomadrugada.html"><img src="https://audienciaon.github.io/capas/donademim-sessaomadrugada.png" class="capa"></a></div>
-<div class="item" data-tag="18h" style="background-image:url('https://audienciaon.github.io/capas/etamundomelhor.png')"><h3><a href="https://audienciaon.github.io/blog/p/globo-18h.html">Produções das 18h</a></h3><a href="https://audienciaon.github.io/blog/2025/etamundomelhor.html"><img src="https://audienciaon.github.io/capas/etamundomelhor.png" class="capa"></a></div>
-<div class="item" data-tag="23h" style="background-image:url('https://audienciaon.github.io/capas/todasasflores.png')"><h3><a href="https://audienciaon.github.io/blog/p/globo-23h.html">Produções das 22h ou 23h</a></h3><a href="https://audienciaon.github.io/blog/2023/todasasflores.html"><img src="https://audienciaon.github.io/capas/todasasflores.png" class="capa"></a></div>
-<div class="item" data-tag="VPVN" style="background-image:url('https://audienciaon.github.io/capas/aviagem1994-vpvn3.png')"><h3><a href="https://audienciaon.github.io/blog/p/globo-vpvn.html">Vale a Pena Ver de Novo</a></h3><a href="https://audienciaon.github.io/blog/2025/aviagem1994-vpvn3.html"><img src="https://audienciaon.github.io/capas/aviagem1994-vpvn3.png" class="capa"></a></div>
-<div class="item" data-tag="EE" style="background-image:url('https://audienciaon.github.io/capas/terranostra-ee.png')"><h3><a href="https://audienciaon.github.io/blog/p/globo-ee.html">Edições Especiais</a></h3><a href="https://audienciaon.github.io/blog/2025/terranostra-ee.html"><img src="https://audienciaon.github.io/capas/terranostra-ee.png" class="capa"></a></div>
-<div class="item" data-tag="Minisséries" style="background-image:url('https://audienciaon.github.io/capasminisseries/grandesertao.png')"><h3><a href="https://audienciaon.github.io/blog/p/globo-minisseries.html">Minisséries</a></h3><a href="https://audienciaon.github.io/blog/2025/grandesertao.html"><img src="https://audienciaon.github.io/capasminisseries/grandesertao.png" class="capa"></a></div>
-<div class="item" data-tag="Malhação" style="background-image:url('https://audienciaon.github.io/capas/malhacao-sonhos-ee.png')"><h3><a href="https://audienciaon.github.io/blog/p/globo-malhacao.html">Temporadas de Malhação</a></h3><a href="https://audienciaon.github.io/blog/2021/malhacao-sonhos-ee.html"><img src="https://audienciaon.github.io/capas/malhacao-sonhos-ee.png" class="capa"></a></div>
-<div class="item" data-tag="Séries" style="background-image:url('https://audienciaon.github.io/capasseries/abertoaopublico.png')"><h3><a href="https://audienciaon.github.io/blog/p/globo-series.html">Séries e Humorísticos</a></h3><a href="https://audienciaon.github.io/blog/2025/abertoaopublico.html"><img src="https://audienciaon.github.io/capasseries/abertoaopublico.png" class="capa"></a></div>
-<div class="item" data-tag="Séries Estrangeiras" style="background-image:url('https://audienciaon.github.io/capasseries/magnumpi-2temporada.png')"><h3><a href="https://audienciaon.github.io/blog/p/globo-series-estrangeiras.html">Séries Estrangeiras</a></h3><a href="https://audienciaon.github.io/blog/2024/magnumpi-2temporada.html"><img src="https://audienciaon.github.io/capasseries/magnumpi-2temporada.png" class="capa"></a></div>
-<div class="item" data-tag="Reality Shows" style="background-image:url('https://audienciaon.github.io/capasrealityshows/estreladacasa-2temporada.png')"><h3><a href="https://audienciaon.github.io/blog/p/globo-reality-shows.html">Temporadas de Reality Shows</a></h3><a href="https://audienciaon.github.io/blog/2025/estreladacasa-2temporada.html"><img src="https://audienciaon.github.io/capasrealityshows/estreladacasa-2temporada.png" class="capa"></a></div>
-<div class="item" data-tag="Programas" style="background-image:url('https://audienciaon.github.io/capasprogramas/interurbano-2025.png')"><h3><a href="https://audienciaon.github.io/blog/p/globo-programas.html">Programas, Talk Shows e Variedades</a></h3><a href="https://audienciaon.github.io/blog/2025/interurbano-2025.html"><img src="https://audienciaon.github.io/capasprogramas/interurbano-2025.png" class="capa"></a></div>
-<div class="item" data-tag="Jornalismo" style="background-image:url('https://audienciaon.github.io/capasjornalismo/boletimsp2-2025.png')"><h3><a href="https://audienciaon.github.io/blog/p/globo-jornalismo.html">Telejornais e jornalísticos</a></h3><a href="https://audienciaon.github.io/blog/2025/boletimsp2-2025.html"><img src="https://audienciaon.github.io/capasjornalismo/boletimsp2-2025.png" class="capa"></a></div>
-</div><button class="next"><i class="fas fa-chevron-right"></i></button></div>
-<h2>Produções da Record</h2><div class="producoesnoar-wrapper"><button class="prev"><i class="fas fa-chevron-left"></i></button><div class="producoesnoar producoesnoar-record">
-<div class="item" data-tag="Produções Bíblicas" style="background-image:url('https://audienciaon.github.io/capasrecord/paulooapostolo.png')"><h3><a href="https://audienciaon.github.io/blog/p/record-producoes-biblicas.html">Produções Bíblicas</a></h3><a href="https://audienciaon.github.io/blog/2025/paulooapostolo.html"><img src="https://audienciaon.github.io/capasrecord/paulooapostolo.png" class="capa"></a></div>
-<div class="item" data-tag="Reexibições Bíblicas" style="background-image:url('https://audienciaon.github.io/capasrecord/reis-2reapresentacao.png')"><h3><a href="https://audienciaon.github.io/blog/p/record-reexibicoes-biblicas.html">Reexibições Bíblicas</a></h3><a href="https://audienciaon.github.io/blog/2025/reis-2reapresentacao.html"><img src="https://audienciaon.github.io/capasrecord/reis-2reapresentacao.png" class="capa"></a></div>
-<div class="item" data-tag="Telenovelas da Record" style="background-image:url('https://audienciaon.github.io/capasrecord/amorsemigual.png')"><h3><a href="https://audienciaon.github.io/blog/p/record-telenovelas.html">Telenovelas</a></h3><a href="https://audienciaon.github.io/blog/2019/amorsemigual.html"><img src="https://audienciaon.github.io/capasrecord/amorsemigual.png" class="capa"></a></div>
-<div class="item" data-tag="Reexibições da Record" style="background-image:url('https://audienciaon.github.io/capasrecord/pecadomortal-1reapresentacao.png')"><h3><a href="https://audienciaon.github.io/blog/p/record-reexibicoes.html">Reexibições</a></h3><a href="https://audienciaon.github.io/blog/2024/pecadomortal-1reapresentacao.html"><img src="https://audienciaon.github.io/capasrecord/pecadomortal-1reapresentacao.png" class="capa"></a></div>
-<div class="item" data-tag="Produções Estrangeiras da Record" style="background-image:url('https://audienciaon.github.io/capasrecord/forcademulher.png')"><h3><a href="https://audienciaon.github.io/blog/p/record-producoes-estrangeiras.html">Produções Estrangeiras</a></h3><a href="https://audienciaon.github.io/blog/2024/forcademulher.html"><img src="https://audienciaon.github.io/capasrecord/forcademulher.png" class="capa"></a></div>
-<div class="item" data-tag="Reality Shows da Record" style="background-image:url('')"><h3><a href="https://audienciaon.github.io/blog/p/record-reality-shows.html">Reality Shows</a></h3><a href=""><img src="" class="capa"></a></div>
-<div class="item" data-tag="Séries Estrangeiras da Record" style="background-image:url('')"><h3><a href="https://audienciaon.github.io/blog/p/record-series-estrangeiras.html">Séries Estrangeiras</a></h3><a href=""><img src="" class="capa"></a></div>
-<div class="item" data-tag="Programas da Record" style="background-image:url('')"><h3><a href="https://audienciaon.github.io/blog/p/record-programas.html">Programas, Talk Shows e Variedades</a></h3><a href=""><img src="" class="capa"></a></div>
-<div class="item" data-tag="Jornalismo da Record" style="background-image:url('')"><h3><a href="https://audienciaon.github.io/blog/p/record-jornalismo.html">Telejornais, jornalísticos e esporte</a></h3><a href=""><img src="" class="capa"></a></div>
-</div><button class="next"><i class="fas fa-chevron-right"></i></button></div>
-<h2>Produções do SBT</h2><div class="producoesnoar-wrapper"><button class="prev"><i class="fas fa-chevron-left"></i></button><div class="producoesnoar producoesnoar-sbt">
-<div class="item" data-tag="Produções Brasileiras do SBT" style="background-image:url('https://audienciaon.github.io/capassbt/acavernaencantada.png')"><h3><a href="https://audienciaon.github.io/blog/p/sbt-producoes-brasileiras.html">Produções Brasileiras</a></h3><a href="https://audienciaon.github.io/blog/2024/acavernaencantada.html"><img src="https://audienciaon.github.io/capassbt/acavernaencantada.png" class="capa"></a></div>
-<div class="item" data-tag="Reexibições Brasileiras do SBT" style="background-image:url('https://audienciaon.github.io/capassbt/acavernaencantada-1reapresentacao.png')"><h3><a href="https://audienciaon.github.io/blog/p/sbt-reexibicoes-brasileiras.html">Reexibições Brasileiras</a></h3><a href="https://audienciaon.github.io/blog/2025/acavernaencantada-1reapresentacao.html"><img src="https://audienciaon.github.io/capassbt/acavernaencantada-1reapresentacao.png" class="capa"></a></div>
-<div class="item" data-tag="Produções Estrangeiras do SBT" style="background-image:url('https://audienciaon.github.io/capassbt/asfilhasdasenhoragarcia.png')"><h3><a href="https://audienciaon.github.io/blog/p/sbt-producoes-estrangeiras.html">Produções Estrangeiras</a></h3><a href="https://audienciaon.github.io/blog/2025/asfilhasdasenhoragarcia.html"><img src="https://audienciaon.github.io/capassbt/asfilhasdasenhoragarcia.png" class="capa"></a></div>
-<div class="item" data-tag="Reexibições Estrangeiras do SBT" style="background-image:url('https://audienciaon.github.io/capassbt/ausurpadora-6reapresentacao.png')"><h3><a href="https://audienciaon.github.io/blog/p/sbt-reexibicoes-estrangeiras.html">Reexibições Estrangeiras</a></h3><a href="https://audienciaon.github.io/blog/2025/ausurpadora-6reapresentacao.html"><img src="https://audienciaon.github.io/capassbt/ausurpadora-6reapresentacao.png" class="capa"></a></div>
-</div><button class="next"><i class="fas fa-chevron-right"></i></button></div>
-<h2>Produções da Band</h2><div class="producoesnoar-wrapper"><button class="prev"><i class="fas fa-chevron-left"></i></button><div class="producoesnoar producoesnoar-band">
-<div class="item" data-tag="Produções Brasileiras da Band" style="background-image:url('https://audienciaon.github.io/capasband/belezafatal.png')"><h3><a href="https://audienciaon.github.io/blog/p/band-producoes-brasileiras.html">Produções Brasileiras</a></h3><a href="https://audienciaon.github.io/blog/2025/belezafatal.html"><img src="https://audienciaon.github.io/capasband/belezafatal.png" class="capa"></a></div>
-<div class="item" data-tag="Reexibições Brasileiras da Band" style="background-image:url('https://audienciaon.github.io/capasband/belezafatal-1reapresentacao.png')"><h3><a href="https://audienciaon.github.io/blog/p/band-reexibicoes-brasileiras.html">Reexibições Brasileiras</a></h3><a href="https://audienciaon.github.io/blog/2025/belezafatal-1reapresentacao.html"><img src="https://audienciaon.github.io/capasband/belezafatal-1reapresentacao.png" class="capa"></a></div>
-<div class="item" data-tag="Produções Estrangeiras da Band" style="background-image:url('https://audienciaon.github.io/capasband/cafecomaromademulher2025.png')"><h3><a href="https://audienciaon.github.io/blog/p/band-producoes-estrangeiras.html">Produções Estrangeiras</a></h3><a href="https://audienciaon.github.io/blog/2025/cafecomaromademulher2025.html"><img src="https://audienciaon.github.io/capasband/cafecomaromademulher2025.png" class="capa"></a></div>
-<div class="item" data-tag="Reexibições Estrangeiras da Band" style="background-image:url('https://audienciaon.github.io/capasband/valordavida-1reapresentacao.png')"><h3><a href="https://audienciaon.github.io/blog/p/band-reexibicoes-estrangeiras.html">Reexibições Estrangeiras</a></h3><a href="https://audienciaon.github.io/blog/2025/valordavida-1reapresentacao.html"><img src="https://audienciaon.github.io/capasband/valordavida-1reapresentacao.png" class="capa"></a></div>
-</div><button class="next"><i class="fas fa-chevron-right"></i></button></div>
-
-
-
-
-
-
-
-
-
-
-      <h2>Últimas Atualizações</h2>
-
-      <div id="atualizacoes"></div>
 
 
 
@@ -95,87 +219,10 @@
 
 
 
-    </div>
-    <div id="footer"></div>
-
-  </main>
-
-<script>
-const user = "audienciaon";
-const repo = "blog";
-const branch = "main";
-const MAX_RENDER = 12;
-const PLACEHOLDER = "https://via.placeholder.com/300x180?text=Sem+imagem";
-
-// Lista de arquivos a serem ignorados
-const arquivosIgnorados = [
-  "index.html",
-  "pesquisa.html",
-  // adicione outros arquivos que quiser ignorar aqui
-];
-
-async function carregarAtualizacoes() {
-  const container = document.getElementById("atualizacoes");
-
-  try {
-    // Pega últimos commits
-    const commitsURL = `https://api.github.com/repos/${user}/${repo}/commits?sha=${branch}&per_page=50`;
-    const res = await fetch(commitsURL);
-    const commits = await res.json();
-
-    let files = [];
-
-    // Para cada commit, pega os arquivos alterados
-    for (let commit of commits) {
-      const commitRes = await fetch(commit.url);
-      const commitData = await commitRes.json();
-
-      commitData.files?.forEach(f => {
-        if (
-          f.filename.endsWith(".html") &&
-          !arquivosIgnorados.includes(f.filename.split("/").pop()) &&
-          !f.filename.startsWith("assets") &&
-          !f.filename.startsWith("p")
-        ) {
-          files.push(f.filename);
-        }
-      });
-    }
-
-    // Remove duplicados mantendo a ordem (mais recente primeiro)
-    const uniqueFiles = [...new Set(files)].slice(0, MAX_RENDER);
-
-    // Renderiza
-    await Promise.all(uniqueFiles.map(async (path) => {
-      const url = `https://${user}.github.io/${repo}/${path}`;
-      let img = PLACEHOLDER;
-
-      try {
-        const htmlRes = await fetch(url);
-        const htmlText = await htmlRes.text();
-        const doc = new DOMParser().parseFromString(htmlText, "text/html");
-        const imgEl = doc.querySelector(".publicacao img") || doc.querySelector("img");
-        if (imgEl?.src) img = imgEl.src;
-      } catch {}
-
-      const div = document.createElement("div");
-      div.className = "item";
-      div.innerHTML = `<a href="${url}">
-        <img src="${img}" alt="${path.split('/').pop()}" loading="lazy" />
-      </a>`;
-      container.appendChild(div);
-    }));
-
-  } catch (e) {
-    console.error("Erro ao carregar atualizações", e);
-  }
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  setTimeout(() => carregarAtualizacoes(), 0);
-});
-</script>
 
 
-</body>
-</html>
+
+
+
+
+
