@@ -36,45 +36,7 @@
 
 
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    console.log(document.getElementById('filtro')); 
-    var input = document.getElementById('filtro');
-    if (input) {
-      input.addEventListener('keyup', function () {
-        const termo = input.value.toLowerCase();
-        const linhas = document.querySelectorAll('.linha');
 
-        linhas.forEach(linha => {
-          const nomeProducao = linha.querySelector('.pesquisatags') ? linha.querySelector('.pesquisatags').textContent.toLowerCase() : '';
-          const autor = linha.querySelector('.autor') ? linha.querySelector('.autor').textContent.toLowerCase() : ''; 
-          if (nomeProducao.includes(termo) || autor.includes(termo)) { 
-            linha.style.display = ''; 
-          } else {
-            linha.style.display = 'none'; 
-          }
-        });
-
-        // Movimento sutil da tela imediato
-        window.scrollBy(0, 1);
-        setTimeout(() => {
-          window.scrollBy(0, -1);
-        }, 1);
-
-        // Reinicia o temporizador
-        clearTimeout(typingTimer);
-        typingTimer = setTimeout(() => {
-          window.scrollBy(0, 1);
-          setTimeout(() => {
-            window.scrollBy(0, -1);
-          }, 1);
-        }, 50); // 1 segundo após parar de digitar
-      });
-    }
-  });
-  </script>
-
-<div class="espaco"></div>
 <div class="pagina-pesquisa"><div class="titulo-barra-pesquisa titulo">Todas as produções já publicadas no Blog</div>
 <input type="text" id="filtro" placeholder="Digite aqui o nome da produção, do autor ou do diretor" />
 <div class="espaco"></div>
@@ -3168,6 +3130,82 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log(document.getElementById('filtro')); 
+    var input = document.getElementById('filtro');
+    if (input) {
+      input.addEventListener('keyup', function () {
+        const termo = input.value.toLowerCase();
+        const linhas = document.querySelectorAll('.linha');
+
+        linhas.forEach(linha => {
+          const nomeProducao = linha.querySelector('.pesquisatags') ? linha.querySelector('.pesquisatags').textContent.toLowerCase() : '';
+          const autor = linha.querySelector('.autor') ? linha.querySelector('.autor').textContent.toLowerCase() : ''; 
+          if (nomeProducao.includes(termo) || autor.includes(termo)) { 
+            linha.style.display = ''; 
+          } else {
+            linha.style.display = 'none'; 
+          }
+        });
+
+        // Movimento sutil da tela imediato
+        window.scrollBy(0, 1);
+        setTimeout(() => {
+          window.scrollBy(0, -1);
+        }, 1);
+
+        // Reinicia o temporizador
+        clearTimeout(typingTimer);
+        typingTimer = setTimeout(() => {
+          window.scrollBy(0, 1);
+          setTimeout(() => {
+            window.scrollBy(0, -1);
+          }, 1);
+        }, 50); // 1 segundo após parar de digitar
+      });
+    }
+  });
+  </script>
 
 
 
