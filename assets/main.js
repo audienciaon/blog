@@ -123,8 +123,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // --- Reduzir texto em barras dos gráficos ---
   document.querySelectorAll(".grafico-comparacao-producoes .linha .espaco .barra").forEach(b => {
     let texto = b.textContent.trim();
-    texto = texto.replace("ª Reapresentação", "ªR")
-                 .replace("ª Temporada", "ªT");
+    texto = texto.replace("ª Reapresentação", "ªR").replace("ª Temporada", "ªT");
     let [antes, depois] = texto.split(" - ");
     if (depois) {
       if (antes.length > 21) antes = antes.slice(0, 21) + "...";
@@ -162,55 +161,83 @@ document.addEventListener("DOMContentLoaded", async () => {
   const branch = "main"; 
   const MAX_RENDER = 12; 
   const PLACEHOLDER = "https://via.placeholder.com/300x180?text=Sem+imagem"; 
-  const arquivosIgnorados = [ "index.html", "pesquisa.html" ];
+  const FALLBACK = "https://audienciaon.github.io/capas/adefinir.png"; 
+  const arquivosIgnorados = ["index.html","pesquisa.html"];
 
-  async function carregarAtualizacoes() { 
-    const container = document.getElementById("atualizacoes"); 
+  async function carregarAtualizacoes() {
+    const container = document.querySelector('.producoesnoar');
     if (!container) return;
+    container.innerHTML = "";
 
-    try { 
-      const commitsURL = `https://api.github.com/repos/${user}/${repo}/commits?sha=${branch}&per_page=50`; 
-      const res = await fetch(commitsURL); 
-      const commits = await res.json(); 
+    try {
+      const commitsRes = await fetch(`https://api.github.com/repos/${user}/${repo}/commits?sha=${branch}&per_page=50`);
+      const commits = await commitsRes.json();
 
-      let files = []; 
+      const files = [];
+      const seen = new Set();
 
-      for (let commit of commits) { 
-        const commitRes = await fetch(commit.url); 
-        const commitData = await commitRes.json(); 
+      for (let i=0;i<commits.length && files.length<MAX_RENDER*3;i++){
+        const c = commits[i];
+        try {
+          const commitRes = await fetch(c.url);
+          const commitData = await commitRes.json();
+          (commitData.files||[]).forEach(f=>{
+            const filename = f.filename;
+            const base = filename.split("/").pop();
+            if (!filename.endsWith(".html")) return;
+            if (arquivosIgnorados.includes(base)) return;
+            const firstPart = filename.split("/")[0];
+            if (firstPart==="assets" || firstPart==="p") return;
+            if (!seen.has(filename)) { seen.add(filename); files.push(filename); }
+          });
+        } catch {}
+      }
 
-        commitData.files?.forEach(f => { 
-          if (f.filename.endsWith(".html") && !arquivosIgnorados.includes(f.filename.split("/").pop()) && !f.filename.startsWith("assets") && !f.filename.startsWith("p")) { 
-            files.push(f.filename); 
-          } 
-        }); 
-      } 
+      const uniqueFiles = files.slice(0, MAX_RENDER);
 
-      const uniqueFiles = [...new Set(files)].slice(0, MAX_RENDER); 
+      for(const path of uniqueFiles){
+        const pageUrl = `https://${user}.github.io/${repo}/${path}`;
+        let imgSrc = PLACEHOLDER;
 
-      await Promise.all(uniqueFiles.map(async (path) => { 
-        const url = `https://${user}.github.io/${repo}/${path}`; 
-        let img = PLACEHOLDER; 
+        try{
+          const htmlRes = await fetch(pageUrl);
+          if(htmlRes.ok){
+            const htmlText = await htmlRes.text();
+            const doc = new DOMParser().parseFromString(htmlText,"text/html");
+            const imgEl = doc.querySelector(".publicacao img") || doc.querySelector("img");
+            if(imgEl?.src) imgSrc = new URL(imgEl.src,pageUrl).href;
+          }
+        }catch{}
 
-        try { 
-          const htmlRes = await fetch(url); 
-          const htmlText = await htmlRes.text(); 
-          const doc = new DOMParser().parseFromString(htmlText, "text/html"); 
-          const imgEl = doc.querySelector(".publicacao img") || doc.querySelector("img"); 
-          if (imgEl?.src) img = imgEl.src; 
-        } catch {} 
+        const div = document.createElement("div");
+        div.className = "item";
+        div.innerHTML = `
+          <a href="${pageUrl}" target="_blank" rel="noopener noreferrer">
+            <img src="${imgSrc}" alt="${path.split('/').pop()}" loading="lazy" />
+          </a>
+        `;
 
-        const div = document.createElement("div"); 
-        div.className = "item"; 
-        div.innerHTML = `<a href="${url}"><img src="${img}" alt="${path.split('/').pop()}" loading="lazy" /></a>`; 
-        container.appendChild(div); 
-      })); 
+        const imgTag = div.querySelector("img");
+        imgTag.addEventListener("error",()=>{ imgTag.src=FALLBACK+"?cb="+Date.now(); });
 
-    } catch (e) { 
-      console.error("Erro ao carregar atualizações", e); 
-    } 
-  } 
+        container.appendChild(div);
+      }
 
-  setTimeout(() => carregarAtualizacoes(), 0);
+      // Inicializa scroll do carrossel após inserir items
+      const wrapper = document.querySelector('.producoesnoar-wrapper');
+      if(wrapper){
+        const carrossel = wrapper.querySelector('.producoesnoar');
+        const next = wrapper.querySelector('.next');
+        const prev = wrapper.querySelector('.prev');
+        if(next && prev && carrossel){
+          next.addEventListener('click',()=>carrossel.scrollBy({ left:300, behavior:'smooth' }));
+          prev.addEventListener('click',()=>carrossel.scrollBy({ left:-300, behavior:'smooth' }));
+        }
+      }
+
+    } catch(e){ console.error("Erro ao carregar atualizações",e);}
+  }
+
+  carregarAtualizacoes();
 
 });
