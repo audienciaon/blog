@@ -72,54 +72,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.documentElement.classList.add("fonts-loaded");
   });
 
-  // --- Aplicar background desfocado ---
-  const applyBackgroundBlur = selector => {
-    const imgEl = document.querySelector(selector);
-    if (!imgEl) return;
-    const img = new Image();
-    img.crossOrigin = "anonymous";
-    img.src = imgEl.src;
-    img.onload = () => {
-      const canvas = document.createElement("canvas");
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      const ctx = canvas.getContext("2d");
-      ctx.filter = "blur(300px)";
-      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-      document.documentElement.style.backgroundImage = `url(${canvas.toDataURL("image/png")})`;
-      document.documentElement.style.backgroundSize = "cover";
-      document.documentElement.style.backgroundPosition = "center";
-      document.documentElement.style.backgroundRepeat = "no-repeat";
-    };
-  };
-
-  applyBackgroundBlur(".cabecalho .informacoes .info2 img");
-  if (window.location.pathname.includes("/p/")) {
-    applyBackgroundBlur(".pagina-horario-noar .conteudo img");
-  }
-
-  // --- Disqus ---
-  var disqus_config = function () {
-    this.page.url = window.location.href;
-    this.page.identifier = document.title;
-  };
-  (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://audienciaon.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-  })();
-
-  // --- Favicon ---
-  (function() {
-    const link = document.createElement('link');
-    link.rel = 'icon';
-    link.type = 'image/png';
-    link.href = 'https://audienciaon.github.io/emissoras/aon.png';
-    document.head.appendChild(link);
-  })();
-
-  // --- Carrossel da página inicial ---
+  // --- Carrossel da página inicial com altura correta ---
   const user = "audienciaon"; 
   const repo = "blog"; 
   const branch = "main"; 
@@ -175,16 +128,17 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         const div = document.createElement("div");
         div.className = "item";
-        div.innerHTML = `
-          <a href="${pageUrl}" target="_blank" rel="noopener noreferrer">
-            <img src="${imgSrc}" alt="${path.split('/').pop()}" loading="lazy" />
-          </a>
-        `;
 
-        const imgTag = div.querySelector("img");
-        imgTag.addEventListener("error",()=>{ imgTag.src=FALLBACK+"?cb="+Date.now(); });
+        // Cria a imagem e só adiciona ao container quando carregar
+        const img = document.createElement("img");
+        img.src = imgSrc;
+        img.alt = path.split('/').pop();
+        img.loading = "lazy";
+        img.addEventListener("error",()=>{ img.src=FALLBACK+"?cb="+Date.now(); });
+        img.addEventListener("load", ()=>{ container.appendChild(div); }); // só adiciona depois de carregar
 
-        container.appendChild(div);
+        div.innerHTML = `<a href="${pageUrl}" target="_blank" rel="noopener noreferrer"></a>`;
+        div.querySelector("a").appendChild(img);
       }
 
     } catch(e){ console.error("Erro ao carregar atualizações",e);}
