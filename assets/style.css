@@ -107,7 +107,7 @@
 
 
   html{
-  	background-size: 100vw 100vh !important;
+  	background-size: 150vw 150vh !important;
   	background-repeat: no-repeat;
   	background-position: top;
   background-color:var(--cor-00);
