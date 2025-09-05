@@ -969,12 +969,10 @@ content:"Atualizado em "
   .dadosparciais::before{
   background-color:var(--cor-texto);
   color:var(--cor-100);
-  margin-left:15px;
   font-weight:600;
   border-radius:4px;
-  margin-top:8px;
   text-transform:uppercase;
-  padding:4px 8px;
+  padding:6px 10px;
   font-size:var(--fonte-16)
   }
   
