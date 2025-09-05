@@ -188,7 +188,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         div.appendChild(a);
 
-        // só adiciona ao container depois que a imagem carregar
         if (img.complete) {
           container.appendChild(div);
         } else {
@@ -200,5 +199,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   carregarAtualizacoes();
+
+  // --- Scroll interno do segundo elemento de <main> ---
+  const mainSecond = document.querySelector("main > :nth-child(2)");
+  if (mainSecond) {
+    mainSecond.style.overflow = "auto";
+    mainSecond.style.maxHeight = "80vh"; // você pode ajustar
+  }
 
 });
