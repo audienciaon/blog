@@ -72,13 +72,19 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.documentElement.classList.add("fonts-loaded");
   });
 
-  // --- Carrossel da página inicial com altura correta ---
+  // --- Substituir imagens com erro ---
+  const FALLBACK = "https://audienciaon.github.io/capas/adefinir.png";
+  function substituirImagem(img) {
+    img.onerror = null;
+    img.src = FALLBACK + "?cb=" + Date.now();
+  }
+
+  // --- Carrossel da página inicial (últimas atualizações) ---
   const user = "audienciaon"; 
   const repo = "blog"; 
   const branch = "main"; 
   const MAX_RENDER = 12; 
   const PLACEHOLDER = "https://via.placeholder.com/300x180?text=Sem+imagem"; 
-  const FALLBACK = "https://audienciaon.github.io/capas/adefinir.png"; 
   const arquivosIgnorados = ["index.html","pesquisa.html"];
 
   async function carregarAtualizacoes() {
@@ -129,16 +135,26 @@ document.addEventListener("DOMContentLoaded", async () => {
         const div = document.createElement("div");
         div.className = "item";
 
-        // Cria a imagem e só adiciona ao container quando carregar
         const img = document.createElement("img");
         img.src = imgSrc;
         img.alt = path.split('/').pop();
         img.loading = "lazy";
-        img.addEventListener("error",()=>{ img.src=FALLBACK+"?cb="+Date.now(); });
-        img.addEventListener("load", ()=>{ container.appendChild(div); }); // só adiciona depois de carregar
+        img.onerror = () => substituirImagem(img);
 
-        div.innerHTML = `<a href="${pageUrl}" target="_blank" rel="noopener noreferrer"></a>`;
-        div.querySelector("a").appendChild(img);
+        const a = document.createElement("a");
+        a.href = pageUrl;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        a.appendChild(img);
+
+        div.appendChild(a);
+
+        // só adiciona ao container depois que a imagem carregar
+        if (img.complete) {
+          container.appendChild(div);
+        } else {
+          img.addEventListener("load", ()=>container.appendChild(div));
+        }
       }
 
     } catch(e){ console.error("Erro ao carregar atualizações",e);}
@@ -146,7 +162,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   carregarAtualizacoes();
 
-  // --- Inicializa todos os carrosséis sem alterar CSS ---
+  // --- Inicializa todos os carrosséis ---
   const carrosselWrappers = document.querySelectorAll('.producoesnoar-wrapper');
   carrosselWrappers.forEach(wrapper => {
     const carrossel = wrapper.querySelector('.producoesnoar');
