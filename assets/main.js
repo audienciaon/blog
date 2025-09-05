@@ -192,24 +192,16 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   carregarAtualizacoes();
 
-  // --- Inicializa todos os carrosséis ---
+  // --- Inicializa todos os carrosséis sem alterar CSS ---
   const carrosselWrappers = document.querySelectorAll('.producoesnoar-wrapper');
   carrosselWrappers.forEach(wrapper => {
     const carrossel = wrapper.querySelector('.producoesnoar');
     const next = wrapper.querySelector('.next');
     const prev = wrapper.querySelector('.prev');
 
-    // Aplica CSS básico via JS para garantir scroll
-    if(carrossel){
-      carrossel.style.display = "flex";
-      carrossel.style.overflowX = "auto";
-      carrossel.style.scrollBehavior = "smooth";
-    }
-
-    // Inicializa setas
-    if(next && prev && carrossel){
-      next.addEventListener('click',()=>carrossel.scrollBy({ left:300, behavior:'smooth' }));
-      prev.addEventListener('click',()=>carrossel.scrollBy({ left:-300, behavior:'smooth' }));
+    if (next && prev && carrossel) {
+      next.addEventListener('click', () => carrossel.scrollBy({ left: 300, behavior: 'smooth' }));
+      prev.addEventListener('click', () => carrossel.scrollBy({ left: -300, behavior: 'smooth' }));
     }
   });
 
