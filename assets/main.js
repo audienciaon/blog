@@ -98,42 +98,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     applyBackgroundBlur(".pagina-horario-noar .conteudo img");
   }
 
-  // --- Setas das outras páginas ---
-  const container = document.querySelector('.outraspaginas');
-  if (container) {
-    let btnLeft = document.querySelector('.arrow-left');
-    let btnRight = document.querySelector('.arrow-right');
-    const criarBotao = (classe, texto) => {
-      const btn = document.createElement('button');
-      btn.className = `arrow ${classe}`;
-      btn.textContent = texto;
-      btn.type = "button";
-      container.parentNode.insertBefore(btn, classe === 'arrow-left' ? container : container.nextSibling);
-      return btn;
-    };
-    if (!btnLeft) btnLeft = criarBotao('arrow-left', '❮');
-    if (!btnRight) btnRight = criarBotao('arrow-right', '❯');
-    const gap = 20; 
-    const item = container.querySelector('a');
-    const scrollAmount = item ? (item.offsetWidth + gap) * 3 : 200;
-    btnLeft.addEventListener('click', () => container.scrollBy({ left: -scrollAmount, behavior: 'smooth' }));
-    btnRight.addEventListener('click', () => container.scrollBy({ left: scrollAmount, behavior: 'smooth' }));
-  }
-
-  // --- Reduzir texto em barras dos gráficos ---
-  document.querySelectorAll(".grafico-comparacao-producoes .linha .espaco .barra").forEach(b => {
-    let texto = b.textContent.trim();
-    texto = texto.replace("ª Reapresentação", "ªR").replace("ª Temporada", "ªT");
-    let [antes, depois] = texto.split(" - ");
-    if (depois) {
-      if (antes.length > 21) antes = antes.slice(0, 21) + "...";
-      texto = antes + " - " + depois;
-    } else {
-      if (texto.length > 25) texto = texto.slice(0, 25) + "...";
-    }
-    b.textContent = texto;
-  });
-
   // --- Disqus ---
   var disqus_config = function () {
     this.page.url = window.location.href;
@@ -223,21 +187,30 @@ document.addEventListener("DOMContentLoaded", async () => {
         container.appendChild(div);
       }
 
-      // Inicializa scroll do carrossel após inserir items
-      const wrapper = document.querySelector('.producoesnoar-wrapper');
-      if(wrapper){
-        const carrossel = wrapper.querySelector('.producoesnoar');
-        const next = wrapper.querySelector('.next');
-        const prev = wrapper.querySelector('.prev');
-        if(next && prev && carrossel){
-          next.addEventListener('click',()=>carrossel.scrollBy({ left:300, behavior:'smooth' }));
-          prev.addEventListener('click',()=>carrossel.scrollBy({ left:-300, behavior:'smooth' }));
-        }
-      }
-
     } catch(e){ console.error("Erro ao carregar atualizações",e);}
   }
 
   carregarAtualizacoes();
+
+  // --- Inicializa todos os carrosséis ---
+  const carrosselWrappers = document.querySelectorAll('.producoesnoar-wrapper');
+  carrosselWrappers.forEach(wrapper => {
+    const carrossel = wrapper.querySelector('.producoesnoar');
+    const next = wrapper.querySelector('.next');
+    const prev = wrapper.querySelector('.prev');
+
+    // Aplica CSS básico via JS para garantir scroll
+    if(carrossel){
+      carrossel.style.display = "flex";
+      carrossel.style.overflowX = "auto";
+      carrossel.style.scrollBehavior = "smooth";
+    }
+
+    // Inicializa setas
+    if(next && prev && carrossel){
+      next.addEventListener('click',()=>carrossel.scrollBy({ left:300, behavior:'smooth' }));
+      prev.addEventListener('click',()=>carrossel.scrollBy({ left:-300, behavior:'smooth' }));
+    }
+  });
 
 });
