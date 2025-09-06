@@ -132,7 +132,7 @@
   }
 
 #home header img, #home footer img{
-  filter:invert(1)
+  filter:invert(1) !important;
 }
 
 main {
@@ -482,8 +482,8 @@ background: linear-gradient(to bottom, var(--cor-10) 0%, #11111190 20%, #1111119
 }
 
 #home .campopesquisa{
-  background-color:var(--cor-60-fade);
-  border:1px solid var(--cor-50);
+  background-color:var(--cor-60-fade) !important;
+  border:1px solid var(--cor-50) !important;
 }
 
 .campopesquisa::after{
