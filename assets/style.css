@@ -476,6 +476,11 @@ background: linear-gradient(to bottom, var(--cor-10) 0%, #11111190 20%, #1111119
   border:1px solid #fff;
 }
 
+#home .campopesquisa{
+  background-color:var(--cor-60-fade);
+  border:1px solid var(--cor-50);
+}
+
 .campopesquisa::after{
   padding-left:15px;
   content:"Pesquise a sua produção, o seu diretor ou seu autor aqui"
