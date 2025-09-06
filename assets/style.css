@@ -1156,7 +1156,8 @@ content:"Atualizado em "
     content: "Apresentado por " !important;
 }
 
-.programa .cabecalho .diretor {
+.jornalismo .diretor,
+.programa .diretor {
 display:none !important
   }
 
