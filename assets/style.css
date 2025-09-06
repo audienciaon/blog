@@ -4645,7 +4645,7 @@ background-size:cover;
 
 #home h2{
   color:var(--cor-texto) !important
-  
+
 }
 
 html {
@@ -4736,7 +4736,7 @@ html.fonts-loaded {
     grid-template-columns: repeat(1, 1fr);}
   
   #header-home {
-    grid-template-columns: repeat(4, 1fr);}
+    grid-template-columns: repeat(2, 1fr);}
   
   .proximasecao{padding-bottom:0}
   
