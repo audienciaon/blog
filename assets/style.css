@@ -131,6 +131,10 @@
 	  grid-template-columns:200px auto 50px 50px;
   }
   
+header img, footer img{
+  filter:invert(1)
+}
+
 main {
     display: grid;
     grid-template-rows: 2fr 24fr 1fr;
@@ -172,6 +176,7 @@ button{
     color: var(--cor-100);
     font-size: var(--fonte-16);
     border-radius: 5px;
+    height:100%;
 }
 
   #principal {
@@ -305,7 +310,7 @@ display:none
   width: 100%;
   overflow: hidden;
   box-sizing: border-box;
-  padding: 0;
+  padding: 20px;
   background-image: none !important;
 }
 
