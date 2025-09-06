@@ -171,7 +171,7 @@ canvas{
   width:100%;
 }
 button{
-	background-color: var(--cor-90);
+	background-color:transparent;
     border: none;
     color: var(--cor-50);
     font-size: var(--fonte-16);
@@ -3804,7 +3804,7 @@ grid-template-areas: 'titulo producao1 producao2 producao3 producao4 producao5';
   width:100%;
   box-sizing:border-box;
   border-radius:8px;
-    background-color: #ffffff;
+    background-color: var(--cor-10-fade);
     border: 1px solid #fff;
         font-family: var(--font-family)
     }
