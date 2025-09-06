@@ -105,98 +105,46 @@ document.addEventListener("DOMContentLoaded", async () => {
     applyBackgroundBlur(".pagina-horario-noar .conteudo img");
   }
 
-  // --- Inicializa todos os carrosséis ---
-  const carrosselWrappers = document.querySelectorAll('.producoesnoar-wrapper');
-  carrosselWrappers.forEach(wrapper => {
-    const carrossel = wrapper.querySelector('.producoesnoar');
-    const next = wrapper.querySelector('.next');
-    const prev = wrapper.querySelector('.prev');
 
-    if (next && prev && carrossel) {
-      next.addEventListener('click', () => carrossel.scrollBy({ left: 300, behavior: 'smooth' }));
-      prev.addEventListener('click', () => carrossel.scrollBy({ left: -300, behavior: 'smooth' }));
-    }
-  });
 
-  // --- Carrossel da página inicial (últimas atualizações do GitHub) ---
-  const user = "audienciaon"; 
-  const repo = "blog"; 
-  const branch = "main"; 
-  const MAX_RENDER = 12; 
-  const PLACEHOLDER = "https://via.placeholder.com/300x180?text=Sem+imagem"; 
-  const arquivosIgnorados = ["index.html","pesquisa.html"];
 
-  async function carregarAtualizacoes() {
-    const container = document.querySelector('.producoesnoar');
-    if (!container) return;
-    container.innerHTML = "";
 
-    try {
-      const commitsRes = await fetch(`https://api.github.com/repos/${user}/${repo}/commits?sha=${branch}&per_page=50`);
-      const commits = await commitsRes.json();
 
-      const files = [];
-      const seen = new Set();
 
-      for (let i=0;i<commits.length && files.length<MAX_RENDER*3;i++){
-        const c = commits[i];
-        try {
-          const commitRes = await fetch(c.url);
-          const commitData = await commitRes.json();
-          (commitData.files||[]).forEach(f=>{
-            const filename = f.filename;
-            const base = filename.split("/").pop();
-            if (!filename.endsWith(".html")) return;
-            if (arquivosIgnorados.includes(base)) return;
-            const firstPart = filename.split("/")[0];
-            if (firstPart==="assets" || firstPart==="p") return;
-            if (!seen.has(filename)) { seen.add(filename); files.push(filename); }
-          });
-        } catch {}
-      }
 
-      const uniqueFiles = files.slice(0, MAX_RENDER);
 
-      for(const path of uniqueFiles){
-        const pageUrl = `https://${user}.github.io/${repo}/${path}`;
-        let imgSrc = PLACEHOLDER;
 
-        try{
-          const htmlRes = await fetch(pageUrl);
-          if(htmlRes.ok){
-            const htmlText = await htmlRes.text();
-            const doc = new DOMParser().parseFromString(htmlText,"text/html");
-            const imgEl = doc.querySelector(".publicacao img") || doc.querySelector("img");
-            if(imgEl?.src) imgSrc = new URL(imgEl.src,pageUrl).href;
-          }
-        }catch{}
 
-        const div = document.createElement("div");
-        div.className = "item";
+// --- Inicializa todos os carrosséis ---
+const carrosselWrappers = document.querySelectorAll('.producoesnoar-wrapper');
 
-        const img = document.createElement("img");
-        img.src = imgSrc;
-        img.alt = path.split('/').pop();
-        img.loading = "lazy";
-        img.onerror = () => substituirImagem(img);
+carrosselWrappers.forEach(wrapper => {
+  const carrossel = wrapper.querySelector('.producoesnoar');
+  const next = wrapper.querySelector('.next');
+  const prev = wrapper.querySelector('.prev');
 
-        const a = document.createElement("a");
-        a.href = pageUrl;
-        a.target = "_blank";
-        a.rel = "noopener noreferrer";
-        a.appendChild(img);
-
-        div.appendChild(a);
-
-        if (img.complete) {
-          container.appendChild(div);
-        } else {
-          img.addEventListener("load", ()=>container.appendChild(div));
-        }
-      }
-
-    } catch(e){ console.error("Erro ao carregar atualizações",e);}
+  if (next && prev && carrossel) {
+    next.addEventListener('click', () => 
+      carrossel.scrollBy({ left: 300, behavior: 'smooth' })
+    );
+    prev.addEventListener('click', () => 
+      carrossel.scrollBy({ left: -300, behavior: 'smooth' })
+    );
   }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   carregarAtualizacoes();
 
