@@ -171,9 +171,9 @@ canvas{
   width:100%;
 }
 button{
-	background-color: var(--cor-00);
+	background-color: var(--cor-90);
     border: none;
-    color: var(--cor-100);
+    color: var(--cor-50);
     font-size: var(--fonte-16);
     border-radius: 5px;
     height:100%;
