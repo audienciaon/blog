@@ -300,7 +300,7 @@ display:none
   font-size:var(--fonte-16) !important;
   font-weight:900;
   padding-bottom:0 !important;
-  color:var(--cor-texto)
+  color:var(--cor-texto) !important;
 }
 
 
@@ -4635,6 +4635,11 @@ background-size:cover;
     html {
         font-family: var(--font-family) !important;
     }
+
+#home{
+  color:var(--cor-texto) !important;
+  background-color:var(--cor-100) !important;
+}
 
 html {
   visibility: hidden;
