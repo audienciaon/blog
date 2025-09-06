@@ -128,7 +128,7 @@
 	  align-items:center;
 	  justify-items:center;
 	  align-self:center;
-	  grid-template-columns:200px auto 50px 50px;
+	  grid-template-columns:repeat(2, auto);
   }
 
 #home header img, #home footer img{
