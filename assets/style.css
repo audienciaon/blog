@@ -110,7 +110,7 @@
   	background-size: 150vw 150vh !important;
   	background-repeat: no-repeat;
   	background-position: top;
-  background-color:var(--cor-00);
+  background-color:var(--cor-100);
   background-attachment: fixed;
   color:var(--cor-100);
 
@@ -3516,9 +3516,6 @@ grid-template-areas: 'titulo producao1 producao2 producao3 producao4 producao5';
       .premiacao .indicado {filter:saturate(0)}
       .premiacao .indicado:hover {filter:saturate(1);}
 
-      .premiacao .vencedor:hover,
-.premiacao .indicado:hover{    inset 0 0 100px rgba(0, 0, 0, 0.5), 0px 0px 20px rgba(0, 0, 0, 0.5);
-      }
 
    
       .premiacao .serie .infos,
@@ -5172,4 +5169,3 @@ html.fonts-loaded {
 
 
 }
-   
