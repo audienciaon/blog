@@ -167,24 +167,3 @@ carrosselWrappers.forEach(wrapper => {
 
 
 
-// --- Ajusta textos das barras ---
-  document.querySelectorAll(".grafico-comparacao .linha .espaco .barra").forEach(b => {
-    let texto = b.textContent.trim();
-
-    // 1 - Substituições
-    texto = texto.replace("ª Reapresentação", "ªR")
-                 .replace("ª Temporada", "ªT");
-
-    // 2 - Tratamento de corte
-    let [antes, depois] = texto.split(" - ");
-    if (depois) {
-      if (antes.length > 21) antes = antes.slice(0, 21) + "...";
-      texto = antes + " - " + depois;
-    } else {
-      if (texto.length > 25) texto = texto.slice(0, 25) + "...";
-    }
-
-    b.textContent = texto;
-  });
-
-});
