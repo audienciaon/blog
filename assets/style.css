@@ -5162,7 +5162,7 @@ html.fonts-loaded {
     .pagina-pesquisa .resultados {
         margin: 0 !important;
         gap: 15px !important;
-        grid-template-columns: repeat(3, 1fr) !important;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important;
     }
 
 
