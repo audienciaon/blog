@@ -312,6 +312,8 @@ display:none
   box-sizing: border-box;
   padding: 20px;
   background-image: none !important;
+  background-color:var(--cor-90);
+  border-radius:8px;
 }
 
 
