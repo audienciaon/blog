@@ -184,3 +184,40 @@ carrosselWrappers.forEach(wrapper => {
   });
 
 }); // fecha apenas o DOMContentLoaded
+
+
+
+
+// --- Lazy load resultados ---
+const container = document.querySelector(".pagina-pesquisa .resultados");
+if (container) {
+  const totalItens = 10000; // supondo milhares de itens
+  const lote = 40; // primeira carga
+  const passo = 20; // quantos novos a cada scroll
+  let carregados = 0;
+
+  function criarItem(i) {
+    const item = document.createElement("div");
+    item.className = "item";
+    item.textContent = "Item " + i;
+    return item;
+  }
+
+  function carregarMais(qtd) {
+    const limite = Math.min(carregados + qtd, totalItens);
+    for (let i = carregados; i < limite; i++) {
+      container.appendChild(criarItem(i + 1));
+    }
+    carregados = limite;
+  }
+
+  // primeira leva
+  carregarMais(lote);
+
+  // quando chega no fim, carrega mais
+  window.addEventListener("scroll", () => {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 200) {
+      carregarMais(passo);
+    }
+  });
+}
