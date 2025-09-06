@@ -105,119 +105,94 @@ document.addEventListener("DOMContentLoaded", async () => {
     applyBackgroundBlur(".pagina-horario-noar .conteudo img");
   }
 
+  // --- Inicializa todos os carrosséis ---
+  const carrosselWrappers = document.querySelectorAll('.producoesnoar-wrapper');
+  carrosselWrappers.forEach(wrapper => {
+    const carrossel = wrapper.querySelector('.producoesnoar');
+    const next = wrapper.querySelector('.next');
+    const prev = wrapper.querySelector('.prev');
+    if (next && prev && carrossel) {
+      next.addEventListener('click', () =>
+        carrossel.scrollBy({ left: 300, behavior: 'smooth' })
+      );
+      prev.addEventListener('click', () =>
+        carrossel.scrollBy({ left: -300, behavior: 'smooth' })
+      );
+    }
+  });
 
-
-
-
-
-
-
-
-
-
-// --- Inicializa todos os carrosséis ---
-const carrosselWrappers = document.querySelectorAll('.producoesnoar-wrapper');
-
-carrosselWrappers.forEach(wrapper => {
-  const carrossel = wrapper.querySelector('.producoesnoar');
-  const next = wrapper.querySelector('.next');
-  const prev = wrapper.querySelector('.prev');
-
-  if (next && prev && carrossel) {
-    next.addEventListener('click', () => 
-      carrossel.scrollBy({ left: 300, behavior: 'smooth' })
-    );
-    prev.addEventListener('click', () => 
-      carrossel.scrollBy({ left: -300, behavior: 'smooth' })
-    );
-  }
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    carregarAtualizacoes();
+  carregarAtualizacoes();
 
   // --- Scroll interno do segundo elemento de <main> ---
   const mainSecond = document.querySelector("main > :nth-child(2)");
   if (mainSecond) {
     mainSecond.style.overflow = "auto";
-    mainSecond.style.maxHeight = "80vh"; // você pode ajustar
+    mainSecond.style.maxHeight = "80vh";
   }
 
+  // --- Ajusta textos das barras (corrigido) ---
+  (function () {
+    function ajustarTextosDasBarras(root = document) {
+      const barras = root.querySelectorAll(".grafico-comparacao .linha .espaco .barra");
+      barras.forEach(b => {
+        if (!b.dataset.origText) {
+          b.dataset.origText = b.textContent.trim();
+        }
+        let raw = b.dataset.origText.replace(/\s+/g, ' ').trim();
 
+        raw = raw.replace(/ª\s*reapresenta/gi, 'ªR')
+                 .replace(/ª\s*temporad/gi, 'ªT');
 
+        const parts = raw.split(/\s*[-–—]\s*/);
+        let antes = parts.shift() || '';
+        const depois = parts.length ? parts.join(' - ') : '';
 
+        if (depois) {
+          if (antes.length > 21) antes = antes.slice(0, 21) + "...";
+          raw = antes + " - " + depois;
+        } else {
+          if (raw.length > 25) raw = raw.slice(0, 25) + "...";
+        }
 
-
-
-
-  
-  // --- Ajusta textos das barras ---
-  document.querySelectorAll(".grafico-comparacao .linha .espaco .barra").forEach(b => {
-    let texto = b.textContent.trim();
-
-    // 1 - Substituições
-    texto = texto.replace("ª Reapresentação", "ªR")
-                 .replace("ª Temporada", "ªT");
-
-    // 2 - Tratamento de corte
-    let [antes, depois] = texto.split(" - ");
-    if (depois) {
-      if (antes.length > 21) antes = antes.slice(0, 21) + "...";
-      texto = antes + " - " + depois;
-    } else {
-      if (texto.length > 25) texto = texto.slice(0, 25) + "...";
+        b.textContent = raw;
+      });
     }
 
-    b.textContent = texto;
-  });
+    ajustarTextosDasBarras();
+    const observer = new MutationObserver(() => ajustarTextosDasBarras());
+    observer.observe(document.body, { childList: true, subtree: true });
+  })();
 
-}); // fecha apenas o DOMContentLoaded
+  // --- Lazy load resultados ---
+  const container = document.querySelector(".pagina-pesquisa .resultados");
+  if (container) {
+    const totalItens = 10000;
+    const lote = 40;
+    const passo = 20;
+    let carregados = 0;
 
+    function criarItem(i) {
+      const item = document.createElement("div");
+      item.className = "item";
+      item.textContent = "Item " + i;
+      return item;
+    }
 
+    function carregarMais(qtd) {
+      const limite = Math.min(carregados + qtd, totalItens);
+      for (let i = carregados; i < limite; i++) {
+        container.appendChild(criarItem(i + 1));
+      }
+      carregados = limite;
+    }
 
+    carregarMais(lote);
 
-// --- Lazy load resultados ---
-const container = document.querySelector(".pagina-pesquisa .resultados");
-if (container) {
-  const totalItens = 10000; // supondo milhares de itens
-  const lote = 40; // primeira carga
-  const passo = 20; // quantos novos a cada scroll
-  let carregados = 0;
-
-  function criarItem(i) {
-    const item = document.createElement("div");
-    item.className = "item";
-    item.textContent = "Item " + i;
-    return item;
+    window.addEventListener("scroll", () => {
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 200) {
+        carregarMais(passo);
+      }
+    });
   }
 
-  function carregarMais(qtd) {
-    const limite = Math.min(carregados + qtd, totalItens);
-    for (let i = carregados; i < limite; i++) {
-      container.appendChild(criarItem(i + 1));
-    }
-    carregados = limite;
-  }
-
-  // primeira leva
-  carregarMais(lote);
-
-  // quando chega no fim, carrega mais
-  window.addEventListener("scroll", () => {
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 200) {
-      carregarMais(passo);
-    }
-  });
-}
+}); // fecha DOMContentLoaded
