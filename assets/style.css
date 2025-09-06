@@ -1956,11 +1956,11 @@ background-color: var(--cor-50-fade) !important;
 }
 
 .calendario-titulo::before {
-    content: "Tabela da audiência detalhada em São Paulo";
+    content: "Audiência detalhada em São Paulo";
 }
 
 .calendario-media-titulo::before {
-    content: "Média semanal";
+    content: "Média";
 }
 
   .linktemporadas-titulo::before{
