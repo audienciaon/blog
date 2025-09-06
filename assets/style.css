@@ -4643,6 +4643,11 @@ background-size:cover;
   background-color:var(--cor-100) !important;
 }
 
+#home h2{
+  color:var(--cor-texto) !important
+  
+}
+
 html {
   visibility: hidden;
 }
