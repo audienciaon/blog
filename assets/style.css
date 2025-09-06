@@ -130,8 +130,8 @@
 	  align-self:center;
 	  grid-template-columns:200px auto 50px 50px;
   }
-  
-header img, footer img{
+
+#home header img, #home footer img{
   filter:invert(1)
 }
 
@@ -300,6 +300,7 @@ display:none
   font-size:var(--fonte-16) !important;
   font-weight:900;
   padding-bottom:0 !important;
+  color:var(--cor-texto)
 }
 
 
@@ -313,7 +314,7 @@ display:none
   padding: 20px;
   background-image: none !important;
   background-color:var(--cor-90);
-  border-radius:8px;
+  border-radius:24px;
 }
 
 
