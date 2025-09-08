@@ -135,6 +135,16 @@
   filter:invert(1) !important;
 }
 
+#home{
+  color:var(--cor-texto) !important;
+  background-color:var(--cor-100) !important;
+}
+
+#home h2{
+  color:var(--cor-texto) !important;
+
+}
+
 main {
     display: grid;
     grid-template-rows: 2fr 24fr 1fr;
@@ -4636,15 +4646,7 @@ background-size:cover;
         font-family: var(--font-family) !important;
     }
 
-#home{
-  color:var(--cor-texto) !important;
-  background-color:var(--cor-100) !important;
-}
 
-#home h2{
-  color:var(--cor-texto) !important;
-
-}
 
 html {
   visibility: hidden;
