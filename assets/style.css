@@ -213,7 +213,7 @@ button{
     width: 2000%;
     height: 2000%;
     transform: translate(-50%, -50%) rotate(0deg);
-    background: linear-gradient(90deg, #002b4a 30%, #1995ee 70%);
+    background: linear-gradient(90deg, #40e0d0 30%, #87cefa 70%);
     transform-origin: center;
     animation: rotaciona 6s linear infinite;
     z-index: 0;
@@ -308,7 +308,7 @@ display:none
 
 .producoesnoar h3{
   font-size:var(--fonte-16) !important;
-  font-weight:900;
+  font-weight:600 !important;
   padding-bottom:0 !important;
   color:var(--cor-texto) !important;
 }
