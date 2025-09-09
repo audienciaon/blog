@@ -173,7 +173,6 @@ main > * { border-radius:10px; }
 #paginainicial > * {
   display: grid;       /* filhos continuam sendo grid */
   grid-auto-rows: min-content; /* filhos também só ocupam o necessário */
-  gap: 30px;           /* exemplo de gap interno */
   min-height: 0;       /* evita corte dentro do scroll */
 }
 
@@ -3848,7 +3847,6 @@ grid-template-areas: 'titulo producao1 producao2 producao3 producao4 producao5';
       display:grid;
 	  align-items: stretch;
       grid-template-columns:repeat(10, 1fr);
-      gap:30px;
       margin:20px 0px;
       align-items:center !important;
   	  grid-template-areas: 'titulopagina titulopagina titulopagina titulopagina titulopagina titulopagina titulopagina titulopagina emexibicao emexibicao'
@@ -3861,7 +3859,6 @@ grid-template-areas: 'titulo producao1 producao2 producao3 producao4 producao5';
   .titulo-horario-cabecalho,
   .pagina-horario-infos > *{
   background-color:var(--cor-20-fade);
-  border-radius:10px !important;
   }
   
   .titulo-horario-cabecalho{
@@ -4198,7 +4195,6 @@ padding:30px !important}
       display:grid;
       grid-template-columns:1.5fr repeat(3, 1fr);
       grid-template-rows:1fr;
-      gap:30px;
       border-radius:10px;
       font-size:var(--fonte-30);
       font-weight:500;
