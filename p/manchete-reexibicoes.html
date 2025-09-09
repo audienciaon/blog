@@ -66,7 +66,7 @@
 
 
 
-<div class="atualizacaopost"><i class="fa-solid fa-arrows-rotate"></i><p>8 set 2025 às 21:12</p></div>
+<div class="atualizacaopost"><i class="fa-solid fa-arrows-rotate"></i><p>8 set 2025 às 21:20</p></div>
 <div class="pagina-horario-cabecalho">
 <div class="titulo-horario-cabecalho">
 <img src="https://audienciaon.github.io/emissoras/manchete.svg">
@@ -842,83 +842,83 @@ linha.style.display = 'none';
 });
 </script>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const canvas = document.getElementById('grafico1');
-      const ctx = canvas.getContext('2d');
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+const canvas = document.getElementById('grafico1');
+const ctx = canvas.getContext('2d');
 
-      const options = {
-        responsive: true,
-        maintainAspectRatio: false,
-        interaction: { mode: 'index', intersect: false },
-        hover: { mode: 'nearest', intersect: true },
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            enabled: true,
-            backgroundColor: 'rgba(0,0,0,0.9)',
-            titleColor: '#fff',
-            bodyColor: '#fff',
-            borderRadius: 4,
-            displayColors: false,
-            yAlign: 'bottom',
-            padding: 10,
-            titleFont: { family: 'Fira Sans', weight: 400 },
-            bodyFont: { family: 'Fira Sans', weight: 600 },
-            callbacks: {
-              title: ctx => ' ' + ctx[0].label,
-              label: ctx => ' ' + ctx.dataset.label + ': ' + ctx.parsed.y
-            }
-          }
-        },
-        elements: {
-          line: { tension: 0.4 },
-          point: {
-            radius: 0,          // ponto normal invisível
-            hoverRadius: 8,     // ao passar o mouse
-            pointStyle: 'circle'
-          }
-        },
-        scales: {
-          x: { display: false, ticks: { font: { family: 'Fira Sans' } } },
-          y: { ticks: { color: 'rgba(255,255,255,0.5)', font: { family: 'Fira Sans' } }, min: 0 }
-        },
-        layout: { padding: 10 },
-        font: { family: 'Fira Sans' }
-      };
+const options = {
+responsive: true,
+maintainAspectRatio: false,
+interaction: { mode: 'index', intersect: false },
+hover: { mode: 'nearest', intersect: true },
+plugins: {
+legend: { display: false },
+tooltip: {
+enabled: true,
+backgroundColor: 'rgba(0,0,0,0.9)',
+titleColor: '#fff',
+bodyColor: '#fff',
+borderRadius: 4,
+displayColors: false,
+yAlign: 'bottom',
+padding: 10,
+titleFont: { family: 'Fira Sans', weight: 400 },
+bodyFont: { family: 'Fira Sans', weight: 600 },
+callbacks: {
+title: ctx => ' ' + ctx[0].label,
+label: ctx => ' ' + ctx.dataset.label + ': ' + ctx.parsed.y
+}
+}
+},
+elements: {
+line: { tension: 0.4 },
+point: {
+radius: 0, // ponto normal invisível
+hoverRadius: 8, // ao passar o mouse
+pointStyle: 'circle'
+}
+},
+scales: {
+x: { display: false, ticks: { font: { family: 'Fira Sans' } } },
+y: { ticks: { color: 'rgba(255,255,255,0.5)', font: { family: 'Fira Sans' } }, min: 0 }
+},
+layout: { padding: 10 },
+font: { family: 'Fira Sans' }
+};
 
-      new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: ['Pantanal (1990) - 2ª Reapresentação', 'Kananga do Japão - 2ª Reapresentação', 'Floradas na Serra - 2ª Reapresentação', 'Na Rede de Intrigas - 1ª Reapresentação', 'Ilha das Bruxas - 2ª Reapresentação', 'O Farol - 2ª Reapresentação', 'Corpo Santo - 3ª Reapresentação', 'Helena - 2ª Reapresentação', 'A História de Ana Raio e Zé Trovão - 1ª Reapresentação', 'Dona Beija - 2ª Reapresentação', 'Tudo ou Nada - 2ª Reapresentação', 'Rosa dos Rumos - 2ª Reapresentação', 'O Guarani - 1ª Reapresentação', 'Mãe de Santo - 1ª Reapresentação', 'Paixão e Ódio - 1ª Reapresentação', 'Ilha das Bruxas - 1ª Reapresentação', 'O Farol - 1ª Reapresentação', 'Filhos do Sol - 1ª Reapresentação', 'Floradas na Serra - 1ª Reapresentação', 'Rosa dos Rumos - 1ª Reapresentação', 'Pantanal (1990) - 1ª Reapresentação', 'Corpo Santo - 2ª Reapresentação', 'Escrava Anastácia - 1ª Reapresentação', 'Kananga do Japão - 1ª Reapresentação', 'Carmem - 1ª Reapresentação', 'Tudo em Cima - 3ª Reapresentação', 'Helena - 1ª Reapresentação', 'Corpo Santo - 1ª Reapresentação', 'Dona Beija - 1ª Reapresentação', 'Tudo ou Nada - 1ª Reapresentação', 'Novo Amor - 1ª Reapresentação', 'Tudo em Cima - 2ª Reapresentação', 'Antônio Maria - 1ª Reapresentação', 'Tudo em Cima - 1ª Reapresentação', 'Viver a Vida (1984) - 1ª Reapresentação', 'Marquesa de Santos - 1ª Reapresentação'],
-          datasets: [
-            {
-              label: 'Maior Aud.',
+new Chart(ctx, {
+type: 'line',
+data: {
+labels: ['Pantanal (1990) - 2ª Reapresentação', 'Kananga do Japão - 2ª Reapresentação', 'Floradas na Serra - 2ª Reapresentação', 'Na Rede de Intrigas - 1ª Reapresentação', 'Ilha das Bruxas - 2ª Reapresentação', 'O Farol - 2ª Reapresentação', 'Corpo Santo - 3ª Reapresentação', 'Helena - 2ª Reapresentação', 'A História de Ana Raio e Zé Trovão - 1ª Reapresentação', 'Dona Beija - 2ª Reapresentação', 'Tudo ou Nada - 2ª Reapresentação', 'Rosa dos Rumos - 2ª Reapresentação', 'O Guarani - 1ª Reapresentação', 'Mãe de Santo - 1ª Reapresentação', 'Paixão e Ódio - 1ª Reapresentação', 'Ilha das Bruxas - 1ª Reapresentação', 'O Farol - 1ª Reapresentação', 'Filhos do Sol - 1ª Reapresentação', 'Floradas na Serra - 1ª Reapresentação', 'Rosa dos Rumos - 1ª Reapresentação', 'Pantanal (1990) - 1ª Reapresentação', 'Corpo Santo - 2ª Reapresentação', 'Escrava Anastácia - 1ª Reapresentação', 'Kananga do Japão - 1ª Reapresentação', 'Carmem - 1ª Reapresentação', 'Tudo em Cima - 3ª Reapresentação', 'Helena - 1ª Reapresentação', 'Corpo Santo - 1ª Reapresentação', 'Dona Beija - 1ª Reapresentação', 'Tudo ou Nada - 1ª Reapresentação', 'Novo Amor - 1ª Reapresentação', 'Tudo em Cima - 2ª Reapresentação', 'Antônio Maria - 1ª Reapresentação', 'Tudo em Cima - 1ª Reapresentação', 'Viver a Vida (1984) - 1ª Reapresentação', 'Marquesa de Santos - 1ª Reapresentação'],
+datasets: [
+{
+label: 'Maior Aud.',
 #
-              borderColor: 'green',
-              borderWidth: 3,
-              fill: false
-            },
-            {
-              label: 'Média Geral',
-              data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-              borderColor: 'white',
-              borderWidth: 3,
-              fill: false
-            },
-            {
-              label: 'Menor Aud.',
+borderColor: 'green',
+borderWidth: 3,
+fill: false
+},
+{
+label: 'Média Geral',
+data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+borderColor: 'white',
+borderWidth: 3,
+fill: false
+},
+{
+label: 'Menor Aud.',
 #
-              borderColor: 'red',
-              borderWidth: 3,
-              fill: false
-            }
-          ]
-        },
-        options: options
-      });
-    });
-  </script>
+borderColor: 'red',
+borderWidth: 3,
+fill: false
+}
+]
+},
+options: options
+});
+});
+</script>
 
 </body></html>
 

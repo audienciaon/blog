@@ -66,7 +66,7 @@
 
 
 
-<div class="atualizacaopost"><i class="fa-solid fa-arrows-rotate"></i><p>8 set 2025 às 21:11</p></div>
+<div class="atualizacaopost"><i class="fa-solid fa-arrows-rotate"></i><p>8 set 2025 às 21:19</p></div>
 <div class="pagina-horario-cabecalho">
 <div class="titulo-horario-cabecalho">
 <img src="https://audienciaon.github.io/emissoras/band.svg">
@@ -842,83 +842,83 @@ linha.style.display = 'none';
 });
 </script>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const canvas = document.getElementById('grafico1');
-      const ctx = canvas.getContext('2d');
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+const canvas = document.getElementById('grafico1');
+const ctx = canvas.getContext('2d');
 
-      const options = {
-        responsive: true,
-        maintainAspectRatio: false,
-        interaction: { mode: 'index', intersect: false },
-        hover: { mode: 'nearest', intersect: true },
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            enabled: true,
-            backgroundColor: 'rgba(0,0,0,0.9)',
-            titleColor: '#fff',
-            bodyColor: '#fff',
-            borderRadius: 4,
-            displayColors: false,
-            yAlign: 'bottom',
-            padding: 10,
-            titleFont: { family: 'Fira Sans', weight: 400 },
-            bodyFont: { family: 'Fira Sans', weight: 600 },
-            callbacks: {
-              title: ctx => ' ' + ctx[0].label,
-              label: ctx => ' ' + ctx.dataset.label + ': ' + ctx.parsed.y
-            }
-          }
-        },
-        elements: {
-          line: { tension: 0.4 },
-          point: {
-            radius: 0,          // ponto normal invisível
-            hoverRadius: 8,     // ao passar o mouse
-            pointStyle: 'circle'
-          }
-        },
-        scales: {
-          x: { display: false, ticks: { font: { family: 'Fira Sans' } } },
-          y: { ticks: { color: 'rgba(255,255,255,0.5)', font: { family: 'Fira Sans' } }, min: 0 }
-        },
-        layout: { padding: 10 },
-        font: { family: 'Fira Sans' }
-      };
+const options = {
+responsive: true,
+maintainAspectRatio: false,
+interaction: { mode: 'index', intersect: false },
+hover: { mode: 'nearest', intersect: true },
+plugins: {
+legend: { display: false },
+tooltip: {
+enabled: true,
+backgroundColor: 'rgba(0,0,0,0.9)',
+titleColor: '#fff',
+bodyColor: '#fff',
+borderRadius: 4,
+displayColors: false,
+yAlign: 'bottom',
+padding: 10,
+titleFont: { family: 'Fira Sans', weight: 400 },
+bodyFont: { family: 'Fira Sans', weight: 600 },
+callbacks: {
+title: ctx => ' ' + ctx[0].label,
+label: ctx => ' ' + ctx.dataset.label + ': ' + ctx.parsed.y
+}
+}
+},
+elements: {
+line: { tension: 0.4 },
+point: {
+radius: 0, // ponto normal invisível
+hoverRadius: 8, // ao passar o mouse
+pointStyle: 'circle'
+}
+},
+scales: {
+x: { display: false, ticks: { font: { family: 'Fira Sans' } } },
+y: { ticks: { color: 'rgba(255,255,255,0.5)', font: { family: 'Fira Sans' } }, min: 0 }
+},
+layout: { padding: 10 },
+font: { family: 'Fira Sans' }
+};
 
-      new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: ['Beleza Fatal - 1ª Reapresentação', 'Floribella - 1ª Temporada - 2ª Reapresentação', 'Mil e Uma Noites - 1ª Reapresentação', 'Dance Dance Dance - 1ª Reapresentação', 'Floribella - 1ª Temporada - 1ª Reapresentação', 'Mandacaru - 1ª Reapresentação', 'O Meu Pé de Laranja Lima - 3ª Reapresentação', 'Cavalo Amarelo - 2ª Reapresentação', 'Os Imigrantes - 4ª Reapresentação', 'Campeão - 1ª Reapresentação', 'Ninho da Serpente - 1ª Reapresentação', 'Os Imigrantes - 3ª Reapresentação', 'A Deusa Vencida - 2ª Reapresentação', 'Sabor de Mel - 1ª Reapresentação', 'Um Homem Muito Especial - 1ª Reapresentação', 'Cavalo Amarelo - 1ª Reapresentação', 'O Meu Pé de Laranja Lima - 2ª Reapresentação', 'Joana - 1ª Reapresentação', 'Braço de Ferro - 1ª Reapresentação', 'Os Imigrantes - 2ª Reapresentação', 'O Meu Pé de Laranja Lima - 1ª Reapresentação', 'A Deusa Vencida - 1ª Reapresentação', 'Pé de Vento - 1ª Reapresentação', 'Cara a Cara - 1ª Reapresentação'],
-          datasets: [
-            {
-              label: 'Maior Aud.',
-              data: [1.5, 2, 0, 0, 2, 9, 4, 0, 0, 5, 4, 4, 0, 3, 3, 3, 6, 5, 3, 4, 4, 3, 0, 7],
-              borderColor: 'green',
-              borderWidth: 3,
-              fill: false
-            },
-            {
-              label: 'Média Geral',
-              data: [0.97, 1.66, 0, 0, 1.03, 4.48, 2.04, 0, 0, 1.75, 2.16, 2.09, 0, 1.28, 1.39, 1.21, 2.33, 2.8, 1.13, 1.79, 1.66, 1.73, 0, 3.07],
-              borderColor: 'white',
-              borderWidth: 3,
-              fill: false
-            },
-            {
-              label: 'Menor Aud.',
-              data: [0.6, 1, 0, 0, 0, 2, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1],
-              borderColor: 'red',
-              borderWidth: 3,
-              fill: false
-            }
-          ]
-        },
-        options: options
-      });
-    });
-  </script>
+new Chart(ctx, {
+type: 'line',
+data: {
+labels: ['Beleza Fatal - 1ª Reapresentação', 'Floribella - 1ª Temporada - 2ª Reapresentação', 'Mil e Uma Noites - 1ª Reapresentação', 'Dance Dance Dance - 1ª Reapresentação', 'Floribella - 1ª Temporada - 1ª Reapresentação', 'Mandacaru - 1ª Reapresentação', 'O Meu Pé de Laranja Lima - 3ª Reapresentação', 'Cavalo Amarelo - 2ª Reapresentação', 'Os Imigrantes - 4ª Reapresentação', 'Campeão - 1ª Reapresentação', 'Ninho da Serpente - 1ª Reapresentação', 'Os Imigrantes - 3ª Reapresentação', 'A Deusa Vencida - 2ª Reapresentação', 'Sabor de Mel - 1ª Reapresentação', 'Um Homem Muito Especial - 1ª Reapresentação', 'Cavalo Amarelo - 1ª Reapresentação', 'O Meu Pé de Laranja Lima - 2ª Reapresentação', 'Joana - 1ª Reapresentação', 'Braço de Ferro - 1ª Reapresentação', 'Os Imigrantes - 2ª Reapresentação', 'O Meu Pé de Laranja Lima - 1ª Reapresentação', 'A Deusa Vencida - 1ª Reapresentação', 'Pé de Vento - 1ª Reapresentação', 'Cara a Cara - 1ª Reapresentação'],
+datasets: [
+{
+label: 'Maior Aud.',
+data: [1.5, 2, 0, 0, 2, 9, 4, 0, 0, 5, 4, 4, 0, 3, 3, 3, 6, 5, 3, 4, 4, 3, 0, 7],
+borderColor: 'green',
+borderWidth: 3,
+fill: false
+},
+{
+label: 'Média Geral',
+data: [0.97, 1.66, 0, 0, 1.03, 4.48, 2.04, 0, 0, 1.75, 2.16, 2.09, 0, 1.28, 1.39, 1.21, 2.33, 2.8, 1.13, 1.79, 1.66, 1.73, 0, 3.07],
+borderColor: 'white',
+borderWidth: 3,
+fill: false
+},
+{
+label: 'Menor Aud.',
+data: [0.6, 1, 0, 0, 0, 2, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1],
+borderColor: 'red',
+borderWidth: 3,
+fill: false
+}
+]
+},
+options: options
+});
+});
+</script>
 
 </body></html>
 

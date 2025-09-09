@@ -66,7 +66,7 @@
 
 
 
-<div class="atualizacaopost"><i class="fa-solid fa-arrows-rotate"></i><p>8 set 2025 às 21:12</p></div>
+<div class="atualizacaopost"><i class="fa-solid fa-arrows-rotate"></i><p>8 set 2025 às 21:20</p></div>
 <div class="pagina-horario-cabecalho">
 <div class="titulo-horario-cabecalho">
 <img src="https://audienciaon.github.io/emissoras/record.svg">
@@ -842,83 +842,83 @@ linha.style.display = 'none';
 });
 </script>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const canvas = document.getElementById('grafico1');
-      const ctx = canvas.getContext('2d');
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+const canvas = document.getElementById('grafico1');
+const ctx = canvas.getContext('2d');
 
-      const options = {
-        responsive: true,
-        maintainAspectRatio: false,
-        interaction: { mode: 'index', intersect: false },
-        hover: { mode: 'nearest', intersect: true },
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            enabled: true,
-            backgroundColor: 'rgba(0,0,0,0.9)',
-            titleColor: '#fff',
-            bodyColor: '#fff',
-            borderRadius: 4,
-            displayColors: false,
-            yAlign: 'bottom',
-            padding: 10,
-            titleFont: { family: 'Fira Sans', weight: 400 },
-            bodyFont: { family: 'Fira Sans', weight: 600 },
-            callbacks: {
-              title: ctx => ' ' + ctx[0].label,
-              label: ctx => ' ' + ctx.dataset.label + ': ' + ctx.parsed.y
-            }
-          }
-        },
-        elements: {
-          line: { tension: 0.4 },
-          point: {
-            radius: 0,          // ponto normal invisível
-            hoverRadius: 8,     // ao passar o mouse
-            pointStyle: 'circle'
-          }
-        },
-        scales: {
-          x: { display: false, ticks: { font: { family: 'Fira Sans' } } },
-          y: { ticks: { color: 'rgba(255,255,255,0.5)', font: { family: 'Fira Sans' } }, min: 0 }
-        },
-        layout: { padding: 10 },
-        font: { family: 'Fira Sans' }
-      };
+const options = {
+responsive: true,
+maintainAspectRatio: false,
+interaction: { mode: 'index', intersect: false },
+hover: { mode: 'nearest', intersect: true },
+plugins: {
+legend: { display: false },
+tooltip: {
+enabled: true,
+backgroundColor: 'rgba(0,0,0,0.9)',
+titleColor: '#fff',
+bodyColor: '#fff',
+borderRadius: 4,
+displayColors: false,
+yAlign: 'bottom',
+padding: 10,
+titleFont: { family: 'Fira Sans', weight: 400 },
+bodyFont: { family: 'Fira Sans', weight: 600 },
+callbacks: {
+title: ctx => ' ' + ctx[0].label,
+label: ctx => ' ' + ctx.dataset.label + ': ' + ctx.parsed.y
+}
+}
+},
+elements: {
+line: { tension: 0.4 },
+point: {
+radius: 0, // ponto normal invisível
+hoverRadius: 8, // ao passar o mouse
+pointStyle: 'circle'
+}
+},
+scales: {
+x: { display: false, ticks: { font: { family: 'Fira Sans' } } },
+y: { ticks: { color: 'rgba(255,255,255,0.5)', font: { family: 'Fira Sans' } }, min: 0 }
+},
+layout: { padding: 10 },
+font: { family: 'Fira Sans' }
+};
 
-      new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: ['A Escrava Isaura - 3ª Reapresentação', 'Pecado Mortal - 1ª Reapresentação', 'Vidas em Jogo - 2ª Reapresentação', 'Amor Sem Igual - 1ª Reapresentação', 'Chamas da Vida - 2ª Reapresentação', 'Prova de Amor - 3ª Reapresentação', 'Belaventura - 1ª Reapresentação', 'Topíssima - 1ª Reapresentação', 'Amor Sem Igual - Edição Especial', 'Escrava Mãe - 1ª Reapresentação', 'Os Mutantes: Caminhos do Coração - 2ª Reapresentação', 'A Escrava Isaura - 2ª Reapresentação', 'Caminhos do Coração - 1ª Reapresentação', 'Bela, a Feia - 1ª Reapresentação', 'Essas Mulheres - 2ª Reapresentação', 'Luz do Sol - 1ª Reapresentação', 'Bicho do Mato (2006) - 2ª Reapresentação', 'Ribeirão do Tempo - 1ª Reapresentação', 'A Escrava Isaura - 1ª Reapresentação', 'Vidas em Jogo - 1ª Reapresentação', 'Amor e Intrigas - 1ª Reapresentação', 'Chamas da Vida - 1ª Reapresentação', 'Dona Xepa (2013) - 1ª Reapresentação', 'Prova de Amor - 2ª Reapresentação', 'Vidas Opostas - 1ª Reapresentação', 'Os Mutantes: Caminhos do Coração - 1ª Reapresentação', 'Bicho do Mato (2006) - 1ª Reapresentação', 'Prova de Amor - 1ª Reapresentação', 'Essas Mulheres - 1ª Reapresentação', 'Estrela de Fogo - 1ª Reapresentação'],
-          datasets: [
-            {
-              label: 'Maior Aud.',
-              data: [0, 4, 5, 7, 6, 8, 6, 11, 10, 9, 6, 11, 8, 10, 8, 8, 8, 9, 14, 8, 9, 7, 5, 9, 13, 10, 6, 9, 4, 5],
-              borderColor: 'green',
-              borderWidth: 3,
-              fill: false
-            },
-            {
-              label: 'Média Geral',
-              data: [0, 2.41, 3.55, 4.27, 4.24, 6.01, 4.48, 7.54, 7.54, 5.3, 4.55, 7.06, 5.29, 7.44, 5.48, 6.21, 5.54, 6.22, 10.36, 5.5, 6.85, 4.83, 3.47, 6.54, 5.7, 6.16, 3.76, 4.9, 2.75, 2.56],
-              borderColor: 'white',
-              borderWidth: 3,
-              fill: false
-            },
-            {
-              label: 'Menor Aud.',
-              data: [0, 2, 2, 3, 3, 4, 3, 5, 6, 4, 3, 4, 3, 4, 3, 2, 2, 4, 7, 4, 5, 3, 2, 3, 4, 3, 2, 2, 2, 1],
-              borderColor: 'red',
-              borderWidth: 3,
-              fill: false
-            }
-          ]
-        },
-        options: options
-      });
-    });
-  </script>
+new Chart(ctx, {
+type: 'line',
+data: {
+labels: ['A Escrava Isaura - 3ª Reapresentação', 'Pecado Mortal - 1ª Reapresentação', 'Vidas em Jogo - 2ª Reapresentação', 'Amor Sem Igual - 1ª Reapresentação', 'Chamas da Vida - 2ª Reapresentação', 'Prova de Amor - 3ª Reapresentação', 'Belaventura - 1ª Reapresentação', 'Topíssima - 1ª Reapresentação', 'Amor Sem Igual - Edição Especial', 'Escrava Mãe - 1ª Reapresentação', 'Os Mutantes: Caminhos do Coração - 2ª Reapresentação', 'A Escrava Isaura - 2ª Reapresentação', 'Caminhos do Coração - 1ª Reapresentação', 'Bela, a Feia - 1ª Reapresentação', 'Essas Mulheres - 2ª Reapresentação', 'Luz do Sol - 1ª Reapresentação', 'Bicho do Mato (2006) - 2ª Reapresentação', 'Ribeirão do Tempo - 1ª Reapresentação', 'A Escrava Isaura - 1ª Reapresentação', 'Vidas em Jogo - 1ª Reapresentação', 'Amor e Intrigas - 1ª Reapresentação', 'Chamas da Vida - 1ª Reapresentação', 'Dona Xepa (2013) - 1ª Reapresentação', 'Prova de Amor - 2ª Reapresentação', 'Vidas Opostas - 1ª Reapresentação', 'Os Mutantes: Caminhos do Coração - 1ª Reapresentação', 'Bicho do Mato (2006) - 1ª Reapresentação', 'Prova de Amor - 1ª Reapresentação', 'Essas Mulheres - 1ª Reapresentação', 'Estrela de Fogo - 1ª Reapresentação'],
+datasets: [
+{
+label: 'Maior Aud.',
+data: [0, 4, 5, 7, 6, 8, 6, 11, 10, 9, 6, 11, 8, 10, 8, 8, 8, 9, 14, 8, 9, 7, 5, 9, 13, 10, 6, 9, 4, 5],
+borderColor: 'green',
+borderWidth: 3,
+fill: false
+},
+{
+label: 'Média Geral',
+data: [0, 2.41, 3.55, 4.27, 4.24, 6.01, 4.48, 7.54, 7.54, 5.3, 4.55, 7.06, 5.29, 7.44, 5.48, 6.21, 5.54, 6.22, 10.36, 5.5, 6.85, 4.83, 3.47, 6.54, 5.7, 6.16, 3.76, 4.9, 2.75, 2.56],
+borderColor: 'white',
+borderWidth: 3,
+fill: false
+},
+{
+label: 'Menor Aud.',
+data: [0, 2, 2, 3, 3, 4, 3, 5, 6, 4, 3, 4, 3, 4, 3, 2, 2, 4, 7, 4, 5, 3, 2, 3, 4, 3, 2, 2, 2, 1],
+borderColor: 'red',
+borderWidth: 3,
+fill: false
+}
+]
+},
+options: options
+});
+});
+</script>
 
 </body></html>
 
