@@ -66,7 +66,7 @@
 
 
 
-<div class="atualizacaopost"><i class="fa-solid fa-arrows-rotate"></i><p>8 set 2025 às 21:12</p></div>
+<div class="atualizacaopost"><i class="fa-solid fa-arrows-rotate"></i><p>8 set 2025 às 21:20</p></div>
 <div class="pagina-horario-cabecalho">
 <div class="titulo-horario-cabecalho">
 <img src="https://audienciaon.github.io/emissoras/globo.svg">
@@ -842,83 +842,83 @@ linha.style.display = 'none';
 });
 </script>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const canvas = document.getElementById('grafico1');
-      const ctx = canvas.getContext('2d');
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+const canvas = document.getElementById('grafico1');
+const ctx = canvas.getContext('2d');
 
-      const options = {
-        responsive: true,
-        maintainAspectRatio: false,
-        interaction: { mode: 'index', intersect: false },
-        hover: { mode: 'nearest', intersect: true },
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            enabled: true,
-            backgroundColor: 'rgba(0,0,0,0.9)',
-            titleColor: '#fff',
-            bodyColor: '#fff',
-            borderRadius: 4,
-            displayColors: false,
-            yAlign: 'bottom',
-            padding: 10,
-            titleFont: { family: 'Fira Sans', weight: 400 },
-            bodyFont: { family: 'Fira Sans', weight: 600 },
-            callbacks: {
-              title: ctx => ' ' + ctx[0].label,
-              label: ctx => ' ' + ctx.dataset.label + ': ' + ctx.parsed.y
-            }
-          }
-        },
-        elements: {
-          line: { tension: 0.4 },
-          point: {
-            radius: 0,          // ponto normal invisível
-            hoverRadius: 8,     // ao passar o mouse
-            pointStyle: 'circle'
-          }
-        },
-        scales: {
-          x: { display: false, ticks: { font: { family: 'Fira Sans' } } },
-          y: { ticks: { color: 'rgba(255,255,255,0.5)', font: { family: 'Fira Sans' } }, min: 0 }
-        },
-        layout: { padding: 10 },
-        font: { family: 'Fira Sans' }
-      };
+const options = {
+responsive: true,
+maintainAspectRatio: false,
+interaction: { mode: 'index', intersect: false },
+hover: { mode: 'nearest', intersect: true },
+plugins: {
+legend: { display: false },
+tooltip: {
+enabled: true,
+backgroundColor: 'rgba(0,0,0,0.9)',
+titleColor: '#fff',
+bodyColor: '#fff',
+borderRadius: 4,
+displayColors: false,
+yAlign: 'bottom',
+padding: 10,
+titleFont: { family: 'Fira Sans', weight: 400 },
+bodyFont: { family: 'Fira Sans', weight: 600 },
+callbacks: {
+title: ctx => ' ' + ctx[0].label,
+label: ctx => ' ' + ctx.dataset.label + ': ' + ctx.parsed.y
+}
+}
+},
+elements: {
+line: { tension: 0.4 },
+point: {
+radius: 0, // ponto normal invisível
+hoverRadius: 8, // ao passar o mouse
+pointStyle: 'circle'
+}
+},
+scales: {
+x: { display: false, ticks: { font: { family: 'Fira Sans' } } },
+y: { ticks: { color: 'rgba(255,255,255,0.5)', font: { family: 'Fira Sans' } }, min: 0 }
+},
+layout: { padding: 10 },
+font: { family: 'Fira Sans' }
+};
 
-      new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: ['Aberto ao Público', 'Encantado's - 3ª Temporada', 'Os Outros - 2ª Temporada', 'Rensga Hits! - 2ª Temporada', 'Motoboy/SP - 2ª Temporada', 'As Aventuras de José e Durval', 'Tô Nessa ', 'Sob Pressão - 5ª Temporada', 'No Corre - Partiu Entrega', 'Encantado's - 2ª Temporada', 'Os Outros - 1ª Temporada', 'Segunda Chamada - 2ª Temporada', 'Rensga Hits! - 1ª Temporada', 'Família Paraíso - 2ª Temporada', 'Aruanas - 2ª Temporada', 'Encantado's - 1ª Temporada', 'Vai Que Cola - 10ª Temporada', 'Cine Holliúdy - 3ª Temporada', 'Onde Está Meu Coração', 'Pluft, O Fantasminha', 'Motoboy/SP - 1ª Temporada', 'Família Paraíso - 1ª Temporada', 'Ilha de Ferro - 2ª Temporada', 'Cine Holliúdy - 2ª Temporada', 'Filhas de Eva', 'Vai Que Cola - 9ª Temporada', 'Fé na Vida', 'Vai Que Cola - 8ª Temporada', 'Eu, a Vó e a Boi', 'As Five - 1ª Temporada', 'Desalma', 'Sob Pressão - 4ª Temporada', 'Ilha de Ferro - 1ª Temporada', 'Vai Que Cola - 7ª Temporada', 'Arcanjo Renegado - 1ª Temporada', 'Todas As Mulheres Do Mundo', 'Carcereiros - 3ª Temporada', 'Shippados', 'Escolinha do Professor Raimundo - 6ª Temporada', 'Sob Pressão: Plantão Covid', 'Amor e Sorte', 'Zorra - 6ª Temporada', 'Tapas e Beijos - 1ª Reapresentação', 'Festival Zorra - 3ª Temporada', 'Cine Holliúdy - 1ª Temporada - 1ª Reapresentação', 'Diário de um Confinado', 'Zorra - 5ª Temporada - Edição Especial', 'Aruanas - 1ª Temporada', 'Filhos da Pátria - 2ª Temporada', 'Segunda Chamada - 1ª Temporada', 'Escolinha do Professor Raimundo - 5ª Temporada', 'Choque De Cultura Show - 2ª Temporada', 'Cine Holliúdy - 1ª Temporada', 'Assédio', 'Sob Pressão - 3ª Temporada', 'Carcereiros - 2ª Temporada', 'Zorra - 5ª Temporada', 'Festival Zorra - 2ª Temporada', 'O Álbum da Grande Família - 2ª Temporada', 'Tá no Ar: A TV na TV - 6ª Temporada', 'Escolinha do Professor Raimundo - 4ª Temporada', 'Pais de Primeira', 'Sob Pressão - 2ª Temporada', 'Choque De Cultura Show - 1ª Temporada', 'Carcereiros - 1ª Temporada', 'Mister Brau - 4ª Temporada', 'Zorra - 4ª Temporada', 'Festival Zorra - 1ª Temporada', 'Brasil a Bordo', 'Tá no Ar: A TV na TV - 5ª Temporada', 'Cidade dos Homens - 6ª Temporada', 'Escolinha do Professor Raimundo - 3ª Temporada', 'A Cara do Pai - 2ª Temporada', 'Cidade Proibida', 'Filhos da Pátria - 1ª Temporada', 'Os Trapalhões', 'Sob Pressão - 1ª Temporada', 'A Fórmula', 'Vade Retro', 'Mister Brau - 3ª Temporada', 'Zorra - 3ª Temporada', 'O Álbum da Grande Família - 1ª Temporada', 'Tá no Ar: A TV na TV - 4ª Temporada', 'Cidade dos Homens - 5ª Temporada', 'A Cara do Pai - 1ª Temporada', 'Escolinha do Professor Raimundo - 2ª Temporada', 'Nada Será Como Antes', 'Supermax', 'Mister Brau - 2ª Temporada', 'Zorra - 2ª Temporada', 'Chapa Quente - 2ª Temporada', 'Pé Na Cova - 5ª Temporada', 'Tá no Ar: A TV na TV - 3ª Temporada', 'Escolinha do Professor Raimundo - 1ª Temporada', 'Pé Na Cova - 4ª Temporada', 'Mister Brau - 1ª Temporada', 'Tomara que Caia', 'Zorra - 1ª Temporada', 'Amorteamo', 'Tapas e Beijos - 5ª Temporada', 'Os Experientes', 'Chapa Quente - 1ª Temporada', 'Tá no Ar: A TV na TV - 2ª Temporada', 'Zorra Total - 2015', 'Dupla Identidade', 'Sexo e as Negas', 'Segunda Dama', 'O Caçador', 'A Grande Família - 14ª Temporada', 'Tá no Ar: A TV na TV - 1ª Temporada', 'Tapas e Beijos - 4ª Temporada', 'Pé Na Cova - 3ª Temporada', 'Doce de Mãe', 'A Teia', 'Zorra Total - 2014', 'Divertics', 'Junto e Misturado - 2ª Temporada', 'A Mulher do Prefeito', 'Pé Na Cova - 2ª Temporada', 'O Dentista Mascarado', 'A Grande Família - 13ª Temporada', 'Tapas e Beijos - 3ª Temporada', 'Pé Na Cova - 1ª Temporada', 'Louco Por Elas - 3ª Temporada', 'Zorra Total - 2013', 'Casseta e Planeta Vai Fundo! - 2ª Temporada', 'Como Aproveitar o Fim do Mundo', 'Suburbia', 'Louco Por Elas - 2ª Temporada', 'A Grande Família - 12ª Temporada', 'Tapas e Beijos - 2ª Temporada', 'Casseta e Planeta Vai Fundo! - 1ª Temporada', 'Louco Por Elas - 1ª Temporada', 'As Brasileiras', 'Zorra Total - 2012', 'Acampamento de Férias: O Mistério da Ilha do Corsário', 'Macho Man - 2ª Temporada', 'Força-Tarefa - 3ª Temporada', 'A Mulher Invisível - 2ª Temporada', 'A Mulher Invisível - 1ª Temporada', 'Macho Man - 1ª Temporada', 'A Grande Família - 11ª Temporada', 'Lara com Z', 'Tapas e Beijos - 1ª Temporada', 'Divã', 'Batendo Ponto', 'Aline - 2ª Temporada', 'Acampamento de Férias: A Árvore da Vida', 'Zorra Total - 2011', 'O Relógio da Aventura', 'Afinal o Que Querem as Mulheres?', 'Clandestinos: o Sonho Começou', 'S.O.S. Emergência - 2ª Temporada', 'As Cariocas', 'Junto e Misturado - 1ª Temporada', 'A Cura', 'Na Forma da Lei', 'Separação?!', 'A Grande Família - 10ª Temporada', 'A Vida Alheia', 'Casseta e Planeta Urgente! - 2010', 'Força-Tarefa - 2ª Temporada', 'S.O.S. Emergência - 1ª Temporada', 'Zorra Total - 2010', 'Geral.com - 2ª Temporada', 'Ó Paí Ó - 2ª Temporada', 'Acampamento de Férias', 'Norma', 'Aline - 1ª Temporada', 'Decamerão: A Comédia do Sexo', 'Geral.com - 1ª Temporada', 'Tudo Novo de Novo', 'A Grande Família - 9ª Temporada', 'Força-Tarefa - 1ª Temporada', 'Casseta e Planeta Urgente! - 2009', 'Toma Lá Dá Cá - 3ª Temporada', 'Deu a Louca no Tempo', 'Zorra Total - 2009', 'Ó Paí Ó - 1ª Temporada', 'Guerra e Paz', 'Faça Sua História', 'Dicas de Um Sedutor', 'A Grande Família - 8ª Temporada', 'Casos e Acasos', 'Casseta e Planeta Urgente! - 2008', 'Toma Lá Dá Cá - 2ª Temporada', 'Poeira em Alto Mar', 'O Sistema', 'Antônia - 2ª Temporada', 'Toma Lá Dá Cá - 1ª Temporada', 'Carga Pesada - 5ª Temporada', 'Sob Nova Direção - 4ª Temporada', 'Minha Nada Mole Vida - 3ª Temporada', 'A Grande Família - 7ª Temporada', 'A Diarista - 4ª Temporada', 'Antônia - 1ª Temporada', 'Minha Nada Mole Vida - 2ª Temporada', 'Carga Pesada - 4ª Temporada', 'Minha Nada Mole Vida - 1ª Temporada', 'A Grande Família - 6ª Temporada', 'A Diarista - 3ª Temporada', 'Sob Nova Direção - 3ª Temporada', 'Clara e o Chuveiro do Tempo', 'Cidade dos Homens - 4ª Temporada', 'Carandiru, Outras Histórias', 'Carga Pesada - 3ª Temporada', 'A Grande Família - 5ª Temporada', 'A Diarista - 2ª Temporada', 'Sob Nova Direção - 2ª Temporada', 'O Pequeno Alquimista', 'Os Aspones', 'Cidade dos Homens - 3ª Temporada', 'Sexo Frágil - 2ª Temporada', 'A Diarista - 1ª Temporada', 'Sob Nova Direção - 1ª Temporada', 'Carga Pesada - 2ª Temporada', 'A Grande Família - 4ª Temporada', 'A Terra dos Meninos Pelados', 'Cena Aberta', 'Sexo Frágil - 1ª Temporada', 'Cidade dos Homens - 2ª Temporada', 'Carga Pesada - 1ª Temporada', 'Brava Gente - 4ª Temporada', 'Os Normais - 3ª Temporada', 'A Grande Família - 3ª Temporada', 'Cidade dos Homens - 1ª Temporada', 'Brava Gente - 3ª Temporada', 'Os Normais - 2ª Temporada', 'A Grande Família - 2ª Temporada', 'Os Normais - 1ª Temporada', 'A Grande Família - 1ª Temporada', 'Brava Gente - 2ª Temporada', 'Brava Gente - 1ª Temporada'],
-          datasets: [
-            {
-              label: 'Maior Aud.',
-              data: [9.3, 13.9, 9.3, 13.8, 10.4, 15.4, 10.3, 11.4, 10.8, 16.7, 17.3, 12.1, 20.7, 11.5, 10.8, 17.6, 10.4, 18.8, 12.4, 10.4, 10, 15.5, 17.1, 22.7, 21, 10.7, 17.1, 7.9, 4.9, 8.8, 5.1, 20.7, 19.3, 22, 15.8, 16.4, 23.8, 15.2, 11.9, 18.6, 21.9, 20.3, 16.6, 21.3, 25.6, 19.8, 22.2, 20.9, 20.9, 22.5, 16.6, 19, 25.1, 15.5, 25, 16.1, 24.1, 10.5, 19.8, 13.3, 15.6, 11.6, 23.4, 19.5, 27.4, 25.7, 25.4, 16.8, 17.2, 15.2, 24.2, 17.1, 15.3, 21.1, 15, 15.3, 28.8, 16.7, 20.3, 25.5, 25.2, 8.7, 16.5, 18.5, 12.3, 15.2, 20.7, 14.9, 23.6, 22, 24.4, 15.4, 17.3, 16.5, 15.3, 23.8, 13, 19.3, 14.3, 22.2, 12.6, 22.3, 14.6, 22, 16.6, 14.7, 16.7, 15.9, 23.4, 11.2, 26.7, 16.8, 18, 19, 21, 13, 12, 15, 18, 17, 26, 26, 17, 17, 23, 14, 16, 14, 18, 29, 31, 15, 18, 20, 27, 13, 18, 18, 22, 25, 19, 30, 17, 31, 20, 13, 17, 16, 28, 12, 13, 19, 17, 21, 16, 20, 20, 19, 31, 20, 26, 19, 17, 27, 12, 19, 22, 13, 21, 19, 12, 19, 38, 23, 31, 29, 21, 30, 24, 18, 20, 18, 35, 22, 29, 29, 20, 15, 17, 31, 0, 0, 0, 40, 0, 32, 0, 0, 0, 45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 28, 0, 0, 45, 0, 0, 0, 34, 0, 27, 0, 0],
-              borderColor: 'green',
-              borderWidth: 3,
-              fill: false
-            },
-            {
-              label: 'Média Geral',
-              data: [9.2, 12.73, 8.14, 12.42, 10, 13.95, 9.35, 10.33, 9.74, 15.13, 14.68, 10.4, 18.58, 9.26, 9.77, 16.39, 8.2, 17.35, 10.96, 9.8, 9.55, 10.42, 14.14, 17.92, 18.52, 9.4, 16.17, 6.12, 4.1, 7.7, 4.28, 18.85, 15.18, 17.04, 14.7, 14.01, 21.25, 13.64, 9.78, 18.45, 19.45, 17.05, 13.06, 19.7, 22.43, 17.95, 19.15, 19.35, 12.92, 20.38, 11.8, 15.06, 23, 13.94, 22.21, 13.98, 19.69, 9.38, 13.61, 11.28, 12.48, 9.88, 21.34, 16.76, 21.12, 21.48, 19.25, 13.03, 14.98, 14.32, 22.43, 14.16, 13.45, 19.06, 11.27, 13.28, 27.46, 15.25, 15.17, 22.99, 21.42, 7.27, 14.01, 17.75, 9.2, 12.72, 17.79, 11, 20.61, 17.71, 20.93, 14.21, 14.67, 14.37, 13.74, 19.96, 10.5, 16.41, 11.96, 19.58, 11.55, 18.68, 12.45, 15.71, 14.54, 13.42, 14.07, 13.42, 20.34, 9.24, 21.3, 14.67, 13.71, 13.8, 17.14, 11.06, 10.8, 12.83, 16.45, 12.42, 22.81, 23.89, 14.27, 14.95, 18.52, 12, 14.63, 11.5, 15.5, 24.18, 25.05, 13.33, 16, 15.91, 20.51, 12.6, 15.57, 16.5, 21.38, 22, 15.71, 26.63, 14.43, 27.33, 17.25, 11.86, 15.2, 14, 22.49, 10.2, 12, 16.71, 14.25, 18.5, 14.36, 15.67, 17, 15.71, 26.89, 17.05, 23.16, 17.5, 14.92, 22.36, 11, 17.25, 19, 11.67, 19.29, 16.5, 8.9, 17, 31.89, 20.75, 26.67, 21.25, 18.8, 23.22, 19.8, 16.13, 17.36, 17, 29.13, 19.08, 25.65, 22.95, 18.6, 15, 17, 24, 0, 0, 0, 35.24, 0, 32, 0, 0, 0, 41.06, 0, 0, 0, 0, 0, 0, 45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 45, 0, 0, 0, 0, 26.25, 0, 0, 39.24, 0, 0, 0, 35, 0, 22, 0, 0],
-              borderColor: 'white',
-              borderWidth: 3,
-              fill: false
-            },
-            {
-              label: 'Menor Aud.',
-              data: [9.1, 10.9, 7.1, 11.2, 9.6, 12.7, 7.9, 9.5, 8.4, 13.9, 13.5, 7.9, 16.9, 8.3, 8.7, 15.3, 4.7, 14.7, 10.1, 9.3, 9.1, 6.8, 11.3, 14.3, 16.2, 6.5, 14.3, 5, 3.3, 5.9, 3.6, 13.9, 12.2, 13.5, 13.2, 12.6, 19.5, 12.2, 8.5, 18.3, 16.4, 13.4, 11.5, 18.1, 19.9, 15.6, 16.6, 16.5, 11, 11.8, 9.8, 12.3, 20.2, 12.8, 19.8, 11.5, 16.1, 8.6, 9.9, 10.2, 10.1, 8.9, 19.5, 13.1, 17.3, 17.9, 14.5, 10.1, 13, 13, 21.3, 11.2, 11.2, 17.6, 9.8, 10.7, 25.7, 13.9, 11.2, 20.4, 16.4, 5.5, 12, 16.6, 7.5, 9.4, 15.1, 9, 17.6, 14.8, 17.6, 12.4, 10.4, 13, 11.4, 17.6, 9, 14, 9.4, 13.3, 10.3, 12.6, 10.8, 13, 11.5, 11.7, 12.8, 11.1, 18.4, 7.8, 17, 13, 12, 10, 14, 8, 9, 11, 16, 10, 19, 20, 12, 12, 14, 10, 14, 10, 14, 20, 21, 12, 14, 12, 17, 12, 13, 15, 20, 19, 13, 23, 12, 22, 16, 10, 14, 13, 17, 8, 11, 14, 13, 14, 12, 14, 15, 14, 22, 15, 20, 15, 11, 19, 9, 16, 15, 10, 18, 14, 7.5, 15, 27, 20, 23, 4, 17, 18, 18, 14, 15, 14, 23, 16, 24, 21, 18, 15, 17, 20, 0, 0, 0, 30, 0, 32, 0, 0, 0, 37, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24, 0, 0, 34, 0, 0, 0, 34, 0, 20, 0, 0],
-              borderColor: 'red',
-              borderWidth: 3,
-              fill: false
-            }
-          ]
-        },
-        options: options
-      });
-    });
-  </script>
+new Chart(ctx, {
+type: 'line',
+data: {
+labels: ['Aberto ao Público', 'Encantado's - 3ª Temporada', 'Os Outros - 2ª Temporada', 'Rensga Hits! - 2ª Temporada', 'Motoboy/SP - 2ª Temporada', 'As Aventuras de José e Durval', 'Tô Nessa ', 'Sob Pressão - 5ª Temporada', 'No Corre - Partiu Entrega', 'Encantado's - 2ª Temporada', 'Os Outros - 1ª Temporada', 'Segunda Chamada - 2ª Temporada', 'Rensga Hits! - 1ª Temporada', 'Família Paraíso - 2ª Temporada', 'Aruanas - 2ª Temporada', 'Encantado's - 1ª Temporada', 'Vai Que Cola - 10ª Temporada', 'Cine Holliúdy - 3ª Temporada', 'Onde Está Meu Coração', 'Pluft, O Fantasminha', 'Motoboy/SP - 1ª Temporada', 'Família Paraíso - 1ª Temporada', 'Ilha de Ferro - 2ª Temporada', 'Cine Holliúdy - 2ª Temporada', 'Filhas de Eva', 'Vai Que Cola - 9ª Temporada', 'Fé na Vida', 'Vai Que Cola - 8ª Temporada', 'Eu, a Vó e a Boi', 'As Five - 1ª Temporada', 'Desalma', 'Sob Pressão - 4ª Temporada', 'Ilha de Ferro - 1ª Temporada', 'Vai Que Cola - 7ª Temporada', 'Arcanjo Renegado - 1ª Temporada', 'Todas As Mulheres Do Mundo', 'Carcereiros - 3ª Temporada', 'Shippados', 'Escolinha do Professor Raimundo - 6ª Temporada', 'Sob Pressão: Plantão Covid', 'Amor e Sorte', 'Zorra - 6ª Temporada', 'Tapas e Beijos - 1ª Reapresentação', 'Festival Zorra - 3ª Temporada', 'Cine Holliúdy - 1ª Temporada - 1ª Reapresentação', 'Diário de um Confinado', 'Zorra - 5ª Temporada - Edição Especial', 'Aruanas - 1ª Temporada', 'Filhos da Pátria - 2ª Temporada', 'Segunda Chamada - 1ª Temporada', 'Escolinha do Professor Raimundo - 5ª Temporada', 'Choque De Cultura Show - 2ª Temporada', 'Cine Holliúdy - 1ª Temporada', 'Assédio', 'Sob Pressão - 3ª Temporada', 'Carcereiros - 2ª Temporada', 'Zorra - 5ª Temporada', 'Festival Zorra - 2ª Temporada', 'O Álbum da Grande Família - 2ª Temporada', 'Tá no Ar: A TV na TV - 6ª Temporada', 'Escolinha do Professor Raimundo - 4ª Temporada', 'Pais de Primeira', 'Sob Pressão - 2ª Temporada', 'Choque De Cultura Show - 1ª Temporada', 'Carcereiros - 1ª Temporada', 'Mister Brau - 4ª Temporada', 'Zorra - 4ª Temporada', 'Festival Zorra - 1ª Temporada', 'Brasil a Bordo', 'Tá no Ar: A TV na TV - 5ª Temporada', 'Cidade dos Homens - 6ª Temporada', 'Escolinha do Professor Raimundo - 3ª Temporada', 'A Cara do Pai - 2ª Temporada', 'Cidade Proibida', 'Filhos da Pátria - 1ª Temporada', 'Os Trapalhões', 'Sob Pressão - 1ª Temporada', 'A Fórmula', 'Vade Retro', 'Mister Brau - 3ª Temporada', 'Zorra - 3ª Temporada', 'O Álbum da Grande Família - 1ª Temporada', 'Tá no Ar: A TV na TV - 4ª Temporada', 'Cidade dos Homens - 5ª Temporada', 'A Cara do Pai - 1ª Temporada', 'Escolinha do Professor Raimundo - 2ª Temporada', 'Nada Será Como Antes', 'Supermax', 'Mister Brau - 2ª Temporada', 'Zorra - 2ª Temporada', 'Chapa Quente - 2ª Temporada', 'Pé Na Cova - 5ª Temporada', 'Tá no Ar: A TV na TV - 3ª Temporada', 'Escolinha do Professor Raimundo - 1ª Temporada', 'Pé Na Cova - 4ª Temporada', 'Mister Brau - 1ª Temporada', 'Tomara que Caia', 'Zorra - 1ª Temporada', 'Amorteamo', 'Tapas e Beijos - 5ª Temporada', 'Os Experientes', 'Chapa Quente - 1ª Temporada', 'Tá no Ar: A TV na TV - 2ª Temporada', 'Zorra Total - 2015', 'Dupla Identidade', 'Sexo e as Negas', 'Segunda Dama', 'O Caçador', 'A Grande Família - 14ª Temporada', 'Tá no Ar: A TV na TV - 1ª Temporada', 'Tapas e Beijos - 4ª Temporada', 'Pé Na Cova - 3ª Temporada', 'Doce de Mãe', 'A Teia', 'Zorra Total - 2014', 'Divertics', 'Junto e Misturado - 2ª Temporada', 'A Mulher do Prefeito', 'Pé Na Cova - 2ª Temporada', 'O Dentista Mascarado', 'A Grande Família - 13ª Temporada', 'Tapas e Beijos - 3ª Temporada', 'Pé Na Cova - 1ª Temporada', 'Louco Por Elas - 3ª Temporada', 'Zorra Total - 2013', 'Casseta e Planeta Vai Fundo! - 2ª Temporada', 'Como Aproveitar o Fim do Mundo', 'Suburbia', 'Louco Por Elas - 2ª Temporada', 'A Grande Família - 12ª Temporada', 'Tapas e Beijos - 2ª Temporada', 'Casseta e Planeta Vai Fundo! - 1ª Temporada', 'Louco Por Elas - 1ª Temporada', 'As Brasileiras', 'Zorra Total - 2012', 'Acampamento de Férias: O Mistério da Ilha do Corsário', 'Macho Man - 2ª Temporada', 'Força-Tarefa - 3ª Temporada', 'A Mulher Invisível - 2ª Temporada', 'A Mulher Invisível - 1ª Temporada', 'Macho Man - 1ª Temporada', 'A Grande Família - 11ª Temporada', 'Lara com Z', 'Tapas e Beijos - 1ª Temporada', 'Divã', 'Batendo Ponto', 'Aline - 2ª Temporada', 'Acampamento de Férias: A Árvore da Vida', 'Zorra Total - 2011', 'O Relógio da Aventura', 'Afinal o Que Querem as Mulheres?', 'Clandestinos: o Sonho Começou', 'S.O.S. Emergência - 2ª Temporada', 'As Cariocas', 'Junto e Misturado - 1ª Temporada', 'A Cura', 'Na Forma da Lei', 'Separação?!', 'A Grande Família - 10ª Temporada', 'A Vida Alheia', 'Casseta e Planeta Urgente! - 2010', 'Força-Tarefa - 2ª Temporada', 'S.O.S. Emergência - 1ª Temporada', 'Zorra Total - 2010', 'Geral.com - 2ª Temporada', 'Ó Paí Ó - 2ª Temporada', 'Acampamento de Férias', 'Norma', 'Aline - 1ª Temporada', 'Decamerão: A Comédia do Sexo', 'Geral.com - 1ª Temporada', 'Tudo Novo de Novo', 'A Grande Família - 9ª Temporada', 'Força-Tarefa - 1ª Temporada', 'Casseta e Planeta Urgente! - 2009', 'Toma Lá Dá Cá - 3ª Temporada', 'Deu a Louca no Tempo', 'Zorra Total - 2009', 'Ó Paí Ó - 1ª Temporada', 'Guerra e Paz', 'Faça Sua História', 'Dicas de Um Sedutor', 'A Grande Família - 8ª Temporada', 'Casos e Acasos', 'Casseta e Planeta Urgente! - 2008', 'Toma Lá Dá Cá - 2ª Temporada', 'Poeira em Alto Mar', 'O Sistema', 'Antônia - 2ª Temporada', 'Toma Lá Dá Cá - 1ª Temporada', 'Carga Pesada - 5ª Temporada', 'Sob Nova Direção - 4ª Temporada', 'Minha Nada Mole Vida - 3ª Temporada', 'A Grande Família - 7ª Temporada', 'A Diarista - 4ª Temporada', 'Antônia - 1ª Temporada', 'Minha Nada Mole Vida - 2ª Temporada', 'Carga Pesada - 4ª Temporada', 'Minha Nada Mole Vida - 1ª Temporada', 'A Grande Família - 6ª Temporada', 'A Diarista - 3ª Temporada', 'Sob Nova Direção - 3ª Temporada', 'Clara e o Chuveiro do Tempo', 'Cidade dos Homens - 4ª Temporada', 'Carandiru, Outras Histórias', 'Carga Pesada - 3ª Temporada', 'A Grande Família - 5ª Temporada', 'A Diarista - 2ª Temporada', 'Sob Nova Direção - 2ª Temporada', 'O Pequeno Alquimista', 'Os Aspones', 'Cidade dos Homens - 3ª Temporada', 'Sexo Frágil - 2ª Temporada', 'A Diarista - 1ª Temporada', 'Sob Nova Direção - 1ª Temporada', 'Carga Pesada - 2ª Temporada', 'A Grande Família - 4ª Temporada', 'A Terra dos Meninos Pelados', 'Cena Aberta', 'Sexo Frágil - 1ª Temporada', 'Cidade dos Homens - 2ª Temporada', 'Carga Pesada - 1ª Temporada', 'Brava Gente - 4ª Temporada', 'Os Normais - 3ª Temporada', 'A Grande Família - 3ª Temporada', 'Cidade dos Homens - 1ª Temporada', 'Brava Gente - 3ª Temporada', 'Os Normais - 2ª Temporada', 'A Grande Família - 2ª Temporada', 'Os Normais - 1ª Temporada', 'A Grande Família - 1ª Temporada', 'Brava Gente - 2ª Temporada', 'Brava Gente - 1ª Temporada'],
+datasets: [
+{
+label: 'Maior Aud.',
+data: [9.3, 13.9, 9.3, 13.8, 10.4, 15.4, 10.3, 11.4, 10.8, 16.7, 17.3, 12.1, 20.7, 11.5, 10.8, 17.6, 10.4, 18.8, 12.4, 10.4, 10, 15.5, 17.1, 22.7, 21, 10.7, 17.1, 7.9, 4.9, 8.8, 5.1, 20.7, 19.3, 22, 15.8, 16.4, 23.8, 15.2, 11.9, 18.6, 21.9, 20.3, 16.6, 21.3, 25.6, 19.8, 22.2, 20.9, 20.9, 22.5, 16.6, 19, 25.1, 15.5, 25, 16.1, 24.1, 10.5, 19.8, 13.3, 15.6, 11.6, 23.4, 19.5, 27.4, 25.7, 25.4, 16.8, 17.2, 15.2, 24.2, 17.1, 15.3, 21.1, 15, 15.3, 28.8, 16.7, 20.3, 25.5, 25.2, 8.7, 16.5, 18.5, 12.3, 15.2, 20.7, 14.9, 23.6, 22, 24.4, 15.4, 17.3, 16.5, 15.3, 23.8, 13, 19.3, 14.3, 22.2, 12.6, 22.3, 14.6, 22, 16.6, 14.7, 16.7, 15.9, 23.4, 11.2, 26.7, 16.8, 18, 19, 21, 13, 12, 15, 18, 17, 26, 26, 17, 17, 23, 14, 16, 14, 18, 29, 31, 15, 18, 20, 27, 13, 18, 18, 22, 25, 19, 30, 17, 31, 20, 13, 17, 16, 28, 12, 13, 19, 17, 21, 16, 20, 20, 19, 31, 20, 26, 19, 17, 27, 12, 19, 22, 13, 21, 19, 12, 19, 38, 23, 31, 29, 21, 30, 24, 18, 20, 18, 35, 22, 29, 29, 20, 15, 17, 31, 0, 0, 0, 40, 0, 32, 0, 0, 0, 45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 28, 0, 0, 45, 0, 0, 0, 34, 0, 27, 0, 0],
+borderColor: 'green',
+borderWidth: 3,
+fill: false
+},
+{
+label: 'Média Geral',
+data: [9.2, 12.73, 8.14, 12.42, 10, 13.95, 9.35, 10.33, 9.74, 15.13, 14.68, 10.4, 18.58, 9.26, 9.77, 16.39, 8.2, 17.35, 10.96, 9.8, 9.55, 10.42, 14.14, 17.92, 18.52, 9.4, 16.17, 6.12, 4.1, 7.7, 4.28, 18.85, 15.18, 17.04, 14.7, 14.01, 21.25, 13.64, 9.78, 18.45, 19.45, 17.05, 13.06, 19.7, 22.43, 17.95, 19.15, 19.35, 12.92, 20.38, 11.8, 15.06, 23, 13.94, 22.21, 13.98, 19.69, 9.38, 13.61, 11.28, 12.48, 9.88, 21.34, 16.76, 21.12, 21.48, 19.25, 13.03, 14.98, 14.32, 22.43, 14.16, 13.45, 19.06, 11.27, 13.28, 27.46, 15.25, 15.17, 22.99, 21.42, 7.27, 14.01, 17.75, 9.2, 12.72, 17.79, 11, 20.61, 17.71, 20.93, 14.21, 14.67, 14.37, 13.74, 19.96, 10.5, 16.41, 11.96, 19.58, 11.55, 18.68, 12.45, 15.71, 14.54, 13.42, 14.07, 13.42, 20.34, 9.24, 21.3, 14.67, 13.71, 13.8, 17.14, 11.06, 10.8, 12.83, 16.45, 12.42, 22.81, 23.89, 14.27, 14.95, 18.52, 12, 14.63, 11.5, 15.5, 24.18, 25.05, 13.33, 16, 15.91, 20.51, 12.6, 15.57, 16.5, 21.38, 22, 15.71, 26.63, 14.43, 27.33, 17.25, 11.86, 15.2, 14, 22.49, 10.2, 12, 16.71, 14.25, 18.5, 14.36, 15.67, 17, 15.71, 26.89, 17.05, 23.16, 17.5, 14.92, 22.36, 11, 17.25, 19, 11.67, 19.29, 16.5, 8.9, 17, 31.89, 20.75, 26.67, 21.25, 18.8, 23.22, 19.8, 16.13, 17.36, 17, 29.13, 19.08, 25.65, 22.95, 18.6, 15, 17, 24, 0, 0, 0, 35.24, 0, 32, 0, 0, 0, 41.06, 0, 0, 0, 0, 0, 0, 45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 45, 0, 0, 0, 0, 26.25, 0, 0, 39.24, 0, 0, 0, 35, 0, 22, 0, 0],
+borderColor: 'white',
+borderWidth: 3,
+fill: false
+},
+{
+label: 'Menor Aud.',
+data: [9.1, 10.9, 7.1, 11.2, 9.6, 12.7, 7.9, 9.5, 8.4, 13.9, 13.5, 7.9, 16.9, 8.3, 8.7, 15.3, 4.7, 14.7, 10.1, 9.3, 9.1, 6.8, 11.3, 14.3, 16.2, 6.5, 14.3, 5, 3.3, 5.9, 3.6, 13.9, 12.2, 13.5, 13.2, 12.6, 19.5, 12.2, 8.5, 18.3, 16.4, 13.4, 11.5, 18.1, 19.9, 15.6, 16.6, 16.5, 11, 11.8, 9.8, 12.3, 20.2, 12.8, 19.8, 11.5, 16.1, 8.6, 9.9, 10.2, 10.1, 8.9, 19.5, 13.1, 17.3, 17.9, 14.5, 10.1, 13, 13, 21.3, 11.2, 11.2, 17.6, 9.8, 10.7, 25.7, 13.9, 11.2, 20.4, 16.4, 5.5, 12, 16.6, 7.5, 9.4, 15.1, 9, 17.6, 14.8, 17.6, 12.4, 10.4, 13, 11.4, 17.6, 9, 14, 9.4, 13.3, 10.3, 12.6, 10.8, 13, 11.5, 11.7, 12.8, 11.1, 18.4, 7.8, 17, 13, 12, 10, 14, 8, 9, 11, 16, 10, 19, 20, 12, 12, 14, 10, 14, 10, 14, 20, 21, 12, 14, 12, 17, 12, 13, 15, 20, 19, 13, 23, 12, 22, 16, 10, 14, 13, 17, 8, 11, 14, 13, 14, 12, 14, 15, 14, 22, 15, 20, 15, 11, 19, 9, 16, 15, 10, 18, 14, 7.5, 15, 27, 20, 23, 4, 17, 18, 18, 14, 15, 14, 23, 16, 24, 21, 18, 15, 17, 20, 0, 0, 0, 30, 0, 32, 0, 0, 0, 37, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24, 0, 0, 34, 0, 0, 0, 34, 0, 20, 0, 0],
+borderColor: 'red',
+borderWidth: 3,
+fill: false
+}
+]
+},
+options: options
+});
+});
+</script>
 
 </body></html>
 

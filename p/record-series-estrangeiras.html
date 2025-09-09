@@ -66,7 +66,7 @@
 
 
 
-<div class="atualizacaopost"><i class="fa-solid fa-arrows-rotate"></i><p>8 set 2025 às 21:13</p></div>
+<div class="atualizacaopost"><i class="fa-solid fa-arrows-rotate"></i><p>8 set 2025 às 21:21</p></div>
 <div class="pagina-horario-cabecalho">
 <div class="titulo-horario-cabecalho">
 <img src="https://audienciaon.github.io/emissoras/record.svg">
@@ -842,83 +842,83 @@ linha.style.display = 'none';
 });
 </script>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const canvas = document.getElementById('grafico1');
-      const ctx = canvas.getContext('2d');
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+const canvas = document.getElementById('grafico1');
+const ctx = canvas.getContext('2d');
 
-      const options = {
-        responsive: true,
-        maintainAspectRatio: false,
-        interaction: { mode: 'index', intersect: false },
-        hover: { mode: 'nearest', intersect: true },
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            enabled: true,
-            backgroundColor: 'rgba(0,0,0,0.9)',
-            titleColor: '#fff',
-            bodyColor: '#fff',
-            borderRadius: 4,
-            displayColors: false,
-            yAlign: 'bottom',
-            padding: 10,
-            titleFont: { family: 'Fira Sans', weight: 400 },
-            bodyFont: { family: 'Fira Sans', weight: 600 },
-            callbacks: {
-              title: ctx => ' ' + ctx[0].label,
-              label: ctx => ' ' + ctx.dataset.label + ': ' + ctx.parsed.y
-            }
-          }
-        },
-        elements: {
-          line: { tension: 0.4 },
-          point: {
-            radius: 0,          // ponto normal invisível
-            hoverRadius: 8,     // ao passar o mouse
-            pointStyle: 'circle'
-          }
-        },
-        scales: {
-          x: { display: false, ticks: { font: { family: 'Fira Sans' } } },
-          y: { ticks: { color: 'rgba(255,255,255,0.5)', font: { family: 'Fira Sans' } }, min: 0 }
-        },
-        layout: { padding: 10 },
-        font: { family: 'Fira Sans' }
-      };
+const options = {
+responsive: true,
+maintainAspectRatio: false,
+interaction: { mode: 'index', intersect: false },
+hover: { mode: 'nearest', intersect: true },
+plugins: {
+legend: { display: false },
+tooltip: {
+enabled: true,
+backgroundColor: 'rgba(0,0,0,0.9)',
+titleColor: '#fff',
+bodyColor: '#fff',
+borderRadius: 4,
+displayColors: false,
+yAlign: 'bottom',
+padding: 10,
+titleFont: { family: 'Fira Sans', weight: 400 },
+bodyFont: { family: 'Fira Sans', weight: 600 },
+callbacks: {
+title: ctx => ' ' + ctx[0].label,
+label: ctx => ' ' + ctx.dataset.label + ': ' + ctx.parsed.y
+}
+}
+},
+elements: {
+line: { tension: 0.4 },
+point: {
+radius: 0, // ponto normal invisível
+hoverRadius: 8, // ao passar o mouse
+pointStyle: 'circle'
+}
+},
+scales: {
+x: { display: false, ticks: { font: { family: 'Fira Sans' } } },
+y: { ticks: { color: 'rgba(255,255,255,0.5)', font: { family: 'Fira Sans' } }, min: 0 }
+},
+layout: { padding: 10 },
+font: { family: 'Fira Sans' }
+};
 
-      new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: ['IRIS - 1ª Temporada - 1ª Reapresentação', 'IRIS - 1ª Temporada', 'Quando Chama o Coração - 1ª Temporada - 1ª Reapresentação', 'Quando Chama o Coração - 1ª Temporada', 'MacGyver', 'CSI: NY - 9ª Temporada', 'CSI: NY - 8ª Temporada', 'Chicago Fire: Heróis Contra o Fogo - 5ª Temporada', 'Chicago Fire: Heróis Contra o Fogo - 4ª Temporada - 1ª Reapresentação', 'Shades of Blue: Segredos Policiais - 2ª Temporada', 'Shades of Blue: Segredos Policiais - 1ª Temporada', 'Chicago Med - 2ª Temporada', 'Grimm: Contos de Terror - 6ª Temporada', 'Chicago P.D - 2ª Temporada', 'Chicago Fire: Heróis Contra o Fogo - 4ª Temporada', 'CSI: Investigação Criminal - 4ª Temporada - 1ª Reapresentação', 'Grimm: Contos de Terror - 5ª Temporada', 'Chicago Fire: Heróis Contra o Fogo - 3ª Temporada', 'CSI: NY - 7ª Temporada', 'CSI: Investigação Criminal - 4ª Temporada', 'A Nova Super Máquina', 'Chicago Fire: Heróis Contra o Fogo - 2ª Temporada', 'Heroes: Reborn - 1ª Temporada', 'Chicago Med = 1ª Temporada', 'Mr. Robot: Sociedade Hacker - 1ª Temporada', 'Dominion - 1ª Temporada', 'Spartacus - 2ª Temporada', 'Grimm: Contos de Terror - 1ª Temporada - 1ª Reapresentação', 'Chicago Fire: Heróis Contra o Fogo - 1ª Temporada', 'Bates Motel - 1ª Temporada', 'Era Uma Vez - 1ª Temporada', 'Breaking Bad - 1ª Temporada', 'Spartacus - 1ª Temporada', 'CSI: NY - 5ª Temporada', 'Grimm: Contos de Terror - 1ª Temporada', 'O Capa', 'CSI: NY - 4ª Temporada'],
-          datasets: [
-            {
-              label: 'Maior Aud.',
-              data: [2.8, 5.2, 7.3, 11.2, 5, 5, 5, 5, 5, 4, 5, 6, 6, 5, 5, 6, 5, 4, 6, 6, 4, 5, 5, 0, 6, 4, 5, 5, 3, 4, 6, 6, 5, 6, 8, 7, 13],
-              borderColor: 'green',
-              borderWidth: 3,
-              fill: false
-            },
-            {
-              label: 'Média Geral',
-              data: [2.11, 2.51, 4.68, 8.08, 3.75, 3.86, 4.13, 4.33, 3.8, 3.23, 3.77, 4.3, 3.89, 3.52, 3.75, 4.14, 3.5, 2.72, 4.91, 4.82, 4, 3.74, 3.46, 0, 3.8, 2.9, 4.3, 3.23, 2.33, 3.4, 4.73, 3.61, 4.38, 4.8, 5.61, 4.83, 8.13],
-              borderColor: 'white',
-              borderWidth: 3,
-              fill: false
-            },
-            {
-              label: 'Menor Aud.',
-              data: [1.6, 1.6, 3.1, 5.9, 2, 3, 3, 3, 3, 2, 2, 3, 2, 2, 3, 2, 2, 2, 3, 3, 4, 3, 2, 0, 2, 2, 3, 2, 1, 2, 3, 2, 3, 3, 4, 4, 6],
-              borderColor: 'red',
-              borderWidth: 3,
-              fill: false
-            }
-          ]
-        },
-        options: options
-      });
-    });
-  </script>
+new Chart(ctx, {
+type: 'line',
+data: {
+labels: ['IRIS - 1ª Temporada - 1ª Reapresentação', 'IRIS - 1ª Temporada', 'Quando Chama o Coração - 1ª Temporada - 1ª Reapresentação', 'Quando Chama o Coração - 1ª Temporada', 'MacGyver', 'CSI: NY - 9ª Temporada', 'CSI: NY - 8ª Temporada', 'Chicago Fire: Heróis Contra o Fogo - 5ª Temporada', 'Chicago Fire: Heróis Contra o Fogo - 4ª Temporada - 1ª Reapresentação', 'Shades of Blue: Segredos Policiais - 2ª Temporada', 'Shades of Blue: Segredos Policiais - 1ª Temporada', 'Chicago Med - 2ª Temporada', 'Grimm: Contos de Terror - 6ª Temporada', 'Chicago P.D - 2ª Temporada', 'Chicago Fire: Heróis Contra o Fogo - 4ª Temporada', 'CSI: Investigação Criminal - 4ª Temporada - 1ª Reapresentação', 'Grimm: Contos de Terror - 5ª Temporada', 'Chicago Fire: Heróis Contra o Fogo - 3ª Temporada', 'CSI: NY - 7ª Temporada', 'CSI: Investigação Criminal - 4ª Temporada', 'A Nova Super Máquina', 'Chicago Fire: Heróis Contra o Fogo - 2ª Temporada', 'Heroes: Reborn - 1ª Temporada', 'Chicago Med = 1ª Temporada', 'Mr. Robot: Sociedade Hacker - 1ª Temporada', 'Dominion - 1ª Temporada', 'Spartacus - 2ª Temporada', 'Grimm: Contos de Terror - 1ª Temporada - 1ª Reapresentação', 'Chicago Fire: Heróis Contra o Fogo - 1ª Temporada', 'Bates Motel - 1ª Temporada', 'Era Uma Vez - 1ª Temporada', 'Breaking Bad - 1ª Temporada', 'Spartacus - 1ª Temporada', 'CSI: NY - 5ª Temporada', 'Grimm: Contos de Terror - 1ª Temporada', 'O Capa', 'CSI: NY - 4ª Temporada'],
+datasets: [
+{
+label: 'Maior Aud.',
+data: [2.8, 5.2, 7.3, 11.2, 5, 5, 5, 5, 5, 4, 5, 6, 6, 5, 5, 6, 5, 4, 6, 6, 4, 5, 5, 0, 6, 4, 5, 5, 3, 4, 6, 6, 5, 6, 8, 7, 13],
+borderColor: 'green',
+borderWidth: 3,
+fill: false
+},
+{
+label: 'Média Geral',
+data: [2.11, 2.51, 4.68, 8.08, 3.75, 3.86, 4.13, 4.33, 3.8, 3.23, 3.77, 4.3, 3.89, 3.52, 3.75, 4.14, 3.5, 2.72, 4.91, 4.82, 4, 3.74, 3.46, 0, 3.8, 2.9, 4.3, 3.23, 2.33, 3.4, 4.73, 3.61, 4.38, 4.8, 5.61, 4.83, 8.13],
+borderColor: 'white',
+borderWidth: 3,
+fill: false
+},
+{
+label: 'Menor Aud.',
+data: [1.6, 1.6, 3.1, 5.9, 2, 3, 3, 3, 3, 2, 2, 3, 2, 2, 3, 2, 2, 2, 3, 3, 4, 3, 2, 0, 2, 2, 3, 2, 1, 2, 3, 2, 3, 3, 4, 4, 6],
+borderColor: 'red',
+borderWidth: 3,
+fill: false
+}
+]
+},
+options: options
+});
+});
+</script>
 
 </body></html>
 

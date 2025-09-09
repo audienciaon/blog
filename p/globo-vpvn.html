@@ -66,7 +66,7 @@
 
 
 
-<div class="atualizacaopost"><i class="fa-solid fa-arrows-rotate"></i><p>8 set 2025 às 21:13</p></div>
+<div class="atualizacaopost"><i class="fa-solid fa-arrows-rotate"></i><p>8 set 2025 às 21:21</p></div>
 <div class="pagina-horario-cabecalho">
 <div class="titulo-horario-cabecalho">
 <img src="https://audienciaon.github.io/emissoras/globo.svg">
@@ -842,83 +842,83 @@ linha.style.display = 'none';
 });
 </script>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const canvas = document.getElementById('grafico1');
-      const ctx = canvas.getContext('2d');
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+const canvas = document.getElementById('grafico1');
+const ctx = canvas.getContext('2d');
 
-      const options = {
-        responsive: true,
-        maintainAspectRatio: false,
-        interaction: { mode: 'index', intersect: false },
-        hover: { mode: 'nearest', intersect: true },
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            enabled: true,
-            backgroundColor: 'rgba(0,0,0,0.9)',
-            titleColor: '#fff',
-            bodyColor: '#fff',
-            borderRadius: 4,
-            displayColors: false,
-            yAlign: 'bottom',
-            padding: 10,
-            titleFont: { family: 'Fira Sans', weight: 400 },
-            bodyFont: { family: 'Fira Sans', weight: 600 },
-            callbacks: {
-              title: ctx => ' ' + ctx[0].label,
-              label: ctx => ' ' + ctx.dataset.label + ': ' + ctx.parsed.y
-            }
-          }
-        },
-        elements: {
-          line: { tension: 0.4 },
-          point: {
-            radius: 0,          // ponto normal invisível
-            hoverRadius: 8,     // ao passar o mouse
-            pointStyle: 'circle'
-          }
-        },
-        scales: {
-          x: { display: false, ticks: { font: { family: 'Fira Sans' } } },
-          y: { ticks: { color: 'rgba(255,255,255,0.5)', font: { family: 'Fira Sans' } }, min: 0 }
-        },
-        layout: { padding: 10 },
-        font: { family: 'Fira Sans' }
-      };
+const options = {
+responsive: true,
+maintainAspectRatio: false,
+interaction: { mode: 'index', intersect: false },
+hover: { mode: 'nearest', intersect: true },
+plugins: {
+legend: { display: false },
+tooltip: {
+enabled: true,
+backgroundColor: 'rgba(0,0,0,0.9)',
+titleColor: '#fff',
+bodyColor: '#fff',
+borderRadius: 4,
+displayColors: false,
+yAlign: 'bottom',
+padding: 10,
+titleFont: { family: 'Fira Sans', weight: 400 },
+bodyFont: { family: 'Fira Sans', weight: 600 },
+callbacks: {
+title: ctx => ' ' + ctx[0].label,
+label: ctx => ' ' + ctx.dataset.label + ': ' + ctx.parsed.y
+}
+}
+},
+elements: {
+line: { tension: 0.4 },
+point: {
+radius: 0, // ponto normal invisível
+hoverRadius: 8, // ao passar o mouse
+pointStyle: 'circle'
+}
+},
+scales: {
+x: { display: false, ticks: { font: { family: 'Fira Sans' } } },
+y: { ticks: { color: 'rgba(255,255,255,0.5)', font: { family: 'Fira Sans' } }, min: 0 }
+},
+layout: { padding: 10 },
+font: { family: 'Fira Sans' }
+};
 
-      new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: ['A Viagem (1994) - 3ª Reapresentação', 'Tieta - 2ª Reapresentação', 'Alma Gêmea - 2ª Reapresentação', 'Paraíso Tropical - 1ª Reapresentação', 'Mulheres Apaixonadas - 2ª Reapresentação', 'O Rei do Gado - 3ª Reapresentação', 'A Favorita - 1ª Reapresentação', 'O Clone - 2ª Reapresentação', 'Ti Ti Ti (2010) - 1ª Reapresentação', 'Laços de Família - 2ª Reapresentação', 'Êta Mundo Bom! - 1ª Reapresentação', 'Avenida Brasil - 1ª Reapresentação', 'Por Amor - 2ª Reapresentação', 'Cordel Encantado - 1ª Reapresentação', 'Belíssima - 1ª Reapresentação', 'Celebridade - 1ª Reapresentação', 'Senhora do Destino - 2ª Reapresentação', 'Cheias de Charme - 1ª Reapresentação', 'Anjo Mau (1997) - 2ª Reapresentação', 'Caminho das Índias - 1ª Reapresentação', 'O Rei do Gado - 2ª Reapresentação', 'Cobras e Lagartos - 1ª Reapresentação', 'Caras e Bocas - 1ª Reapresentação', 'O Cravo e a Rosa - 2ª Reapresentação', 'O Profeta (2006) - 1ª Reapresentação', 'Da Cor do Pecado - 2ª Reapresentação', 'Chocolate com Pimenta - 2ª Reapresentação', 'Mulheres de Areia (1993) - 2ª Reapresentação', 'O Clone - 1ª Reapresentação', 'Sete Pecados - 1ª Reapresentação', 'Sinhá Moça (2006) - 1ª Reapresentação', 'Alma Gêmea - 1ª Reapresentação', 'Senhora do Destino - 1ª Reapresentação', 'Mulheres Apaixonadas - 1ª Reapresentação', 'Cabocla (2004) - 1ª Reapresentação', 'Coração de Estudante - 1ª Reapresentação', 'Da Cor do Pecado - 1ª Reapresentação', 'Era uma Vez... - 1ª Reapresentação', 'Chocolate com Pimenta - 1ª Reapresentação', 'A Viagem (1994) - 2ª Reapresentação', 'Força de um Desejo - 1ª Reapresentação', 'Laços de Família - 1ª Reapresentação', 'Deus Nos Acuda - 1ª Reapresentação', 'Terra Nostra - 1ª Reapresentação', 'Corpo Dourado - 1ª Reapresentação', 'Anjo Mau (1997) - 1ª Reapresentação', 'O Cravo e a Rosa - 1ª Reapresentação', 'Por Amor - 1ª Reapresentação', 'História de Amor - 1ª Reapresentação', 'A Gata Comeu - 2ª Reapresentação', 'Você Decide - 1ª Reapresentação', 'Roque Santeiro - 1ª Reapresentação', 'A Próxima Vítima - 1ª Reapresentação', 'Tropicaliente - 1ª Reapresentação', 'A Indomada - 1ª Reapresentação', 'O Rei do Gado - 1ª Reapresentação', 'Quatro por Quatro - 1ª Reapresentação', 'O Salvador da Pátria - 1ª Reapresentação', 'Felicidade - 1ª Reapresentação', 'Fera Ferida - 1ª Reapresentação', 'A Viagem (1994) - 1ª Reapresentação', 'Mulheres de Areia (1993) - 1ª Reapresentação', 'Meu Bem Meu Mal - 1ª Reapresentação', 'Despedida de Solteiro - 1ª Reapresentação', 'Renascer (1993) - 1ª Reapresentação', 'Pedra sobre Pedra - 1ª Reapresentação', 'Tieta - 1ª Reapresentação', 'Rainha da Sucata - 1ª Reapresentação', 'Direito de Amar - 1ª Reapresentação', 'Barriga de Aluguel - 1ª Reapresentação', 'Sinhá Moça (1986) - 1ª Reapresentação', 'Bebê a Bordo - 1ª Reapresentação', 'Vale Tudo (1988) - 1ª Reapresentação', 'Fera Radical - 1ª Reapresentação', 'Cambalacho - 1ª Reapresentação', 'Top Model - 1ª Reapresentação', 'Sassaricando - 1ª Reapresentação', 'Roda de Fogo - 1ª Reapresentação', 'Pão Pão Beijo Beijo - 1ª Reapresentação', 'Brega e Chique - 1ª Reapresentação', 'A Gata Comeu - 1ª Reapresentação', 'Gabriela (1975) - 1ª Reapresentação', 'Ti Ti Ti (1985) - 1ª Reapresentação', 'Amor com Amor Se Paga - 1ª Reapresentação', 'Vereda Tropical - 1ª Reapresentação', 'Livre para Voar - 1ª Reapresentação', 'Paraíso (1982) - 1ª Reapresentação', 'Feijão Maravilha - 1ª Reapresentação', 'Jogo da Vida - 1ª Reapresentação', 'Elas por Elas (1982) - 1ª Reapresentação', 'Final Feliz - 1ª Reapresentação', 'Água Viva - 1ª Reapresentação', 'Pecado Rasgado - 1ª Reapresentação', 'Plumas e Paetês - 1ª Reapresentação', 'A Moreninha (1975) - 1ª Reapresentação', 'As Três Marias - 1ª Reapresentação', 'Marron Glacé - 1ª Reapresentação', 'Cabocla (1979) - 1ª Reapresentação', 'Te Contei? - 1ª Reapresentação', 'A Sucessora - 1ª Reapresentação', 'Dona Xepa - 1ª Reapresentação'],
-          datasets: [
-            {
-              label: 'Maior Aud.',
-              data: [20.6, 20.9, 21, 18, 19, 23, 19, 20, 18, 23, 28, 28, 24, 21, 19, 18, 23, 21, 20, 18, 22, 17, 18, 19, 18, 20, 21, 21, 22, 22, 23, 30, 29, 26, 25, 28, 26, 23, 32, 28, 25, 33, 19, 27, 27, 38, 37, 36, 28, 21, 16, 20, 28, 20, 27, 30, 28, 26, 26, 28, 34, 37, 32, 32, 33, 27, 35, 40, 35, 30, 31, 31, 41, 37, 28, 30, 28, 23, 33, 33, 48, 31, 38, 43, 35, 35, 32, 23, 29, 28, 30, 24, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-              borderColor: 'green',
-              borderWidth: 3,
-              fill: false
-            },
-            {
-              label: 'Média Geral',
-              data: [16.62, 15.94, 16.77, 13.17, 14.85, 17.37, 15.7, 15.47, 14.43, 18.72, 21.64, 18.78, 17.81, 16.07, 13.64, 13.83, 18.12, 16.87, 14.71, 14.25, 17.52, 12.3, 14.18, 13.84, 11.91, 13.46, 14.92, 15.64, 16.91, 12.82, 15.19, 19.79, 21.24, 17.9, 16.88, 17.21, 19.42, 18.32, 20.9, 21.57, 15.42, 21.58, 14.43, 17.87, 21.16, 25.8, 23.47, 20.35, 20.83, 15.87, 11.13, 15.16, 16.01, 14.72, 18.24, 23.27, 20.59, 18.87, 21.15, 20.04, 24.95, 28.27, 20.09, 22.11, 23.37, 21.47, 27.79, 26.54, 21.69, 21.9, 23.68, 24.53, 28.61, 26.18, 21.66, 23.02, 18.59, 16.97, 26.15, 24.09, 32.68, 22.46, 29.32, 29.02, 24.33, 21.31, 22.01, 15.49, 16.47, 18.03, 22.21, 18.84, 14.2, 19.8, 15.8, 13.9, 22, 19.1, 15.8, 19.5, 0],
-              borderColor: 'white',
-              borderWidth: 3,
-              fill: false
-            },
-            {
-              label: 'Menor Aud.',
-              data: [12.2, 10.6, 11, 9, 10, 12, 13, 11, 8, 15, 18, 13, 15, 12, 11, 9, 11, 12, 9, 10, 12, 8, 10, 10, 9, 9, 11, 11, 14, 9, 11, 15, 16, 11, 11, 10, 15, 15, 15, 17, 11, 15, 10, 12, 17, 17, 18, 15, 4, 11, 9, 10, 11, 11, 12, 19, 13, 15, 15, 13, 20, 16, 13, 18, 15, 16, 20, 19, 13, 17, 16, 17, 7, 13, 15, 17, 12, 13, 21, 15, 22, 17, 21, 15, 17, 10, 15, 9, 0, 12, 12, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-              borderColor: 'red',
-              borderWidth: 3,
-              fill: false
-            }
-          ]
-        },
-        options: options
-      });
-    });
-  </script>
+new Chart(ctx, {
+type: 'line',
+data: {
+labels: ['A Viagem (1994) - 3ª Reapresentação', 'Tieta - 2ª Reapresentação', 'Alma Gêmea - 2ª Reapresentação', 'Paraíso Tropical - 1ª Reapresentação', 'Mulheres Apaixonadas - 2ª Reapresentação', 'O Rei do Gado - 3ª Reapresentação', 'A Favorita - 1ª Reapresentação', 'O Clone - 2ª Reapresentação', 'Ti Ti Ti (2010) - 1ª Reapresentação', 'Laços de Família - 2ª Reapresentação', 'Êta Mundo Bom! - 1ª Reapresentação', 'Avenida Brasil - 1ª Reapresentação', 'Por Amor - 2ª Reapresentação', 'Cordel Encantado - 1ª Reapresentação', 'Belíssima - 1ª Reapresentação', 'Celebridade - 1ª Reapresentação', 'Senhora do Destino - 2ª Reapresentação', 'Cheias de Charme - 1ª Reapresentação', 'Anjo Mau (1997) - 2ª Reapresentação', 'Caminho das Índias - 1ª Reapresentação', 'O Rei do Gado - 2ª Reapresentação', 'Cobras e Lagartos - 1ª Reapresentação', 'Caras e Bocas - 1ª Reapresentação', 'O Cravo e a Rosa - 2ª Reapresentação', 'O Profeta (2006) - 1ª Reapresentação', 'Da Cor do Pecado - 2ª Reapresentação', 'Chocolate com Pimenta - 2ª Reapresentação', 'Mulheres de Areia (1993) - 2ª Reapresentação', 'O Clone - 1ª Reapresentação', 'Sete Pecados - 1ª Reapresentação', 'Sinhá Moça (2006) - 1ª Reapresentação', 'Alma Gêmea - 1ª Reapresentação', 'Senhora do Destino - 1ª Reapresentação', 'Mulheres Apaixonadas - 1ª Reapresentação', 'Cabocla (2004) - 1ª Reapresentação', 'Coração de Estudante - 1ª Reapresentação', 'Da Cor do Pecado - 1ª Reapresentação', 'Era uma Vez... - 1ª Reapresentação', 'Chocolate com Pimenta - 1ª Reapresentação', 'A Viagem (1994) - 2ª Reapresentação', 'Força de um Desejo - 1ª Reapresentação', 'Laços de Família - 1ª Reapresentação', 'Deus Nos Acuda - 1ª Reapresentação', 'Terra Nostra - 1ª Reapresentação', 'Corpo Dourado - 1ª Reapresentação', 'Anjo Mau (1997) - 1ª Reapresentação', 'O Cravo e a Rosa - 1ª Reapresentação', 'Por Amor - 1ª Reapresentação', 'História de Amor - 1ª Reapresentação', 'A Gata Comeu - 2ª Reapresentação', 'Você Decide - 1ª Reapresentação', 'Roque Santeiro - 1ª Reapresentação', 'A Próxima Vítima - 1ª Reapresentação', 'Tropicaliente - 1ª Reapresentação', 'A Indomada - 1ª Reapresentação', 'O Rei do Gado - 1ª Reapresentação', 'Quatro por Quatro - 1ª Reapresentação', 'O Salvador da Pátria - 1ª Reapresentação', 'Felicidade - 1ª Reapresentação', 'Fera Ferida - 1ª Reapresentação', 'A Viagem (1994) - 1ª Reapresentação', 'Mulheres de Areia (1993) - 1ª Reapresentação', 'Meu Bem Meu Mal - 1ª Reapresentação', 'Despedida de Solteiro - 1ª Reapresentação', 'Renascer (1993) - 1ª Reapresentação', 'Pedra sobre Pedra - 1ª Reapresentação', 'Tieta - 1ª Reapresentação', 'Rainha da Sucata - 1ª Reapresentação', 'Direito de Amar - 1ª Reapresentação', 'Barriga de Aluguel - 1ª Reapresentação', 'Sinhá Moça (1986) - 1ª Reapresentação', 'Bebê a Bordo - 1ª Reapresentação', 'Vale Tudo (1988) - 1ª Reapresentação', 'Fera Radical - 1ª Reapresentação', 'Cambalacho - 1ª Reapresentação', 'Top Model - 1ª Reapresentação', 'Sassaricando - 1ª Reapresentação', 'Roda de Fogo - 1ª Reapresentação', 'Pão Pão Beijo Beijo - 1ª Reapresentação', 'Brega e Chique - 1ª Reapresentação', 'A Gata Comeu - 1ª Reapresentação', 'Gabriela (1975) - 1ª Reapresentação', 'Ti Ti Ti (1985) - 1ª Reapresentação', 'Amor com Amor Se Paga - 1ª Reapresentação', 'Vereda Tropical - 1ª Reapresentação', 'Livre para Voar - 1ª Reapresentação', 'Paraíso (1982) - 1ª Reapresentação', 'Feijão Maravilha - 1ª Reapresentação', 'Jogo da Vida - 1ª Reapresentação', 'Elas por Elas (1982) - 1ª Reapresentação', 'Final Feliz - 1ª Reapresentação', 'Água Viva - 1ª Reapresentação', 'Pecado Rasgado - 1ª Reapresentação', 'Plumas e Paetês - 1ª Reapresentação', 'A Moreninha (1975) - 1ª Reapresentação', 'As Três Marias - 1ª Reapresentação', 'Marron Glacé - 1ª Reapresentação', 'Cabocla (1979) - 1ª Reapresentação', 'Te Contei? - 1ª Reapresentação', 'A Sucessora - 1ª Reapresentação', 'Dona Xepa - 1ª Reapresentação'],
+datasets: [
+{
+label: 'Maior Aud.',
+data: [20.6, 20.9, 21, 18, 19, 23, 19, 20, 18, 23, 28, 28, 24, 21, 19, 18, 23, 21, 20, 18, 22, 17, 18, 19, 18, 20, 21, 21, 22, 22, 23, 30, 29, 26, 25, 28, 26, 23, 32, 28, 25, 33, 19, 27, 27, 38, 37, 36, 28, 21, 16, 20, 28, 20, 27, 30, 28, 26, 26, 28, 34, 37, 32, 32, 33, 27, 35, 40, 35, 30, 31, 31, 41, 37, 28, 30, 28, 23, 33, 33, 48, 31, 38, 43, 35, 35, 32, 23, 29, 28, 30, 24, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+borderColor: 'green',
+borderWidth: 3,
+fill: false
+},
+{
+label: 'Média Geral',
+data: [16.62, 15.94, 16.77, 13.17, 14.85, 17.37, 15.7, 15.47, 14.43, 18.72, 21.64, 18.78, 17.81, 16.07, 13.64, 13.83, 18.12, 16.87, 14.71, 14.25, 17.52, 12.3, 14.18, 13.84, 11.91, 13.46, 14.92, 15.64, 16.91, 12.82, 15.19, 19.79, 21.24, 17.9, 16.88, 17.21, 19.42, 18.32, 20.9, 21.57, 15.42, 21.58, 14.43, 17.87, 21.16, 25.8, 23.47, 20.35, 20.83, 15.87, 11.13, 15.16, 16.01, 14.72, 18.24, 23.27, 20.59, 18.87, 21.15, 20.04, 24.95, 28.27, 20.09, 22.11, 23.37, 21.47, 27.79, 26.54, 21.69, 21.9, 23.68, 24.53, 28.61, 26.18, 21.66, 23.02, 18.59, 16.97, 26.15, 24.09, 32.68, 22.46, 29.32, 29.02, 24.33, 21.31, 22.01, 15.49, 16.47, 18.03, 22.21, 18.84, 14.2, 19.8, 15.8, 13.9, 22, 19.1, 15.8, 19.5, 0],
+borderColor: 'white',
+borderWidth: 3,
+fill: false
+},
+{
+label: 'Menor Aud.',
+data: [12.2, 10.6, 11, 9, 10, 12, 13, 11, 8, 15, 18, 13, 15, 12, 11, 9, 11, 12, 9, 10, 12, 8, 10, 10, 9, 9, 11, 11, 14, 9, 11, 15, 16, 11, 11, 10, 15, 15, 15, 17, 11, 15, 10, 12, 17, 17, 18, 15, 4, 11, 9, 10, 11, 11, 12, 19, 13, 15, 15, 13, 20, 16, 13, 18, 15, 16, 20, 19, 13, 17, 16, 17, 7, 13, 15, 17, 12, 13, 21, 15, 22, 17, 21, 15, 17, 10, 15, 9, 0, 12, 12, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+borderColor: 'red',
+borderWidth: 3,
+fill: false
+}
+]
+},
+options: options
+});
+});
+</script>
 
 </body></html>
 

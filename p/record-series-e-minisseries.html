@@ -66,7 +66,7 @@
 
 
 
-<div class="atualizacaopost"><i class="fa-solid fa-arrows-rotate"></i><p>8 set 2025 às 21:12</p></div>
+<div class="atualizacaopost"><i class="fa-solid fa-arrows-rotate"></i><p>8 set 2025 às 21:20</p></div>
 <div class="pagina-horario-cabecalho">
 <div class="titulo-horario-cabecalho">
 <img src="https://audienciaon.github.io/emissoras/record.svg">
@@ -842,83 +842,83 @@ linha.style.display = 'none';
 });
 </script>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const canvas = document.getElementById('grafico1');
-      const ctx = canvas.getContext('2d');
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+const canvas = document.getElementById('grafico1');
+const ctx = canvas.getContext('2d');
 
-      const options = {
-        responsive: true,
-        maintainAspectRatio: false,
-        interaction: { mode: 'index', intersect: false },
-        hover: { mode: 'nearest', intersect: true },
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            enabled: true,
-            backgroundColor: 'rgba(0,0,0,0.9)',
-            titleColor: '#fff',
-            bodyColor: '#fff',
-            borderRadius: 4,
-            displayColors: false,
-            yAlign: 'bottom',
-            padding: 10,
-            titleFont: { family: 'Fira Sans', weight: 400 },
-            bodyFont: { family: 'Fira Sans', weight: 600 },
-            callbacks: {
-              title: ctx => ' ' + ctx[0].label,
-              label: ctx => ' ' + ctx.dataset.label + ': ' + ctx.parsed.y
-            }
-          }
-        },
-        elements: {
-          line: { tension: 0.4 },
-          point: {
-            radius: 0,          // ponto normal invisível
-            hoverRadius: 8,     // ao passar o mouse
-            pointStyle: 'circle'
-          }
-        },
-        scales: {
-          x: { display: false, ticks: { font: { family: 'Fira Sans' } } },
-          y: { ticks: { color: 'rgba(255,255,255,0.5)', font: { family: 'Fira Sans' } }, min: 0 }
-        },
-        layout: { padding: 10 },
-        font: { family: 'Fira Sans' }
-      };
+const options = {
+responsive: true,
+maintainAspectRatio: false,
+interaction: { mode: 'index', intersect: false },
+hover: { mode: 'nearest', intersect: true },
+plugins: {
+legend: { display: false },
+tooltip: {
+enabled: true,
+backgroundColor: 'rgba(0,0,0,0.9)',
+titleColor: '#fff',
+bodyColor: '#fff',
+borderRadius: 4,
+displayColors: false,
+yAlign: 'bottom',
+padding: 10,
+titleFont: { family: 'Fira Sans', weight: 400 },
+bodyFont: { family: 'Fira Sans', weight: 600 },
+callbacks: {
+title: ctx => ' ' + ctx[0].label,
+label: ctx => ' ' + ctx.dataset.label + ': ' + ctx.parsed.y
+}
+}
+},
+elements: {
+line: { tension: 0.4 },
+point: {
+radius: 0, // ponto normal invisível
+hoverRadius: 8, // ao passar o mouse
+pointStyle: 'circle'
+}
+},
+scales: {
+x: { display: false, ticks: { font: { family: 'Fira Sans' } } },
+y: { ticks: { color: 'rgba(255,255,255,0.5)', font: { family: 'Fira Sans' } }, min: 0 }
+},
+layout: { padding: 10 },
+font: { family: 'Fira Sans' }
+};
 
-      new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: ['Até Onde Ela Vai', 'Do Rio Ao Mar - A Guerra De Israel Contra O Terror', 'A Lei e o Crime - 3ª Reapresentação', 'Todas as Garotas em Mim - 2ª Temporada', 'Todas as Garotas em Mim - 1ª Temporada', 'O Hospital', 'Terrores Urbanos', 'A Lei e o Crime - 2ª Reapresentação', 'Conselho Tutelar - 3ª Temporada', 'Sem Volta', 'Conselho Tutelar - 2ª Temporada', 'Na Mira Do Crime', 'Conselho Tutelar - 1ª Temporada', 'Plano Alto', 'A Lei e o Crime - 1ª Reapresentação', 'Fora De Controle', 'A Lei e o Crime', 'Acampamento Legal', 'Do Fundo do Coração', 'A Sétima Bala', 'Velas de Sangue', 'Uma Janela para o Céu', 'Por Amor e Ódio', 'Direito de Vencer', 'Olho na Terra', 'A Filha do Demônio'],
-          datasets: [
-            {
-              label: 'Maior Aud.',
-              data: [46, 2.6, 4.9, 4.8, 6, 4.7, 5.4, 5.6, 4.7, 6.9, 7.6, 5.2, 8.3, 4.8, 6, 6, 18, 2, 5, 2, 2, 2, 6, 6, 4, 5],
-              borderColor: 'green',
-              borderWidth: 3,
-              fill: false
-            },
-            {
-              label: 'Média Geral',
-              data: [8.25, 2.35, 4.01, 4.25, 4.53, 4.07, 4.82, 5.09, 4.12, 6.2, 7.26, 4.85, 7.48, 3.81, 4.05, 5.5, 13.76, 1.64, 2.84, 1.3, 1.5, 1.42, 2.52, 2.1, 2.44, 4],
-              borderColor: 'white',
-              borderWidth: 3,
-              fill: false
-            },
-            {
-              label: 'Menor Aud.',
-              data: [3.6, 2.1, 2.9, 3.4, 3.7, 3.3, 4.2, 4.2, 3.6, 5.4, 6.7, 4.2, 6.7, 3.1, 2, 5, 9, 1, 1, 1, 1, 0, 0, 1, 1, 3],
-              borderColor: 'red',
-              borderWidth: 3,
-              fill: false
-            }
-          ]
-        },
-        options: options
-      });
-    });
-  </script>
+new Chart(ctx, {
+type: 'line',
+data: {
+labels: ['Até Onde Ela Vai', 'Do Rio Ao Mar - A Guerra De Israel Contra O Terror', 'A Lei e o Crime - 3ª Reapresentação', 'Todas as Garotas em Mim - 2ª Temporada', 'Todas as Garotas em Mim - 1ª Temporada', 'O Hospital', 'Terrores Urbanos', 'A Lei e o Crime - 2ª Reapresentação', 'Conselho Tutelar - 3ª Temporada', 'Sem Volta', 'Conselho Tutelar - 2ª Temporada', 'Na Mira Do Crime', 'Conselho Tutelar - 1ª Temporada', 'Plano Alto', 'A Lei e o Crime - 1ª Reapresentação', 'Fora De Controle', 'A Lei e o Crime', 'Acampamento Legal', 'Do Fundo do Coração', 'A Sétima Bala', 'Velas de Sangue', 'Uma Janela para o Céu', 'Por Amor e Ódio', 'Direito de Vencer', 'Olho na Terra', 'A Filha do Demônio'],
+datasets: [
+{
+label: 'Maior Aud.',
+data: [46, 2.6, 4.9, 4.8, 6, 4.7, 5.4, 5.6, 4.7, 6.9, 7.6, 5.2, 8.3, 4.8, 6, 6, 18, 2, 5, 2, 2, 2, 6, 6, 4, 5],
+borderColor: 'green',
+borderWidth: 3,
+fill: false
+},
+{
+label: 'Média Geral',
+data: [8.25, 2.35, 4.01, 4.25, 4.53, 4.07, 4.82, 5.09, 4.12, 6.2, 7.26, 4.85, 7.48, 3.81, 4.05, 5.5, 13.76, 1.64, 2.84, 1.3, 1.5, 1.42, 2.52, 2.1, 2.44, 4],
+borderColor: 'white',
+borderWidth: 3,
+fill: false
+},
+{
+label: 'Menor Aud.',
+data: [3.6, 2.1, 2.9, 3.4, 3.7, 3.3, 4.2, 4.2, 3.6, 5.4, 6.7, 4.2, 6.7, 3.1, 2, 5, 9, 1, 1, 1, 1, 0, 0, 1, 1, 3],
+borderColor: 'red',
+borderWidth: 3,
+fill: false
+}
+]
+},
+options: options
+});
+});
+</script>
 
 </body></html>
 
