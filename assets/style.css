@@ -2074,12 +2074,10 @@ h3,
   .elevacaoshare-titulo::before{display:none !important}
   
 .grafico-diaria {
-    padding-top: 90px !important;
+    padding-top: 40px !important;
     position: relative;
     display: flex;
-    padding-left: 40px;
-    padding-right: 40px;
-    height: 450px;
+    height: 500px;
     border-radius: 8px;
 }
 
