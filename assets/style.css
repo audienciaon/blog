@@ -171,7 +171,7 @@ main > * { border-radius:10px; }
 #paginainicial > * {
   display: grid;       /* filhos continuam sendo grid */
   grid-auto-rows: min-content; /* filhos também só ocupam o necessário */
-  gap: 10px;           /* exemplo de gap interno */
+  gap: 30px;           /* exemplo de gap interno */
   min-height: 0;       /* evita corte dentro do scroll */
 }
 
