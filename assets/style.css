@@ -131,6 +131,8 @@
 	  grid-template-columns:repeat(2, auto);
   }
 
+footer{display:none !important}
+
 #home header img, #home footer img{
   filter:invert(1) !important;
 }
@@ -147,7 +149,7 @@
 
 main {
     display: grid;
-    grid-template-rows: 2fr 24fr 1fr;
+    grid-template-rows: 2fr 24fr;
     gap: 30px;
     height: 90vh;
     width: 1200px;
