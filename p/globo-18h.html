@@ -66,7 +66,7 @@
 
 
 
-<div class="atualizacaopost"><i class="fa-solid fa-arrows-rotate"></i><p>8 set 2025 às 21:08</p></div>
+<div class="atualizacaopost"><i class="fa-solid fa-arrows-rotate"></i><p>8 set 2025 às 21:16</p></div>
 <div class="pagina-horario-cabecalho">
 <div class="titulo-horario-cabecalho">
 <img src="https://audienciaon.github.io/emissoras/globo.svg">
@@ -842,83 +842,83 @@ linha.style.display = 'none';
 });
 </script>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const canvas = document.getElementById('grafico1');
-      const ctx = canvas.getContext('2d');
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+const canvas = document.getElementById('grafico1');
+const ctx = canvas.getContext('2d');
 
-      const options = {
-        responsive: true,
-        maintainAspectRatio: false,
-        interaction: { mode: 'index', intersect: false },
-        hover: { mode: 'nearest', intersect: true },
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            enabled: true,
-            backgroundColor: 'rgba(0,0,0,0.9)',
-            titleColor: '#fff',
-            bodyColor: '#fff',
-            borderRadius: 4,
-            displayColors: false,
-            yAlign: 'bottom',
-            padding: 10,
-            titleFont: { family: 'Fira Sans', weight: 400 },
-            bodyFont: { family: 'Fira Sans', weight: 600 },
-            callbacks: {
-              title: ctx => ' ' + ctx[0].label,
-              label: ctx => ' ' + ctx.dataset.label + ': ' + ctx.parsed.y
-            }
-          }
-        },
-        elements: {
-          line: { tension: 0.4 },
-          point: {
-            radius: 0,          // ponto normal invisível
-            hoverRadius: 8,     // ao passar o mouse
-            pointStyle: 'circle'
-          }
-        },
-        scales: {
-          x: { display: false, ticks: { font: { family: 'Fira Sans' } } },
-          y: { ticks: { color: 'rgba(255,255,255,0.5)', font: { family: 'Fira Sans' } }, min: 0 }
-        },
-        layout: { padding: 10 },
-        font: { family: 'Fira Sans' }
-      };
+const options = {
+responsive: true,
+maintainAspectRatio: false,
+interaction: { mode: 'index', intersect: false },
+hover: { mode: 'nearest', intersect: true },
+plugins: {
+legend: { display: false },
+tooltip: {
+enabled: true,
+backgroundColor: 'rgba(0,0,0,0.9)',
+titleColor: '#fff',
+bodyColor: '#fff',
+borderRadius: 4,
+displayColors: false,
+yAlign: 'bottom',
+padding: 10,
+titleFont: { family: 'Fira Sans', weight: 400 },
+bodyFont: { family: 'Fira Sans', weight: 600 },
+callbacks: {
+title: ctx => ' ' + ctx[0].label,
+label: ctx => ' ' + ctx.dataset.label + ': ' + ctx.parsed.y
+}
+}
+},
+elements: {
+line: { tension: 0.4 },
+point: {
+radius: 0, // ponto normal invisível
+hoverRadius: 8, // ao passar o mouse
+pointStyle: 'circle'
+}
+},
+scales: {
+x: { display: false, ticks: { font: { family: 'Fira Sans' } } },
+y: { ticks: { color: 'rgba(255,255,255,0.5)', font: { family: 'Fira Sans' } }, min: 0 }
+},
+layout: { padding: 10 },
+font: { family: 'Fira Sans' }
+};
 
-      new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: ['Êta Mundo Melhor!', 'Garota do Momento', 'No Rancho Fundo', 'Elas por Elas (2023)', 'Amor Perfeito', 'Mar do Sertão', 'Além da Ilusão', 'Nos Tempos do Imperador', 'A Vida da Gente - Edição Especial', 'Flor do Caribe - Edição Especial', 'Novo Mundo - Edição Especial', 'Éramos Seis', 'Órfãos da Terra', 'Espelho da Vida', 'Orgulho e Paixão', 'Tempo de Amar', 'Novo Mundo', 'Sol Nascente', 'Êta Mundo Bom!', 'Além do Tempo', 'Sete Vidas', 'Boogie Oogie', 'Meu Pedacinho de Chão (2014)', 'Joia Rara', 'Flor do Caribe', 'Lado a Lado', 'Amor Eterno Amor', 'A Vida da Gente', 'Cordel Encantado', 'Araguaia', 'Escrito nas Estrelas', 'Cama de Gato', 'Paraíso (2009)', 'Negócio da China', 'Ciranda de Pedra (2008)', 'Desejo Proibido', 'Eterna Magia', 'O Profeta (2006)', 'Sinhá Moça (2006)', 'Alma Gêmea', 'Como uma Onda', 'Cabocla (2004)', 'Chocolate com Pimenta', 'Agora É que São Elas', 'Sabor da Paixão', 'Coração de Estudante', 'A Padroeira', 'Estrela-Guia', 'O Cravo e a Rosa', 'Esplendor', 'Força de um Desejo', 'Pecado Capital (1998)', 'Era uma Vez...', 'Anjo Mau (1997)', 'O Amor Está no Ar', 'Anjo de Mim', 'Quem É Você?', 'História de Amor', 'Irmãos Coragem (1995)', 'Tropicaliente', 'Sonho Meu', 'Mulheres de Areia (1993)', 'Despedida de Solteiro', 'Felicidade', 'Salomé', 'Barriga de Aluguel', 'Gente Fina', 'O Sexo dos Anjos', 'Pacto de Sangue', 'Vida Nova', 'Fera Radical', 'Bambolê', 'Direito de Amar', 'Locomotivas - 2ª Edição Especial', 'Sinhá Moça (1986)', 'De Quina pra Lua', 'A Gata Comeu', 'Livre para Voar', 'Amor com Amor Se Paga', 'Voltei pra Você', 'Pão Pão Beijo Beijo', 'Paraíso (1982)', 'O Homem Proibido (1982)', 'Terras do Sem Fim', 'Ciranda de Pedra (1981)', 'As Três Marias', 'Marina (1980)', 'Olhai os Lírios do Campo', 'Escrava Isaura (1976) - 2ª Edição Especial', 'Cabocla (1979)', 'Memórias de Amor', 'A Sucessora', 'Gina', 'Maria Maria', 'Sinhazinha Flô', 'Dona Xepa', 'À Sombra dos Laranjais', 'Escrava Isaura (1976)', 'O Feijão e o Sonho', 'Vejo a Lua no Céu', 'A Moreninha (1975)', 'Senhora', 'O Noviço', 'Helena', 'A Patota', 'Bicho do Mato', 'Meu Pedacinho de Chão (1971)'],
-          datasets: [
-            {
-              label: 'Maior Aud.',
-              data: [22.3, 22.3, 23.1, 20.1, 22.9, 27.5, 24.2, 22.4, 23.6, 23.8, 27.3, 26.8, 26.6, 23.4, 25.7, 27.1, 29.2, 27.5, 35.9, 24, 22, 23, 24, 23, 28, 25, 29, 27, 30, 29, 33, 33, 32, 30, 28, 33, 32, 42, 43, 53, 35, 43, 46, 37, 31, 41, 39, 37, 42, 36, 38, 38, 44, 43, 33, 37, 39, 46, 43, 50, 63, 60, 52, 52, 42, 51, 57, 55, 48, 54, 54, 51, 49, 40, 54, 47, 56, 53, 52, 47, 50, 51, 46, 36, 43, 38, 0, 0, 39, 54, 52, 56, 51, 57, 51, 61, 52, 60, 57, 53, 49, 48, 43, 47, 41, 46, 40],
-              borderColor: 'green',
-              borderWidth: 3,
-              fill: false
-            },
-            {
-              label: 'Média Geral',
-              data: [19.76, 18.1, 19.21, 15.36, 19.51, 19.24, 19.02, 16.87, 19.44, 20.13, 19.23, 20.71, 21.75, 17.77, 21.44, 22.63, 23.75, 21.13, 27.04, 19.81, 19.41, 17.44, 17.8, 18.37, 21.23, 18.18, 23.01, 21.81, 25.89, 22.87, 25.56, 24.35, 25.52, 20.38, 22.05, 23.37, 25.83, 32.72, 33.38, 38.65, 27.18, 34.15, 35.5, 28.44, 24.09, 30.22, 26.13, 30.94, 30.64, 27.51, 24.62, 26.79, 29.53, 31.81, 27.57, 28.56, 31.39, 34.2, 32.48, 39.09, 44.1, 49.18, 38.49, 33.89, 31.38, 36.71, 34.77, 38.53, 34.23, 36.11, 42.2, 35.01, 38.91, 27.63, 42.85, 31.22, 47.55, 38.82, 40.02, 35.94, 40.92, 37.5, 33.23, 22.13, 33.57, 27.73, 35, 36, 33, 41.64, 36.09, 38.73, 41.4, 40.98, 38.52, 46.55, 38.56, 46.9, 43.48, 39.03, 35.78, 36.09, 35.65, 39.75, 27.06, 30.56, 25.38],
-              borderColor: 'white',
-              borderWidth: 3,
-              fill: false
-            },
-            {
-              label: 'Menor Aud.',
-              data: [10.8, 12.5, 14.2, 10.4, 14.6, 13.4, 13.1, 9.3, 14.9, 14.1, 15.9, 14.7, 17.2, 12.7, 16.9, 16.2, 18.3, 14.5, 17.7, 15, 16, 11, 0, 13, 0, 0, 16, 15, 19, 0, 18, 16, 19, 0, 16, 0, 0, 0, 24, 26, 17, 24, 26, 20, 14, 21, 19, 25, 21, 20, 0, 18, 0, 0, 23, 15, 0, 23, 21, 0, 23, 32, 0, 0, 20, 0, 23, 22, 23, 22, 33, 19, 22, 17, 30, 17, 0, 26, 4, 21, 30, 24, 25, 11, 23, 16, 0, 0, 0, 32, 28, 26, 33, 20, 20, 30, 26, 31, 31, 0, 0, 0, 0, 0, 0, 0, 0],
-              borderColor: 'red',
-              borderWidth: 3,
-              fill: false
-            }
-          ]
-        },
-        options: options
-      });
-    });
-  </script>
+new Chart(ctx, {
+type: 'line',
+data: {
+labels: ['Êta Mundo Melhor!', 'Garota do Momento', 'No Rancho Fundo', 'Elas por Elas (2023)', 'Amor Perfeito', 'Mar do Sertão', 'Além da Ilusão', 'Nos Tempos do Imperador', 'A Vida da Gente - Edição Especial', 'Flor do Caribe - Edição Especial', 'Novo Mundo - Edição Especial', 'Éramos Seis', 'Órfãos da Terra', 'Espelho da Vida', 'Orgulho e Paixão', 'Tempo de Amar', 'Novo Mundo', 'Sol Nascente', 'Êta Mundo Bom!', 'Além do Tempo', 'Sete Vidas', 'Boogie Oogie', 'Meu Pedacinho de Chão (2014)', 'Joia Rara', 'Flor do Caribe', 'Lado a Lado', 'Amor Eterno Amor', 'A Vida da Gente', 'Cordel Encantado', 'Araguaia', 'Escrito nas Estrelas', 'Cama de Gato', 'Paraíso (2009)', 'Negócio da China', 'Ciranda de Pedra (2008)', 'Desejo Proibido', 'Eterna Magia', 'O Profeta (2006)', 'Sinhá Moça (2006)', 'Alma Gêmea', 'Como uma Onda', 'Cabocla (2004)', 'Chocolate com Pimenta', 'Agora É que São Elas', 'Sabor da Paixão', 'Coração de Estudante', 'A Padroeira', 'Estrela-Guia', 'O Cravo e a Rosa', 'Esplendor', 'Força de um Desejo', 'Pecado Capital (1998)', 'Era uma Vez...', 'Anjo Mau (1997)', 'O Amor Está no Ar', 'Anjo de Mim', 'Quem É Você?', 'História de Amor', 'Irmãos Coragem (1995)', 'Tropicaliente', 'Sonho Meu', 'Mulheres de Areia (1993)', 'Despedida de Solteiro', 'Felicidade', 'Salomé', 'Barriga de Aluguel', 'Gente Fina', 'O Sexo dos Anjos', 'Pacto de Sangue', 'Vida Nova', 'Fera Radical', 'Bambolê', 'Direito de Amar', 'Locomotivas - 2ª Edição Especial', 'Sinhá Moça (1986)', 'De Quina pra Lua', 'A Gata Comeu', 'Livre para Voar', 'Amor com Amor Se Paga', 'Voltei pra Você', 'Pão Pão Beijo Beijo', 'Paraíso (1982)', 'O Homem Proibido (1982)', 'Terras do Sem Fim', 'Ciranda de Pedra (1981)', 'As Três Marias', 'Marina (1980)', 'Olhai os Lírios do Campo', 'Escrava Isaura (1976) - 2ª Edição Especial', 'Cabocla (1979)', 'Memórias de Amor', 'A Sucessora', 'Gina', 'Maria Maria', 'Sinhazinha Flô', 'Dona Xepa', 'À Sombra dos Laranjais', 'Escrava Isaura (1976)', 'O Feijão e o Sonho', 'Vejo a Lua no Céu', 'A Moreninha (1975)', 'Senhora', 'O Noviço', 'Helena', 'A Patota', 'Bicho do Mato', 'Meu Pedacinho de Chão (1971)'],
+datasets: [
+{
+label: 'Maior Aud.',
+data: [22.3, 22.3, 23.1, 20.1, 22.9, 27.5, 24.2, 22.4, 23.6, 23.8, 27.3, 26.8, 26.6, 23.4, 25.7, 27.1, 29.2, 27.5, 35.9, 24, 22, 23, 24, 23, 28, 25, 29, 27, 30, 29, 33, 33, 32, 30, 28, 33, 32, 42, 43, 53, 35, 43, 46, 37, 31, 41, 39, 37, 42, 36, 38, 38, 44, 43, 33, 37, 39, 46, 43, 50, 63, 60, 52, 52, 42, 51, 57, 55, 48, 54, 54, 51, 49, 40, 54, 47, 56, 53, 52, 47, 50, 51, 46, 36, 43, 38, 0, 0, 39, 54, 52, 56, 51, 57, 51, 61, 52, 60, 57, 53, 49, 48, 43, 47, 41, 46, 40],
+borderColor: 'green',
+borderWidth: 3,
+fill: false
+},
+{
+label: 'Média Geral',
+data: [19.76, 18.1, 19.21, 15.36, 19.51, 19.24, 19.02, 16.87, 19.44, 20.13, 19.23, 20.71, 21.75, 17.77, 21.44, 22.63, 23.75, 21.13, 27.04, 19.81, 19.41, 17.44, 17.8, 18.37, 21.23, 18.18, 23.01, 21.81, 25.89, 22.87, 25.56, 24.35, 25.52, 20.38, 22.05, 23.37, 25.83, 32.72, 33.38, 38.65, 27.18, 34.15, 35.5, 28.44, 24.09, 30.22, 26.13, 30.94, 30.64, 27.51, 24.62, 26.79, 29.53, 31.81, 27.57, 28.56, 31.39, 34.2, 32.48, 39.09, 44.1, 49.18, 38.49, 33.89, 31.38, 36.71, 34.77, 38.53, 34.23, 36.11, 42.2, 35.01, 38.91, 27.63, 42.85, 31.22, 47.55, 38.82, 40.02, 35.94, 40.92, 37.5, 33.23, 22.13, 33.57, 27.73, 35, 36, 33, 41.64, 36.09, 38.73, 41.4, 40.98, 38.52, 46.55, 38.56, 46.9, 43.48, 39.03, 35.78, 36.09, 35.65, 39.75, 27.06, 30.56, 25.38],
+borderColor: 'white',
+borderWidth: 3,
+fill: false
+},
+{
+label: 'Menor Aud.',
+data: [10.8, 12.5, 14.2, 10.4, 14.6, 13.4, 13.1, 9.3, 14.9, 14.1, 15.9, 14.7, 17.2, 12.7, 16.9, 16.2, 18.3, 14.5, 17.7, 15, 16, 11, 0, 13, 0, 0, 16, 15, 19, 0, 18, 16, 19, 0, 16, 0, 0, 0, 24, 26, 17, 24, 26, 20, 14, 21, 19, 25, 21, 20, 0, 18, 0, 0, 23, 15, 0, 23, 21, 0, 23, 32, 0, 0, 20, 0, 23, 22, 23, 22, 33, 19, 22, 17, 30, 17, 0, 26, 4, 21, 30, 24, 25, 11, 23, 16, 0, 0, 0, 32, 28, 26, 33, 20, 20, 30, 26, 31, 31, 0, 0, 0, 0, 0, 0, 0, 0],
+borderColor: 'red',
+borderWidth: 3,
+fill: false
+}
+]
+},
+options: options
+});
+});
+</script>
 
 </body></html>
 

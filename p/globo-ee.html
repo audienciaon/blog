@@ -66,7 +66,7 @@
 
 
 
-<div class="atualizacaopost"><i class="fa-solid fa-arrows-rotate"></i><p>8 set 2025 às 21:09</p></div>
+<div class="atualizacaopost"><i class="fa-solid fa-arrows-rotate"></i><p>8 set 2025 às 21:17</p></div>
 <div class="pagina-horario-cabecalho">
 <div class="titulo-horario-cabecalho">
 <img src="https://audienciaon.github.io/emissoras/globo.svg">
@@ -842,83 +842,83 @@ linha.style.display = 'none';
 });
 </script>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const canvas = document.getElementById('grafico1');
-      const ctx = canvas.getContext('2d');
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+const canvas = document.getElementById('grafico1');
+const ctx = canvas.getContext('2d');
 
-      const options = {
-        responsive: true,
-        maintainAspectRatio: false,
-        interaction: { mode: 'index', intersect: false },
-        hover: { mode: 'nearest', intersect: true },
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            enabled: true,
-            backgroundColor: 'rgba(0,0,0,0.9)',
-            titleColor: '#fff',
-            bodyColor: '#fff',
-            borderRadius: 4,
-            displayColors: false,
-            yAlign: 'bottom',
-            padding: 10,
-            titleFont: { family: 'Fira Sans', weight: 400 },
-            bodyFont: { family: 'Fira Sans', weight: 600 },
-            callbacks: {
-              title: ctx => ' ' + ctx[0].label,
-              label: ctx => ' ' + ctx.dataset.label + ': ' + ctx.parsed.y
-            }
-          }
-        },
-        elements: {
-          line: { tension: 0.4 },
-          point: {
-            radius: 0,          // ponto normal invisível
-            hoverRadius: 8,     // ao passar o mouse
-            pointStyle: 'circle'
-          }
-        },
-        scales: {
-          x: { display: false, ticks: { font: { family: 'Fira Sans' } } },
-          y: { ticks: { color: 'rgba(255,255,255,0.5)', font: { family: 'Fira Sans' } }, min: 0 }
-        },
-        layout: { padding: 10 },
-        font: { family: 'Fira Sans' }
-      };
+const options = {
+responsive: true,
+maintainAspectRatio: false,
+interaction: { mode: 'index', intersect: false },
+hover: { mode: 'nearest', intersect: true },
+plugins: {
+legend: { display: false },
+tooltip: {
+enabled: true,
+backgroundColor: 'rgba(0,0,0,0.9)',
+titleColor: '#fff',
+bodyColor: '#fff',
+borderRadius: 4,
+displayColors: false,
+yAlign: 'bottom',
+padding: 10,
+titleFont: { family: 'Fira Sans', weight: 400 },
+bodyFont: { family: 'Fira Sans', weight: 600 },
+callbacks: {
+title: ctx => ' ' + ctx[0].label,
+label: ctx => ' ' + ctx.dataset.label + ': ' + ctx.parsed.y
+}
+}
+},
+elements: {
+line: { tension: 0.4 },
+point: {
+radius: 0, // ponto normal invisível
+hoverRadius: 8, // ao passar o mouse
+pointStyle: 'circle'
+}
+},
+scales: {
+x: { display: false, ticks: { font: { family: 'Fira Sans' } } },
+y: { ticks: { color: 'rgba(255,255,255,0.5)', font: { family: 'Fira Sans' } }, min: 0 }
+},
+layout: { padding: 10 },
+font: { family: 'Fira Sans' }
+};
 
-      new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: ['Terra Nostra - Edição Especial', 'História de Amor - Edição Especial', 'Cabocla (2004) - Edição Especial', 'Cheias de Charme - Edição Especial', 'Mulheres de Areia (1993) - Edição Especial', 'Chocolate com Pimenta - Edição Especial', 'O Cravo e a Rosa - Edição Especial', 'Vamp - Edição Especial', 'Roque Santeiro - Edição Especial', 'Que Rei Sou Eu? - Edição Especial', 'Guerra dos Sexos (1983) - Edição Especial', 'À Sombra dos Laranjais - Edição Especial', 'Estúpido Cupido - Edição Especial', 'Carinhoso - 2ª Edição Especial', 'Locomotivas - Edição Especial', 'Escrava Isaura (1976) - Edição Especial', 'O Feijão e o Sonho - Edição Especial', 'Vejo a Lua no Céu - Edição Especial', 'A Moreninha (1975) - Edição Especial', 'O Noviço - Edição Especial', 'Senhora - Edição Especial', 'Helena - Edição Especial', 'Carinhoso - Edição Especial', 'Uma Rosa com Amor - Edição Especial', 'O Primeiro Amor - Edição Especial', 'Meu Pedacinho de Chão (1971) - Edição Especial', 'A Pequena Órfã - Edição Especial', 'A Próxima Atração - Edição Especial', 'Pigmalião 70 - Edição Especial', 'A Cabana do Pai Tomás - Edição Especial', 'Rosa Rebelde - Edição Especial', 'A Grande Mentira - Edição Especial'],
-          datasets: [
-            {
-              label: 'Maior Aud.',
-              data: [0, 14.4, 14.4, 13, 15, 21, 18, 33, 36, 30, 27, 0, 25, 30, 30, 29, 24, 22, 25, 22, 23, 19, 16, 23, 14, 14, 0, 17, 17, 13, 0, 12],
-              borderColor: 'green',
-              borderWidth: 3,
-              fill: false
-            },
-            {
-              label: 'Média Geral',
-              data: [0, 11.57, 11.11, 10.63, 12.55, 12.93, 14, 21.91, 24.26, 19.73, 17.8, 0, 15.98, 21.63, 17.24, 18.34, 14.78, 14.54, 14.71, 14.4, 13.18, 13.6, 9.88, 9.99, 8.91, 7.17, 0, 7.45, 4.93, 5.08, 0, 4.26],
-              borderColor: 'white',
-              borderWidth: 3,
-              fill: false
-            },
-            {
-              label: 'Menor Aud.',
-              data: [0, 8.7, 8, 9, 9, 10, 10, 14, 15, 11, 11, 0, 10, 13, 0, 12, 10, 7, 8, 9, 7, 9, 5, 4, 5, 2, 0, 2, 1, 1, 0, 0],
-              borderColor: 'red',
-              borderWidth: 3,
-              fill: false
-            }
-          ]
-        },
-        options: options
-      });
-    });
-  </script>
+new Chart(ctx, {
+type: 'line',
+data: {
+labels: ['Terra Nostra - Edição Especial', 'História de Amor - Edição Especial', 'Cabocla (2004) - Edição Especial', 'Cheias de Charme - Edição Especial', 'Mulheres de Areia (1993) - Edição Especial', 'Chocolate com Pimenta - Edição Especial', 'O Cravo e a Rosa - Edição Especial', 'Vamp - Edição Especial', 'Roque Santeiro - Edição Especial', 'Que Rei Sou Eu? - Edição Especial', 'Guerra dos Sexos (1983) - Edição Especial', 'À Sombra dos Laranjais - Edição Especial', 'Estúpido Cupido - Edição Especial', 'Carinhoso - 2ª Edição Especial', 'Locomotivas - Edição Especial', 'Escrava Isaura (1976) - Edição Especial', 'O Feijão e o Sonho - Edição Especial', 'Vejo a Lua no Céu - Edição Especial', 'A Moreninha (1975) - Edição Especial', 'O Noviço - Edição Especial', 'Senhora - Edição Especial', 'Helena - Edição Especial', 'Carinhoso - Edição Especial', 'Uma Rosa com Amor - Edição Especial', 'O Primeiro Amor - Edição Especial', 'Meu Pedacinho de Chão (1971) - Edição Especial', 'A Pequena Órfã - Edição Especial', 'A Próxima Atração - Edição Especial', 'Pigmalião 70 - Edição Especial', 'A Cabana do Pai Tomás - Edição Especial', 'Rosa Rebelde - Edição Especial', 'A Grande Mentira - Edição Especial'],
+datasets: [
+{
+label: 'Maior Aud.',
+data: [0, 14.4, 14.4, 13, 15, 21, 18, 33, 36, 30, 27, 0, 25, 30, 30, 29, 24, 22, 25, 22, 23, 19, 16, 23, 14, 14, 0, 17, 17, 13, 0, 12],
+borderColor: 'green',
+borderWidth: 3,
+fill: false
+},
+{
+label: 'Média Geral',
+data: [0, 11.57, 11.11, 10.63, 12.55, 12.93, 14, 21.91, 24.26, 19.73, 17.8, 0, 15.98, 21.63, 17.24, 18.34, 14.78, 14.54, 14.71, 14.4, 13.18, 13.6, 9.88, 9.99, 8.91, 7.17, 0, 7.45, 4.93, 5.08, 0, 4.26],
+borderColor: 'white',
+borderWidth: 3,
+fill: false
+},
+{
+label: 'Menor Aud.',
+data: [0, 8.7, 8, 9, 9, 10, 10, 14, 15, 11, 11, 0, 10, 13, 0, 12, 10, 7, 8, 9, 7, 9, 5, 4, 5, 2, 0, 2, 1, 1, 0, 0],
+borderColor: 'red',
+borderWidth: 3,
+fill: false
+}
+]
+},
+options: options
+});
+});
+</script>
 
 </body></html>
 

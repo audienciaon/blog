@@ -66,7 +66,7 @@
 
 
 
-<div class="atualizacaopost"><i class="fa-solid fa-arrows-rotate"></i><p>8 set 2025 às 21:10</p></div>
+<div class="atualizacaopost"><i class="fa-solid fa-arrows-rotate"></i><p>8 set 2025 às 21:18</p></div>
 <div class="pagina-horario-cabecalho">
 <div class="titulo-horario-cabecalho">
 <img src="https://audienciaon.github.io/emissoras/globo.svg">
@@ -842,83 +842,83 @@ linha.style.display = 'none';
 });
 </script>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const canvas = document.getElementById('grafico1');
-      const ctx = canvas.getContext('2d');
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+const canvas = document.getElementById('grafico1');
+const ctx = canvas.getContext('2d');
 
-      const options = {
-        responsive: true,
-        maintainAspectRatio: false,
-        interaction: { mode: 'index', intersect: false },
-        hover: { mode: 'nearest', intersect: true },
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            enabled: true,
-            backgroundColor: 'rgba(0,0,0,0.9)',
-            titleColor: '#fff',
-            bodyColor: '#fff',
-            borderRadius: 4,
-            displayColors: false,
-            yAlign: 'bottom',
-            padding: 10,
-            titleFont: { family: 'Fira Sans', weight: 400 },
-            bodyFont: { family: 'Fira Sans', weight: 600 },
-            callbacks: {
-              title: ctx => ' ' + ctx[0].label,
-              label: ctx => ' ' + ctx.dataset.label + ': ' + ctx.parsed.y
-            }
-          }
-        },
-        elements: {
-          line: { tension: 0.4 },
-          point: {
-            radius: 0,          // ponto normal invisível
-            hoverRadius: 8,     // ao passar o mouse
-            pointStyle: 'circle'
-          }
-        },
-        scales: {
-          x: { display: false, ticks: { font: { family: 'Fira Sans' } } },
-          y: { ticks: { color: 'rgba(255,255,255,0.5)', font: { family: 'Fira Sans' } }, min: 0 }
-        },
-        layout: { padding: 10 },
-        font: { family: 'Fira Sans' }
-      };
+const options = {
+responsive: true,
+maintainAspectRatio: false,
+interaction: { mode: 'index', intersect: false },
+hover: { mode: 'nearest', intersect: true },
+plugins: {
+legend: { display: false },
+tooltip: {
+enabled: true,
+backgroundColor: 'rgba(0,0,0,0.9)',
+titleColor: '#fff',
+bodyColor: '#fff',
+borderRadius: 4,
+displayColors: false,
+yAlign: 'bottom',
+padding: 10,
+titleFont: { family: 'Fira Sans', weight: 400 },
+bodyFont: { family: 'Fira Sans', weight: 600 },
+callbacks: {
+title: ctx => ' ' + ctx[0].label,
+label: ctx => ' ' + ctx.dataset.label + ': ' + ctx.parsed.y
+}
+}
+},
+elements: {
+line: { tension: 0.4 },
+point: {
+radius: 0, // ponto normal invisível
+hoverRadius: 8, // ao passar o mouse
+pointStyle: 'circle'
+}
+},
+scales: {
+x: { display: false, ticks: { font: { family: 'Fira Sans' } } },
+y: { ticks: { color: 'rgba(255,255,255,0.5)', font: { family: 'Fira Sans' } }, min: 0 }
+},
+layout: { padding: 10 },
+font: { family: 'Fira Sans' }
+};
 
-      new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: ['Grande Sertão', 'Aumenta Que é Rock', 'Marighella', 'Histórias Quase Verdadeiras', 'Passaporte Para Liberdade', 'Hebe', 'Chacrinha', 'O Auto da Compadecida - 1ª reapresentação', 'Se Eu Fechar os Olhos Agora', '10 Segundos para Vencer', 'Elis: Viver é Melhor que Sonhar', 'Treze Dias Longe do Sol', 'Entre Irmãs', 'Malasartes', 'Gonzaga: de Pai pra Filho - 1ª Reapresentação', 'Aldo: Mais Forte Que o Mundo', 'Dois Irmãos', 'Justiça', 'Alemão: Os Dois Lados do Complexo', 'Ligações Perigosas', 'Felizes para Sempre?', 'Tim Maia: Vale o que Vier', 'Serra Pelada: A Saga Do Ouro', 'Amores Roubados', 'O Tempo e o Vento (2014)', 'Gonzaga: de Pai pra Filho', 'O Canto da Sereia ', 'Xingu', 'O Brado Retumbante', 'Dercy de Verdade', 'Chico Xavier ', 'O Bem Amado ', 'Amor em 4 Atos', 'Dalva e Herivelto: Uma Canção de Amor', 'Cinquentinha', 'Som e Fúria', 'Maysa: Quando Fala o Coração', 'Capitu', 'Queridos Amigos', 'A Pedra do Reino', 'Amazônia de Galvez a Chico Mendes', 'JK', 'Hoje é dia de Maria - Segunda Jornada', 'Mad Maria', 'Hoje é dia de Maria', 'Um Só Coração', 'A Casa das Sete Mulheres', 'Presença de Anita - 1ª Reapresentação', 'Engraçadinha - 2ª Reapresentação', 'Dona Flor e Seus Dois Maridos - 1ª Reapresentação', 'O Quinto dos Infernos', 'Presença de Anita', 'Os Maias', 'Aquarela do Brasil', 'A Invenção do Brasil', 'A Muralha', 'Luna Caliente', 'O Pagador de Promessas - 2ª Reapresentação', 'Chiquinha Gonzaga', 'O Auto da Compadecida', 'Labirinto', 'As Noivas de Copacabana - 2ª Reapresentação', 'Desejo - 2ª Reapresentação', 'Engraçadinha - 1ª Reapresentação', 'Memorial de Maria Moura - 1ª Reapresentação', 'Hilda Furacão', 'Dona Flor e Seus Dois Maridos', 'Guerra de Canudos', 'Decadência', 'Engraçadinha', 'Desejo - 1ª Reapresentação', 'Anos Rebeldes - 1ª Reapresentação', 'Boca do Lixo - 1ª Reapresentação', 'Agosto - 1ª Reapresentação', 'As Noivas de Copacabana - 1ª Reapresentação', 'O Tempo e o Vento (1985) - 3ª Reapresentação', 'Incidente em Antares', 'Memorial de Maria Moura', 'A Madona de Cedro', 'Agosto', 'Sex Appeal', 'Contos de Verão', 'Anos Rebeldes', 'As Noivas de Copacabana', 'Tereza Batista', 'O Portador', 'Lampião e Maria Bonita - 2ª Reapresentação', 'O Tempo e o Vento (1985) - 2ª Reapresentação', 'O Sorriso do Lagarto', 'O Pagador de Promessas - 1ª Reapresentação', 'Meu Marido', 'Riacho Doce - 1ª Reapresentação', 'La Mamma', 'Riacho Doce', 'Boca do Lixo', 'A E I O... Urca', 'Desejo', 'República', 'Sampa', 'Abolição', 'Anos Dourados - 1ª Reapresentação', 'O Primo Basílio', 'O Pagador de Promessas', 'O Tempo e o Vento (1985) - 1ª Reapresentação', 'A Máfia no Brasil - 1ª Reapresentação', 'Rabo de Saia - 1ª Reapresentação', 'Memórias de um Gigolô', 'Anos Dourados', 'Grande Sertão: Veredas', 'Avenida Paulista - 1ª Reapresentação', 'Tenda dos Milagres', 'O Tempo e o Vento (1985)', 'Rabo de Saia', 'A Máfia no Brasil', 'Meu Destino é Pecar', 'Anarquistas Graças a Deus', 'Padre Cícero', 'Lampião e Maria Bonita - 1ª Reapresentação', 'Bandidos da Falange - 1ª Reapresentação', 'Parabéns pra Você', 'Bandidos da Falange', 'Moinhos de Vento', 'Quem Ama Não Mata', 'Avenida Paulista', 'Lampião e Maria Bonita'],
-          datasets: [
-            {
-              label: 'Maior Aud.',
-              data: [8.8, 8.2, 12, 19.3, 11.1, 20, 24.2, 27, 21.9, 13.5, 19.3, 31.4, 31.6, 29.1, 10.4, 24.1, 24.1, 29.6, 18.8, 24.2, 19.6, 27, 20, 32, 26, 20, 23, 16, 19, 26, 18, 18, 21, 31, 24, 19, 30, 17, 26, 13, 34, 41, 27, 31, 34, 40, 36, 25, 22, 27, 37, 38, 30, 30, 26, 44, 25, 21, 36, 39, 34, 26, 23, 26, 30, 35, 31, 23, 39, 37, 23, 26, 24, 16, 32, 24, 42, 42, 29, 37, 32, 28, 34, 34, 36, 28, 0, 0, 27, 0, 24, 0, 36, 43, 23, 25, 29, 19, 16, 17, 23, 0, 39, 29, 23, 28, 36, 43, 38, 20, 0, 34, 31, 31, 23, 23, 17, 23, 17, 30, 27, 22, 22, 23, 25],
-              borderColor: 'green',
-              borderWidth: 3,
-              fill: false
-            },
-            {
-              label: 'Média Geral',
-              data: [8.3, 7.28, 9.08, 18.1, 9.98, 18.58, 22.55, 26.48, 19.39, 12.08, 18.58, 29.43, 30.68, 28.23, 9.68, 23.5, 23.5, 26.11, 17.7, 22.37, 16.99, 25.5, 18, 28.2, 24.67, 19.5, 21, 14, 14.75, 23.75, 16.75, 16.5, 19.25, 29.4, 19.75, 15.08, 26.11, 15.4, 18.12, 11.25, 22.65, 26, 22, 21.94, 29.25, 27.66, 28.29, 21, 19.06, 9.58, 23.02, 29.88, 15.93, 19.58, 22.33, 29.18, 21.67, 20, 29.24, 37.75, 24.9, 21.13, 17.13, 21.33, 21, 28.79, 23.37, 18.25, 29.58, 31.53, 19.33, 16.33, 19, 13.33, 26.25, 20.75, 28.4, 37.37, 21.38, 26.56, 25.53, 21.8, 28.85, 26.56, 30, 23, 0, 0, 20.45, 0, 17.13, 0, 30.2, 30.7, 18.25, 18.85, 24.65, 15.67, 12.25, 16, 18.75, 27, 30.88, 22.17, 17.43, 21.58, 29.45, 36.7, 28.4, 14.89, 20, 24.73, 23.1, 22.1, 15.53, 14.7, 14, 18.75, 13.4, 20.87, 19.6, 15.8, 17.57, 16.18, 22.11],
-              borderColor: 'white',
-              borderWidth: 3,
-              fill: false
-            },
-            {
-              label: 'Menor Aud.',
-              data: [7.5, 6.3, 6.5, 17, 9, 15.9, 21.8, 25.4, 16.8, 10.5, 16.6, 25.9, 29.7, 27.4, 9, 22.3, 22.3, 19.7, 16.8, 20, 13.9, 24, 13, 25, 23, 19, 19, 12, 10, 22, 14, 15, 17, 28, 15, 9, 23, 14, 12, 9, 16, 16, 17, 16, 25, 17, 21, 9, 16, 6, 15, 25, 11, 11, 18, 21, 19, 19, 24, 36, 18, 15, 12, 19, 16, 23, 15, 15, 24, 27, 13, 10, 14, 10, 22, 14, 21, 32, 16, 18, 20, 14, 25, 18, 22, 19, 0, 0, 14, 0, 12, 0, 27, 23, 11, 15, 19, 13, 9, 14, 11, 0, 23, 16, 13, 14, 18, 29, 13, 11, 0, 15, 14, 18, 11, 10, 9, 15, 6, 14, 12, 12, 12, 12, 19],
-              borderColor: 'red',
-              borderWidth: 3,
-              fill: false
-            }
-          ]
-        },
-        options: options
-      });
-    });
-  </script>
+new Chart(ctx, {
+type: 'line',
+data: {
+labels: ['Grande Sertão', 'Aumenta Que é Rock', 'Marighella', 'Histórias Quase Verdadeiras', 'Passaporte Para Liberdade', 'Hebe', 'Chacrinha', 'O Auto da Compadecida - 1ª reapresentação', 'Se Eu Fechar os Olhos Agora', '10 Segundos para Vencer', 'Elis: Viver é Melhor que Sonhar', 'Treze Dias Longe do Sol', 'Entre Irmãs', 'Malasartes', 'Gonzaga: de Pai pra Filho - 1ª Reapresentação', 'Aldo: Mais Forte Que o Mundo', 'Dois Irmãos', 'Justiça', 'Alemão: Os Dois Lados do Complexo', 'Ligações Perigosas', 'Felizes para Sempre?', 'Tim Maia: Vale o que Vier', 'Serra Pelada: A Saga Do Ouro', 'Amores Roubados', 'O Tempo e o Vento (2014)', 'Gonzaga: de Pai pra Filho', 'O Canto da Sereia ', 'Xingu', 'O Brado Retumbante', 'Dercy de Verdade', 'Chico Xavier ', 'O Bem Amado ', 'Amor em 4 Atos', 'Dalva e Herivelto: Uma Canção de Amor', 'Cinquentinha', 'Som e Fúria', 'Maysa: Quando Fala o Coração', 'Capitu', 'Queridos Amigos', 'A Pedra do Reino', 'Amazônia de Galvez a Chico Mendes', 'JK', 'Hoje é dia de Maria - Segunda Jornada', 'Mad Maria', 'Hoje é dia de Maria', 'Um Só Coração', 'A Casa das Sete Mulheres', 'Presença de Anita - 1ª Reapresentação', 'Engraçadinha - 2ª Reapresentação', 'Dona Flor e Seus Dois Maridos - 1ª Reapresentação', 'O Quinto dos Infernos', 'Presença de Anita', 'Os Maias', 'Aquarela do Brasil', 'A Invenção do Brasil', 'A Muralha', 'Luna Caliente', 'O Pagador de Promessas - 2ª Reapresentação', 'Chiquinha Gonzaga', 'O Auto da Compadecida', 'Labirinto', 'As Noivas de Copacabana - 2ª Reapresentação', 'Desejo - 2ª Reapresentação', 'Engraçadinha - 1ª Reapresentação', 'Memorial de Maria Moura - 1ª Reapresentação', 'Hilda Furacão', 'Dona Flor e Seus Dois Maridos', 'Guerra de Canudos', 'Decadência', 'Engraçadinha', 'Desejo - 1ª Reapresentação', 'Anos Rebeldes - 1ª Reapresentação', 'Boca do Lixo - 1ª Reapresentação', 'Agosto - 1ª Reapresentação', 'As Noivas de Copacabana - 1ª Reapresentação', 'O Tempo e o Vento (1985) - 3ª Reapresentação', 'Incidente em Antares', 'Memorial de Maria Moura', 'A Madona de Cedro', 'Agosto', 'Sex Appeal', 'Contos de Verão', 'Anos Rebeldes', 'As Noivas de Copacabana', 'Tereza Batista', 'O Portador', 'Lampião e Maria Bonita - 2ª Reapresentação', 'O Tempo e o Vento (1985) - 2ª Reapresentação', 'O Sorriso do Lagarto', 'O Pagador de Promessas - 1ª Reapresentação', 'Meu Marido', 'Riacho Doce - 1ª Reapresentação', 'La Mamma', 'Riacho Doce', 'Boca do Lixo', 'A E I O... Urca', 'Desejo', 'República', 'Sampa', 'Abolição', 'Anos Dourados - 1ª Reapresentação', 'O Primo Basílio', 'O Pagador de Promessas', 'O Tempo e o Vento (1985) - 1ª Reapresentação', 'A Máfia no Brasil - 1ª Reapresentação', 'Rabo de Saia - 1ª Reapresentação', 'Memórias de um Gigolô', 'Anos Dourados', 'Grande Sertão: Veredas', 'Avenida Paulista - 1ª Reapresentação', 'Tenda dos Milagres', 'O Tempo e o Vento (1985)', 'Rabo de Saia', 'A Máfia no Brasil', 'Meu Destino é Pecar', 'Anarquistas Graças a Deus', 'Padre Cícero', 'Lampião e Maria Bonita - 1ª Reapresentação', 'Bandidos da Falange - 1ª Reapresentação', 'Parabéns pra Você', 'Bandidos da Falange', 'Moinhos de Vento', 'Quem Ama Não Mata', 'Avenida Paulista', 'Lampião e Maria Bonita'],
+datasets: [
+{
+label: 'Maior Aud.',
+data: [8.8, 8.2, 12, 19.3, 11.1, 20, 24.2, 27, 21.9, 13.5, 19.3, 31.4, 31.6, 29.1, 10.4, 24.1, 24.1, 29.6, 18.8, 24.2, 19.6, 27, 20, 32, 26, 20, 23, 16, 19, 26, 18, 18, 21, 31, 24, 19, 30, 17, 26, 13, 34, 41, 27, 31, 34, 40, 36, 25, 22, 27, 37, 38, 30, 30, 26, 44, 25, 21, 36, 39, 34, 26, 23, 26, 30, 35, 31, 23, 39, 37, 23, 26, 24, 16, 32, 24, 42, 42, 29, 37, 32, 28, 34, 34, 36, 28, 0, 0, 27, 0, 24, 0, 36, 43, 23, 25, 29, 19, 16, 17, 23, 0, 39, 29, 23, 28, 36, 43, 38, 20, 0, 34, 31, 31, 23, 23, 17, 23, 17, 30, 27, 22, 22, 23, 25],
+borderColor: 'green',
+borderWidth: 3,
+fill: false
+},
+{
+label: 'Média Geral',
+data: [8.3, 7.28, 9.08, 18.1, 9.98, 18.58, 22.55, 26.48, 19.39, 12.08, 18.58, 29.43, 30.68, 28.23, 9.68, 23.5, 23.5, 26.11, 17.7, 22.37, 16.99, 25.5, 18, 28.2, 24.67, 19.5, 21, 14, 14.75, 23.75, 16.75, 16.5, 19.25, 29.4, 19.75, 15.08, 26.11, 15.4, 18.12, 11.25, 22.65, 26, 22, 21.94, 29.25, 27.66, 28.29, 21, 19.06, 9.58, 23.02, 29.88, 15.93, 19.58, 22.33, 29.18, 21.67, 20, 29.24, 37.75, 24.9, 21.13, 17.13, 21.33, 21, 28.79, 23.37, 18.25, 29.58, 31.53, 19.33, 16.33, 19, 13.33, 26.25, 20.75, 28.4, 37.37, 21.38, 26.56, 25.53, 21.8, 28.85, 26.56, 30, 23, 0, 0, 20.45, 0, 17.13, 0, 30.2, 30.7, 18.25, 18.85, 24.65, 15.67, 12.25, 16, 18.75, 27, 30.88, 22.17, 17.43, 21.58, 29.45, 36.7, 28.4, 14.89, 20, 24.73, 23.1, 22.1, 15.53, 14.7, 14, 18.75, 13.4, 20.87, 19.6, 15.8, 17.57, 16.18, 22.11],
+borderColor: 'white',
+borderWidth: 3,
+fill: false
+},
+{
+label: 'Menor Aud.',
+data: [7.5, 6.3, 6.5, 17, 9, 15.9, 21.8, 25.4, 16.8, 10.5, 16.6, 25.9, 29.7, 27.4, 9, 22.3, 22.3, 19.7, 16.8, 20, 13.9, 24, 13, 25, 23, 19, 19, 12, 10, 22, 14, 15, 17, 28, 15, 9, 23, 14, 12, 9, 16, 16, 17, 16, 25, 17, 21, 9, 16, 6, 15, 25, 11, 11, 18, 21, 19, 19, 24, 36, 18, 15, 12, 19, 16, 23, 15, 15, 24, 27, 13, 10, 14, 10, 22, 14, 21, 32, 16, 18, 20, 14, 25, 18, 22, 19, 0, 0, 14, 0, 12, 0, 27, 23, 11, 15, 19, 13, 9, 14, 11, 0, 23, 16, 13, 14, 18, 29, 13, 11, 0, 15, 14, 18, 11, 10, 9, 15, 6, 14, 12, 12, 12, 12, 19],
+borderColor: 'red',
+borderWidth: 3,
+fill: false
+}
+]
+},
+options: options
+});
+});
+</script>
 
 </body></html>
 
