@@ -494,8 +494,8 @@ background: linear-gradient(to bottom, var(--cor-10) 0%, #11111190 20%, #1111119
 }
 
 #home .campopesquisa{
-  background-color:var(--cor-80-fade) !important;
-  border:1px solid var(--cor-10) !important;
+background-color: var(--cor-00-fade) !important;
+    border: 1px solid var(--cor-80) !important;
 }
 
 .campopesquisa::after{
@@ -3805,7 +3805,7 @@ grid-template-areas: 'titulo producao1 producao2 producao3 producao4 producao5';
 
 
       input[type="text"] * {
-  color:var(--cor-texto) !important;
+  color:var(--cor-100) !important;
 }
   
   input[type="text"] {
