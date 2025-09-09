@@ -66,7 +66,7 @@
 
 
 
-<div class="atualizacaopost"><i class="fa-solid fa-arrows-rotate"></i><p>8 set 2025 às 21:11</p></div>
+<div class="atualizacaopost"><i class="fa-solid fa-arrows-rotate"></i><p>8 set 2025 às 21:19</p></div>
 <div class="pagina-horario-cabecalho">
 <div class="titulo-horario-cabecalho">
 <img src="https://audienciaon.github.io/emissoras/globo.svg">
@@ -842,83 +842,83 @@ linha.style.display = 'none';
 });
 </script>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const canvas = document.getElementById('grafico1');
-      const ctx = canvas.getContext('2d');
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+const canvas = document.getElementById('grafico1');
+const ctx = canvas.getContext('2d');
 
-      const options = {
-        responsive: true,
-        maintainAspectRatio: false,
-        interaction: { mode: 'index', intersect: false },
-        hover: { mode: 'nearest', intersect: true },
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            enabled: true,
-            backgroundColor: 'rgba(0,0,0,0.9)',
-            titleColor: '#fff',
-            bodyColor: '#fff',
-            borderRadius: 4,
-            displayColors: false,
-            yAlign: 'bottom',
-            padding: 10,
-            titleFont: { family: 'Fira Sans', weight: 400 },
-            bodyFont: { family: 'Fira Sans', weight: 600 },
-            callbacks: {
-              title: ctx => ' ' + ctx[0].label,
-              label: ctx => ' ' + ctx.dataset.label + ': ' + ctx.parsed.y
-            }
-          }
-        },
-        elements: {
-          line: { tension: 0.4 },
-          point: {
-            radius: 0,          // ponto normal invisível
-            hoverRadius: 8,     // ao passar o mouse
-            pointStyle: 'circle'
-          }
-        },
-        scales: {
-          x: { display: false, ticks: { font: { family: 'Fira Sans' } } },
-          y: { ticks: { color: 'rgba(255,255,255,0.5)', font: { family: 'Fira Sans' } }, min: 0 }
-        },
-        layout: { padding: 10 },
-        font: { family: 'Fira Sans' }
-      };
+const options = {
+responsive: true,
+maintainAspectRatio: false,
+interaction: { mode: 'index', intersect: false },
+hover: { mode: 'nearest', intersect: true },
+plugins: {
+legend: { display: false },
+tooltip: {
+enabled: true,
+backgroundColor: 'rgba(0,0,0,0.9)',
+titleColor: '#fff',
+bodyColor: '#fff',
+borderRadius: 4,
+displayColors: false,
+yAlign: 'bottom',
+padding: 10,
+titleFont: { family: 'Fira Sans', weight: 400 },
+bodyFont: { family: 'Fira Sans', weight: 600 },
+callbacks: {
+title: ctx => ' ' + ctx[0].label,
+label: ctx => ' ' + ctx.dataset.label + ': ' + ctx.parsed.y
+}
+}
+},
+elements: {
+line: { tension: 0.4 },
+point: {
+radius: 0, // ponto normal invisível
+hoverRadius: 8, // ao passar o mouse
+pointStyle: 'circle'
+}
+},
+scales: {
+x: { display: false, ticks: { font: { family: 'Fira Sans' } } },
+y: { ticks: { color: 'rgba(255,255,255,0.5)', font: { family: 'Fira Sans' } }, min: 0 }
+},
+layout: { padding: 10 },
+font: { family: 'Fira Sans' }
+};
 
-      new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: ['Estrela da Casa - 2ª Temporada', 'Chef de Alto Nível - 1ª Temporada', 'Big Brother Brasil - 25ª Temporada', 'The Masked Singer Brasil - 5ª Temporada', 'The Taste Brasil - 7ª Temporada', 'Estrela da Casa - 1ª Temporada', 'The Masked Singer Brasil - 4ª Temporada', 'Big Brother Brasil - 24ª Temporada', 'The Voice Brasil - 12ª Temporada', 'No Limite - 7ª Temporada', 'The Voice Kids - 8ª Temporada', 'Minha Mãe Cozinha Melhor Que a Sua - 1ª Temporada', 'The Masked Singer Brasil - 3ª Temporada', 'Big Brother Brasil - 23ª Temporada', 'The Voice Brasil - 11ª Temporada', 'No Limite - 6ª Temporada', 'The Voice Kids - 7ª Temporada', 'The Voice + - 2ª Temporada', 'The Masked Singer Brasil - 2ª Temporada', 'Big Brother Brasil - 22ª Temporada', 'The Voice Brasil - 10ª Temporada', 'Zig Zag Arena - 1ª Temporada', 'The Masked Singer Brasil - 1ª Temporada', 'Super Dança dos Famosos - 18ª Temporada', 'The Voice Kids - 6ª Temporada', 'No Limite - 5ª Temporada', 'Mestre do Sabor - 3ª Temporada', 'Big Brother Brasil - 21ª Temporada', 'The Voice + - 1ª Temporada', 'The Voice Brasil - 9ª Temporada', 'Mestre do Sabor - 2ª Temporada', 'The Voice Kids - 5ª Temporada - Edição Especial', 'Big Brother Brasil - 20ª Temporada', 'The Voice Kids - 5ª Temporada', 'Popstar - 3ª Temporada', 'Mestre do Sabor - 1ª Temporada', 'The Voice Brasil - 8ª Temporada', 'Big Brother Brasil - 19ª Temporada', 'The Voice Kids - 4ª Temporada', 'Popstar - 2ª Temporada', 'The Voice Brasil - 7ª Temporada', 'Big Brother Brasil - 18ª Temporada', 'The Voice Kids - 3ª Temporada', 'The Voice Brasil - 6ª Temporada', 'Popstar - 1ª Temporada', 'Big Brother Brasil - 17ª Temporada', 'The Voice Kids - 2ª Temporada', 'The Voice Brasil - 5ª Temporada', 'Superstar - 3ª Temporada', 'Big Brother Brasil - 16ª Temporada', 'The Voice Kids - 1ª Temporada', 'The Voice Brasil - 4ª Temporada', 'Superstar - 2ª Temporada', 'Big Brother Brasil - 15ª Temporada', 'The Voice Brasil - 3ª Temporada', 'Superstar - 1ª Temporada', 'Big Brother Brasil - 14ª Temporada', 'The Voice Brasil - 2ª Temporada', 'Big Brother Brasil - 13ª Temporada', 'The Voice Brasil - 1ª Temporada', 'Big Brother Brasil - 12ª Temporada', 'Big Brother Brasil - 11ª Temporada', 'Big Brother Brasil - 10ª Temporada', 'No Limite - 4ª Temporada', 'Big Brother Brasil - 9ª Temporada', 'Big Brother Brasil - 8ª Temporada', 'Big Brother Brasil - 7ª Temporada', 'Big Brother Brasil - 6ª Temporada', 'Big Brother Brasil - 5ª Temporada', 'Big Brother Brasil - 4ª Temporada', 'Big Brother Brasil - 3ª Temporada', 'Big Brother Brasil - 2ª Temporada', 'Big Brother Brasil - 1ª Temporada', 'No Limite - 3ª Temporada', 'No Limite - 2ª Temporada', 'No Limite - 1ª Temporada'],
-          datasets: [
-            {
-              label: 'Maior Aud.',
-              data: [17.3, 16, 19.7, 11.2, 10.5, 17, 13.2, 27, 17.5, 16.4, 11.8, 11.2, 12.7, 23, 16.6, 17.8, 13.6, 12.8, 15.7, 29, 19.7, 10.7, 22, 20, 13.9, 21.4, 17.3, 38, 14.6, 19.4, 20.3, 15.1, 34, 15.1, 11.5, 20.2, 27, 28, 17.8, 13.6, 25.9, 34, 21.1, 26, 16.2, 34, 18.1, 24.5, 12.9, 31, 17.8, 21.7, 13.2, 37, 23.6, 12.7, 34, 28.4, 32, 17, 37, 34, 41, 24, 41, 46, 55, 53, 58, 56, 50, 51, 57, 42, 41, 52],
-              borderColor: 'green',
-              borderWidth: 3,
-              fill: false
-            },
-            {
-              label: 'Média Geral',
-              data: [14.86, 14.52, 16.14, 9.74, 8.54, 11.5, 11.04, 20.27, 16.6, 15.11, 10.27, 10.07, 10.98, 18.83, 15.14, 16.14, 11.87, 10.75, 12.56, 22.87, 15.88, 8.81, 19.44, 16.99, 12.06, 17.48, 16.25, 28.06, 13.22, 16.05, 18.18, 12.25, 25.2, 12.75, 10.25, 17.72, 25.09, 20.01, 16.01, 12.05, 23.65, 25.66, 18.19, 23.44, 13.52, 22.84, 15.78, 21.58, 10.47, 23.51, 15.85, 20.25, 10.9, 23.91, 22.15, 11.26, 22.88, 25.78, 24.78, 14.62, 26.49, 25.41, 31, 18.12, 32.52, 37.33, 41.81, 44.03, 48.71, 45.67, 39.05, 38.8, 41.64, 30.83, 34.5, 46.88],
-              borderColor: 'white',
-              borderWidth: 3,
-              fill: false
-            },
-            {
-              label: 'Menor Aud.',
-              data: [8.7, 12.6, 11, 8.6, 5.2, 7, 9.4, 11, 14.8, 13.7, 8.2, 8.8, 9.3, 11, 12.9, 13, 9.8, 9.3, 9.5, 17, 13.6, 7, 16.1, 13.9, 9.9, 15.9, 15.5, 13, 12.3, 13.6, 16.1, 10.7, 13, 9.3, 9, 14.8, 21.7, 12, 14, 10.5, 21.5, 14, 15.7, 20.3, 10.4, 13, 13.2, 17.8, 9.5, 13, 14.6, 18.8, 9.8, 12, 20.7, 9, 10, 23.7, 14, 12, 13, 16, 14, 13, 19, 18, 24, 21, 27, 32, 25, 27, 17, 17, 32, 43],
-              borderColor: 'red',
-              borderWidth: 3,
-              fill: false
-            }
-          ]
-        },
-        options: options
-      });
-    });
-  </script>
+new Chart(ctx, {
+type: 'line',
+data: {
+labels: ['Estrela da Casa - 2ª Temporada', 'Chef de Alto Nível - 1ª Temporada', 'Big Brother Brasil - 25ª Temporada', 'The Masked Singer Brasil - 5ª Temporada', 'The Taste Brasil - 7ª Temporada', 'Estrela da Casa - 1ª Temporada', 'The Masked Singer Brasil - 4ª Temporada', 'Big Brother Brasil - 24ª Temporada', 'The Voice Brasil - 12ª Temporada', 'No Limite - 7ª Temporada', 'The Voice Kids - 8ª Temporada', 'Minha Mãe Cozinha Melhor Que a Sua - 1ª Temporada', 'The Masked Singer Brasil - 3ª Temporada', 'Big Brother Brasil - 23ª Temporada', 'The Voice Brasil - 11ª Temporada', 'No Limite - 6ª Temporada', 'The Voice Kids - 7ª Temporada', 'The Voice + - 2ª Temporada', 'The Masked Singer Brasil - 2ª Temporada', 'Big Brother Brasil - 22ª Temporada', 'The Voice Brasil - 10ª Temporada', 'Zig Zag Arena - 1ª Temporada', 'The Masked Singer Brasil - 1ª Temporada', 'Super Dança dos Famosos - 18ª Temporada', 'The Voice Kids - 6ª Temporada', 'No Limite - 5ª Temporada', 'Mestre do Sabor - 3ª Temporada', 'Big Brother Brasil - 21ª Temporada', 'The Voice + - 1ª Temporada', 'The Voice Brasil - 9ª Temporada', 'Mestre do Sabor - 2ª Temporada', 'The Voice Kids - 5ª Temporada - Edição Especial', 'Big Brother Brasil - 20ª Temporada', 'The Voice Kids - 5ª Temporada', 'Popstar - 3ª Temporada', 'Mestre do Sabor - 1ª Temporada', 'The Voice Brasil - 8ª Temporada', 'Big Brother Brasil - 19ª Temporada', 'The Voice Kids - 4ª Temporada', 'Popstar - 2ª Temporada', 'The Voice Brasil - 7ª Temporada', 'Big Brother Brasil - 18ª Temporada', 'The Voice Kids - 3ª Temporada', 'The Voice Brasil - 6ª Temporada', 'Popstar - 1ª Temporada', 'Big Brother Brasil - 17ª Temporada', 'The Voice Kids - 2ª Temporada', 'The Voice Brasil - 5ª Temporada', 'Superstar - 3ª Temporada', 'Big Brother Brasil - 16ª Temporada', 'The Voice Kids - 1ª Temporada', 'The Voice Brasil - 4ª Temporada', 'Superstar - 2ª Temporada', 'Big Brother Brasil - 15ª Temporada', 'The Voice Brasil - 3ª Temporada', 'Superstar - 1ª Temporada', 'Big Brother Brasil - 14ª Temporada', 'The Voice Brasil - 2ª Temporada', 'Big Brother Brasil - 13ª Temporada', 'The Voice Brasil - 1ª Temporada', 'Big Brother Brasil - 12ª Temporada', 'Big Brother Brasil - 11ª Temporada', 'Big Brother Brasil - 10ª Temporada', 'No Limite - 4ª Temporada', 'Big Brother Brasil - 9ª Temporada', 'Big Brother Brasil - 8ª Temporada', 'Big Brother Brasil - 7ª Temporada', 'Big Brother Brasil - 6ª Temporada', 'Big Brother Brasil - 5ª Temporada', 'Big Brother Brasil - 4ª Temporada', 'Big Brother Brasil - 3ª Temporada', 'Big Brother Brasil - 2ª Temporada', 'Big Brother Brasil - 1ª Temporada', 'No Limite - 3ª Temporada', 'No Limite - 2ª Temporada', 'No Limite - 1ª Temporada'],
+datasets: [
+{
+label: 'Maior Aud.',
+data: [17.3, 16, 19.7, 11.2, 10.5, 17, 13.2, 27, 17.5, 16.4, 11.8, 11.2, 12.7, 23, 16.6, 17.8, 13.6, 12.8, 15.7, 29, 19.7, 10.7, 22, 20, 13.9, 21.4, 17.3, 38, 14.6, 19.4, 20.3, 15.1, 34, 15.1, 11.5, 20.2, 27, 28, 17.8, 13.6, 25.9, 34, 21.1, 26, 16.2, 34, 18.1, 24.5, 12.9, 31, 17.8, 21.7, 13.2, 37, 23.6, 12.7, 34, 28.4, 32, 17, 37, 34, 41, 24, 41, 46, 55, 53, 58, 56, 50, 51, 57, 42, 41, 52],
+borderColor: 'green',
+borderWidth: 3,
+fill: false
+},
+{
+label: 'Média Geral',
+data: [14.86, 14.52, 16.14, 9.74, 8.54, 11.5, 11.04, 20.27, 16.6, 15.11, 10.27, 10.07, 10.98, 18.83, 15.14, 16.14, 11.87, 10.75, 12.56, 22.87, 15.88, 8.81, 19.44, 16.99, 12.06, 17.48, 16.25, 28.06, 13.22, 16.05, 18.18, 12.25, 25.2, 12.75, 10.25, 17.72, 25.09, 20.01, 16.01, 12.05, 23.65, 25.66, 18.19, 23.44, 13.52, 22.84, 15.78, 21.58, 10.47, 23.51, 15.85, 20.25, 10.9, 23.91, 22.15, 11.26, 22.88, 25.78, 24.78, 14.62, 26.49, 25.41, 31, 18.12, 32.52, 37.33, 41.81, 44.03, 48.71, 45.67, 39.05, 38.8, 41.64, 30.83, 34.5, 46.88],
+borderColor: 'white',
+borderWidth: 3,
+fill: false
+},
+{
+label: 'Menor Aud.',
+data: [8.7, 12.6, 11, 8.6, 5.2, 7, 9.4, 11, 14.8, 13.7, 8.2, 8.8, 9.3, 11, 12.9, 13, 9.8, 9.3, 9.5, 17, 13.6, 7, 16.1, 13.9, 9.9, 15.9, 15.5, 13, 12.3, 13.6, 16.1, 10.7, 13, 9.3, 9, 14.8, 21.7, 12, 14, 10.5, 21.5, 14, 15.7, 20.3, 10.4, 13, 13.2, 17.8, 9.5, 13, 14.6, 18.8, 9.8, 12, 20.7, 9, 10, 23.7, 14, 12, 13, 16, 14, 13, 19, 18, 24, 21, 27, 32, 25, 27, 17, 17, 32, 43],
+borderColor: 'red',
+borderWidth: 3,
+fill: false
+}
+]
+},
+options: options
+});
+});
+</script>
 
 </body></html>
 

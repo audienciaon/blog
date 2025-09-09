@@ -66,7 +66,7 @@
 
 
 
-<div class="atualizacaopost"><i class="fa-solid fa-arrows-rotate"></i><p>8 set 2025 às 21:10</p></div>
+<div class="atualizacaopost"><i class="fa-solid fa-arrows-rotate"></i><p>8 set 2025 às 21:18</p></div>
 <div class="pagina-horario-cabecalho">
 <div class="titulo-horario-cabecalho">
 <img src="https://audienciaon.github.io/emissoras/band.svg">
@@ -842,83 +842,83 @@ linha.style.display = 'none';
 });
 </script>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const canvas = document.getElementById('grafico1');
-      const ctx = canvas.getContext('2d');
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+const canvas = document.getElementById('grafico1');
+const ctx = canvas.getContext('2d');
 
-      const options = {
-        responsive: true,
-        maintainAspectRatio: false,
-        interaction: { mode: 'index', intersect: false },
-        hover: { mode: 'nearest', intersect: true },
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            enabled: true,
-            backgroundColor: 'rgba(0,0,0,0.9)',
-            titleColor: '#fff',
-            bodyColor: '#fff',
-            borderRadius: 4,
-            displayColors: false,
-            yAlign: 'bottom',
-            padding: 10,
-            titleFont: { family: 'Fira Sans', weight: 400 },
-            bodyFont: { family: 'Fira Sans', weight: 600 },
-            callbacks: {
-              title: ctx => ' ' + ctx[0].label,
-              label: ctx => ' ' + ctx.dataset.label + ': ' + ctx.parsed.y
-            }
-          }
-        },
-        elements: {
-          line: { tension: 0.4 },
-          point: {
-            radius: 0,          // ponto normal invisível
-            hoverRadius: 8,     // ao passar o mouse
-            pointStyle: 'circle'
-          }
-        },
-        scales: {
-          x: { display: false, ticks: { font: { family: 'Fira Sans' } } },
-          y: { ticks: { color: 'rgba(255,255,255,0.5)', font: { family: 'Fira Sans' } }, min: 0 }
-        },
-        layout: { padding: 10 },
-        font: { family: 'Fira Sans' }
-      };
+const options = {
+responsive: true,
+maintainAspectRatio: false,
+interaction: { mode: 'index', intersect: false },
+hover: { mode: 'nearest', intersect: true },
+plugins: {
+legend: { display: false },
+tooltip: {
+enabled: true,
+backgroundColor: 'rgba(0,0,0,0.9)',
+titleColor: '#fff',
+bodyColor: '#fff',
+borderRadius: 4,
+displayColors: false,
+yAlign: 'bottom',
+padding: 10,
+titleFont: { family: 'Fira Sans', weight: 400 },
+bodyFont: { family: 'Fira Sans', weight: 600 },
+callbacks: {
+title: ctx => ' ' + ctx[0].label,
+label: ctx => ' ' + ctx.dataset.label + ': ' + ctx.parsed.y
+}
+}
+},
+elements: {
+line: { tension: 0.4 },
+point: {
+radius: 0, // ponto normal invisível
+hoverRadius: 8, // ao passar o mouse
+pointStyle: 'circle'
+}
+},
+scales: {
+x: { display: false, ticks: { font: { family: 'Fira Sans' } } },
+y: { ticks: { color: 'rgba(255,255,255,0.5)', font: { family: 'Fira Sans' } }, min: 0 }
+},
+layout: { padding: 10 },
+font: { family: 'Fira Sans' }
+};
 
-      new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: ['Beleza Fatal', 'Água na Boca', 'Dance Dance Dance', 'Paixões Proibidas', 'Floribella - 2ª Temporada', 'Floribella - 1ª Temporada', 'Meu Pé de Laranja Lima', 'Serras Azuis', 'Perdidos de Amor', 'O Campeão', 'A Idade da Loba', 'Braço de Ferro', 'Maçã do Amor', 'Sabor de Mel', 'Campeão', 'Renúncia', 'A Filha do Silêncio', 'Os Imigrantes - 1ª Reapresentação', 'Ninho da Serpente', 'Os Adolescentes', 'Os Imigrantes', 'Rosa Baiana', 'Dulcinéa Vai à Guerra', 'O Meu Pé de Laranja Lima', 'Um Homem Muito Especial', 'Cavalo Amarelo', 'A Deusa Vencida', 'Pé de Vento', 'O Todo Poderoso', 'Cara a Cara', 'O Bolha', 'Era Preciso Voltar', 'Nunca É Tarde Demais', 'Ricardinho: Sou Criança, Quero Viver', 'A Moça do Sobrado Grande', 'Os Miseráveis'],
-          datasets: [
-            {
-              label: 'Maior Aud.',
-              data: [1.9, 3, 5, 4, 5, 7, 2, 3, 4, 4, 4, 5, 5, 8, 7, 7, 6, 6, 7, 10, 16, 12, 8, 19, 0, 0, 4, 4, 0, 15, 8, 9, 0, 13, 0, 0],
-              borderColor: 'green',
-              borderWidth: 3,
-              fill: false
-            },
-            {
-              label: 'Média Geral',
-              data: [1.54, 1.97, 2.97, 2.07, 2.98, 3.78, 1.2, 1.44, 1.93, 1.56, 2.7, 2.43, 3.03, 3.25, 3.74, 4.93, 3.11, 2.5, 5.73, 4.64, 10.42, 7.89, 5.11, 11.39, 3.3, 0, 2.83, 1.44, 8.5, 8.03, 1.71, 2.56, 0, 7.61, 4.2, 4.8],
-              borderColor: 'white',
-              borderWidth: 3,
-              fill: false
-            },
-            {
-              label: 'Menor Aud.',
-              data: [1.1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 2, 1, 2, 2, 1, 2, 3, 5, 0, 0, 1, 0, 0, 2, 0, 0, 0, 2, 0, 0],
-              borderColor: 'red',
-              borderWidth: 3,
-              fill: false
-            }
-          ]
-        },
-        options: options
-      });
-    });
-  </script>
+new Chart(ctx, {
+type: 'line',
+data: {
+labels: ['Beleza Fatal', 'Água na Boca', 'Dance Dance Dance', 'Paixões Proibidas', 'Floribella - 2ª Temporada', 'Floribella - 1ª Temporada', 'Meu Pé de Laranja Lima', 'Serras Azuis', 'Perdidos de Amor', 'O Campeão', 'A Idade da Loba', 'Braço de Ferro', 'Maçã do Amor', 'Sabor de Mel', 'Campeão', 'Renúncia', 'A Filha do Silêncio', 'Os Imigrantes - 1ª Reapresentação', 'Ninho da Serpente', 'Os Adolescentes', 'Os Imigrantes', 'Rosa Baiana', 'Dulcinéa Vai à Guerra', 'O Meu Pé de Laranja Lima', 'Um Homem Muito Especial', 'Cavalo Amarelo', 'A Deusa Vencida', 'Pé de Vento', 'O Todo Poderoso', 'Cara a Cara', 'O Bolha', 'Era Preciso Voltar', 'Nunca É Tarde Demais', 'Ricardinho: Sou Criança, Quero Viver', 'A Moça do Sobrado Grande', 'Os Miseráveis'],
+datasets: [
+{
+label: 'Maior Aud.',
+data: [1.9, 3, 5, 4, 5, 7, 2, 3, 4, 4, 4, 5, 5, 8, 7, 7, 6, 6, 7, 10, 16, 12, 8, 19, 0, 0, 4, 4, 0, 15, 8, 9, 0, 13, 0, 0],
+borderColor: 'green',
+borderWidth: 3,
+fill: false
+},
+{
+label: 'Média Geral',
+data: [1.54, 1.97, 2.97, 2.07, 2.98, 3.78, 1.2, 1.44, 1.93, 1.56, 2.7, 2.43, 3.03, 3.25, 3.74, 4.93, 3.11, 2.5, 5.73, 4.64, 10.42, 7.89, 5.11, 11.39, 3.3, 0, 2.83, 1.44, 8.5, 8.03, 1.71, 2.56, 0, 7.61, 4.2, 4.8],
+borderColor: 'white',
+borderWidth: 3,
+fill: false
+},
+{
+label: 'Menor Aud.',
+data: [1.1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 2, 1, 2, 2, 1, 2, 3, 5, 0, 0, 1, 0, 0, 2, 0, 0, 0, 2, 0, 0],
+borderColor: 'red',
+borderWidth: 3,
+fill: false
+}
+]
+},
+options: options
+});
+});
+</script>
 
 </body></html>
 

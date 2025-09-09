@@ -66,7 +66,7 @@
 
 
 
-<div class="atualizacaopost"><i class="fa-solid fa-arrows-rotate"></i><p>8 set 2025 às 21:10</p></div>
+<div class="atualizacaopost"><i class="fa-solid fa-arrows-rotate"></i><p>8 set 2025 às 21:18</p></div>
 <div class="pagina-horario-cabecalho">
 <div class="titulo-horario-cabecalho">
 <img src="https://audienciaon.github.io/emissoras/band.svg">
@@ -842,83 +842,83 @@ linha.style.display = 'none';
 });
 </script>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const canvas = document.getElementById('grafico1');
-      const ctx = canvas.getContext('2d');
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+const canvas = document.getElementById('grafico1');
+const ctx = canvas.getContext('2d');
 
-      const options = {
-        responsive: true,
-        maintainAspectRatio: false,
-        interaction: { mode: 'index', intersect: false },
-        hover: { mode: 'nearest', intersect: true },
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            enabled: true,
-            backgroundColor: 'rgba(0,0,0,0.9)',
-            titleColor: '#fff',
-            bodyColor: '#fff',
-            borderRadius: 4,
-            displayColors: false,
-            yAlign: 'bottom',
-            padding: 10,
-            titleFont: { family: 'Fira Sans', weight: 400 },
-            bodyFont: { family: 'Fira Sans', weight: 600 },
-            callbacks: {
-              title: ctx => ' ' + ctx[0].label,
-              label: ctx => ' ' + ctx.dataset.label + ': ' + ctx.parsed.y
-            }
-          }
-        },
-        elements: {
-          line: { tension: 0.4 },
-          point: {
-            radius: 0,          // ponto normal invisível
-            hoverRadius: 8,     // ao passar o mouse
-            pointStyle: 'circle'
-          }
-        },
-        scales: {
-          x: { display: false, ticks: { font: { family: 'Fira Sans' } } },
-          y: { ticks: { color: 'rgba(255,255,255,0.5)', font: { family: 'Fira Sans' } }, min: 0 }
-        },
-        layout: { padding: 10 },
-        font: { family: 'Fira Sans' }
-      };
+const options = {
+responsive: true,
+maintainAspectRatio: false,
+interaction: { mode: 'index', intersect: false },
+hover: { mode: 'nearest', intersect: true },
+plugins: {
+legend: { display: false },
+tooltip: {
+enabled: true,
+backgroundColor: 'rgba(0,0,0,0.9)',
+titleColor: '#fff',
+bodyColor: '#fff',
+borderRadius: 4,
+displayColors: false,
+yAlign: 'bottom',
+padding: 10,
+titleFont: { family: 'Fira Sans', weight: 400 },
+bodyFont: { family: 'Fira Sans', weight: 600 },
+callbacks: {
+title: ctx => ' ' + ctx[0].label,
+label: ctx => ' ' + ctx.dataset.label + ': ' + ctx.parsed.y
+}
+}
+},
+elements: {
+line: { tension: 0.4 },
+point: {
+radius: 0, // ponto normal invisível
+hoverRadius: 8, // ao passar o mouse
+pointStyle: 'circle'
+}
+},
+scales: {
+x: { display: false, ticks: { font: { family: 'Fira Sans' } } },
+y: { ticks: { color: 'rgba(255,255,255,0.5)', font: { family: 'Fira Sans' } }, min: 0 }
+},
+layout: { padding: 10 },
+font: { family: 'Fira Sans' }
+};
 
-      new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: ['Café com Aroma de Mulher (2025)', 'Valor da Vida', 'Nazaré', 'Ouro Verde', 'Minha Vida', 'Asas do Amor', 'Amor Proibido', 'Ezel', 'Sila: Prisioneira do Amor', 'Fatmagül: A Força do Amor', 'Mil e Uma Noites', 'Rosário', 'Violetta', 'Quase Anjos - 2ª Temporada', 'Isa TK+', 'Quase Anjos - 1ª Temporada', 'Isa TKM', 'Mantenha a Cara Séria', 'Morangos com Açúcar', 'Olhos d'Água', 'História de Amor em Tóquio', 'Belas e Intrépidas', 'Sombras do Passado (1999)', 'Caminhos do Amor', 'Traição', 'Maria Celeste', 'Abigail', 'Desencontros'],
-          datasets: [
-            {
-              label: 'Maior Aud.',
-              data: [1.9, 2.2, 2.2, 3, 3, 2, 3, 3, 4, 4, 4, 2, 2, 4, 0, 6, 5, 0, 3, 1, 0, 1, 2, 3, 3, 3, 0, 0],
-              borderColor: 'green',
-              borderWidth: 3,
-              fill: false
-            },
-            {
-              label: 'Média Geral',
-              data: [1.27, 1.24, 1.52, 2.09, 1.74, 1.38, 2.14, 2.23, 2.97, 3.06, 3.04, 1.19, 1.48, 1.74, 0, 2.32, 3.19, 0, 1.71, 1, 0, 1, 1.04, 1.49, 1.14, 1.76, 0, 0],
-              borderColor: 'white',
-              borderWidth: 3,
-              fill: false
-            },
-            {
-              label: 'Menor Aud.',
-              data: [0.8, 0.7, 1, 1, 1, 1, 1, 1, 2, 2, 2, 0, 1, 0, 0, 1, 2, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0],
-              borderColor: 'red',
-              borderWidth: 3,
-              fill: false
-            }
-          ]
-        },
-        options: options
-      });
-    });
-  </script>
+new Chart(ctx, {
+type: 'line',
+data: {
+labels: ['Café com Aroma de Mulher (2025)', 'Valor da Vida', 'Nazaré', 'Ouro Verde', 'Minha Vida', 'Asas do Amor', 'Amor Proibido', 'Ezel', 'Sila: Prisioneira do Amor', 'Fatmagül: A Força do Amor', 'Mil e Uma Noites', 'Rosário', 'Violetta', 'Quase Anjos - 2ª Temporada', 'Isa TK+', 'Quase Anjos - 1ª Temporada', 'Isa TKM', 'Mantenha a Cara Séria', 'Morangos com Açúcar', 'Olhos d'Água', 'História de Amor em Tóquio', 'Belas e Intrépidas', 'Sombras do Passado (1999)', 'Caminhos do Amor', 'Traição', 'Maria Celeste', 'Abigail', 'Desencontros'],
+datasets: [
+{
+label: 'Maior Aud.',
+data: [1.9, 2.2, 2.2, 3, 3, 2, 3, 3, 4, 4, 4, 2, 2, 4, 0, 6, 5, 0, 3, 1, 0, 1, 2, 3, 3, 3, 0, 0],
+borderColor: 'green',
+borderWidth: 3,
+fill: false
+},
+{
+label: 'Média Geral',
+data: [1.27, 1.24, 1.52, 2.09, 1.74, 1.38, 2.14, 2.23, 2.97, 3.06, 3.04, 1.19, 1.48, 1.74, 0, 2.32, 3.19, 0, 1.71, 1, 0, 1, 1.04, 1.49, 1.14, 1.76, 0, 0],
+borderColor: 'white',
+borderWidth: 3,
+fill: false
+},
+{
+label: 'Menor Aud.',
+data: [0.8, 0.7, 1, 1, 1, 1, 1, 1, 2, 2, 2, 0, 1, 0, 0, 1, 2, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0],
+borderColor: 'red',
+borderWidth: 3,
+fill: false
+}
+]
+},
+options: options
+});
+});
+</script>
 
 </body></html>
 

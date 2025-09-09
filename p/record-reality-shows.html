@@ -66,7 +66,7 @@
 
 
 
-<div class="atualizacaopost"><i class="fa-solid fa-arrows-rotate"></i><p>8 set 2025 às 21:11</p></div>
+<div class="atualizacaopost"><i class="fa-solid fa-arrows-rotate"></i><p>8 set 2025 às 21:19</p></div>
 <div class="pagina-horario-cabecalho">
 <div class="titulo-horario-cabecalho">
 <img src="https://audienciaon.github.io/emissoras/record.svg">
@@ -842,83 +842,83 @@ linha.style.display = 'none';
 });
 </script>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const canvas = document.getElementById('grafico1');
-      const ctx = canvas.getContext('2d');
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+const canvas = document.getElementById('grafico1');
+const ctx = canvas.getContext('2d');
 
-      const options = {
-        responsive: true,
-        maintainAspectRatio: false,
-        interaction: { mode: 'index', intersect: false },
-        hover: { mode: 'nearest', intersect: true },
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            enabled: true,
-            backgroundColor: 'rgba(0,0,0,0.9)',
-            titleColor: '#fff',
-            bodyColor: '#fff',
-            borderRadius: 4,
-            displayColors: false,
-            yAlign: 'bottom',
-            padding: 10,
-            titleFont: { family: 'Fira Sans', weight: 400 },
-            bodyFont: { family: 'Fira Sans', weight: 600 },
-            callbacks: {
-              title: ctx => ' ' + ctx[0].label,
-              label: ctx => ' ' + ctx.dataset.label + ': ' + ctx.parsed.y
-            }
-          }
-        },
-        elements: {
-          line: { tension: 0.4 },
-          point: {
-            radius: 0,          // ponto normal invisível
-            hoverRadius: 8,     // ao passar o mouse
-            pointStyle: 'circle'
-          }
-        },
-        scales: {
-          x: { display: false, ticks: { font: { family: 'Fira Sans' } } },
-          y: { ticks: { color: 'rgba(255,255,255,0.5)', font: { family: 'Fira Sans' } }, min: 0 }
-        },
-        layout: { padding: 10 },
-        font: { family: 'Fira Sans' }
-      };
+const options = {
+responsive: true,
+maintainAspectRatio: false,
+interaction: { mode: 'index', intersect: false },
+hover: { mode: 'nearest', intersect: true },
+plugins: {
+legend: { display: false },
+tooltip: {
+enabled: true,
+backgroundColor: 'rgba(0,0,0,0.9)',
+titleColor: '#fff',
+bodyColor: '#fff',
+borderRadius: 4,
+displayColors: false,
+yAlign: 'bottom',
+padding: 10,
+titleFont: { family: 'Fira Sans', weight: 400 },
+bodyFont: { family: 'Fira Sans', weight: 600 },
+callbacks: {
+title: ctx => ' ' + ctx[0].label,
+label: ctx => ' ' + ctx.dataset.label + ': ' + ctx.parsed.y
+}
+}
+},
+elements: {
+line: { tension: 0.4 },
+point: {
+radius: 0, // ponto normal invisível
+hoverRadius: 8, // ao passar o mouse
+pointStyle: 'circle'
+}
+},
+scales: {
+x: { display: false, ticks: { font: { family: 'Fira Sans' } } },
+y: { ticks: { color: 'rgba(255,255,255,0.5)', font: { family: 'Fira Sans' } }, min: 0 }
+},
+layout: { padding: 10 },
+font: { family: 'Fira Sans' }
+};
 
-      new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: ['A Fazenda - 17ª Temporada', 'Game dos 100 - 1ª Temporada', 'Love e Dance - 1ª Temporada', 'Power Couple Brasil - 7ª Temporada', 'Acerte ou Caia! - 3ª Temporada', 'Acerte ou Caia! - 2ª Temporada', 'A Fazenda - 16ª Temporada', 'Acerte ou Caia! - 1ª Temporada', 'Canta Comigo Teen - 5ª Temporada', 'A Grande Conquista - 2ª Temporada', 'Canta Comigo - 6ª Temporada', 'A Fazenda - 15ª Temporada', 'Top Chef Brasil - 4ª Temporada', 'Troca de Esposas - 3ª Temporada', 'Canta Comigo Teen - 4ª Temporada', 'A Grande Conquista - 1ª Temporada', 'Canta Comigo - 5ª Temporada', 'A Fazenda - 14ª Temporada', 'Ilha Record - 2ª Temporada', 'Canta Comigo Teen - 3ª Temporada', 'Power Couple Brasil - 6ª Temporada', 'Canta Comigo - 4ª Temporada', 'Canta Comigo Teen - 2ª Temporada', 'Top Chef Brasil - 3ª Temporada', 'A Fazenda - 13ª Temporada', 'Ilha Record - 1ª Temporada', 'Power Couple Brasil - 5ª Temporada', 'Canta Comigo - 3ª Temporada', 'Game dos Clones - 1ª Temporada', 'Canta Comigo Teen - 1ª Temporada', 'A Fazenda - 12ª Temporada', 'Top Chef Brasil - 2ª Temporada', 'Made in Japão - 1ª Temporada', 'The Four Brasil - 2ª Temporada', 'Hair: O Reality dos Cabelos', 'Troca de Esposas - 2ª Temporada', 'Canta Comigo - 2ª Temporada', 'A Fazenda - 11ª Temporada', 'Duelo dos Confeiteiros: Buddy vs Duff', 'Dancing Brasil - 5ª Temporada', 'Power Couple Brasil - 4ª Temporada', 'Top Chef Brasil - 1ª Temporada', 'Troca de Esposas - 1ª Temporada', 'The Four Brasil - 1ª Temporada', 'Dancing Brasil - 4ª Temporada', 'A Fazenda - 10ª Temporada', 'Canta Comigo - 1ª Temporada', 'Power Couple Brasil - 3ª Temporada', 'Batalha de Confeiteiros - 2ª Temporada', 'Dancing Brasil - 3ª Temporada', 'A Fazenda - 9ª Temporada', 'Dancing Brasil - 2ª Temporada', 'A Casa - 1ª Temporada', 'Power Couple Brasil - 2ª Temporada', 'Dancing Brasil - 1ª Temporada', 'Batalha dos Cozinheiros - 1ª Temporada', 'Chicago Med - 1ª Temporada', 'Power Couple Brasil - 1ª Temporada', 'Batalha de Confeiteiros - 1ª Temporada', 'A Fazenda - 8ª Temporada', 'A Fazenda - 7ª Temporada', 'Aprendiz Celebridades - 1ª Temporada', 'A Fazenda - 6ª Temporada', 'Fazenda de Verão - 1ª Temporada', 'A Fazenda - 5ª Temporada', 'A Fazenda - 4ª Temporada', 'A Fazenda - 3ª Temporada', 'A Fazenda - 2ª Temporada', 'A Fazenda - 1ª Temporada'],
-          datasets: [
-            {
-              label: 'Maior Aud.',
-              data: [0, 3.8, 5.3, 5.6, 7.5, 7.3, 7.4, 6.1, 6.8, 4.8, 6.5, 8.5, 4.4, 4.6, 8.3, 5.3, 7.9, 9.7, 4.8, 8.2, 6.1, 8.8, 9.7, 5.4, 22.2, 9.2, 8.8, 8.6, 9.2, 0, 18, 7.6, 3.8, 6.4, 4.1, 8.7, 8.6, 10.1, 4.5, 6.7, 8.6, 6.7, 9.2, 7.4, 7, 13.2, 8.2, 9.8, 8.2, 8.1, 13.2, 7.8, 8, 9.7, 7.2, 7.4, 6, 11.1, 13.2, 13, 12, 5.9, 16, 14, 18, 16, 20, 19, 21],
-              borderColor: 'green',
-              borderWidth: 3,
-              fill: false
-            },
-            {
-              label: 'Média Geral',
-              data: [0, 3.15, 4.4, 4.4, 5.83, 5.49, 5.7, 4.68, 5.5, 3.78, 5.38, 6.03, 3.54, 3.86, 6.72, 4.21, 6.4, 7.24, 3.41, 7.35, 4.83, 7, 8.21, 4.5, 9.33, 6.97, 6.35, 7.5, 7.68, 0, 12.74, 5.5, 3.35, 4.19, 3.48, 6.22, 6.17, 8.24, 4.03, 5.25, 7.12, 5.71, 8.13, 6.7, 5.98, 9.74, 7.47, 7.88, 7.12, 6.25, 9.7, 5.83, 5.64, 7.41, 5.94, 6.22, 4.5, 9.49, 11.52, 9.39, 8.88, 5.24, 8.94, 6.68, 10.74, 11.4, 14.34, 9.26, 14.28],
-              borderColor: 'white',
-              borderWidth: 3,
-              fill: false
-            },
-            {
-              label: 'Menor Aud.',
-              data: [0, 2.8, 3.6, 2.6, 4.7, 3.8, 3.7, 3.8, 4.4, 2.7, 4.6, 3.7, 2.8, 3, 5.9, 3.1, 5, 3.4, 2.2, 6.5, 3.1, 6.3, 6.7, 3.6, 6, 4.6, 4.3, 6.7, 3.8, 0, 6.2, 3.4, 2.9, 3.1, 3.1, 3.5, 4.3, 5.1, 3.7, 3.6, 5.3, 4.8, 6.3, 6.2, 4.6, 5.9, 6.8, 4.6, 5.7, 4.2, 5.9, 5.1, 3.6, 5.8, 4.8, 4.2, 4, 7.9, 9.3, 5, 5, 4.1, 6, 2, 6, 8, 10, 3, 7],
-              borderColor: 'red',
-              borderWidth: 3,
-              fill: false
-            }
-          ]
-        },
-        options: options
-      });
-    });
-  </script>
+new Chart(ctx, {
+type: 'line',
+data: {
+labels: ['A Fazenda - 17ª Temporada', 'Game dos 100 - 1ª Temporada', 'Love e Dance - 1ª Temporada', 'Power Couple Brasil - 7ª Temporada', 'Acerte ou Caia! - 3ª Temporada', 'Acerte ou Caia! - 2ª Temporada', 'A Fazenda - 16ª Temporada', 'Acerte ou Caia! - 1ª Temporada', 'Canta Comigo Teen - 5ª Temporada', 'A Grande Conquista - 2ª Temporada', 'Canta Comigo - 6ª Temporada', 'A Fazenda - 15ª Temporada', 'Top Chef Brasil - 4ª Temporada', 'Troca de Esposas - 3ª Temporada', 'Canta Comigo Teen - 4ª Temporada', 'A Grande Conquista - 1ª Temporada', 'Canta Comigo - 5ª Temporada', 'A Fazenda - 14ª Temporada', 'Ilha Record - 2ª Temporada', 'Canta Comigo Teen - 3ª Temporada', 'Power Couple Brasil - 6ª Temporada', 'Canta Comigo - 4ª Temporada', 'Canta Comigo Teen - 2ª Temporada', 'Top Chef Brasil - 3ª Temporada', 'A Fazenda - 13ª Temporada', 'Ilha Record - 1ª Temporada', 'Power Couple Brasil - 5ª Temporada', 'Canta Comigo - 3ª Temporada', 'Game dos Clones - 1ª Temporada', 'Canta Comigo Teen - 1ª Temporada', 'A Fazenda - 12ª Temporada', 'Top Chef Brasil - 2ª Temporada', 'Made in Japão - 1ª Temporada', 'The Four Brasil - 2ª Temporada', 'Hair: O Reality dos Cabelos', 'Troca de Esposas - 2ª Temporada', 'Canta Comigo - 2ª Temporada', 'A Fazenda - 11ª Temporada', 'Duelo dos Confeiteiros: Buddy vs Duff', 'Dancing Brasil - 5ª Temporada', 'Power Couple Brasil - 4ª Temporada', 'Top Chef Brasil - 1ª Temporada', 'Troca de Esposas - 1ª Temporada', 'The Four Brasil - 1ª Temporada', 'Dancing Brasil - 4ª Temporada', 'A Fazenda - 10ª Temporada', 'Canta Comigo - 1ª Temporada', 'Power Couple Brasil - 3ª Temporada', 'Batalha de Confeiteiros - 2ª Temporada', 'Dancing Brasil - 3ª Temporada', 'A Fazenda - 9ª Temporada', 'Dancing Brasil - 2ª Temporada', 'A Casa - 1ª Temporada', 'Power Couple Brasil - 2ª Temporada', 'Dancing Brasil - 1ª Temporada', 'Batalha dos Cozinheiros - 1ª Temporada', 'Chicago Med - 1ª Temporada', 'Power Couple Brasil - 1ª Temporada', 'Batalha de Confeiteiros - 1ª Temporada', 'A Fazenda - 8ª Temporada', 'A Fazenda - 7ª Temporada', 'Aprendiz Celebridades - 1ª Temporada', 'A Fazenda - 6ª Temporada', 'Fazenda de Verão - 1ª Temporada', 'A Fazenda - 5ª Temporada', 'A Fazenda - 4ª Temporada', 'A Fazenda - 3ª Temporada', 'A Fazenda - 2ª Temporada', 'A Fazenda - 1ª Temporada'],
+datasets: [
+{
+label: 'Maior Aud.',
+data: [0, 3.8, 5.3, 5.6, 7.5, 7.3, 7.4, 6.1, 6.8, 4.8, 6.5, 8.5, 4.4, 4.6, 8.3, 5.3, 7.9, 9.7, 4.8, 8.2, 6.1, 8.8, 9.7, 5.4, 22.2, 9.2, 8.8, 8.6, 9.2, 0, 18, 7.6, 3.8, 6.4, 4.1, 8.7, 8.6, 10.1, 4.5, 6.7, 8.6, 6.7, 9.2, 7.4, 7, 13.2, 8.2, 9.8, 8.2, 8.1, 13.2, 7.8, 8, 9.7, 7.2, 7.4, 6, 11.1, 13.2, 13, 12, 5.9, 16, 14, 18, 16, 20, 19, 21],
+borderColor: 'green',
+borderWidth: 3,
+fill: false
+},
+{
+label: 'Média Geral',
+data: [0, 3.15, 4.4, 4.4, 5.83, 5.49, 5.7, 4.68, 5.5, 3.78, 5.38, 6.03, 3.54, 3.86, 6.72, 4.21, 6.4, 7.24, 3.41, 7.35, 4.83, 7, 8.21, 4.5, 9.33, 6.97, 6.35, 7.5, 7.68, 0, 12.74, 5.5, 3.35, 4.19, 3.48, 6.22, 6.17, 8.24, 4.03, 5.25, 7.12, 5.71, 8.13, 6.7, 5.98, 9.74, 7.47, 7.88, 7.12, 6.25, 9.7, 5.83, 5.64, 7.41, 5.94, 6.22, 4.5, 9.49, 11.52, 9.39, 8.88, 5.24, 8.94, 6.68, 10.74, 11.4, 14.34, 9.26, 14.28],
+borderColor: 'white',
+borderWidth: 3,
+fill: false
+},
+{
+label: 'Menor Aud.',
+data: [0, 2.8, 3.6, 2.6, 4.7, 3.8, 3.7, 3.8, 4.4, 2.7, 4.6, 3.7, 2.8, 3, 5.9, 3.1, 5, 3.4, 2.2, 6.5, 3.1, 6.3, 6.7, 3.6, 6, 4.6, 4.3, 6.7, 3.8, 0, 6.2, 3.4, 2.9, 3.1, 3.1, 3.5, 4.3, 5.1, 3.7, 3.6, 5.3, 4.8, 6.3, 6.2, 4.6, 5.9, 6.8, 4.6, 5.7, 4.2, 5.9, 5.1, 3.6, 5.8, 4.8, 4.2, 4, 7.9, 9.3, 5, 5, 4.1, 6, 2, 6, 8, 10, 3, 7],
+borderColor: 'red',
+borderWidth: 3,
+fill: false
+}
+]
+},
+options: options
+});
+});
+</script>
 
 </body></html>
 
