@@ -2075,7 +2075,8 @@ h3,
   .elevacaoshare-titulo::before{display:none !important}
   
 .grafico-diaria {
-    padding-top: 40px !important;
+    padding: 40px !important;
+    background-color:var(--cor-50-fade);
     position: relative;
     display: flex;
     height: 500px;
