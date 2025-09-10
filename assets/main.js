@@ -130,129 +130,97 @@ document.addEventListener("DOMContentLoaded", async () => {
     mainSecond.style.maxHeight = "80vh";
   }
 
-  
-  
+  // --- Scroll interno do segundo elemento de <main> (ajustado) ---
+  (function () {
+    const debounce = (fn, wait = 80) => {
+      let t;
+      return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), wait); };
+    };
 
+    function setupMainSecond() {
+      const main = document.querySelector("main");
+      if (!main) return false;
+      const elementos = Array.from(main.children).filter(n => n.nodeType === 1);
+      const mainSecond = elementos[1];
+      if (!mainSecond) return false;
 
+      mainSecond.style.overflowY = "auto";
+      mainSecond.style.overflowX = "hidden";
+      mainSecond.style.webkitOverflowScrolling = "touch";
 
+      function ajustarAltura() {
+        const rect = mainSecond.getBoundingClientRect();
+        const top = rect.top;
+        const bottomOffset = 18; // folga do rodapé
+        const max = Math.max(120, Math.floor(window.innerHeight - top - bottomOffset));
+        mainSecond.style.maxHeight = max + "px";
+      }
 
-
-
-
-
-// --- Scroll interno do segundo elemento de <main> ---
-(function () {
-  const debounce = (fn, wait = 80) => {
-    let t;
-    return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), wait); };
-  };
-
-  function setupMainSecond() {
-    const main = document.querySelector("main");
-    if (!main) return false;
-    const elementos = Array.from(main.children).filter(n => n.nodeType === 1);
-    const mainSecond = elementos[1];
-    if (!mainSecond) return false;
-
-    mainSecond.style.overflowY = "auto";
-    mainSecond.style.overflowX = "hidden";
-    mainSecond.style.webkitOverflowScrolling = "touch";
-
-    function ajustarAltura() {
-      const rect = mainSecond.getBoundingClientRect();
-      const top = rect.top;
-      const bottomOffset = 18; // folga do rodapé
-      const max = Math.max(120, Math.floor(window.innerHeight - top - bottomOffset));
-      mainSecond.style.maxHeight = max + "px";
+      ajustarAltura();
+      window.addEventListener("resize", debounce(ajustarAltura, 60));
+      return true;
     }
 
-    ajustarAltura();
-    window.addEventListener("resize", debounce(ajustarAltura, 60));
-    return true;
-  }
-
-  if (!setupMainSecond()) {
-    const obs = new MutationObserver((muts, o) => {
-      if (setupMainSecond()) o.disconnect();
-    });
-    obs.observe(document.body, { childList: true, subtree: true });
-  }
-})();
-
-
-// --- Ajusta textos das barras (robusto, preserva original e observa mudanças) ---
-(function () {
-  function ajustarTextosDasBarras(root = document) {
-    const barras = root.querySelectorAll(".grafico-comparacao .linha .espaco .barra");
-    if (!barras.length) return false;
-
-    barras.forEach(b => {
-      // guarda texto original apenas uma vez
-      if (!b.dataset.origText) {
-        const firstTextNode = Array.from(b.childNodes)
-          .find(n => n.nodeType === Node.TEXT_NODE && n.textContent.trim());
-        b.dataset.origText = (firstTextNode ? firstTextNode.textContent : b.textContent).trim();
-      }
-
-      let raw = b.dataset.origText.replace(/\s+/g, " ").trim();
-
-      // substituições tolerantes
-      raw = raw.replace(/ª\s*reapresenta/gi, "ªR")
-               .replace(/ª\s*temporad/gi, "ªT");
-
-      // split por vários tipos de traço e junta o "depois" se houver
-      const parts = raw.split(/\s*[-–—]\s*/);
-      let antes = parts.shift() || "";
-      const depois = parts.length ? parts.join(" - ") : "";
-
-      if (depois) {
-        if (antes.length > 21) antes = antes.slice(0, 21) + "...";
-        raw = antes + " - " + depois;
-      } else {
-        if (raw.length > 25) raw = raw.slice(0, 25) + "...";
-      }
-
-      // altera apenas o primeiro text node pra preservar markup interno
-      const textNode = Array.from(b.childNodes).find(n => n.nodeType === Node.TEXT_NODE && n.textContent.trim());
-      if (textNode) textNode.textContent = raw;
-      else b.textContent = raw;
-    });
-
-    return true;
-  }
-
-  // executa agora
-  ajustarTextosDasBarras();
-
-  // reaplica quando nós novos são inseridos (somente se relacionados ao gráfico)
-  const observer = new MutationObserver(muts => {
-    let precisa = false;
-    for (const m of muts) {
-      for (const n of m.addedNodes) {
-        if (n.nodeType !== 1) continue;
-        if (n.matches && n.matches('.grafico-comparacao, .grafico-comparacao *')) { precisa = true; break; }
-        if (n.querySelector && n.querySelector('.grafico-comparacao .linha .espaco .barra')) { precisa = true; break; }
-      }
-      if (precisa) break;
+    if (!setupMainSecond()) {
+      const obs = new MutationObserver((muts, o) => {
+        if (setupMainSecond()) o.disconnect();
+      });
+      obs.observe(document.body, { childList: true, subtree: true });
     }
-    if (precisa) ajustarTextosDasBarras();
-  });
-  observer.observe(document.body, { childList: true, subtree: true });
-})();
+  })();
 
+  // --- Ajusta textos das barras ---
+  (function () {
+    function ajustarTextosDasBarras(root = document) {
+      const barras = root.querySelectorAll(".grafico-comparacao .linha .espaco .barra");
+      if (!barras.length) return false;
 
+      barras.forEach(b => {
+        if (!b.dataset.origText) {
+          const firstTextNode = Array.from(b.childNodes)
+            .find(n => n.nodeType === Node.TEXT_NODE && n.textContent.trim());
+          b.dataset.origText = (firstTextNode ? firstTextNode.textContent : b.textContent).trim();
+        }
 
+        let raw = b.dataset.origText.replace(/\s+/g, " ").trim();
+        raw = raw.replace(/ª\s*reapresenta/gi, "ªR")
+                 .replace(/ª\s*temporad/gi, "ªT");
 
+        const parts = raw.split(/\s*[-–—]\s*/);
+        let antes = parts.shift() || "";
+        const depois = parts.length ? parts.join(" - ") : "";
 
+        if (depois) {
+          if (antes.length > 21) antes = antes.slice(0, 21) + "...";
+          raw = antes + " - " + depois;
+        } else {
+          if (raw.length > 25) raw = raw.slice(0, 25) + "...";
+        }
 
+        const textNode = Array.from(b.childNodes).find(n => n.nodeType === Node.TEXT_NODE && n.textContent.trim());
+        if (textNode) textNode.textContent = raw;
+        else b.textContent = raw;
+      });
 
+      return true;
+    }
 
+    ajustarTextosDasBarras();
 
-
-
-
-
-
+    const observer = new MutationObserver(muts => {
+      let precisa = false;
+      for (const m of muts) {
+        for (const n of m.addedNodes) {
+          if (n.nodeType !== 1) continue;
+          if (n.matches && n.matches('.grafico-comparacao, .grafico-comparacao *')) { precisa = true; break; }
+          if (n.querySelector && n.querySelector('.grafico-comparacao .linha .espaco .barra')) { precisa = true; break; }
+        }
+        if (precisa) break;
+      }
+      if (precisa) ajustarTextosDasBarras();
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+  })();
 
   // --- Lazy load resultados ---
   const container = document.querySelector(".pagina-pesquisa .resultados");
@@ -285,5 +253,43 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     });
   }
+
+  // --- Disqus ---
+  (function () {
+    const path = window.location.pathname;
+    if (
+      path.endsWith("index.html") ||
+      path.endsWith("pesquisa.html") ||
+      path === "/" ||
+      path === "/blog/"
+    ) {
+      return;
+    }
+
+    const disqusThread = document.createElement("div");
+    disqusThread.id = "disqus_thread";
+
+    const publicacao = document.querySelector(".publicacao");
+    const paginaInicial = document.querySelector("#paginainicial");
+
+    if (publicacao) {
+      publicacao.appendChild(disqusThread);
+    } else if (paginaInicial) {
+      paginaInicial.appendChild(disqusThread);
+    } else {
+      return;
+    }
+
+    window.disqus_config = function () {
+      this.page.url = window.location.href;
+      this.page.identifier = window.location.pathname;
+    };
+
+    const d = document;
+    const s = d.createElement("script");
+    s.src = "https://audienciaon.disqus.com/embed.js";
+    s.setAttribute("data-timestamp", +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
 
 }); // fecha DOMContentLoaded
