@@ -222,7 +222,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     observer.observe(document.body, { childList: true, subtree: true });
   })();
 
-  // --- Lazy load resultados ---
+    // --- Lazy load resultados ---
   const container = document.querySelector(".pagina-pesquisa .resultados");
   if (container) {
     const totalItens = 10000;
@@ -254,42 +254,82 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
-  // --- Disqus ---
+
+  // --- Disqus (robusto, logs e observer) ---
   (function () {
-    const path = window.location.pathname;
-    if (
-      path.endsWith("index.html") ||
-      path.endsWith("pesquisa.html") ||
-      path === "/" ||
-      path === "/blog/"
-    ) {
-      return;
-    }
-
-    const disqusThread = document.createElement("div");
-    disqusThread.id = "disqus_thread";
-
-    const publicacao = document.querySelector(".publicacao");
-    const paginaInicial = document.querySelector("#paginainicial");
-
-    if (publicacao) {
-      publicacao.appendChild(disqusThread);
-    } else if (paginaInicial) {
-      paginaInicial.appendChild(disqusThread);
-    } else {
-      return;
-    }
-
-    window.disqus_config = function () {
-      this.page.url = window.location.href;
-      this.page.identifier = window.location.pathname;
+    const DISQUS_SHORTNAME = 'audienciaon';
+    const path = window.location.pathname || '';
+    const isExcluded = () => {
+      const p = path.toLowerCase();
+      if (p === '/' || p === '/blog/') return true;
+      if (p.endsWith('/index.html') || p.endsWith('index.html')) return true;
+      if (p.endsWith('/pesquisa.html') || p.endsWith('pesquisa.html')) return true;
+      return false;
     };
 
-    const d = document;
-    const s = d.createElement("script");
-    s.src = "https://audienciaon.disqus.com/embed.js";
-    s.setAttribute("data-timestamp", +new Date());
-    (d.head || d.body).appendChild(s);
+    if (isExcluded()) {
+      console.log('Disqus: página excluída ->', path);
+      return;
+    }
+
+    if (document.getElementById('disqus_thread')) {
+      console.log('Disqus: já inserido, abortando');
+      return;
+    }
+
+    if (!/^https?:/.test(location.protocol)) {
+      console.warn('Disqus: protocolo não suportado:', location.protocol);
+      return;
+    }
+
+    function createThreadAndLoad(targetEl) {
+      if (!targetEl || document.getElementById('disqus_thread')) return false;
+      const thread = document.createElement('div');
+      thread.id = 'disqus_thread';
+      targetEl.appendChild(thread);
+
+      window.disqus_config = function () {
+        this.page.url = window.location.href;
+        this.page.identifier = window.location.pathname;
+      };
+
+      const d = document;
+      const s = d.createElement('script');
+      s.src = `https://${DISQUS_SHORTNAME}.disqus.com/embed.js`;
+      s.async = true;
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+
+      console.log('Disqus: script injetado em', targetEl);
+      return true;
+    }
+
+    function tryInsertNow() {
+      const publicacao = document.querySelector('.publicacao');
+      const paginaInicial = document.querySelector('#paginainicial');
+
+      if (publicacao) return createThreadAndLoad(publicacao);
+      if (paginaInicial) return createThreadAndLoad(paginaInicial);
+      return false;
+    }
+
+    if (tryInsertNow()) return;
+
+    console.log('Disqus: alvo não encontrado — iniciando observer (20s timeout)...');
+    const observer = new MutationObserver((muts, obs) => {
+      if (tryInsertNow()) {
+        obs.disconnect();
+      }
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    setTimeout(() => {
+      try { observer.disconnect(); } catch (e) {}
+      if (!document.getElementById('disqus_thread')) {
+        console.warn('Disqus: timeout - elemento alvo não apareceu em 20s');
+      }
+    }, 20000);
   })();
+
 
 }); // fecha DOMContentLoaded
