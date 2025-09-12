@@ -3859,10 +3859,6 @@ grid-template-areas: 'titulo producao1 producao2 producao3 producao4 producao5';
 
       }
 
-  .titulo-horario-cabecalho,
-  .pagina-horario-infos > *{
-  background-color:var(--cor-20-fade);
-  }
   
   .titulo-horario-cabecalho{
   box-sizing: border-box;
