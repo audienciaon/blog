@@ -4376,7 +4376,10 @@ background-size:cover;
 }
   */
   
-  
+.outraspaginas-titulo,
+.carrossel-container{
+  display: none !important;
+}
   
   
       
