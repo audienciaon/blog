@@ -4342,7 +4342,7 @@ input[type="text"]:focus {
 .pagina-horario-cabecalho {
   display: grid;
   align-items: stretch;
-  grid-template-columns: 1fr 2fr 2fr;
+  grid-template-columns: 2fr 2fr 1.5fr;
   margin: 20px 0px;
   align-items: center !important;
   grid-template-areas:titulo infos emexibicao;
