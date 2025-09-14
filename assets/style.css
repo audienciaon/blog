@@ -4345,7 +4345,7 @@ input[type="text"]:focus {
   grid-template-columns: 1fr 2fr 2fr;
   margin: 20px 0px;
   align-items: center !important;
-
+  grid-template-areas:titulo infos emexibicao;
 }
 
 
@@ -4355,7 +4355,8 @@ input[type="text"]:focus {
   height: 100%;
   display: grid;
   gap: 30px;
-  grid-template-columns: 60px auto
+  grid-template-columns: 60px auto;
+  grid-area:titulo;
 }
 
 .titulo-horario-cabecalho img {
@@ -4704,6 +4705,7 @@ input[type="text"]:focus {
   font-size: var(--fonte-30);
   font-weight: 500;
   line-height: 1.4;
+  grid-area:infos;
 }
 
 
@@ -4778,6 +4780,7 @@ input[type="text"]:focus {
   display: grid;
   align-items: center;
   grid-template-rows: auto 30px;
+  grid-area:emexibicao;
 }
 
 .pagina-horario-noar .topo {
