@@ -4386,9 +4386,8 @@ input[type="text"]:focus {
   line-height: 1.2 !important;
   padding: 5px 0px !important;
   color: var(--cor-100);
-  font-size: var(--fonte-30) !important;
+  font-size: var(--fonte-40) !important;
   font-weight: 900;
-  align-self: center;
 }
 
 
