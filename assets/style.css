@@ -4767,6 +4767,7 @@ input[type="text"]:focus {
   height: 100% !important;
   grid-row: 1 / 4;
   text-align: center;
+  grid-area: emexibicao;
 }
 
 
@@ -4779,7 +4780,6 @@ input[type="text"]:focus {
   display: grid;
   align-items: center;
   grid-template-rows: auto 30px;
-  grid-area:emexibicao;
 }
 
 .pagina-horario-noar .topo {
