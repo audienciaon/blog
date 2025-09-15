@@ -161,14 +161,15 @@ main {
   grid-template-rows: 2fr 24fr;
   gap: 30px;
   height: 90vh;
-  width: 1200px;
-  max-width: 80vw;
-  margin: 5vh auto;
   padding: 0px 50px;
+  width:100vw;
 }
 
 main>* {
   border-radius: 10px;
+  width: 1200px;
+  max-width: 80vw;
+  margin: 5vh auto;
 }
 
 #paginainicial {
