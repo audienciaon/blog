@@ -3170,39 +3170,51 @@
 
 
 </div></div><div id="footer"></div></main>
+
+
+
+
+
+
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    console.log(document.getElementById('filtro'));
-    var input = document.getElementById('filtro');
-    if (input) {
-      input.addEventListener('keyup', function () {
-        const termo = input.value.toLowerCase();
-        linhas.forEach(linha => {
-          const nomeProducao = linha.querySelector('.pesquisatags') ? linha.querySelector('.pesquisatags').textContent.toLowerCase() : '';
-          const autor = linha.querySelector('.autor') ? linha.querySelector('.autor').textContent.toLowerCase() : ''; 
-          if (nomeProducao.includes(termo) || autor.includes(termo)) { 
-            linha.style.display = ''; 
-          } else {
-            linha.style.display = 'none'; 
-          }
-        });
+document.addEventListener('DOMContentLoaded', function () {
+  const input = document.getElementById('filtro');
+  if (!input) return console.warn('Elemento #filtro não encontrado');
 
-        // Movimento sutil da tela imediato
-        window.scrollBy(0, 1);
-        setTimeout(() => {
-          window.scrollBy(0, -1);
-        }, 1);
+  // Ajuste esse seletor para os elementos que representam cada "linha"/card da sua lista
+  const linhas = Array.from(document.querySelectorAll('.linha')); 
+  let typingTimer;
+  const TYPING_DELAY = 500; // ms (mude pra 1000 se quiser 1s)
 
-        // Reinicia o temporizador
-        clearTimeout(typingTimer);
-        typingTimer = setTimeout(() => {
-          window.scrollBy(0, 1);
-          setTimeout(() => {
-            window.scrollBy(0, -1);
-          }, 1);
-        }, 50); // 1 segundo após parar de digitar
-      });
-    }
+  const filtrar = () => {
+    const termo = input.value.trim().toLowerCase();
+    linhas.forEach(linha => {
+      const nome = (linha.querySelector('.pesquisatags')?.textContent || '').toLowerCase();
+      const autor = (linha.querySelector('.autor')?.textContent || '').toLowerCase();
+      linha.style.display = (nome.includes(termo) || autor.includes(termo) || termo === '') ? '' : 'none';
+    });
+    // Força repaint se precisar (mantive sua ideia)
+    window.scrollBy(0, 1);
+    setTimeout(() => window.scrollBy(0, -1), 1);
+  };
+
+  // 'input' é melhor que 'keyup' para detectar mudanças reais no campo
+  input.addEventListener('input', () => {
+    clearTimeout(typingTimer);
+    // se quiser filtrar só quando parar de digitar, comente a linha abaixo
+    filtrar();
+    typingTimer = setTimeout(filtrar, TYPING_DELAY);
   });
-  </script>
+});
+</script>
+
+
+
+
+
+
+
+
+
+
 </body></html>
