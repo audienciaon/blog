@@ -5368,11 +5368,24 @@ h3,
 }
 
 .calendario *{
-  font-size:var(--fonte-10) !important;
+  font-size:var(--fonte-12) !important;
+  font-family:var(--font-family-condensed) !important;
 }
 
-.calendario-linha > *,
-.calendario-media > *{
+.calendario .linha .ordem,
+.calendario-media .linha .ordem,
+.calendario .linha .inicio,
+.calendario .linha .fim,
+.calendario .linha .dia1,
+.calendario .linha .dia2,
+.calendario .linha .dia3,
+.calendario .linha .dia4,
+.calendario .linha .dia5,
+.calendario .linha .dia6,
+.calendario .linha .dia7,
+.calendario-media .linha .mediasp,
+.calendario-media .linha .mediarj,
+.calendario-media .linha .mediapnt {
   padding:4px 0px !important
 }
 
