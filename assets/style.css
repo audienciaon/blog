@@ -5236,7 +5236,23 @@ header nav{
 .publicacao > *{padding:15px !important}
 
 
+.publicacao>div:not([class*="titulo"]){
+  display:block !important;
+}
 
-
-
+h3,
+.grafico-comparacao-temporadas-titulo,
+.info3-titulo::before,
+.grafico-diaria-titulo::before,
+.grafico-acumulado-titulo::before,
+.calendario-titulo::before,
+.calendario-media-titulo::before,
+.linhadotempo-titulo::before,
+.linktemporadas-titulo::before,
+.capitulosacumulados-titulo::before,
+.grafico-comparacao-titulo::before,
+.elevacaoshare-titulo::before,
+.subtitulo::before {
+  font-size:var(--fonte-16) !important;
+}
   }
