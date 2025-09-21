@@ -5316,9 +5316,16 @@ h3,
   padding:0 0 15px 0 !important;
 }
 
+.grade-comparacao{
+  display:grid !important;
+  gap:20px;
+  grid-template-columns:1fr;
+}
 
-
-
+.linhadotempo{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr) !important;
+}
 
 
 
