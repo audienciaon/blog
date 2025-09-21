@@ -5284,6 +5284,8 @@ h3,
 .info2 img{
   max-width: 60% !important;
   width:200px !important;
+  margin:0 auto !important;
+  align-self:center !important;
 }
 
 .cabecalho .producao{
