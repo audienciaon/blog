@@ -5229,6 +5229,7 @@ main{
   height:auto !important;
   margin:auto !important;
   padding:5px !important;
+  max-width:100% !important;
 }
 
 /* Regular margem do cabeçalho */
@@ -5239,7 +5240,7 @@ header nav{
 
 /* Diminuir padding dos elementos */
 
-.publicacao > *{padding:15px !important}
+.publicacao > *{padding:30px !important}
 
 /* colocar os elementos abaixo */
 
@@ -5332,7 +5333,16 @@ h3,
   grid-template-columns:repeat(3, 1fr) !important;
 }
 
+.info1{
+  gap:10px !important
+}
 
+.cabecalho .links > *{
+  margin-bottom:10px !important;
+}
 
+.campopesquisa::after{
+  content:"" !important;
+}
 
-  }
+}
