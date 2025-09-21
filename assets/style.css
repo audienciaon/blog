@@ -1044,6 +1044,10 @@ h3 {
 }
 /* FIM MOBILE */
 
+.publicacao > * {
+  min-height: 0; /* garante que não será cortado em flex/grid */
+  flex-shrink: 0; /* impede encolher em flex */
+}
 
 .publicacao>div:not([class*="titulo"]) {
   background-color: #00000010;
