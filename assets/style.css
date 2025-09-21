@@ -5276,8 +5276,15 @@ h3,
 }
 
 
+.informacoes{
+  gap:30px !important;
 
+}
 
+.info2 img{
+  max-width: 60% !important;
+  width:200px !important;
+}
 
 
 
