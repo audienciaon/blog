@@ -2333,7 +2333,6 @@ h3,
   grid-template-areas: 'ordem inicio fim dia1 dia2 dia3 dia4 dia5 dia6 dia7' !important;
   grid-template-columns: 0.6fr 1.5fr 1.5fr repeat(7, 1fr) !important;
   gap: 7px;
-  padding: 0px 10px;
   border-radius: 5px;
 }
 
@@ -5356,10 +5355,13 @@ h3,
 
 .calendario .linha{
   gap:3px !important;
+  grid-template-areas: 'ordem inicio dia1 dia2 dia3 dia4 dia5 dia6 dia7' !important;
+  grid-template-columns: 0.6fr 1.5fr repeat(7, 1fr) !important;
 }
 
-
-
+.calendario .linha .fim{
+  display:none !important
+}
 
 
 
