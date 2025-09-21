@@ -5321,11 +5321,15 @@ h3,
 .info4 .cap150,
 .info4 .cap150,
 .info4 .totalcap {
-  padding:0 0 15px 0 !important;
+  padding:0 0 25px 0 !important;
 }
 
 .grafico-diaria{
   height:50vh !important;
+}
+
+.grade-tabela{
+  grid-template-columns:1fr !important;
 }
 
 .grade-comparacao{
@@ -5334,8 +5338,13 @@ h3,
   grid-template-columns:1fr;
 }
 
+.info3, .info4{
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;}
+
+
 .linhadotempo{
-  display:grid;
+  display:grid !important;
   grid-template-columns:repeat(3, 1fr) !important;
 }
 
