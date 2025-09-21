@@ -5229,6 +5229,7 @@ main{
   height:auto !important;
   width:calc(100vw - 20px) !important;
   margin:auto !important;
+  padding:5px !important;
 }
 
 /* Regular margem do cabeçalho */
@@ -5271,13 +5272,13 @@ h3,
 .linhadotempo > :nth-child(1),
 .linhadotempo > :nth-child(2),
 .grade-tabela > :nth-child(2){
- {
   display: none !important;
 }
 
 
 .informacoes{
   gap:30px !important;
+  display:block !important;
 
 }
 
@@ -5286,9 +5287,34 @@ h3,
   width:200px !important;
 }
 
+.cabecalho .producao{
+  font-size:var(--fonte-20) !important;
+}
 
-
-
+.info3 .audpricap,
+.info3 .menoraud,
+.info3 .maioraud,
+.info3 .audultcap,
+.info3 .nameta,
+.info4 .audpricap,
+.info4 .menoraud,
+.info4 .maioraud,
+.info4 .audultcap,
+.info4 .nameta,
+.sharesp,
+.sharerj,
+.sharepnt,
+.elevacaosp,
+.elevacaorj,
+.elevacaopnt,
+.info4 .cap25,
+.info4 .cap50,
+.info4 .cap100,
+.info4 .cap150,
+.info4 .cap150,
+.info4 .totalcap {
+  padding:0 0 15px 0 !important;
+}
 
 
 
