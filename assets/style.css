@@ -1033,18 +1033,21 @@ h3 {
   grid-template-columns: 1fr;
 }
 
+/* MOBILE */
+
 @media (min-width: 1000px) {
-.publicacao>div:not([class*="titulo"]) {
+{
   flex: 0 0 auto;
   scroll-snap-align: start;
   display: flex;
 }
 }
+/* FIM MOBILE */
+
 
 .publicacao>div:not([class*="titulo"]) {
   background-color: #00000010;
   border-radius: 10px;
-  display: flex;
   padding: 80px;
   font-size: 2rem;
   font-size: var(--fonte-14)
