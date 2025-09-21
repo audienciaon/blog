@@ -5401,6 +5401,7 @@ h3,
 
 .linhadotempo .capa, .linhadotempo img {
     width: 100% !important;
+    height:auto !important;
 }
 
 .linhadotempo .col1,
