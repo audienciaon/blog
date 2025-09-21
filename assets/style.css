@@ -1044,19 +1044,15 @@ h3 {
 }
 /* FIM MOBILE */
 
-.publicacao > * {
-  min-height: 0; /* garante que não será cortado em flex/grid */
-  flex-shrink: 0; /* impede encolher em flex */
-}
-
-.publicacao>div:not([class*="titulo"]) {
+.publicacao > div:not([class*="titulo"]):not(.info3):not(.info4) {
+  display: flex;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  padding: 80px;
   background-color: #00000010;
   border-radius: 10px;
-  padding: 80px;
-  font-size: 2rem;
-  font-size: var(--fonte-14)
+  font-size: var(--fonte-14);
 }
-
 
 .atualizacaopost * {
   color: var(--cor-80) !important;
@@ -1671,7 +1667,7 @@ h3 {
 .info4 .cap150,
 .info4 .cap150,
 .info4 .totalcap {
-  font-size: var(--fonte-40) !important;
+  font-size: var(--fonte-30) !important;
   font-weight: 900;
   line-height: 1.4;
   letter-spacing: -0.5px;
