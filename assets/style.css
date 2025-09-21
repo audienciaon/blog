@@ -5316,6 +5316,10 @@ h3,
   padding:0 0 15px 0 !important;
 }
 
+.grafico-diaria{
+  height:50vh !important;
+}
+
 .grade-comparacao{
   display:grid !important;
   gap:20px;
