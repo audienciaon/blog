@@ -5270,7 +5270,8 @@ h3,
 .grafico-comparacao-titulo::before,
 .elevacaoshare-titulo::before,
 .subtitulo::before {
-  font-size:var(--fonte-18) !important;
+  font-size:var(--fonte-20) !important;
+  font-weight:500 !important;
 }
 
 /* Mostrar apenas 3 últimos na linha do tempo */
@@ -5288,6 +5289,7 @@ h3,
 
 .cabecalho .producao{
   padding:20px 0px !important;
+  font-size:var(--fonte-20) !important;
 }
 
 .informacoes{
@@ -5303,9 +5305,6 @@ h3,
   align-self:center !important;
 }
 
-.cabecalho .producao{
-  font-size:var(--fonte-20) !important;
-}
 
 .info3 .audpricap,
 .info3 .menoraud,
