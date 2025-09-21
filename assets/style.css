@@ -5220,9 +5220,20 @@ input[type="text"]:focus {
 
 /* MOBILE */
 
-@media all and (min-width: 651px) and (max-width: 768px) {
+@media (max-width: 1000px) {
 
+main{
+  display:block !important;
+  height:auto !important;
+  width:calc(100vw - 20px) !important;
+  margin:auto !important;
+}
 
+header nav{
+  margin-bottom:20px !important;
+}
+
+.publicacao > *{padding:15px !important}
 
 
 
