@@ -5222,6 +5222,8 @@ input[type="text"]:focus {
 
 @media (max-width: 1000px) {
 
+/* Regular largura página */
+
 main{
   display:block !important;
   height:auto !important;
@@ -5229,16 +5231,23 @@ main{
   margin:auto !important;
 }
 
+/* Regular margem do cabeçalho */
+
 header nav{
   margin:20px 0px !important;
 }
 
+/* Diminuir padding dos elementos */
+
 .publicacao > *{padding:15px !important}
 
+/* colocar os elementos abaixo */
 
 .publicacao>div:not([class*="titulo"]){
   display:block !important;
 }
+
+/* Tamanho da fonte dos títulos */
 
 h3,
 .grafico-comparacao-temporadas-titulo,
@@ -5255,4 +5264,30 @@ h3,
 .subtitulo::before {
   font-size:var(--fonte-16) !important;
 }
+
+/* Mostrar apenas 3 últimos na linha do tempo */
+/* Ocultar média semanal */
+
+.linhadotempo > :nth-child(1),
+.linhadotempo > :nth-child(2),
+.grade-tabela > :nth-child(2){
+ {
+  display: none !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   }
