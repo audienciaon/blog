@@ -5227,7 +5227,7 @@ main{
   display:block !important;
   height:auto !important;
   margin:auto !important;
-  padding:5px !important;
+  padding:0px !important;
   max-width:100% !important;
 }
 
@@ -5239,7 +5239,7 @@ header nav{
 
 /* Diminuir padding dos elementos */
 
-.publicacao > *{padding:30px !important}
+.publicacao > *{padding:30px 15px !important}
 
 /* colocar os elementos abaixo */
 
@@ -5262,7 +5262,7 @@ h3,
 .grafico-comparacao-titulo::before,
 .elevacaoshare-titulo::before,
 .subtitulo::before {
-  font-size:var(--fonte-16) !important;
+  font-size:var(--fonte-18) !important;
 }
 
 /* Mostrar apenas 3 últimos na linha do tempo */
@@ -5274,6 +5274,13 @@ h3,
   display: none !important;
 }
 
+.publicacao{
+  gap:20px !important;
+}
+
+.cabecalho .producao{
+  padding:20px 0px !important;
+}
 
 .informacoes{
   grid-template-columns:1fr;
@@ -5333,7 +5340,7 @@ h3,
 }
 
 .info1{
-  gap:10px !important
+  gap:20px !important
 }
 
 .cabecalho .links > *{
