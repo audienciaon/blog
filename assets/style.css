@@ -5345,4 +5345,32 @@ h3,
   content:"" !important;
 }
 
+.calendario *{
+  font-size:var(--fonte-10) !important;
+}
+
+.calendario-linha > *,
+.calendario-media > *{
+  padding:4px 0px !important
+}
+
+.calendario .linha{
+  gap:3px !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
