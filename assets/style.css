@@ -1044,7 +1044,7 @@ h3 {
 }
 /* FIM MOBILE */
 
-.publicacao > div:not([class*="titulo"]):not(.info3):not(.info4) {
+.publicacao > div:not([class*="titulo"]):not(.info3):not(.info4):not(.evolucao-audiencia) {
   display: flex;
   flex: 0 0 auto;
   scroll-snap-align: start;
