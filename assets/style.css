@@ -1033,11 +1033,15 @@ h3 {
   grid-template-columns: 1fr;
 }
 
-
+@media (min-width: 1000px) {
 .publicacao>div:not([class*="titulo"]) {
   flex: 0 0 auto;
-  /* mantém altura natural dos itens */
   scroll-snap-align: start;
+  display: flex;
+}
+}
+
+.publicacao>div:not([class*="titulo"]) {
   background-color: #00000010;
   border-radius: 10px;
   display: flex;
@@ -1045,7 +1049,6 @@ h3 {
   font-size: 2rem;
   font-size: var(--fonte-14)
 }
-
 
 
 .atualizacaopost * {
