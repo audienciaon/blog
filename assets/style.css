@@ -5243,6 +5243,8 @@ header nav{
 
 /* colocar os elementos abaixo */
 
+/*
+
 .publicacao>div:not([class*="titulo"]){
   display:block !important;
 }
@@ -5321,11 +5323,11 @@ h3,
 .info4 .cap150,
 .info4 .cap150,
 .info4 .totalcap {
-  padding:0 0 25px 0 !important;
+  padding:0 !important;
 }
 
 .grafico-diaria{
-  height:50vh !important;
+  height:40vh !important;
 }
 
 .grade-tabela{
@@ -5334,18 +5336,20 @@ h3,
 
 .grade-comparacao{
   display:grid !important;
-  gap:20px;
+  gap:30px;
   grid-template-columns:1fr;
 }
 
 .info3, .info4{
   display: grid !important;
+  gap:15px !important;
   grid-template-columns: repeat(2, 1fr) !important;}
 
 
 .linhadotempo{
   display:grid !important;
   grid-template-columns:repeat(3, 1fr) !important;
+  gap:10px !important;
 }
 
 .info1{
@@ -5379,9 +5383,17 @@ h3,
   display:none !important
 }
 
+.linhadotempo .capa, .linhadotempo img {
+    width: 100% !important;
+}
 
-
-
+.linhadotempo .col1,
+.linhadotempo .col2,
+.linhadotempo .col3,
+.linhadotempo .col4,
+.linhadotempo .col5 {
+  padding:0 !important;
+}
 
 
 
