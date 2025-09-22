@@ -5484,11 +5484,12 @@ h3,
   padding:40px 80px !important;
 }
 
-.comparacoes-horario {
-  display: flex;          /* ou grid, se preferir */
+.comparacoes {
   overflow-x: auto;       /* permite scroll horizontal */
   scrollbar-width: none;  /* Firefox */
   -ms-overflow-style: none; /* IE 10+ */
+    width: calc(100vw - 20px) !important;
+    border-radius: 10px !important;
 }
 
 .comparacoes-horario::-webkit-scrollbar {
@@ -5497,9 +5498,10 @@ h3,
 
 
 
-
-
-
+.autores-horario .comparacoes-horario {
+  width: calc(100vw - 10px) !important;
+  grid-template-columns:repeat(2, 1fr) !important;
+}
 
 
 
