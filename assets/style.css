@@ -1631,6 +1631,7 @@ h3 {
 
 .info3>*,
 .info4>* {
+  background-color:transparent !important;
   box-sizing: border-box;
   padding: 0px 30px !important;
 
