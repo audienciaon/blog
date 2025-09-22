@@ -5509,7 +5509,9 @@ h3,
 }
 
 
-
+.pagina-pesquisa .resultados{
+  grid-template-columns:repeat(3, 1fr) !important;
+}
 
 
 
