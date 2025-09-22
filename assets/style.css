@@ -1694,7 +1694,7 @@ h3 {
   font-size: var(--fonte-14) !important;
 }
 
-.info4 {
+.info4 > *{
   background-color: var(--cor-60-fade) !important
 }
 
@@ -5346,7 +5346,7 @@ h3,
 }
 
 .info3, .info4{
-  display: grid !important;
+  display: block !important;
   gap:15px !important;
   grid-template-columns: repeat(2, 1fr) !important;}
 
