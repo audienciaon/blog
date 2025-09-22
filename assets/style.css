@@ -2633,7 +2633,7 @@ h3,
   padding-right: 40px;
   display: grid !important;
   grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
+  gap: 25px;
   font-size: var(--fonte-14);
   text-align: center;
 }
@@ -2646,7 +2646,8 @@ h3,
 
 .linhadotempo .capa,
 .linhadotempo img {
-  height: 190px !important;
+  width: 100% !important;
+  height:auto !important;
   margin: 0 auto !important;
   aspect-ratio: 2 / 3 !important;
   background-image: url(https://audienciaon.github.io/capas/adefinir.png);
@@ -2692,13 +2693,6 @@ h3,
   filter: saturate(100%);
 }
 
-.linhadotempo .col1,
-.linhadotempo .col2,
-.linhadotempo .col3,
-.linhadotempo .col4,
-.linhadotempo .col5 {
-  padding: 0 20px;
-}
 
 
 
@@ -5437,10 +5431,6 @@ h3,
   display:none !important
 }
 
-.linhadotempo .capa, .linhadotempo img {
-    width: 100% !important;
-    height:auto !important;
-}
 
 .linhadotempo .col1,
 .linhadotempo .col2,
