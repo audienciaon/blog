@@ -177,58 +177,41 @@ if (
     }
   })();
 
-  // --- Ajusta textos das barras ---
   (function () {
-    function ajustarTextosDasBarras(root = document) {
-      const barras = root.querySelectorAll(".grafico-comparacao .linha .espaco .barra");
-      if (!barras.length) return false;
+  function ajustarTextosDasBarras() {
+    const barras = document.querySelectorAll(".grafico-comparacao .linha .espaco .barra");
+    if (!barras.length) return;
 
-      barras.forEach(b => {
-        if (!b.dataset.origText) {
-          const firstTextNode = Array.from(b.childNodes)
-            .find(n => n.nodeType === Node.TEXT_NODE && n.textContent.trim());
-          b.dataset.origText = (firstTextNode ? firstTextNode.textContent : b.textContent).trim();
-        }
+    barras.forEach(b => {
+      if (!b.dataset.origText) b.dataset.origText = b.textContent.trim();
 
-        let raw = b.dataset.origText.replace(/\s+/g, " ").trim();
-        raw = raw.replace(/ª\s*reapresenta/gi, "ªR")
-                 .replace(/ª\s*temporad/gi, "ªT");
+      let raw = b.dataset.origText.replace(/\s+/g, " ").trim();
+      raw = raw.replace(/ª\s*reapresenta/gi, "ªR")
+               .replace(/ª\s*temporad/gi, "ªT");
 
-        const parts = raw.split(/\s*[-–—]\s*/);
-        let antes = parts.shift() || "";
-        const depois = parts.length ? parts.join(" - ") : "";
+      const parts = raw.split(/\s*[-–—]\s*/);
+      let antes = parts.shift() || "";
+      const depois = parts.length ? parts.join(" - ") : "";
 
-        if (depois) {
-          if (antes.length > 21) antes = antes.slice(0, 21) + "...";
-          raw = antes + " - " + depois;
-        } else {
-          if (raw.length > 25) raw = raw.slice(0, 25) + "...";
-        }
-
-        const textNode = Array.from(b.childNodes).find(n => n.nodeType === Node.TEXT_NODE && n.textContent.trim());
-        if (textNode) textNode.textContent = raw;
-        else b.textContent = raw;
-      });
-
-      return true;
-    }
-
-    ajustarTextosDasBarras();
-
-    const observer = new MutationObserver(muts => {
-      let precisa = false;
-      for (const m of muts) {
-        for (const n of m.addedNodes) {
-          if (n.nodeType !== 1) continue;
-          if (n.matches && n.matches('.grafico-comparacao, .grafico-comparacao *')) { precisa = true; break; }
-          if (n.querySelector && n.querySelector('.grafico-comparacao .linha .espaco .barra')) { precisa = true; break; }
-        }
-        if (precisa) break;
+      if (depois) {
+        if (antes.length > 21) antes = antes.slice(0, 21) + "...";
+        raw = antes + " - " + depois;
+      } else {
+        if (raw.length > 25) raw = raw.slice(0, 25) + "...";
       }
-      if (precisa) ajustarTextosDasBarras();
+
+      b.textContent = raw;
     });
-    observer.observe(document.body, { childList: true, subtree: true });
-  })();
+  }
+
+  // roda após carregar a página
+  window.addEventListener("load", ajustarTextosDasBarras);
+
+  // observa mudanças na página
+  const observer = new MutationObserver(() => ajustarTextosDasBarras());
+  observer.observe(document.body, { childList: true, subtree: true });
+})();
+
 
     // --- Lazy load resultados ---
   const container = document.querySelector(".pagina-pesquisa .resultados");
