@@ -1057,6 +1057,10 @@ h3 {
   .publicacao > div:not([class*="titulo"]) {
     padding:40px;
 }
+
+.grade-comparacao{
+  grid-template-columns:repeat(2, 1fr) !important;
+}
 }
 
 /* FIM MOBILE */
