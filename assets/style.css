@@ -1508,8 +1508,7 @@ h3 {
   grid-template-rows: auto;
   grid-auto-rows: auto;
   font-size: var(--fonte-14);
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
+  padding:0 !important;
   background-color: transparent !important;
 }
 
