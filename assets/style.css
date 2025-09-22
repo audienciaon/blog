@@ -1711,10 +1711,6 @@ h3 {
   font-size: var(--fonte-14) !important;
 }
 
-.info4 > *{
-  background-color: var(--cor-60-fade) !important
-}
-
 .info5 {
   display: grid;
   gap: 30px;
