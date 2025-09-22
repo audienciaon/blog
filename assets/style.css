@@ -1046,6 +1046,27 @@ h3 {
   font-size: var(--fonte-14);
 }
 
+
+
+
+
+/* MOBILE */
+
+@media (min-width: 801px) and (max-width: 1199px) {
+
+  .publicacao > div:not([class*="titulo"]) {
+    padding:40px;
+}
+}
+
+/* FIM MOBILE */
+
+
+
+
+
+
+
 .atualizacaopost * {
   color: var(--cor-80) !important;
 }
