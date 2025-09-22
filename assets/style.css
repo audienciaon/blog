@@ -5322,7 +5322,7 @@ h3,
 .info4 .cap150,
 .info4 .totalcap {
   border-radius:8px;
-  background-color:var(--cor-40-fade) !important;
+  background-color:var(--cor-30-fade) !important;
 }
 
 .grafico-diaria{
