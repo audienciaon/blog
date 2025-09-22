@@ -1,0 +1,569 @@
+body,
+html {
+  font-family: var(--font-family) !important;
+}
+
+
+
+html {
+  visibility: hidden;
+}
+
+html.fonts-loaded {
+  visibility: visible;
+}
+
+.autopagerize_page_element {
+  grid-template-columns: repeat(3, 1fr) !important;
+}
+
+.grade-comparacao {
+  grid-template-columns: repeat(2, 1fr) !important;
+}
+
+.grade-tabela {
+  grid-template-columns: 1fr !important;
+}
+
+.coluna:nth-child(-n+2) {
+  display: none !important;
+}
+
+.linhadotempo {
+  grid-template-columns: repeat(3, 1fr) !important;
+}
+
+.info3,
+.info4,
+.grafico-diaria,
+.calendario,
+.calendario-media,
+.linhadotempo,
+.grade-comparacao {
+  padding: 25px !important;
+}
+
+.grade-comparacao .pricap::before,
+.grade-comparacao .maioraud::before,
+.grade-comparacao .ultcap::before,
+.grade-comparacao .mediageral::before {
+  margin-top: 20px !important;
+}
+
+.calendario .linha {
+  grid-template-areas: 'ordem inicio inicio dia1 dia2 dia3 dia4 dia5 dia6 dia7' !important;
+  grid-template-columns: repeat(10, 1fr) !important;
+  padding: 5px !important;
+  gap: 5px !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media all and (max-width: 800px) {
+
+  #outer-wrapper,
+  #menu,
+  #menu .row,
+  #tituloblog .row,
+  .row {
+    width: 100% !important;
+    box-sizing: border-box;
+
+
+
+
+    #publicacoes-tudo,
+    #ultimasatualizacoes {
+      gap: 10px !important;
+      grid-template-columns: repeat(4, 1fr) !important;
+    }
+
+    #ultimasatualizacoes> :last-child {
+      display: none !important
+    }
+
+    .paginainicial .paginas-lista {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    #header-home {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .proximasecao {
+      padding-bottom: 0
+    }
+
+    #tituloblog .row {
+      padding: 20px !important;
+    }
+
+    .logotipo img {
+      max-width: 100% !important;
+      width: 100% !important
+    }
+
+    .logotipo {
+      box-sizing: border-box
+    }
+
+    #tituloblog {
+      width: calc(100%) !important;
+      padding: 20px !important;
+      box-sizing: border-box;
+    }
+
+    #menu {
+      padding: 0 30px;
+      gap: 20px;
+      width: 100% !important;
+      box-sizing: border-box;
+      grid-template-columns: auto 40px 40px 40px;
+    }
+
+    #tituloblog #menu {
+      padding: 0 !important
+    }
+
+    .campopesquisa::after {
+      content: ""
+    }
+
+    .linkpesquisa::after {
+      content: "" !important
+    }
+
+    .paginas-lista {
+      grid-template-columns: 1fr !important;
+    }
+
+
+    .media-audiencias * .data {
+      margin-top: 0px;
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    .media-audiencias .audienciapnt {
+      padding: 0 !important
+    }
+
+    .media-audiencias .audienciasp,
+    .media-audiencias .audienciarj {
+      padding: 0 0px 20px !important;
+      border-radius: 0px !important;
+      border-bottom: 1px solid #555;
+    }
+
+    .media-audiencias {
+      gap: 15px;
+      grid-template-columns: 1fr !important;
+    }
+
+    .comparacoes-horario .item .infos .posicao {
+      font-size: 20px !important
+    }
+
+
+    .apresentacao {
+      grid-template-columns: 1fr !important;
+      gap: 20px !important
+    }
+
+    .paginainicial {
+      grid-template-columns: 1fr !important;
+      gap: 10px !important;
+    }
+
+
+    .paginainicial .bloco .nome {
+      font-size: var(--fonte-25) !important;
+    }
+
+
+    .pagina-horario-cabecalho {
+      grid-template-columns: 1fr !important;
+    }
+
+    .titulo-horario-cabecalho {
+      text-align: center
+    }
+
+    body,
+    html {
+      font-family: var(--font-family);
+    }
+
+
+
+    #header-wrap .container {
+      width: calc(100% - 20px);
+      gap: 30px;
+    }
+
+    .LinkList .widget-content ul {
+      gap: 25px !important
+    }
+
+
+    .mobile-menu-toggle:hover,
+    .mobile-menu-toggle {
+      color: var(--cor-texto);
+      display: none !important
+    }
+
+    .informacoes {
+      grid-template-areas:
+        'imagem' 'informacoes' 'versoes' !important;
+      grid-template-columns: 1fr !important;
+    }
+
+    .grid-posts {
+      gap: 20px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cabecalho {
+      width: 100% !important;
+    }
+
+    .informacoes .info2 {
+      width: 100% !important;
+    }
+
+    .info1 .formato,
+    .info1 .producao,
+    .info1 .ficha,
+    .info1 .autor,
+    .info1 .diretor,
+    .info1 .exibicao,
+    .info1 .outro {
+      max-width: 100% !important;
+    }
+
+    .informacoes .info2 img {
+      max-width: 50% !important;
+      min-width: 50% !important;
+      width: 50% !important;
+      margin: 0 auto !important;
+    }
+
+
+    .autopagerize_page_element {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .grade-comparacao {
+      grid-template-columns: 1fr !important;
+    }
+
+
+    .grade-tabela {
+      grid-template-columns: 1fr !important;
+    }
+
+    .info1 {
+      grid-template-rows: auto !important;
+      gap: 10px !important
+    }
+
+    .info1 * {
+      line-height: 1.5 !important
+    }
+
+    .info3>*,
+    .info4>* {
+      padding: 0px !important
+    }
+
+    .info4 .totalcap {
+      padding: 20px !important
+    }
+
+    .info3,
+    .info4 {
+      background-color: transparent !important;
+      padding: 0px !important;
+      max-width: 100%;
+      overflow-x: auto;
+      gap: 0px !important;
+      display: grid;
+
+      grid-template-columns: repeat(5, 1fr);
+      box-sizing: border-box;
+    }
+
+
+    .info3>*,
+    .info4>* {
+      width: 160px !important;
+      padding: 25px !important;
+      border-radius: 8px;
+      background-color: var(--cor-50-fade) !important;
+    }
+
+    .info3>div,
+    .info4>div {
+      margin-right: 25px;
+    }
+
+    .info3>div:last-child,
+    .info4>div:last-child {
+      margin-right: 0;
+    }
+
+    .info3 .positivo,
+    .info3 .negativo,
+    .info4 .positivo,
+    .info4 .negativo {
+      min-width: 90px;
+      max-width: 100px
+    }
+
+    .cabecalho .ficha,
+    .cabecalho .ficha * {
+      gap: 10px !important;
+      line-height: 1.5 !important
+    }
+
+    .coluna:nth-child(-n+2) {
+      display: none !important;
+    }
+
+    .linhadotempo {
+      grid-template-columns: repeat(3, 1fr) !important;
+    }
+
+    .calendario,
+    .calendario-media,
+    .linhadotempo {
+      padding: 20px !important;
+      gap: 0px !important
+    }
+
+    .grade-comparacao {
+      padding: 20px !important;
+      gap: 30px !important
+    }
+
+    .linhadotempo .capa,
+    .linhadotempo img {
+      height: 140px !important
+    }
+
+    .grafico-diaria {
+      padding: 70px 20px 20px 20px !important;
+    }
+
+    .linhadotempo .coluna {
+      grid-template-rows: 20px 140px auto !important;
+      padding: 0 !important
+    }
+
+
+
+    .calendario .linha {
+      grid-template-areas: 'ordem inicio inicio dia1 dia2 dia3 dia4 dia5 dia6 dia7' !important;
+      grid-template-columns: repeat(10, 1fr) !important;
+      padding: 2px !important;
+      gap: 5px !important;
+    }
+
+    .calendario-media .linha {
+      padding: 2px !important;
+      gap: 5px !important;
+    }
+
+    .calendario .linha .fim {
+      display: none !important
+    }
+
+    .info3 .fade,
+    .info4 .fade {
+      display: none !important
+    }
+
+    .grade-comparacao .pricap::before,
+    .grade-comparacao .maioraud::before,
+    .grade-comparacao .ultcap::before,
+    .grade-comparacao .mediageral::before {
+      margin-top: 20px !important;
+      font-size: var(--fonte-15) !important;
+    }
+
+
+
+    .series .umatemporada {
+      grid-template-columns: 1fr !important;
+      border-radius: 10px;
+    }
+
+    .series .umatemporada .infos {
+      padding: 30px 20px !important;
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      column-gap: 20px !important;
+      grid-template-rows: 30px auto !important;
+      grid-template-areas:
+        'ano ano' 'episodios audiencia' !important;
+    }
+
+    .series .umatemporada .infos .ano {
+      font-size: var(--fonte-20) !important;
+    }
+
+    .series .umatemporada .infos * {
+      text-align: left !important
+    }
+
+    .series .infos img {
+      display: none !important
+    }
+
+    .grafico-emissora {
+      grid-template-rows: auto;
+    }
+
+    .maioresaud-emissora {
+      grid-template-rows: auto;
+    }
+
+    .calendario-anual {
+      gap: 5px !important
+    }
+
+    .calendario-anual .cabecalho {
+      width: auto !important
+    }
+
+    .calendario-anual .data::after,
+    .calendario-anual .grafico-comparacao {
+      display: none !important
+    }
+
+    .calendario-anual .data {
+      font-weight: 500 !important
+    }
+
+    .calendario-anual .item-data {
+      font-weight: 500 !important;
+      padding: 10px;
+      font-size: var(--fonte-12);
+    }
+
+    .calendario-anual .inicio-mes {
+      padding: 10px 10px 10px 5px !important
+    }
+
+
+    .pagina-horario-cabecalho {
+      display: block !important
+    }
+
+
+    .pagina-horario-infos {
+      grid-template-rows: auto !important;
+      grid-template-columns: 1fr !important;
+    }
+
+    .titulo-horario-cabecalho {
+      grid-template-columns: 35px auto !important;
+      gap: 15px !important;
+    }
+
+    .pagina-horario-cabecalho h1 {
+      padding: 0 !important;
+      text-align: left !important
+    }
+
+    .comparacoes {
+      overflow-x: scroll;
+    }
+
+    .pagina-horario-cabecalho .conteudo .topo {
+      display: none !important
+    }
+
+    .pagina-horario-noar .conteudo {
+      align-items: center;
+      grid-template-rows: 180px auto auto auto !important;
+      grid-template-columns: 3fr 2fr;
+      min-height: 180px
+    }
+
+    .pagina-horario-noar .emexibicao::before {
+      display: inline-block;
+      content: "
+ no ar"
+;
+      padding: 5px 10px;
+      border-radius: 8px;
+      font-weight: 900;
+      margin-bottom: 20px;
+    }
+
+    .qtde-exibicoes,
+    .qtde-ineditas,
+    .qtde-reexibicoes {
+      display: grid;
+      grid-template-columns: 70px auto;
+      align-self: center;
+      align-items: center;
+    }
+
+    .qtde-exibicoes:first-child,
+    .qtde-ineditas:first-child,
+    .qtde-reexibicoes:first-child {
+      text-align: right !important
+    }
+
+    .autores-horario .comparacoes-horario {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .comparacoes-horario {
+      grid-template-columns: repeat(3, 1fr) 0;
+    }
+
+    .pagina-pesquisa .resultados {
+      margin: 0 !important;
+      gap: 15px !important;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important;
+    }
+
+
+    .comparacoes-horario .item .conteudo img {
+      max-width: 125px !important;
+      width: 125px !important;
+      min-width: 125px !important;
+    }
+
+
+
+    .comparacoes-horario .informacao {
+      display: none !important
+    }
+
+    .apresentacao {
+      grid-template-columns: 1fr !important;
+      gap: 10px;
+    }
+
+
+
+    .numero-temporada {
+      display: inline-block;
+      margin-left: 0;
+    }
