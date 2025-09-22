@@ -2646,7 +2646,8 @@ h3,
 
 .linhadotempo .capa,
 .linhadotempo img {
-  width: 100% !important;
+  max-width: 100% !important;
+  max-height:100px !important;
   height:auto !important;
   margin: 0 auto !important;
   aspect-ratio: 2 / 3 !important;
