@@ -5216,6 +5216,45 @@ input[type="text"]:focus {
 
 @media (max-width: 1000px) {
 
+  /* HOME */
+
+  #principal{
+    padding:30px !important;
+  }
+
+#principal h1{
+  font-size:var(--fonte-30) !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Regular largura página */
 
 main{

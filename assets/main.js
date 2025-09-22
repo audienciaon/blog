@@ -79,31 +79,35 @@ document.addEventListener("DOMContentLoaded", async () => {
     img.src = FALLBACK + "?cb=" + Date.now();
   }
 
-  // --- Aplicar background desfocado ---
-  function applyBackgroundBlur(selector) {
-    const imgEl = document.querySelector(selector);
-    if (!imgEl) return;
-    const img = new Image();
-    img.crossOrigin = "anonymous";
-    img.src = imgEl.src;
-    img.onload = () => {
-      const canvas = document.createElement("canvas");
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      const ctx = canvas.getContext("2d");
-      ctx.filter = "blur(300px)";
-      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-      document.documentElement.style.backgroundImage = `url(${canvas.toDataURL("image/png")})`;
-      document.documentElement.style.backgroundSize = "cover";
-      document.documentElement.style.backgroundPosition = "center";
-      document.documentElement.style.backgroundRepeat = "no-repeat";
-    };
-  }
+// --- Aplicar background desfocado ---
+function applyBackgroundBlur(selector) {
+  const imgEl = document.querySelector(selector);
+  if (!imgEl) return;
+  const img = new Image();
+  img.crossOrigin = "anonymous";
+  img.src = imgEl.src;
+  img.onload = () => {
+    const canvas = document.createElement("canvas");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const ctx = canvas.getContext("2d");
+    ctx.filter = "blur(300px)";
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    document.documentElement.style.backgroundImage = `url(${canvas.toDataURL("image/png")})`;
+    document.documentElement.style.backgroundSize = "cover";
+    document.documentElement.style.backgroundPosition = "center";
+    document.documentElement.style.backgroundRepeat = "no-repeat";
+  };
+}
 
-  applyBackgroundBlur(".cabecalho .informacoes .info2 img");
-  if (window.location.pathname.includes("/p/")) {
-    applyBackgroundBlur(".pagina-horario-noar .conteudo img");
-  }
+// Sempre aplica para o cabeçalho
+applyBackgroundBlur(".cabecalho .informacoes .info2 img");
+
+// Aplica para páginas /p/, exceto /p/pesquisa
+if (window.location.pathname.startsWith("/p/") && !window.location.pathname.includes("pesquisa.html") &&   !window.location.pathname.endsWith("index.html")) {
+  applyBackgroundBlur(".pagina-horario-noar .conteudo img");
+}
+
 
   // --- Inicializa todos os carrosséis ---
   const carrosselWrappers = document.querySelectorAll('.producoesnoar-wrapper');
