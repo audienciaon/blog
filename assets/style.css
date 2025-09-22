@@ -5234,7 +5234,11 @@ header nav{
 
 /* Diminuir padding dos elementos */
 
-.publicacao > *{padding:30px 15px !important}
+.publicacao > *,
+.info3 > *,
+.info4 > *{
+  padding:30px 15px !important
+}
 
 /* colocar os elementos abaixo */
 
@@ -5317,7 +5321,8 @@ h3,
 .info4 .cap150,
 .info4 .cap150,
 .info4 .totalcap {
-  padding:0 !important;
+  border-radius:8px;
+  padding: 0 0 20px 0 !important;
 }
 
 .grafico-diaria{
@@ -5335,9 +5340,12 @@ h3,
 }
 
 .info3, .info4{
-  display: block !important;
+  display: contents !important;
   gap:15px !important;
-  grid-template-columns: repeat(2, 1fr) !important;}
+  grid-template-columns: repeat(2, 1fr) !important;
+  background-color:transparent;
+  padding:0 !important;
+}
 
 
 .linhadotempo{
