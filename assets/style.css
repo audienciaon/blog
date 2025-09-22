@@ -318,6 +318,7 @@ footer a:hover {
   pointer-events: none;
 }
 
+/*
 .producoesnoar::before {
   left: 0;
   background: linear-gradient(to right, rgba(34, 34, 34, 1), rgba(34, 34, 34, 0));
@@ -327,6 +328,7 @@ footer a:hover {
   right: 0;
   background: linear-gradient(to left, rgba(34, 34, 34, 1), rgba(34, 34, 34, 0));
 }
+*/
 
 .producoesnoar h3 {
   font-size: var(--fonte-12) !important;
