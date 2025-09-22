@@ -104,7 +104,11 @@ function applyBackgroundBlur(selector) {
 applyBackgroundBlur(".cabecalho .informacoes .info2 img");
 
 // Aplica para páginas /p/, exceto /p/pesquisa e index
-if (window.location.pathname.startsWith("/p/") && !window.location.pathname.includes("pesquisa.html") && !window.location.pathname.endsWith("index.html") &&  window.location.href !== "https://audienciaon.github.io/blog/") {
+if (
+  !window.location.pathname.includes("pesquisa.html") &&
+  !window.location.pathname.endsWith("index.html") &&
+  window.location.href !== "https://audienciaon.github.io/blog/"
+) {
   applyBackgroundBlur(".pagina-horario-noar .conteudo img");
 }
 
