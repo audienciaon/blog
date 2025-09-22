@@ -1525,7 +1525,7 @@ h3 {
   line-height: 1;
   display: grid !important;
   gap: 10px;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto;
   grid-auto-rows: auto;
   font-size: var(--fonte-14);
