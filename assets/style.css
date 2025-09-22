@@ -231,7 +231,7 @@ button {
   width: 2000%;
   height: 2000%;
   transform: translate(-50%, -50%) rotate(0deg);
-  background: linear-gradient(90deg, #40e0d0 30%, #87cefa 70%);
+  background: linear-gradient(90deg, #cc66ff 45%, #87cefa 55%);
   transform-origin: center;
   animation: rotaciona 6s linear infinite;
   z-index: 0;
@@ -437,7 +437,7 @@ a {
 #header-home {
   position: relative;
   /* referência para o tituloblog */
-  height: 100vh;
+  height: 0vh;
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   gap: 15px;
