@@ -4238,7 +4238,7 @@ h3,
   width: auto;
   margin: 30px 0px;
   gap: 30px;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(0, 200px));
 }
 
 .pagina-pesquisa .resultados .linha {
