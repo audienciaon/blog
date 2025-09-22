@@ -1126,6 +1126,7 @@ h3 {
 }
 
 .dadosparciais::before {
+  display:none !important;
   content: "Tabela parcial";
 }
 
