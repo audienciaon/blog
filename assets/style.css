@@ -1502,7 +1502,7 @@ h3 {
 
 .versoes {
   line-height: 1;
-  display: grid;
+  display: grid !important;
   gap: 10px;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: auto;
@@ -5442,7 +5442,9 @@ h3,
 }
 
 
-
+.versoes {
+  grid-template-columns:1fr !important;
+}
 
 
 
