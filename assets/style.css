@@ -5470,6 +5470,48 @@ h3,
 
 
 
+/* PÁGINAS */
+
+.pagina-horario-cabecalho{
+    grid-template-columns: 1fr !important;
+    grid-template-areas:
+        'titulo'
+        'infos'
+        'emexibicao' !important;
+}
+
+.pagina-horario-noar .conteudo{
+  padding:40px 80px !important;
+}
+
+.comparacoes-horario {
+  display: flex;          /* ou grid, se preferir */
+  overflow-x: auto;       /* permite scroll horizontal */
+  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+.comparacoes-horario::-webkit-scrollbar {
+  display: none;          /* Chrome, Safari e Opera */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
