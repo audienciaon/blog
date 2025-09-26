@@ -91,7 +91,7 @@ function applyBackgroundBlur(selector) {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     const ctx = canvas.getContext("2d");
-    ctx.filter = "blur(300px)";
+    ctx.filter = "blur(300px) brightness(0.8) saturate(2)";
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
     document.documentElement.style.backgroundImage = `url(${canvas.toDataURL("image/png")})`;
     document.documentElement.style.backgroundSize = "cover";
@@ -99,6 +99,7 @@ function applyBackgroundBlur(selector) {
     document.documentElement.style.backgroundRepeat = "no-repeat";
   };
 }
+
 
 // Sempre aplica para o cabeçalho
 applyBackgroundBlur(".cabecalho .informacoes .info2 img");
