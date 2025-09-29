@@ -1405,7 +1405,8 @@ h3 {
 }
 
 
-.numero-temporada {
+.numero-temporada,
+.numero-reapresentacao {
   display: inline;
   background-color: #ffffff30;
   vertical-align: middle;
@@ -1420,7 +1421,8 @@ h3 {
   display: none
 }
 
-.numero-temporada::after {
+.numero-temporada::after,
+.numero-reapresentacao::after {
   text-transform: uppercase;
 }
 
