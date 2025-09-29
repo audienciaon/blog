@@ -5514,7 +5514,10 @@ h3,
 }
 
 
-
+.titulo-horario-cabecalho{
+  grid-template-columns:1fr !important;
+  gap:10px !important;
+}
 
 
 
