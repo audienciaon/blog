@@ -247,7 +247,7 @@ if (
   }
 
 
-  
+
   // --- Drag to scroll no segundo elemento de <main> ---
   const mainSecondDrag = document.querySelector("main > :nth-child(2)");
   if (mainSecondDrag) {
@@ -279,7 +279,7 @@ if (
   // --- Scroll global do mouse para o segundo elemento de <main> ---
   window.addEventListener("wheel", e => {
     if (!mainSecondDrag) return;
-    if (window.innerWidth > 768) { // desktop
+    if (window.innerWidth > 1000) { // desktop
       e.preventDefault();
       mainSecondDrag.scrollTop += e.deltaY;
     }
