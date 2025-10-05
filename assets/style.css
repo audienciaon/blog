@@ -1266,11 +1266,6 @@ h3 {
   content: "";
 }
 
-.programa .horario a,
-.minisserie .horario a,
-.realityshows .horario a {
-  display: none !important
-}
 
 .sbt .cabecalho .tipo,
 .band .cabecalho .tipo,
