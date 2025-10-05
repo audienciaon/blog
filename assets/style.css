@@ -958,10 +958,8 @@ h3 {
 
 
 #disqus_thread {
-  border-radius: 10px;
-  padding: 30px !important;
-  margin-top: 40px !important;
-  background-color: #ffffff80
+  border-radius: 10px !important;
+  background-color: var(--cor-50-fade) !important;
 }
 
 .grade {
