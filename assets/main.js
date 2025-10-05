@@ -79,40 +79,38 @@ document.addEventListener("DOMContentLoaded", async () => {
     img.src = FALLBACK + "?cb=" + Date.now();
   }
 
-// --- Aplicar background desfocado ---
-function applyBackgroundBlur(selector) {
-  const imgEl = document.querySelector(selector);
-  if (!imgEl) return;
-  const img = new Image();
-  img.crossOrigin = "anonymous";
-  img.src = imgEl.src;
-  img.onload = () => {
-    const canvas = document.createElement("canvas");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    const ctx = canvas.getContext("2d");
-    ctx.filter = "blur(300px) brightness(0.8) saturate(2)";
-    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-    document.documentElement.style.backgroundImage = `url(${canvas.toDataURL("image/png")})`;
-    document.documentElement.style.backgroundSize = "cover";
-    document.documentElement.style.backgroundPosition = "center";
-    document.documentElement.style.backgroundRepeat = "no-repeat";
-  };
-}
+  // --- Aplicar background desfocado ---
+  function applyBackgroundBlur(selector) {
+    const imgEl = document.querySelector(selector);
+    if (!imgEl) return;
+    const img = new Image();
+    img.crossOrigin = "anonymous";
+    img.src = imgEl.src;
+    img.onload = () => {
+      const canvas = document.createElement("canvas");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      const ctx = canvas.getContext("2d");
+      ctx.filter = "blur(300px) brightness(0.8) saturate(2)";
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      document.documentElement.style.backgroundImage = `url(${canvas.toDataURL("image/png")})`;
+      document.documentElement.style.backgroundSize = "cover";
+      document.documentElement.style.backgroundPosition = "center";
+      document.documentElement.style.backgroundRepeat = "no-repeat";
+    };
+  }
 
+  // Sempre aplica para o cabeçalho
+  applyBackgroundBlur(".cabecalho .informacoes .info2 img");
 
-// Sempre aplica para o cabeçalho
-applyBackgroundBlur(".cabecalho .informacoes .info2 img");
-
-// Aplica para páginas /p/, exceto /p/pesquisa e index
-if (
-  !window.location.pathname.includes("pesquisa.html") &&
-  !window.location.pathname.endsWith("index.html") &&
-  window.location.href !== "https://audienciaon.github.io/blog/"
-) {
-  applyBackgroundBlur(".pagina-horario-noar .conteudo img");
-}
-
+  // Aplica para páginas /p/, exceto /p/pesquisa e index
+  if (
+    !window.location.pathname.includes("pesquisa.html") &&
+    !window.location.pathname.endsWith("index.html") &&
+    window.location.href !== "https://audienciaon.github.io/blog/"
+  ) {
+    applyBackgroundBlur(".pagina-horario-noar .conteudo img");
+  }
 
   // --- Inicializa todos os carrosséis ---
   const carrosselWrappers = document.querySelectorAll('.producoesnoar-wrapper');
@@ -179,42 +177,38 @@ if (
   })();
 
   (function () {
-  function ajustarTextosDasBarras() {
-    const barras = document.querySelectorAll(".grafico-comparacao .linha .espaco .barra");
-    if (!barras.length) return;
+    function ajustarTextosDasBarras() {
+      const barras = document.querySelectorAll(".grafico-comparacao .linha .espaco .barra");
+      if (!barras.length) return;
 
-    barras.forEach(b => {
-      if (!b.dataset.origText) b.dataset.origText = b.textContent.trim();
+      barras.forEach(b => {
+        if (!b.dataset.origText) b.dataset.origText = b.textContent.trim();
 
-      let raw = b.dataset.origText.replace(/\s+/g, " ").trim();
-      raw = raw.replace(/ª\s*reapresenta/gi, "ªR")
-               .replace(/ª\s*temporad/gi, "ªT");
+        let raw = b.dataset.origText.replace(/\s+/g, " ").trim();
+        raw = raw.replace(/ª\s*reapresenta/gi, "ªR")
+                 .replace(/ª\s*temporad/gi, "ªT");
 
-      const parts = raw.split(/\s*[-–—]\s*/);
-      let antes = parts.shift() || "";
-      const depois = parts.length ? parts.join(" - ") : "";
+        const parts = raw.split(/\s*[-–—]\s*/);
+        let antes = parts.shift() || "";
+        const depois = parts.length ? parts.join(" - ") : "";
 
-      if (depois) {
-        if (antes.length > 21) antes = antes.slice(0, 21) + "...";
-        raw = antes + " - " + depois;
-      } else {
-        if (raw.length > 25) raw = raw.slice(0, 25) + "...";
-      }
+        if (depois) {
+          if (antes.length > 21) antes = antes.slice(0, 21) + "...";
+          raw = antes + " - " + depois;
+        } else {
+          if (raw.length > 25) raw = raw.slice(0, 25) + "...";
+        }
 
-      b.textContent = raw;
-    });
-  }
+        b.textContent = raw;
+      });
+    }
 
-  // roda após carregar a página
-  window.addEventListener("load", ajustarTextosDasBarras);
+    window.addEventListener("load", ajustarTextosDasBarras);
+    const observer = new MutationObserver(() => ajustarTextosDasBarras());
+    observer.observe(document.body, { childList: true, subtree: true });
+  })();
 
-  // observa mudanças na página
-  const observer = new MutationObserver(() => ajustarTextosDasBarras());
-  observer.observe(document.body, { childList: true, subtree: true });
-})();
-
-
-    // --- Lazy load resultados ---
+  // --- Lazy load resultados ---
   const container = document.querySelector(".pagina-pesquisa .resultados");
   if (container) {
     const totalItens = 10000;
@@ -246,82 +240,41 @@ if (
     });
   }
 
-
-  // --- Disqus (robusto, logs e observer) ---
+  // --- Disqus (insere no final de .publicacao, se existir) ---
   (function () {
     const DISQUS_SHORTNAME = 'audienciaon';
     const path = window.location.pathname || '';
-    const isExcluded = () => {
-      const p = path.toLowerCase();
-      if (p === '/' || p === '/blog/') return true;
-      if (p.endsWith('/index.html') || p.endsWith('index.html')) return true;
-      if (p.endsWith('/pesquisa.html') || p.endsWith('pesquisa.html')) return true;
-      return false;
-    };
 
-    if (isExcluded()) {
-      console.log('Disqus: página excluída ->', path);
+    if (!/^https?:/.test(location.protocol)) return;
+    if (path.endsWith('pesquisa.html') || path.endsWith('index.html') || path === '/blog/' || path === '/') return;
+
+    const publicacao = document.querySelector('.publicacao');
+    if (!publicacao) {
+      console.log('Disqus: nenhuma .publicacao encontrada, nada inserido.');
       return;
     }
 
     if (document.getElementById('disqus_thread')) {
-      console.log('Disqus: já inserido, abortando');
+      console.log('Disqus: já existe na página.');
       return;
     }
 
-    if (!/^https?:/.test(location.protocol)) {
-      console.warn('Disqus: protocolo não suportado:', location.protocol);
-      return;
-    }
+    const thread = document.createElement('div');
+    thread.id = 'disqus_thread';
+    publicacao.appendChild(thread);
 
-    function createThreadAndLoad(targetEl) {
-      if (!targetEl || document.getElementById('disqus_thread')) return false;
-      const thread = document.createElement('div');
-      thread.id = 'disqus_thread';
-      targetEl.appendChild(thread);
+    window.disqus_config = function () {
+      this.page.url = window.location.href;
+      this.page.identifier = window.location.pathname;
+    };
 
-      window.disqus_config = function () {
-        this.page.url = window.location.href;
-        this.page.identifier = window.location.pathname;
-      };
+    const s = document.createElement('script');
+    s.src = `https://${DISQUS_SHORTNAME}.disqus.com/embed.js`;
+    s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (document.head || document.body).appendChild(s);
 
-      const d = document;
-      const s = d.createElement('script');
-      s.src = `https://${DISQUS_SHORTNAME}.disqus.com/embed.js`;
-      s.async = true;
-      s.setAttribute('data-timestamp', +new Date());
-      (d.head || d.body).appendChild(s);
-
-      console.log('Disqus: script injetado em', targetEl);
-      return true;
-    }
-
-    function tryInsertNow() {
-      const publicacao = document.querySelector('.publicacao');
-      const paginaInicial = document.querySelector('#paginainicial');
-
-      if (publicacao) return createThreadAndLoad(publicacao);
-      if (paginaInicial) return createThreadAndLoad(paginaInicial);
-      return false;
-    }
-
-    if (tryInsertNow()) return;
-
-    console.log('Disqus: alvo não encontrado — iniciando observer (20s timeout)...');
-    const observer = new MutationObserver((muts, obs) => {
-      if (tryInsertNow()) {
-        obs.disconnect();
-      }
-    });
-    observer.observe(document.body, { childList: true, subtree: true });
-
-    setTimeout(() => {
-      try { observer.disconnect(); } catch (e) {}
-      if (!document.getElementById('disqus_thread')) {
-        console.warn('Disqus: timeout - elemento alvo não apareceu em 20s');
-      }
-    }, 20000);
+    console.log('Disqus: inserido como último elemento de .publicacao');
   })();
-
 
 }); // fecha DOMContentLoaded
