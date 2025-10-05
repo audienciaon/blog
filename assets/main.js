@@ -240,28 +240,20 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
-  // --- Disqus (insere no final de .publicacao, se existir) ---
-  (function () {
-    const DISQUS_SHORTNAME = 'audienciaon';
-    const path = window.location.pathname || '';
+  // --- Disqus (insere no final de .publicacao, se aparecer - observer 20s) ---
+(function () {
+  const DISQUS_SHORTNAME = 'audienciaon';
+  const path = window.location.pathname || '';
 
-    if (!/^https?:/.test(location.protocol)) return;
-    if (path.endsWith('pesquisa.html') || path.endsWith('index.html') || path === '/blog/' || path === '/') return;
+  if (!/^https?:/.test(location.protocol)) return;
+  if (path.endsWith('pesquisa.html') || path.endsWith('index.html') || path === '/blog/' || path === '/') return;
+  if (document.getElementById('disqus_thread')) return;
 
-    const publicacao = document.querySelector('.publicacao');
-    if (!publicacao) {
-      console.log('Disqus: nenhuma .publicacao encontrada, nada inserido.');
-      return;
-    }
-
-    if (document.getElementById('disqus_thread')) {
-      console.log('Disqus: já existe na página.');
-      return;
-    }
-
+  function loadDisqus(target) {
+    if (!target || document.getElementById('disqus_thread')) return false;
     const thread = document.createElement('div');
     thread.id = 'disqus_thread';
-    publicacao.appendChild(thread);
+    target.appendChild(thread);
 
     window.disqus_config = function () {
       this.page.url = window.location.href;
@@ -275,6 +267,34 @@ document.addEventListener("DOMContentLoaded", async () => {
     (document.head || document.body).appendChild(s);
 
     console.log('Disqus: inserido como último elemento de .publicacao');
-  })();
+    return true;
+  }
 
-}); // fecha DOMContentLoaded
+  // tentativa imediata
+  const immediate = document.querySelector('.publicacao');
+  if (immediate && loadDisqus(immediate)) return;
+
+  // observa inserções no DOM por até 20s
+  const obs = new MutationObserver((muts, o) => {
+    for (const m of muts) {
+      for (const n of m.addedNodes) {
+        if (n.nodeType !== 1) continue;
+        if (n.classList && n.classList.contains('publicacao')) {
+          if (loadDisqus(n)) { o.disconnect(); return; }
+        }
+        const found = n.querySelector && n.querySelector('.publicacao');
+        if (found) {
+          if (loadDisqus(found)) { o.disconnect(); return; }
+        }
+      }
+    }
+  });
+  obs.observe(document.body, { childList: true, subtree: true });
+
+  setTimeout(() => {
+    try { obs.disconnect(); } catch (e) {}
+    if (!document.getElementById('disqus_thread')) {
+      console.warn('Disqus: timeout - .publicacao não apareceu em 20s');
+    }
+  }, 20000);
+})();
