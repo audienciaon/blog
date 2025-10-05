@@ -955,7 +955,10 @@ h3 {
 
 
 
+.paginainicial #disqus_thread {
+padding: 80px !important;
 
+}
 
 #disqus_thread {
   border-radius: 10px !important;
