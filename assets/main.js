@@ -247,4 +247,43 @@ if (
   }
 
 
+  
+  // --- Drag to scroll no segundo elemento de <main> ---
+  const mainSecondDrag = document.querySelector("main > :nth-child(2)");
+  if (mainSecondDrag) {
+    let isDown = false;
+    let startY;
+    let scrollTop;
+
+    mainSecondDrag.addEventListener("mousedown", e => {
+      isDown = true;
+      startY = e.pageY - mainSecondDrag.offsetTop;
+      scrollTop = mainSecondDrag.scrollTop;
+      mainSecondDrag.style.cursor = "grabbing";
+      e.preventDefault();
+    });
+
+    window.addEventListener("mouseup", () => {
+      isDown = false;
+      if (mainSecondDrag) mainSecondDrag.style.cursor = "default";
+    });
+
+    mainSecondDrag.addEventListener("mousemove", e => {
+      if (!isDown) return;
+      const y = e.pageY - mainSecondDrag.offsetTop;
+      const walk = (y - startY) * 1; // velocidade
+      mainSecondDrag.scrollTop = scrollTop - walk;
+    });
+  }
+
+  // --- Scroll global do mouse para o segundo elemento de <main> ---
+  window.addEventListener("wheel", e => {
+    if (!mainSecondDrag) return;
+    if (window.innerWidth > 768) { // desktop
+      e.preventDefault();
+      mainSecondDrag.scrollTop += e.deltaY;
+    }
+  }, { passive: false });
+
+
 })
