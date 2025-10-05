@@ -79,38 +79,40 @@ document.addEventListener("DOMContentLoaded", async () => {
     img.src = FALLBACK + "?cb=" + Date.now();
   }
 
-  // --- Aplicar background desfocado ---
-  function applyBackgroundBlur(selector) {
-    const imgEl = document.querySelector(selector);
-    if (!imgEl) return;
-    const img = new Image();
-    img.crossOrigin = "anonymous";
-    img.src = imgEl.src;
-    img.onload = () => {
-      const canvas = document.createElement("canvas");
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      const ctx = canvas.getContext("2d");
-      ctx.filter = "blur(300px) brightness(0.8) saturate(2)";
-      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-      document.documentElement.style.backgroundImage = `url(${canvas.toDataURL("image/png")})`;
-      document.documentElement.style.backgroundSize = "cover";
-      document.documentElement.style.backgroundPosition = "center";
-      document.documentElement.style.backgroundRepeat = "no-repeat";
-    };
-  }
+// --- Aplicar background desfocado ---
+function applyBackgroundBlur(selector) {
+  const imgEl = document.querySelector(selector);
+  if (!imgEl) return;
+  const img = new Image();
+  img.crossOrigin = "anonymous";
+  img.src = imgEl.src;
+  img.onload = () => {
+    const canvas = document.createElement("canvas");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const ctx = canvas.getContext("2d");
+    ctx.filter = "blur(300px) brightness(0.8) saturate(2)";
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    document.documentElement.style.backgroundImage = `url(${canvas.toDataURL("image/png")})`;
+    document.documentElement.style.backgroundSize = "cover";
+    document.documentElement.style.backgroundPosition = "center";
+    document.documentElement.style.backgroundRepeat = "no-repeat";
+  };
+}
 
-  // Sempre aplica para o cabeçalho
-  applyBackgroundBlur(".cabecalho .informacoes .info2 img");
 
-  // Aplica para páginas /p/, exceto /p/pesquisa e index
-  if (
-    !window.location.pathname.includes("pesquisa.html") &&
-    !window.location.pathname.endsWith("index.html") &&
-    window.location.href !== "https://audienciaon.github.io/blog/"
-  ) {
-    applyBackgroundBlur(".pagina-horario-noar .conteudo img");
-  }
+// Sempre aplica para o cabeçalho
+applyBackgroundBlur(".cabecalho .informacoes .info2 img");
+
+// Aplica para páginas /p/, exceto /p/pesquisa e index
+if (
+  !window.location.pathname.includes("pesquisa.html") &&
+  !window.location.pathname.endsWith("index.html") &&
+  window.location.href !== "https://audienciaon.github.io/blog/"
+) {
+  applyBackgroundBlur(".pagina-horario-noar .conteudo img");
+}
+
 
   // --- Inicializa todos os carrosséis ---
   const carrosselWrappers = document.querySelectorAll('.producoesnoar-wrapper');
@@ -177,38 +179,42 @@ document.addEventListener("DOMContentLoaded", async () => {
   })();
 
   (function () {
-    function ajustarTextosDasBarras() {
-      const barras = document.querySelectorAll(".grafico-comparacao .linha .espaco .barra");
-      if (!barras.length) return;
+  function ajustarTextosDasBarras() {
+    const barras = document.querySelectorAll(".grafico-comparacao .linha .espaco .barra");
+    if (!barras.length) return;
 
-      barras.forEach(b => {
-        if (!b.dataset.origText) b.dataset.origText = b.textContent.trim();
+    barras.forEach(b => {
+      if (!b.dataset.origText) b.dataset.origText = b.textContent.trim();
 
-        let raw = b.dataset.origText.replace(/\s+/g, " ").trim();
-        raw = raw.replace(/ª\s*reapresenta/gi, "ªR")
-                 .replace(/ª\s*temporad/gi, "ªT");
+      let raw = b.dataset.origText.replace(/\s+/g, " ").trim();
+      raw = raw.replace(/ª\s*reapresenta/gi, "ªR")
+               .replace(/ª\s*temporad/gi, "ªT");
 
-        const parts = raw.split(/\s*[-–—]\s*/);
-        let antes = parts.shift() || "";
-        const depois = parts.length ? parts.join(" - ") : "";
+      const parts = raw.split(/\s*[-–—]\s*/);
+      let antes = parts.shift() || "";
+      const depois = parts.length ? parts.join(" - ") : "";
 
-        if (depois) {
-          if (antes.length > 21) antes = antes.slice(0, 21) + "...";
-          raw = antes + " - " + depois;
-        } else {
-          if (raw.length > 25) raw = raw.slice(0, 25) + "...";
-        }
+      if (depois) {
+        if (antes.length > 21) antes = antes.slice(0, 21) + "...";
+        raw = antes + " - " + depois;
+      } else {
+        if (raw.length > 25) raw = raw.slice(0, 25) + "...";
+      }
 
-        b.textContent = raw;
-      });
-    }
+      b.textContent = raw;
+    });
+  }
 
-    window.addEventListener("load", ajustarTextosDasBarras);
-    const observer = new MutationObserver(() => ajustarTextosDasBarras());
-    observer.observe(document.body, { childList: true, subtree: true });
-  })();
+  // roda após carregar a página
+  window.addEventListener("load", ajustarTextosDasBarras);
 
-  // --- Lazy load resultados ---
+  // observa mudanças na página
+  const observer = new MutationObserver(() => ajustarTextosDasBarras());
+  observer.observe(document.body, { childList: true, subtree: true });
+})();
+
+
+    // --- Lazy load resultados ---
   const container = document.querySelector(".pagina-pesquisa .resultados");
   if (container) {
     const totalItens = 10000;
@@ -240,61 +246,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
-  // --- Disqus (insere no final de .publicacao, se aparecer - observer 20s) ---
-(function () {
-  const DISQUS_SHORTNAME = 'audienciaon';
-  const path = window.location.pathname || '';
 
-  if (!/^https?:/.test(location.protocol)) return;
-  if (path.endsWith('pesquisa.html') || path.endsWith('index.html') || path === '/blog/' || path === '/') return;
-  if (document.getElementById('disqus_thread')) return;
-
-  function loadDisqus(target) {
-    if (!target || document.getElementById('disqus_thread')) return false;
-    const thread = document.createElement('div');
-    thread.id = 'disqus_thread';
-    target.appendChild(thread);
-
-    window.disqus_config = function () {
-      this.page.url = window.location.href;
-      this.page.identifier = window.location.pathname;
-    };
-
-    const s = document.createElement('script');
-    s.src = `https://${DISQUS_SHORTNAME}.disqus.com/embed.js`;
-    s.async = true;
-    s.setAttribute('data-timestamp', +new Date());
-    (document.head || document.body).appendChild(s);
-
-    console.log('Disqus: inserido como último elemento de .publicacao');
-    return true;
-  }
-
-  // tentativa imediata
-  const immediate = document.querySelector('.publicacao');
-  if (immediate && loadDisqus(immediate)) return;
-
-  // observa inserções no DOM por até 20s
-  const obs = new MutationObserver((muts, o) => {
-    for (const m of muts) {
-      for (const n of m.addedNodes) {
-        if (n.nodeType !== 1) continue;
-        if (n.classList && n.classList.contains('publicacao')) {
-          if (loadDisqus(n)) { o.disconnect(); return; }
-        }
-        const found = n.querySelector && n.querySelector('.publicacao');
-        if (found) {
-          if (loadDisqus(found)) { o.disconnect(); return; }
-        }
-      }
-    }
-  });
-  obs.observe(document.body, { childList: true, subtree: true });
-
-  setTimeout(() => {
-    try { obs.disconnect(); } catch (e) {}
-    if (!document.getElementById('disqus_thread')) {
-      console.warn('Disqus: timeout - .publicacao não apareceu em 20s');
-    }
-  }, 20000);
-})();
+  
+});
