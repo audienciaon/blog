@@ -164,6 +164,10 @@ img[src="undefined"] {
   filter: invert(1) !important;
 }
 
+#paginas {
+    background: linear-gradient(45deg, #var(--cor-40) 25%, var(--cor-10) 75%);
+}
+
 #home {
     background: linear-gradient(45deg, #f4eaff 25%, #e6f5ff 75%);
     color: var(--cor-texto) !important;
