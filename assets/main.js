@@ -85,8 +85,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
 
-// --- Aplicar background desfocado com fade de 3s ---
-function applyBackgroundBlur(selector, duration = 3000) {
+// --- Aplicar background desfocado com fade de 4s sem piscar ---
+function applyBackgroundBlur(selector, duration = 4000) {
   const imgEl = document.querySelector(selector);
   if (!imgEl) return;
 
@@ -95,7 +95,6 @@ function applyBackgroundBlur(selector, duration = 3000) {
   img.src = imgEl.src;
 
   img.onload = () => {
-    // cria canvas com mesma dimensão da viewport (mantém tamanho/blur)
     const canvas = document.createElement("canvas");
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
@@ -106,7 +105,6 @@ function applyBackgroundBlur(selector, duration = 3000) {
 
     const bgUrl = `url(${canvas.toDataURL("image/png")})`;
 
-    // cria overlay fixo que fará o fade
     const overlay = document.createElement("div");
     Object.assign(overlay.style, {
       position: "fixed",
@@ -118,56 +116,15 @@ function applyBackgroundBlur(selector, duration = 3000) {
       opacity: "0",
       transition: `opacity ${duration/1000}s ease`,
       pointerEvents: "none",
-      zIndex: "0"
+      zIndex: "-1"
     });
 
-    const body = document.body;
+    document.body.appendChild(overlay);
 
-    // garante que o conteúdo do site fique acima do overlay (será restaurado)
-    const modified = [];
-    Array.from(body.children).forEach(child => {
-      if (child === overlay) return;
-      modified.push({
-        el: child,
-        position: child.style.position || "",
-        zIndex: child.style.zIndex || ""
-      });
-      if (!child.style.position) child.style.position = "relative";
-      if (!child.style.zIndex) child.style.zIndex = "1";
-    });
-
-    body.insertBefore(overlay, body.firstChild);
-
-    // dispara o fade
+    // dispara o fade in
     requestAnimationFrame(() => overlay.style.opacity = "1");
-
-    // ao final da transição, aplica o background definitivo no <html> e remove o overlay
-    setTimeout(() => {
-      const html = document.documentElement;
-      html.style.backgroundImage = bgUrl;
-      html.style.backgroundSize = "cover";
-      html.style.backgroundPosition = "center";
-      html.style.backgroundRepeat = "no-repeat";
-
-      overlay.remove();
-      // restaura estilos inline anteriores
-      modified.forEach(item => {
-        item.el.style.position = item.position;
-        item.el.style.zIndex = item.zIndex;
-      });
-    }, duration + 50);
   };
 }
-
-
-
-
-
-
-
-
-
-
 
 
   
