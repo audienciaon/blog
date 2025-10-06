@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
 // --- Aplicar background desfocado com fade de 3s ---
-function applyBackgroundBlur(selector) {
+function applyBackgroundBlur(selector, duration = 3000) {
   const imgEl = document.querySelector(selector);
   if (!imgEl) return;
 
@@ -95,6 +95,7 @@ function applyBackgroundBlur(selector) {
   img.src = imgEl.src;
 
   img.onload = () => {
+    // cria canvas com mesma dimensão da viewport (mantém tamanho/blur)
     const canvas = document.createElement("canvas");
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
@@ -104,35 +105,57 @@ function applyBackgroundBlur(selector) {
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
     const bgUrl = `url(${canvas.toDataURL("image/png")})`;
-    const html = document.documentElement;
 
-    // Cria um pseudo layer temporário para o fade
-    const fadeLayer = document.createElement("div");
-    fadeLayer.style.position = "fixed";
-    fadeLayer.style.inset = "0";
-    fadeLayer.style.backgroundImage = bgUrl;
-    fadeLayer.style.backgroundSize = "cover";
-    fadeLayer.style.backgroundPosition = "center";
-    fadeLayer.style.backgroundRepeat = "no-repeat";
-    fadeLayer.style.opacity = "0";
-    fadeLayer.style.transition = "opacity 3s ease-in-out";
-    fadeLayer.style.zIndex = "-1";
-
-    document.body.appendChild(fadeLayer);
-
-    // Força reflow e inicia o fade
-    requestAnimationFrame(() => {
-      fadeLayer.style.opacity = "1";
+    // cria overlay fixo que fará o fade
+    const overlay = document.createElement("div");
+    Object.assign(overlay.style, {
+      position: "fixed",
+      inset: "0",
+      backgroundImage: bgUrl,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      opacity: "0",
+      transition: `opacity ${duration/1000}s ease`,
+      pointerEvents: "none",
+      zIndex: "0"
     });
 
-    // Depois da transição, aplica o fundo no <html> e remove o layer
+    const body = document.body;
+
+    // garante que o conteúdo do site fique acima do overlay (será restaurado)
+    const modified = [];
+    Array.from(body.children).forEach(child => {
+      if (child === overlay) return;
+      modified.push({
+        el: child,
+        position: child.style.position || "",
+        zIndex: child.style.zIndex || ""
+      });
+      if (!child.style.position) child.style.position = "relative";
+      if (!child.style.zIndex) child.style.zIndex = "1";
+    });
+
+    body.insertBefore(overlay, body.firstChild);
+
+    // dispara o fade
+    requestAnimationFrame(() => overlay.style.opacity = "1");
+
+    // ao final da transição, aplica o background definitivo no <html> e remove o overlay
     setTimeout(() => {
+      const html = document.documentElement;
       html.style.backgroundImage = bgUrl;
       html.style.backgroundSize = "cover";
       html.style.backgroundPosition = "center";
       html.style.backgroundRepeat = "no-repeat";
-      document.body.removeChild(fadeLayer);
-    }, 3000);
+
+      overlay.remove();
+      // restaura estilos inline anteriores
+      modified.forEach(item => {
+        item.el.style.position = item.position;
+        item.el.style.zIndex = item.zIndex;
+      });
+    }, duration + 50);
   };
 }
 
@@ -147,7 +170,7 @@ function applyBackgroundBlur(selector) {
 
 
 
-
+  
 
 
 // Sempre aplica para o cabeçalho
