@@ -104,6 +104,9 @@
 
 
 
+html, * {
+    scroll-behavior: smooth;
+}
 
 
 
@@ -318,7 +321,6 @@ footer a:hover {
   gap: 25px;
   overflow-x: auto;
   overflow-y: hidden;
-  scroll-behavior: smooth;
   padding: 0;
   flex: 1;
 }
@@ -4888,7 +4890,6 @@ input[type="text"]:focus {
   display: flex;
   gap: 20px;
   overflow-x: auto;
-  scroll-behavior: smooth;
   padding: 0px 40px;
 }
 
