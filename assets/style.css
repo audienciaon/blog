@@ -137,6 +137,25 @@ footer {
   display: none !important
 }
 
+img {
+  display: block;           /* evita espaços extras */
+  width: 100%;
+  height: auto;
+  color: transparent;       /* remove texto alternativo visível */
+}
+
+/* Truque principal: evita o ícone e a borda padrão */
+img:not([src]), 
+img[src=""], 
+img[src=" "], 
+img[src="null"], 
+img[src="undefined"] {
+  visibility: hidden;
+}
+
+
+
+
 #home header img,
 #home footer img {
   filter: invert(1) !important;
