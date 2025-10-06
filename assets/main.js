@@ -85,8 +85,18 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
 
+
+
+
+
+
+
+
+
+
+
 // --- Aplicar background desfocado com fade de 4s sem piscar ---
-function applyBackgroundBlur(selector, duration = 4000) {
+function applyBackgroundBlur(selector, duration = 5000) {
   const imgEl = document.querySelector(selector);
   if (!imgEl) return;
 
@@ -114,7 +124,7 @@ function applyBackgroundBlur(selector, duration = 4000) {
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
       opacity: "0",
-      transition: `opacity ${duration/1000}s ease`,
+      transition: `opacity ${duration/5000}s ease`,
       pointerEvents: "none",
       zIndex: "-1"
     });
@@ -125,6 +135,21 @@ function applyBackgroundBlur(selector, duration = 4000) {
     requestAnimationFrame(() => overlay.style.opacity = "1");
   };
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   

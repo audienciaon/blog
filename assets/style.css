@@ -165,7 +165,7 @@ img[src="undefined"] {
 }
 
 #paginas {
-    background: linear-gradient(45deg, var(--cor-40) 25%, var(--cor-10) 75%);
+    background: linear-gradient(45deg, var(--cor-20) 25%, var(--cor-00) 75%);
 }
 
 #home {
