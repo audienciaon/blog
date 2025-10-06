@@ -1426,7 +1426,7 @@ padding: 80px !important;
 
 .numero-temporada,
 .numero-reapresentacao {
-  display: inline;
+  display: inline-block;
   background-color: #ffffff30;
   vertical-align: middle;
   border-radius: 5px;
