@@ -120,7 +120,7 @@ function applyBackgroundBlur(selector) {
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
       opacity: "0",
-      transition: "opacity 1.5s ease-in-out",
+      transition: "opacity 3s ease-in-out",
       pointerEvents: "none",
       willChange: "opacity, transform",
     });
