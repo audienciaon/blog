@@ -79,7 +79,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     img.src = FALLBACK + "?cb=" + Date.now();
   }
 
-// --- Aplicar background desfocado com fade (corrigido) ---
+
+  
+
+
+
+
+// --- Aplicar background desfocado com fade de 3s ---
 function applyBackgroundBlur(selector) {
   const imgEl = document.querySelector(selector);
   if (!imgEl) return;
@@ -89,52 +95,58 @@ function applyBackgroundBlur(selector) {
   img.src = imgEl.src;
 
   img.onload = () => {
-    // gerar imagem desfocada no canvas
     const canvas = document.createElement("canvas");
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     const ctx = canvas.getContext("2d");
-    ctx.filter = "blur(30px) brightness(0.8) saturate(2)"; // blur muito alto pode travar; ajuste
+
+    ctx.filter = "blur(300px) brightness(0.8) saturate(2)";
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-    const dataUrl = canvas.toDataURL("image/png");
 
-    // remover div de background antiga com fade-out (se existir)
-    const old = document.querySelector(".__bg-fade-current");
-    if (old) {
-      old.classList.remove("__bg-fade-current");
-      old.classList.add("__bg-fade-old");
-      old.style.opacity = "0";
-      // remove do DOM após transição
-      setTimeout(() => old.remove(), 1600);
-    }
+    const bgUrl = `url(${canvas.toDataURL("image/png")})`;
+    const html = document.documentElement;
 
-    // criar nova div de background
-    const bg = document.createElement("div");
-    bg.className = "__bg-fade-current";
-    Object.assign(bg.style, {
-      position: "fixed",
-      inset: "0",
-      zIndex: "-9999",           // atrás de tudo
-      backgroundImage: `url(${dataUrl})`,
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      backgroundRepeat: "no-repeat",
-      opacity: "0",
-      transition: "opacity 3s ease-in-out",
-      pointerEvents: "none",
-      willChange: "opacity, transform",
-    });
+    // Cria um pseudo layer temporário para o fade
+    const fadeLayer = document.createElement("div");
+    fadeLayer.style.position = "fixed";
+    fadeLayer.style.inset = "0";
+    fadeLayer.style.backgroundImage = bgUrl;
+    fadeLayer.style.backgroundSize = "cover";
+    fadeLayer.style.backgroundPosition = "center";
+    fadeLayer.style.backgroundRepeat = "no-repeat";
+    fadeLayer.style.opacity = "0";
+    fadeLayer.style.transition = "opacity 3s ease-in-out";
+    fadeLayer.style.zIndex = "-1";
 
-    document.documentElement.appendChild(bg);
+    document.body.appendChild(fadeLayer);
 
-    // forçar frame e então animar opacidade
+    // Força reflow e inicia o fade
     requestAnimationFrame(() => {
-      bg.style.opacity = "1";
+      fadeLayer.style.opacity = "1";
     });
 
-    // opcional: limite o blur extremo (ex.: 300px) — pode quebrar performance
+    // Depois da transição, aplica o fundo no <html> e remove o layer
+    setTimeout(() => {
+      html.style.backgroundImage = bgUrl;
+      html.style.backgroundSize = "cover";
+      html.style.backgroundPosition = "center";
+      html.style.backgroundRepeat = "no-repeat";
+      document.body.removeChild(fadeLayer);
+    }, 3000);
   };
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
