@@ -101,7 +101,7 @@ function applyBackgroundBlur(selector) {
     const html = document.documentElement;
 
     // Transição suave
-    html.style.transition = "background-image 0.5s ease-in-out, opacity 0.5s ease-in-out";
+    html.style.transition = "background-image 1.5s ease-in-out, opacity 1.5s ease-in-out";
     html.style.opacity = "0";
     requestAnimationFrame(() => {
       html.style.backgroundImage = bgUrl;
