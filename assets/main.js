@@ -79,24 +79,37 @@ document.addEventListener("DOMContentLoaded", async () => {
     img.src = FALLBACK + "?cb=" + Date.now();
   }
 
-// --- Aplicar background desfocado ---
+// --- Aplicar background desfocado com fade ---
 function applyBackgroundBlur(selector) {
   const imgEl = document.querySelector(selector);
   if (!imgEl) return;
+
   const img = new Image();
   img.crossOrigin = "anonymous";
   img.src = imgEl.src;
+
   img.onload = () => {
     const canvas = document.createElement("canvas");
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     const ctx = canvas.getContext("2d");
+
     ctx.filter = "blur(300px) brightness(0.8) saturate(2)";
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-    document.documentElement.style.backgroundImage = `url(${canvas.toDataURL("image/png")})`;
-    document.documentElement.style.backgroundSize = "cover";
-    document.documentElement.style.backgroundPosition = "center";
-    document.documentElement.style.backgroundRepeat = "no-repeat";
+
+    const bgUrl = `url(${canvas.toDataURL("image/png")})`;
+    const html = document.documentElement;
+
+    // Transição suave
+    html.style.transition = "background-image 0.5s ease-in-out, opacity 0.5s ease-in-out";
+    html.style.opacity = "0";
+    requestAnimationFrame(() => {
+      html.style.backgroundImage = bgUrl;
+      html.style.backgroundSize = "cover";
+      html.style.backgroundPosition = "center";
+      html.style.backgroundRepeat = "no-repeat";
+      html.style.opacity = "1";
+    });
   };
 }
 
