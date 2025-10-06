@@ -970,7 +970,10 @@ h3 {
 
 
 
-
+#disqus_thread iframe,
+#disqus_thread .disqus-ad {
+    display: none !important;
+}
 
 
 
